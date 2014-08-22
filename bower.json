@@ -1,0 +1,21 @@
+{
+  "name": "Auja",
+  "version": "3.0.0",
+  "authors": [
+    "Joris Blaak <joris@label305.com>"
+  ],
+  "main": "build/auja.react.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.11.1",
+    "requirejs": "~2.1.14",
+    "flux-tools": "~0.0.25"
+  }
+}
