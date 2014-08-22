@@ -1,0 +1,17 @@
+{
+    "type": "auja",
+    "auja": {
+        "title": "Auja example",
+        "authenticated": false,
+        "debug": true,
+        "colors": {
+            "main": ""
+        },
+        "user": {
+            "name": ""
+        },
+        "buttons": [],
+        "menu": [],
+        "authentication": false
+    }
+}
