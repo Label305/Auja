@@ -8,10 +8,16 @@
          * @type {boolean}
          */
         var __debug__ = true;
+
+        /**
+         * Since the main is cached fantastically, but we don't want that just  
+         * @type {{urlArgs: string, urlArgs: string}}
+         */
+        var require = {
+            urlArgs: '_=' +  (new Date()).getTime()
+        }
     </script>
 	<script type="text/javascript" data-main="build/auja.react.js" src="bower_components/requirejs/require.js"></script>
 </head>
-<body data-src="example/auja.json">
-	
-</body>
+<body data-src="example/auja.json"></body>
 </html>

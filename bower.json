@@ -16,7 +16,7 @@
   "dependencies": {
     "react": "~0.11.1",
     "requirejs": "~2.1.14",
-    "flux-tools": "~0.0.25",
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "fluxxor": "~1.3.2"
   }
 }

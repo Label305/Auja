@@ -27,8 +27,9 @@ require.config({
     paths: {
         react: 'bower_components/react/react',
         jquery: 'bower_components/jquery/dist/jquery.min',
-        flux: 'bower_components/flux-tools/flux-tools',
-        request: 'build/Utils/request'
+        fluxxor: 'bower_components/fluxxor/build/fluxxor',
+        request: 'build/Utils/request',
+        stores: 'build/Stores/flux'
     }
 });
 
@@ -37,16 +38,25 @@ require.config({
  * 
  * react - The ReactJS library from Facebook
  * jquery - Used as a toolkit to make life easier
- * flux - Flux-tools to be able to implement the Flux architecture
+ * fluxxor - To be able to implement the Flux architecture
+ * request - Every request starts here, it'll take care of factories and routing
  */
-require(['react', 'jquery', 'flux', 'request'], function(react) {
+require(['react', 'jquery', 'fluxxor', 'request'], function(react) {
     
     //Register as a global since we'll be using it everywhere
     window.React = react;
-
+    
+    //Register as global
+    window.Fluxxor = require('fluxxor');
+        
     //Require the main building block and initialize it
-    require(['build/scaffolding.react'], function(Scaffolding) {
-        React.renderComponent(<Scaffolding />, document.body);
+    require(['build/scaffolding.react', 'build/Stores/flux'], function(Scaffolding, flux) {
+        
+        //Register as global
+        window.flux = flux;
+        
+        //Render the main structure
+        React.renderComponent(<Scaffolding flux={flux} />, document.body);
     });
     
 });
