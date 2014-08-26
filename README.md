@@ -30,9 +30,27 @@ After this you should compile the jsx code into browser readable JavaScript like
 
 `jsx src/ build/`
 
-Now the `build` directory should have been filled and you can serve the `index.html` in the example directory with 
-any web-server you want. For example, run `npm install -g http-server` and then from the example directory `http-server`
-after which you can visit `http://localhost:8080` to view the Auja implementation
+Now the `build` directory should have been filled and you can serve the `exmaple/index.html` in the example directory with 
+any web-server you want. For example, run `npm install -g http-server` and then from the repository root run `http-server`
+after which you can visit `http://localhost:8080/example` to view the Auja implementation
+
+Architecture
+---
+
+Auja is based on [React](http://facebook.github.io/react/index.html) using the [Flux architecture](http://facebook.github.io/react/docs/flux-overview.html) to manage
+ dataflow and dispatching within the application. To ease implementation of this architecture we use [Fluxxor](http://fluxxor.com/).
+ 
+In short, Flux constists of four main parts:
+
+- (React) Views
+- Action creators
+- Dispatcher
+- Stores
+ 
+In that order the dataflow will commence, the user does something in the view. Triggers an action, which is dispatched to
+certain stores. The stores will do process/store the newly received data and, if applicable, emit that they have changed. Now 
+the React views, using Fluxxor, will be notified that the state has changed after which the view will re-render with all
+React goodness.
 
 License
 -----
