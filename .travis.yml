@@ -7,3 +7,5 @@ install:
     - yes no | bower install --allow-root
 before_script:
     - jsx src/ build/
+script:
+    - echo "TODO"
