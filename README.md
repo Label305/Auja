@@ -55,12 +55,14 @@ React goodness.
 React component structure
 ---
 
-- Scaffolding, listening to AujaStore (scaffolding.react.js)
-    - Header (Components/Scaffolding/header.react.js)
-    - Body (Components/Scaffolding/body.react.js)
-        - Menu  (Components/Scaffolding/menu.react.js)
-        - Panels, listening to PanelStore (Components/Scaffolding/panels.react.js)
-            - Menu (Components/Panels/menu.react.js)
+```
+Scaffolding, listening to AujaStore (scaffolding.react.js)
+├── Header (Components/Scaffolding/header.react.js)
+└── Body (Components/Scaffolding/body.react.js)
+   └── Menu  (Components/Scaffolding/menu.react.js)
+       └── Panels, listening to PanelStore (Components/Scaffolding/panels.react.js)
+           └── Menu (Components/Panels/menu.react.js)
+```
 
 License
 -----
