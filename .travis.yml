@@ -6,4 +6,4 @@ install:
     - npm install -g react-tools
     - yes no | bower install --allow-root
 before_script:
-    - jsx src/ build/
+    - jsx src/ build/ --no-cache-dir
