@@ -29,6 +29,7 @@ require.config({
         jquery: 'bower_components/jquery/dist/jquery.min',
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         request: 'build/Utils/request',
+        response_handler: 'build/Utils/response_handler',
         stores: 'build/Stores/flux'
     }
 });
@@ -40,8 +41,9 @@ require.config({
  * jquery - Used as a toolkit to make life easier
  * fluxxor - To be able to implement the Flux architecture
  * request - Every request starts here, it'll take care of factories and routing
+ * response_handler - Every response will end here after which it will dispatch
  */
-require(['react', 'jquery', 'fluxxor', 'request'], function(react) {
+require(['react', 'jquery', 'fluxxor', 'request', 'response_handler'], function(react) {
     
     //Register as a global since we'll be using it everywhere
     window.React = react;

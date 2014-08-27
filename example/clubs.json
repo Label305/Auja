@@ -1,0 +1,12 @@
+{
+    "type": "menu",
+    "menu": [
+        {
+            "name": "Menu",
+            "icon": "asdf",
+            "type": "menu/item/default",
+            "href": "page.json",
+            "order": 1
+        }
+    ]
+}

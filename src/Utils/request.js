@@ -1,5 +1,6 @@
 /**
- * Helper function to do nice ajax requests
+ * Currently a helper function to do nice ajax requests however
+ * the goal is to add routing, options for factories to generate responses etc.etc.
  * @param string url
  */
 window.Request = function () {

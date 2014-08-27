@@ -10,10 +10,10 @@ define([
     return React.createClass({
         mixins: [Fluxxor.FluxMixin(React), Fluxxor.StoreWatchMixin('AujaStore')],
         getStateFromFlux: function() {
-            return this.getFlux().store('AujaStore').getState();                
+            return flux.store('AujaStore').getState();                
         },
         componentWillMount: function() {
-            this.getFlux().actions.initialize();
+            flux.actions.initialize();
         },
         render: function() {
             document.title = this.state.title;    
@@ -21,7 +21,7 @@ define([
             return (
                 <div id="auja">
                     <Header auja={this.state} />
-                    <Body auja={this.state} />
+                    <Body flux={this.props.flux} auja={this.state} />
                 </div>
                 );
         }
