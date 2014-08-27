@@ -52,6 +52,16 @@ certain stores. The stores will do process/store the newly received data and, if
 the React views, using Fluxxor, will be notified that the state has changed after which the view will re-render with all
 React goodness.
 
+React component structure
+---
+
+- Scaffolding, listening to AujaStore (scaffolding.react.js)
+    - Header (Components/Scaffolding/header.react.js)
+    - Body (Components/Scaffolding/body.react.js)
+        - Menu  (Components/Scaffolding/menu.react.js)
+        - Panels, listening to PanelStore (Components/Scaffolding/panels.react.js)
+            - Menu (Components/Panels/menu.react.js)
+
 License
 -----
 
