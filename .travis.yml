@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+    - "0.11"
+install:
+    - npm install -g bower
+    - npm install -g react-tools
+    - yes no | bower install --allow-root
+before_script:
+    - jsx src/ build/
+script:
+    - echo "TODO"
