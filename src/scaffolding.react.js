@@ -16,6 +16,8 @@ define([
             this.getFlux().actions.initialize();
         },
         render: function() {
+            document.title = this.state.title;    
+            
             return (
                 <div id="auja">
                     <Header auja={this.state} />

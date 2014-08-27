@@ -18,12 +18,6 @@ define([
     var actions = {
         initialize: function() {
             this.dispatch('initialize');
-        },
-        get: function(url) {
-            this.dispatch('get', { url: url });
-        },
-        update: function() {
-            this.dispatch('update');
         }
     };
 
