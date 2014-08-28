@@ -2,11 +2,18 @@
     "type": "menu",
     "menu": [
         {
-            "name": "Menu",
-            "icon": "asdf",
-            "type": "menu/item/default",
-            "href": "page.json",
+            "name": "Clubs (again)",
+            "icon": "factory",
+            "type": "link",
+            "href": "example/clubs.json",
             "order": 1
+        },
+        {
+            "name": "FC Twente",
+            "icon": "factory",
+            "type": "link",
+            "href": "example/page.jsogit adn",
+            "order": 2
         }
     ]
 }

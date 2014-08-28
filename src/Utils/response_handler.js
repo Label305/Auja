@@ -9,8 +9,8 @@ define([], function() {
          * The main handle
          * @param response
          */
-        this.handle = function(response) {
-            flux.actions.handle(response.type, response);    
+        this.handle = function(response, origin) {
+            flux.actions.handle(response.type, response, origin);    
         }
         
     };

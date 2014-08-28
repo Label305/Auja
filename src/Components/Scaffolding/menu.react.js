@@ -7,7 +7,7 @@ define([], function() {
     
     var Item = React.createClass({
         handleClick: function() {
-            flux.actions.get(this.props.item.url);
+            flux.actions.click(this.props.item.url);
         },
         render: function() {
             return (

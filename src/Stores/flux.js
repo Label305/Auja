@@ -30,16 +30,21 @@ define([
         },
 
         /**
-         * Do a GET request, since the interface does only know what request to do
-         * not what will be returned
-         * 
+         * Process a click on a panel
+         *
+         * @todo Fix async version of passing the panel to the response handler
          * @param url
+         * @param panel (optional)
          */
-        get: function(url) {
-            //TODO move this (?)
+        click: function(url) {
+            var panel = null;
+            if(arguments[0]) {
+                panel = arguments[0];
+            }
+            
             var request = new Request(url);
             request.get().done(function(response) {
-                ResponseHandler.handle(response);
+                ResponseHandler.handle(response, panel); 
             });
         },
 
@@ -48,8 +53,10 @@ define([
          * you'll get your data
          * @param type
          * @param data
+         * @param origin the location the event originated from
          */
-        handle: function(type, data) {
+        handle: function(type, data, origin) {
+            data.origin = origin;
             this.dispatch(type, data);
         },
 
