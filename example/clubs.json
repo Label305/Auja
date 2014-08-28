@@ -2,7 +2,7 @@
     "type": "menu",
     "menu": [
         {
-            "name": "Clubs (again)",
+            "name": "Clubs (recursive)",
             "icon": "factory",
             "type": "link",
             "href": "example/clubs.json",
@@ -12,7 +12,12 @@
             "name": "FC Twente",
             "icon": "factory",
             "type": "link",
-            "href": "example/page.jsogit adn",
+            "href": "example/page.json",
+            "order": 3
+        },
+        {
+            "name": "Spacing between others",
+            "type": "spacer",
             "order": 2
         }
     ]

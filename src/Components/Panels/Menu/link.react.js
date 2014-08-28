@@ -1,5 +1,10 @@
 /**
- * A menu panel
+ * A link menu item, properties:
+ *
+ * - name
+ * - href
+ * - icon
+ * - order
  *
  * @jsx React.DOM
  */
