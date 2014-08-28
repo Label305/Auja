@@ -33,8 +33,6 @@ define(['fluxxor'], function(Fluxxor) {
          * @param menu
          */
         dispatch: function(menu) {
-            
-            //TODO implement checking location
             this.menus.push(menu);
             flux.stores.PanelStore.addPanel(menu);
         },

@@ -38,8 +38,8 @@ define([
          */
         click: function(url) {
             var panel = null;
-            if(arguments[0]) {
-                panel = arguments[0];
+            if(arguments[1]) {
+                panel = arguments[1];
             }
             
             var request = new Request(url);
