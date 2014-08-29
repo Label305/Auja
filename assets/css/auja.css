@@ -1,0 +1,82 @@
+/*
+ * Fonts imported from Google Fonts, when offline use is required, download zip from the import page 
+ */
+@import url('https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,700');
+
+/* 
+ * CSS reset, including force setting of font-family
+ *
+ * http://meyerweb.com/eric/tools/css/reset/ 
+ * v2.0 | 20110126
+ * License: none (public domain)
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Open Sans', Helvetica, Arial;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*
+ * Scaffolding
+ */
+h1 {
+    float: left;
+    height: 30px;
+    margin: 25px 0px 25px 45px;
+    font-size: 27px;
+    font-weight: 300;
+    line-height: 27px;
+}
+
+ul#main-menu {
+    position: fixed;
+    z-index: 50;
+    top: 80px;
+    left: 10px;
+}
+    ul#main-menu li {
+        width: 56px;
+        height: 56px;
+        cursor: pointer;
+    }
+        ul#main-menu li p {
+            display: none;
+        }
