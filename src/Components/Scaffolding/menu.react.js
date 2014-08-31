@@ -9,15 +9,9 @@ define([], function() {
         handleClick: function() {
             flux.actions.click(this.props.item.url);
         },
-        render: function() {
-            
-            //Pass the main color as background
-            var style = {
-                backgroundColor: this.props.auja.colors.main
-            };
-            
+        render: function() {            
             return (
-                <li style={style} title={this.props.item.title} onClick={this.handleClick}>
+                <li className="auja-bg-main" title={this.props.item.title} onClick={this.handleClick}>
                     <p>{this.props.item.title}</p>
                 </li>
                 );
