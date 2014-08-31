@@ -8,9 +8,14 @@
             "main": "#22bcb9"
         },
         "user": {
-            "name": ""
+            "name": "Joris Blaak"
         },
-        "buttons": [],
+        "buttons": [
+            {
+                "title": "Logout",
+                "url": "#logout"
+            }
+        ],
         "menu": [
             {
                 "title": "Clubs",

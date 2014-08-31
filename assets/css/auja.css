@@ -66,6 +66,33 @@ h1 {
     line-height: 27px;
 }
 
+a {
+    text-decoration: none;
+}
+
+header {
+    
+}
+    header #user {
+        float: right;
+        margin-top: 20px;
+    }
+    header #buttons {
+        float: right;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+        header #user,
+        header #buttons>a {
+            display: inline-block;
+            width: auto;
+            color: #FFF;
+            height: 20px;
+            padding: 10px 15px;
+            margin-right: 10px;
+            font-size: 15px;
+        }
+
 ul#main-menu {
     position: fixed;
     z-index: 50;
