@@ -21,13 +21,16 @@
             {
                 "title": "Clubs",
                 "icon": "group",
-                "url": "example/clubs.json"
+                "url": "example/clubs_menu.json"
             },
             {
                 "title": "Clubs",
                 "icon": "group",
-                "url": "example/clubs.json"
+                "url": "example/clubs_menu.json"
             }
+        ],
+        "routes": [
+            
         ],
         "authentication": false
     }

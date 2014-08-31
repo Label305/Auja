@@ -6,7 +6,7 @@
             "order": 1,
             "link": {
                 "name": "Clubs (recursive)",
-                "href": "example/clubs.json",
+                "href": "example/clubs_menu.json",
                 "icon": "factory"
             }
         },
