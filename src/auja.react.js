@@ -30,8 +30,7 @@ require.config({
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
-        request: 'build/Utils/request',
-        response_handler: 'build/Utils/response_handler',
+        request: 'build/Requests/request',
         stores: 'build/Stores/flux'
     }
 });
@@ -60,7 +59,7 @@ require(['react', 'jquery', 'fluxxor', 'crossroads'], function (react) {
         window.flux = flux;
         
         //Setup building block and its utilities
-        require(['build/scaffolding.react', 'request', 'response_handler'], function(Scaffolding) {
+        require(['build/scaffolding.react', 'request'], function(Scaffolding) {
 
             //Render the main structure
             React.renderComponent(<Scaffolding flux={flux} />, document.body);

@@ -24,13 +24,17 @@
                 "url": "example/clubs_menu.json"
             },
             {
-                "title": "Clubs",
+                "title": "Clubs (resource)",
                 "icon": "group",
-                "url": "example/clubs_menu.json"
+                "url": "clubs"
             }
         ],
         "routes": [
-            
+            {
+                "type": "rest",
+                "resource": "clubs",
+                "endpoint": "clubs"
+            }
         ],
         "authentication": false
     }

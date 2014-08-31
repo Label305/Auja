@@ -44,7 +44,7 @@ define([
             
             var request = new Request(url);
             request.get().done(function(response) {
-                ResponseHandler.handle(response, panel); 
+                flux.actions.handle(response.type, response, panel); 
             });
         },
 

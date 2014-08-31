@@ -1,27 +1,16 @@
 /**
- * Currently a helper function to do nice ajax requests however
- * the goal is to add routing, options for factories to generate responses etc.etc.
- * @param string url
+ * Helper to do Http requests
+ * 
+ * @param url
  */
-define(['signals', 'crossroads'], function (signals, crossroads) {
-    
-    //Register as a global
-    window.crossroads = crossroads;
-
-    /**
-     * Setup listening to the AujaStore to update routes in crossroads
-     */
-    flux.store('AujaStore').on('change', function() {
-        crossroads.removeAllRoutes();
-    });
-    
-    window.Request = function () {
+define([], function() {
+    window.HttpRequest = function (url) {
 
         /**
-         * The url to do the request o
+         * The url to do the request to
          * @type String
          */
-        this.url = arguments[0] ? arguments[0] : window.location;
+        this.url = url;
 
         /**
          * Default request
@@ -45,35 +34,28 @@ define(['signals', 'crossroads'], function (signals, crossroads) {
         /**
          * Get request
          * @return Deferred
-         * @param callback
          */
-        this.get = function (callback) {
+        this.get = function () {
             this.settings.type = 'GET';
-            return this._doAjax().done(function (response) {
-                if (typeof callback == 'function') callback(response);
-            });
+            return this._doAjax();
         };
 
         /**
          * Post request
          * @return Deferred
-         * @param callback
          */
-        this.post = function (callback) {
+        this.post = function () {
             this.settings.type = 'POST';
-            return this._doAjax().done(function (response) {
-                if (typeof callback == 'function') callback(response);
-            });
+            return this._doAjax();
         };
 
         /**
          * Put request
          * @return Deferred
-         * @param callback
          */
-        this.put = function (callback) {
+        this.put = function () {
             this.settings.data._method = 'PUT';
-            return this.post(callback);
+            return this.post();
         };
 
         /**
@@ -87,4 +69,4 @@ define(['signals', 'crossroads'], function (signals, crossroads) {
             return $.ajax(this.url, this.settings);
         }
     };
-});
+})

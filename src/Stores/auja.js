@@ -20,6 +20,7 @@ define(['fluxxor'], function(Fluxxor) {
             },
             "buttons": [],
             "menu": [],
+            "routes": [],
             "authentication": false
         },
 
