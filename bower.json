@@ -1,22 +1,24 @@
 {
-  "name": "Auja",
-  "version": "3.0.0",
-  "authors": [
-    "Joris Blaak <joris@label305.com>"
-  ],
-  "main": "build/auja.react.js",
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "react": "~0.11.1",
-    "requirejs": "~2.1.14",
-    "jquery": "~2.1.1",
-    "fluxxor": "~1.3.2"
-  }
+    "name": "Auja",
+    "version": "3.0.0",
+    "authors": [
+        "Joris Blaak <joris@label305.com>"
+    ],
+    "main": "build/auja.react.js",
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "react": "~0.11.1",
+        "requirejs": "~2.1.14",
+        "jquery": "~2.1.1",
+        "fluxxor": "~1.3.2",
+        "crossroads.js": "millermedeiros/crossroads.js#v0.12.0",
+        "js-signals": "~1.0.0"
+    }
 }
