@@ -5,7 +5,8 @@
         "authenticated": false,
         "debug": true,
         "colors": {
-            "main": "#22bcb9"
+            "main": "#22bcb9",
+            "secondary": "#E7EFEF"
         },
         "user": {
             "name": "Joris Blaak"

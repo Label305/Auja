@@ -57,6 +57,10 @@ table {
 /*
  * Scaffolding
  */
+body {
+    background: #f1f1f1;
+    color: #555555;
+}
 h1 {
     float: left;
     height: 30px;
@@ -96,7 +100,7 @@ header {
 ul#main-menu {
     position: fixed;
     z-index: 50;
-    top: 80px;
+    top: 115px;
     left: 10px;
 }
     ul#main-menu li {
@@ -121,3 +125,50 @@ ul#main-menu {
         ul#main-menu li p {
             display: none;
         }
+
+/* Generic panel */        
+#panels {
+    position: absolute;
+    top: 80px;
+    left: 30px;
+    right: 20px;
+    bottom: 20px;
+}
+    #panels .panel {
+        float: left;
+        display: inline-block;
+        height: 100%;
+        background-color: #FFF;
+        margin-right: 5px;
+    }
+        #panels .panel:first-child {
+            padding-left: 35px;
+        }
+        
+/* Menu */
+#panels .panel-menu {
+    width: 300px;
+}
+#panels .panel-menu ul {
+    margin: 30px 0 0 30px;
+}
+
+#panels .panel-menu .menu-item-link {
+    font-size: 14px;
+    height: 30px;
+    margin-top: 1px;
+    padding: 10px 20px 10px 50px;
+    line-height: 30px;
+    border-bottom: 1px solid;
+}
+#panels .panel-menu .menu-item-spacer {
+    border-bottom: 2px solid;
+    min-height: 15px;
+    padding: 0 0 5px 30px;
+    margin: 10px 0 0 -30px;
+    width: 270px;
+    line-height: 15px;
+    cursor: default;
+    text-transform: uppercase;
+    font-size: 12px;
+}
