@@ -30,7 +30,7 @@ require.config({
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
-        request: 'build/Requests/request',
+        request: 'build/Request/request',
         stores: 'build/Stores/flux'
     }
 });
