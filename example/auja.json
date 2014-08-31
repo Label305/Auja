@@ -21,6 +21,11 @@
                 "title": "Clubs",
                 "icon": "group",
                 "url": "example/clubs.json"
+            },
+            {
+                "title": "Clubs",
+                "icon": "group",
+                "url": "example/clubs.json"
             }
         ],
         "authentication": false

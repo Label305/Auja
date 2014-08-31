@@ -100,10 +100,24 @@ ul#main-menu {
     left: 10px;
 }
     ul#main-menu li {
+        position: relative;
         width: 56px;
         height: 56px;
         cursor: pointer;
+        margin-bottom: 30px;
     }
+        /* The triangle */
+        ul#main-menu li:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-width: 9px 19px 0 0;
+            border-style: solid;
+            border-color: transparent rgb(7, 166, 161) transparent transparent;/* TODO set color from JS */
+            top: -10px;
+            left: 0;
+        }
         ul#main-menu li p {
             display: none;
         }
