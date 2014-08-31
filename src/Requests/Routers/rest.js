@@ -9,14 +9,26 @@ define(['build/Requests/Handlers/rest'], function() {
          * @param route
          */
         addResource: function(route) {
+
+            var rest = {
+                name: !route.resourceName ? route.resource : route.resourceName,
+                resource: route.resource
+            };
+             
             this.addRoute({
-                endpoint: route.endpoint + '/menu' 
+                endpoint_type: 'index_menu',
+                endpoint: route.endpoint + '/menu',
+                rest: rest 
             });
             this.addRoute({
-                endpoint: route.endpoint
+                endpoint_type: 'index',
+                endpoint: route.endpoint,
+                rest: rest
             });         
             this.addRoute({
-                endpoint: route.endpoint + '/{id}' 
+                endpoint_type: 'edit',
+                endpoint: route.endpoint + '/{id}',
+                rest: rest
             });      
         },
         
@@ -29,7 +41,7 @@ define(['build/Requests/Handlers/rest'], function() {
                 this.addResource(route);
             } else {
                 crossroads.addRoute(route.endpoint).matched.add(function (url, setHandler) {
-                    setHandler(RestRequest);
+                    setHandler(RestRequest, route);
                 });
             }
         }  

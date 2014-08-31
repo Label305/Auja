@@ -11,7 +11,7 @@ define(['build/Requests/Handlers/http'], function() {
          */
         addRoute: function(route) {
             crossroads.addRoute(route.url).matched.add(function (url, setHandler) {
-                setHandler(HttpRequest);
+                setHandler(HttpRequest, route);
             });
         }
     };

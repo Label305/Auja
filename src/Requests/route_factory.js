@@ -45,20 +45,26 @@ define($.merge(['signals', 'crossroads'], routerDependencies), function (signals
          */
         this.handler = function (url) {
             var handler = false;
+            var route = false;
 
             //Return same handler as last time when same url is requested
             //crossroads will not parse same route twice in a row
-            if (this.lastUrl && this.lastUrl == url) {
-                handler = this.lastHandler
+            if (this.last && this.last.url == url) {
+                handler = this.last.handler;
+                route = this.last.route;
             } else {
                 //Parse the url to fetch the corresponding handler
-                crossroads.parse(url, [url, function (h) {
+                crossroads.parse(url, [url, function (h, r) {
                     handler = h;
+                    route = r;
                 }.bind(this)]);
 
                 if (handler) {
-                    this.lastHandler = handler;
-                    this.lastUrl = url;
+                    this.last = {
+                        url: url,
+                        handler: handler,
+                        route: route
+                    }
                 }
             }
             
@@ -68,7 +74,7 @@ define($.merge(['signals', 'crossroads'], routerDependencies), function (signals
             }
 
             //Instantiate the collected handler otherwise return false
-            return handler ? new handler(url) : false;
+            return handler ? new handler(url, route) : false;
         }
     };
 });

@@ -14,7 +14,7 @@ define([], function() {
             flux.actions.click(this.props.item.link.href, this.props.panel);
         },
         render: function() {
-
+            
             var className = 'menu-item-link auja-border-secondary ';
             
             //Create the icon class
