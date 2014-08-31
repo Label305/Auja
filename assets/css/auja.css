@@ -154,21 +154,22 @@ ul#main-menu {
 }
 
 #panels .panel-menu .menu-item-link {
-    font-size: 14px;
     height: 30px;
     margin-top: 1px;
     padding: 10px 20px 10px 50px;
-    line-height: 30px;
     border-bottom: 1px solid;
+    font-size: 14px;
+    line-height: 30px;
+    cursor: pointer;
 }
 #panels .panel-menu .menu-item-spacer {
-    border-bottom: 2px solid;
-    min-height: 15px;
-    padding: 0 0 5px 30px;
-    margin: 10px 0 0 -30px;
     width: 270px;
+    min-height: 15px;
+    padding: 11px 0 5px 30px;
+    margin: -1px 0 0 -30px;/* margin-top of -1px to hide the border of the element above */
+    border-bottom: 2px solid;
+    font-size: 12px;
     line-height: 15px;
     cursor: default;
     text-transform: uppercase;
-    font-size: 12px;
 }
