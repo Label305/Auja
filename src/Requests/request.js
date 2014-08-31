@@ -11,7 +11,7 @@ define(['build/Requests/route_factory', 'build/Requests/Handlers/http'], functio
      * @constructor
      */
     window.Request = function(url) {
-
+        
         /**
          * Do a get request
          * @return jQuery.Deferred

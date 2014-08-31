@@ -29,7 +29,7 @@ define(['build/Requests/Handlers/rest'], function() {
                 this.addResource(route);
             } else {
                 crossroads.addRoute(route.endpoint).matched.add(function (url, setHandler) {
-                    setHandler(new RestRequest(url));
+                    setHandler(RestRequest);
                 });
             }
         }  
