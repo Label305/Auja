@@ -19,6 +19,7 @@
         "jquery": "~2.1.1",
         "fluxxor": "~1.3.2",
         "crossroads.js": "millermedeiros/crossroads.js#v0.12.0",
-        "js-signals": "~1.0.0"
+        "js-signals": "~1.0.0",
+        "sugar": "~1.4.1"
     }
 }

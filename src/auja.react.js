@@ -30,6 +30,7 @@ require.config({
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
+        sugar: 'bower_components/sugar/release/sugar-full.min',
         request: 'build/Requests/request',
         stores: 'build/Stores/flux'
     }
@@ -41,10 +42,9 @@ require.config({
  * react - The ReactJS library from Facebook
  * jquery - Used as a toolkit to make life easier
  * fluxxor - To be able to implement the Flux architecture
- * request - Every request starts here, it'll take care of factories and routing
- * response_handler - Every response will end here after which it will dispatch
+ * sugar - A toolkit extending native objects
  */
-require(['react', 'jquery', 'fluxxor', 'crossroads'], function (react) {
+require(['react', 'jquery', 'fluxxor', 'sugar'], function (react) {
 
     //Register as a global since we'll be using it everywhere
     window.React = react;
