@@ -1,0 +1,21 @@
+{
+    "name": "Auja",
+    "version": "3.0.0",
+    "main": "build/auja.react.js",
+    "dependencies": {
+        "jest-cli": "^0.1.18",
+        "react": "*",
+        "react-tools": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/Label305/Auja.git"
+    },
+    "scripts": {
+        "test": "jest"
+    },
+    "jest": {
+        "scriptPreprocessor": "<rootDir>/preprocessor.js",
+        "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"]
+    }
+}
