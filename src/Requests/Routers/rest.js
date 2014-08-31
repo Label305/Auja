@@ -10,13 +10,13 @@ define(['build/Requests/Handlers/rest'], function() {
          */
         addResource: function(route) {
             this.addRoute({
-                endpoint: 'clubs/menu' 
+                endpoint: route.endpoint + '/menu' 
             });
             this.addRoute({
-                endpoint: 'clubs'
+                endpoint: route.endpoint
             });         
             this.addRoute({
-                endpoint: 'clubs/{id}' 
+                endpoint: route.endpoint + '/{id}' 
             });      
         },
         

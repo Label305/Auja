@@ -26,7 +26,7 @@
             {
                 "title": "Clubs (resource)",
                 "icon": "group",
-                "url": "clubs"
+                "url": "clubs/menu"
             }
         ],
         "routes": [
