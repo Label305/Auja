@@ -63,9 +63,6 @@ define([], function() {
          * @return Deferred
          */
         this._doAjax = function () {
-            if (!this.settings.isFile && this.url.substr(-5) != '.json') {
-                this.url += '.json';
-            }
             return $.ajax(this.url, this.settings);
         }
     };
