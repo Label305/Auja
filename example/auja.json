@@ -1,6 +1,6 @@
 {
-    "type": "auja",
-    "auja": {
+    "type": "main",
+    "main": {
         "title": "Auja example",
         "authenticated": false,
         "debug": true,
@@ -14,19 +14,19 @@
         "buttons": [
             {
                 "title": "Logout",
-                "url": "#logout"
+                "target": "#logout"
             }
         ],
         "menu": [
             {
                 "title": "Clubs",
                 "icon": "group",
-                "url": "example/clubs_menu.json"
+                "target": "example/clubs_menu.json"
             },
             {
                 "title": "Clubs (resource)",
                 "icon": "group",
-                "url": "clubs/menu"
+                "target": "clubs/menu"
             }
         ],
         "routes": [

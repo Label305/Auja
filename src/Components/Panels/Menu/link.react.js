@@ -11,7 +11,7 @@
 define([], function() {
     return React.createClass({
         handleClick: function() {
-            flux.actions.click(this.props.item.link.href, this.props.panel);
+            flux.actions.click(this.props.item.link.target, this.props.panel);
         },
         render: function() {
             

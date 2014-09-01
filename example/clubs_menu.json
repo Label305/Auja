@@ -6,7 +6,7 @@
             "order": 1,
             "link": {
                 "name": "Clubs (recursive)",
-                "href": "example/clubs_menu.json",
+                "target": "example/clubs_menu.json",
                 "icon": "factory"
             }
         },
@@ -15,7 +15,7 @@
             "order": 3,
             "link": {
                 "name": "FC Twente",
-                "href": "example/page.json",
+                "target": "example/page.json",
                 "icon": "factory"
             }
         },

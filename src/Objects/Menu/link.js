@@ -9,11 +9,11 @@ define([], function() {
 
         /**
          * The actual link
-         * @type {{name: string, href: string, icon: string}}
+         * @type {{name: string, target: string, icon: string}}
          */
         this.link = {
             name: 'undefined',
-            href: '',
+            target: '',
             icon: 'fallback'
         };
 
@@ -26,11 +26,11 @@ define([], function() {
         };
 
         /**
-         * Setter for href
-         * @param href
+         * Setter for target
+         * @param target
          */
-        this.setHref = function(href) {
-            this.link.href = href;
+        this.setTarget = function(target) {
+            this.link.target = target;
         };
 
         /**
