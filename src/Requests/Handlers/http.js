@@ -4,13 +4,13 @@
  * @param url
  */
 define([], function() {
-    window.HttpRequest = function (url) {
+    window.HttpRequest = function (url, route) {
 
         /**
          * The url to do the request to
          * @type String
          */
-        this.url = url;
+        this.url = route.action ? route.action : url;
 
         /**
          * Default request

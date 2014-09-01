@@ -21,7 +21,7 @@
             {
                 "title": "Clubs",
                 "icon": "group",
-                "target": "example/clubs_menu.json"
+                "target": "example/clubs/menu"
             },
             {
                 "title": "Clubs (resource)",
@@ -30,6 +30,11 @@
             }
         ],
         "routes": [
+            {
+                "type": "http",
+                "target": "example/clubs/menu",
+                "action": "example/clubs_menu.json"
+            },
             {
                 "type": "rest",
                 "resource": "clubs",
