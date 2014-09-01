@@ -57,7 +57,7 @@ Requests and Routing
 
 Executing a basic AJAX request can be done using the `Request` object, e.g.:
 
-```
+```javascript
 var request = new Request(url);
 request.get().done(function(response) {
     flux.actions.handle(response.type, response); 
@@ -70,7 +70,7 @@ the `RouteFactory` is used. The `RouteFactory` will find the corresponding reque
 
 From the main Auja config an array of routes is parsed, and based on provided type the corresponding handler is returned, for example:
 
-```
+```json
 "routes": [
     {
         "type": "rest",
