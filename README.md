@@ -1,7 +1,7 @@
 Auja [![Build Status](https://magnum.travis-ci.com/Label305/Auja.svg?token=9SWtTh915DNJxYshmaTN&branch=dev)](https://magnum.travis-ci.com/Label305/Auja)
 ===
 
-Auja is a back-end interface designed designed to be friendly on both sides, for the end-user as well as the programmer.
+Auja is a back-end interface designed designed to be friendly on both sides, for the end-user as well as the developer.
 
 In this repo you'll find the JavaScript source meant to be used together with a back-end implementation for your 
    preferred framework, whatever server side language you use. Current back-end implementations:
@@ -9,7 +9,7 @@ In this repo you'll find the JavaScript source meant to be used together with a 
    - [Laravel](https://github.com/Label305/Auja-Laravel) ... coming soon
    - Your implementation here..!?
    
-To ease up implementation of the communication protocol we provide a [toolkit](https://github.com/Label305/Auja-Laravel) for PHP providing interfaces and
+To ease up implementation of the communication protocol we provide a [toolkit](https://github.com/Label305/Auja-PHP) for PHP providing interfaces and
 scaffolding
 
 Installation
@@ -57,7 +57,7 @@ Requests and Routing
 
 Executing a basic AJAX request can be done using the `Request` object, e.g.:
 
-```
+```javascript
 var request = new Request(url);
 request.get().done(function(response) {
     flux.actions.handle(response.type, response); 
@@ -70,7 +70,7 @@ the `RouteFactory` is used. The `RouteFactory` will find the corresponding reque
 
 From the main Auja config an array of routes is parsed, and based on provided type the corresponding handler is returned, for example:
 
-```
+```json
 "routes": [
     {
         "type": "rest",

@@ -27,14 +27,14 @@ define($.merge(['signals', 'crossroads'], routerDependencies), function (signals
 
         //Add fallback route to http router 
         require(routers['http']).addRoute({
-            url: /(.*)/
+            target: /(.*)/
         });
     });
 
     //Add fallback route to http router 
     //TODO use bypassed for this
     require(routers['http']).addRoute({
-        url: /(.*)/
+        target: /(.*)/
     });
 
     return new function () {

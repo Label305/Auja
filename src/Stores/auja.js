@@ -51,7 +51,7 @@ define(['fluxxor'], function(Fluxxor) {
             var request = new Request(document.body.getAttribute('data-src'));
             request.get()
                 .done(function (response) {
-                    $.extend(this.state, response.auja);
+                    $.extend(this.state, response.main);
                     this.emit('change');
                 }.bind(this))
                 .fail(function () {

@@ -11,7 +11,7 @@
 define([], function() {
     return React.createClass({
         handleClick: function() {
-            flux.actions.click(this.props.item.link.href, this.props.panel);
+            flux.actions.click(this.props.item.link.target, this.props.panel);
         },
         render: function() {
             
@@ -19,10 +19,10 @@ define([], function() {
             
             //Create the icon class
             var icon = "fallback";
-            if(this.props.item.icon) {
-                icon = this.props.item.icon;    
+            if(this.props.item.link.icon) {
+                icon = this.props.item.link.icon;    
             }
-            className += "icon-" + icon;
+            className += "fa fa-" + icon;
             
             return (
                 <li className={className} onClick={this.handleClick}>

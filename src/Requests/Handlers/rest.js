@@ -20,7 +20,7 @@ define(['build/Objects/menu'], function() {
                     //Add button
                     var item = new MenuItemLink();
                     item.setName('Add ' + route.rest.name.toLowerCase().singularize());
-                    item.setHref(route.rest.resource + '/create');
+                    item.setTarget(route.rest.resource + '/create');
                     item.setIcon('plus');
                     menu.addItem(item);
                     

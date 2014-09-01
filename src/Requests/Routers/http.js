@@ -10,7 +10,7 @@ define(['build/Requests/Handlers/http'], function() {
          * @param route
          */
         addRoute: function(route) {
-            crossroads.addRoute(route.url).matched.add(function (url, setHandler) {
+            crossroads.addRoute(route.target).matched.add(function (url, setHandler) {
                 setHandler(HttpRequest, route);
             });
         }
