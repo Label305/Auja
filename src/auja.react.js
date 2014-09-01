@@ -60,6 +60,9 @@ require(['react', 'jquery', 'fluxxor', 'sugar'], function (react) {
         
         //Setup building block and its utilities
         require(['build/scaffolding.react', 'request'], function(Scaffolding) {
+            
+            //Bind resize
+            $(window).bind('resize', flux.actions.resize);
 
             //Render the main structure
             React.renderComponent(<Scaffolding flux={flux} />, document.body);

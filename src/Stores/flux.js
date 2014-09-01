@@ -30,6 +30,13 @@ define([
         },
 
         /**
+         * Dispatched on window resize
+         */
+        resize: function() {
+            this.dispatch('resize');
+        },
+
+        /**
          * Process a click on a panel
          *
          * @todo Fix async version of passing the panel to the response handler

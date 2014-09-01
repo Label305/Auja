@@ -30,8 +30,12 @@ define($.map(PanelTypes, function(value) { return value; }), function() {
             //Fetch and wrap all panels in a section having the class "panel panel-{type}"
             var panels = this.state.panels.map(function(panel) {
                 var Panel = require(PanelTypes[panel.type]);
+                var style = {
+                    height: this.state.height  
+                };
+                
                 return (
-                    <section className={"panel panel-" + panel.type}>
+                    <section style={style} className={"panel panel-" + panel.type}>
                         <Panel panel={panel} />
                     </section>
                     );  
@@ -39,7 +43,9 @@ define($.map(PanelTypes, function(value) { return value; }), function() {
 
             return (
                 <div id="panels">
+                    <div>
                     {panels}
+                    </div>
                 </div>
                 );
         }

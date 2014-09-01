@@ -60,6 +60,7 @@ table {
 body {
     background: #f1f1f1;
     color: #555555;
+    overflow-y: hidden;
 }
 h1 {
     float: left;
@@ -75,7 +76,10 @@ a {
 }
 
 header {
-    
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
 }
     header #user {
         float: right;
@@ -139,17 +143,26 @@ ul#main-menu {
 /* Generic panel */        
 #panels {
     position: absolute;
+    display: table;
     top: 80px;
-    left: 30px;
-    right: 20px;
-    bottom: 20px;
+    height: calc(100% - 110px);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-left: 30px;
 }
+    #panels>div {
+        display: table-row;
+        position: absolute;
+        top: 0;
+        left: 30px;
+        right: 0;
+        bottom: 0;
+    }
     #panels .panel {
-        float: left;
-        display: inline-block;
+        display: table-cell;
         height: 100%;
         background-color: #FFF;
-        margin-right: 5px;
+        border-right: 5px solid #f1f1f1;
     }
         #panels .panel:first-child {
             padding-left: 35px;

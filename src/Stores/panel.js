@@ -11,6 +11,11 @@ define(['fluxxor'], function(Fluxxor) {
         panels: [],
 
         /**
+         * Height of the panels, changed on resize
+         */
+        height: 0,
+
+        /**
          * Index of current panel as a reference
          */
         index: 0,
@@ -21,7 +26,8 @@ define(['fluxxor'], function(Fluxxor) {
          */
         initialize: function(url) {
             this.bindActions(
-                'panel-add', this.addPanel
+                'panel-add', this.addPanel,
+                'resize', this.resize
             )
         },
 
@@ -31,8 +37,20 @@ define(['fluxxor'], function(Fluxxor) {
          */
         getState: function() {
             return {
+                'height': this.height,
                 'panels': this.panels
             };
+        },
+
+        /**
+         * On window resize also set the panel height
+         */
+        resize: function() {
+            var oldHeight = this.height;
+            this.height = $('#panels').height();
+            if(this.height != oldHeight) {
+                this.emit('change');
+            }
         },
 
         /**
@@ -58,8 +76,12 @@ define(['fluxxor'], function(Fluxxor) {
                 this.panels = [];
             }
                 
+            //Put the panel in the view
             this.panels.push(panel);
             this.emit('change');
+
+            //Force resizing
+            this.resize();
         }
         
     })
