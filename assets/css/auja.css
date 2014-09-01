@@ -109,9 +109,19 @@ ul#main-menu {
         height: 56px;
         cursor: pointer;
         margin-bottom: 30px;
+        display: block;
     }
         /* The triangle */
         ul#main-menu li:before {
+            color: #FFF;
+            position: absolute;
+            height: 56px;
+            width: 56px;
+            font-size: 25px;
+            line-height: 56px;
+            text-align: center;
+        }
+        ul#main-menu li:after {
             content: "";
             position: absolute;
             width: 0;
@@ -152,16 +162,26 @@ ul#main-menu {
 #panels .panel-menu ul {
     margin: 30px 0 0 30px;
 }
+#panels .panel-menu ul li {
+    position: relative;
+}
 
 #panels .panel-menu .menu-item-link {
     height: 30px;
     margin-top: 1px;
-    padding: 10px 20px 10px 50px;
+    padding: 10px 20px 10px 30px;
     border-bottom: 1px solid;
     font-size: 14px;
     line-height: 30px;
     cursor: pointer;
+    width: calc(100% - 50px);
 }
+    #panels .panel-menu .menu-item-link:before {
+        position: absolute;
+        left: 0;
+        font-size: 18px;
+        line-height: 30px;
+    }
 #panels .panel-menu .menu-item-spacer {
     width: 270px;
     min-height: 15px;
@@ -172,4 +192,5 @@ ul#main-menu {
     line-height: 15px;
     cursor: default;
     text-transform: uppercase;
+    background-color: white;
 }

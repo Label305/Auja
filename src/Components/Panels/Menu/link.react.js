@@ -19,10 +19,10 @@ define([], function() {
             
             //Create the icon class
             var icon = "fallback";
-            if(this.props.item.icon) {
-                icon = this.props.item.icon;    
+            if(this.props.item.link.icon) {
+                icon = this.props.item.link.icon;    
             }
-            className += "icon-" + icon;
+            className += "fa fa-" + icon;
             
             return (
                 <li className={className} onClick={this.handleClick}>

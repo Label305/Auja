@@ -5,7 +5,7 @@
         "authenticated": false,
         "debug": true,
         "colors": {
-            "main": "#22bcb9",
+            "main": "red",
             "secondary": "#E7EFEF"
         },
         "user": {
@@ -25,7 +25,7 @@
             },
             {
                 "title": "Clubs (resource)",
-                "icon": "group",
+                "icon": "cloud",
                 "target": "clubs/menu"
             }
         ],

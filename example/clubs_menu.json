@@ -7,7 +7,7 @@
             "link": {
                 "name": "Clubs (recursive)",
                 "target": "example/clubs_menu.json",
-                "icon": "factory"
+                "icon": "magnet"
             }
         },
         {
@@ -16,7 +16,7 @@
             "link": {
                 "name": "FC Twente",
                 "target": "example/page.json",
-                "icon": "factory"
+                "icon": "random"
             }
         },
         {
