@@ -252,7 +252,8 @@ ul#main-menu {
             line-height: 15px;
         }        
         #panels .panel-page .row.form-item input[type="text"],
-        #panels .panel-page .row.form-item input[type="password"] {
+        #panels .panel-page .row.form-item input[type="password"],
+        #panels .panel-page .row.form-item textarea {
             clear: both;
             width: calc(100% - 20px);
             padding: 10px;
@@ -265,4 +266,7 @@ ul#main-menu {
         }
         #panels .panel-page .row.form-item input[type="submit"] {
             float: right;
+        }
+        #panels .panel-page .row.form-item textarea {
+            height: 200px;
         }

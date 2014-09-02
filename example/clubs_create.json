@@ -28,6 +28,13 @@
                         }
                     },
                     {
+                        "type": "textarea",
+                        "textarea": {
+                            "name": "description",
+                            "label": "Description"
+                        }
+                    },
+                    {
                         "type": "submit",
                         "submit": {
                             "name": "Create!"
