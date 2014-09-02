@@ -42,18 +42,22 @@ define([], function() {
 
         /**
          * Post request
+         * @param data
          * @return Deferred
          */
-        this.post = function () {
+        this.post = function (data) {
+            this.setData(data);
             this.settings.type = 'POST';
             return this._doAjax();
         };
 
         /**
          * Put request
+         * @param data
          * @return Deferred
          */
-        this.put = function () {
+        this.put = function (data) {
+            this.setData(data);
             this.settings.data._method = 'PUT';
             return this.post();
         };

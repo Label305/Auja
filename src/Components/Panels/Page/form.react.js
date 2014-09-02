@@ -17,8 +17,9 @@ define($.map(FormItems, function(value) { return value; }), function() {
         /**
          * Handles form submission
          */
-        handleSubmit: function() {
-            alert('Bam!');  
+        handleSubmit: function(e) {            
+            flux.actions.submit(this.props.item.form.action, $(event.target).serializeArray(), this.props.panel);
+            return false;
         },
         
         /**

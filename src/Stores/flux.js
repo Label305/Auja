@@ -59,6 +59,23 @@ define([
         },
 
         /**
+         * Submitting a form
+         * @param url
+         * @param data
+         */
+        submit: function(url, data) {
+            var panel = null;
+            if(arguments[2]) {
+                panel = arguments[2];
+            }
+
+            var request = new Request(url);
+            request.post(data).done(function(response) {
+                flux.actions.handle(response.type, response, panel);
+            });            
+        },
+
+        /**
          * Will dispatch according to type, so if you listen on handling of type "menu"
          * you'll get your data
          * @param type

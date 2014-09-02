@@ -35,5 +35,14 @@ define(['build/Objects/menu'], function() {
             
             return dfd.promise();
         }
+        
+        
+        this.post = function(data) {
+            console.error('POST not implemented in REST handler');
+        }
+        
+        this.put = function(data) {
+            console.error('PUT not implemented in REST handler');
+        }
     }
 });

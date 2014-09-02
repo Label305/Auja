@@ -13,11 +13,19 @@ define(['build/Requests/route_factory', 'build/Requests/Handlers/http'], functio
     window.Request = function(url) {
         
         /**
-         * Do a get request
+         * Do a GET request
          * @return jQuery.Deferred
          */
         this.get = function() {
             return RouteFactory.handler(url).get();
+        }
+
+        /**
+         * Do a POST request
+         * @return jQuery.Deferred
+         */
+        this.post = function(data) {
+            return RouteFactory.handler(url).post(data);
         }
 
     }
