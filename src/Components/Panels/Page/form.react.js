@@ -7,14 +7,22 @@
 //Listing of all supported page items
 var FormItems = {
     'text': 'build/Components/Panels/Page/Form/text.react.js',
-    'password': 'build/Components/Panels/Page/Form/password.react.js'
+    'password': 'build/Components/Panels/Page/Form/password.react.js',
+    'submit': 'build/Components/Panels/Page/Form/submit.react.js'
 };
 
 define($.map(FormItems, function(value) { return value; }), function() {
     return React.createClass({
 
         /**
-         * Generate an ID for the item
+         * Handles form submission
+         */
+        handleSubmit: function() {
+            alert('Bam!');  
+        },
+        
+        /**
+         * Generate an ID for an item
          * @param name
          */
         getFormItemId: function(item) {
@@ -59,7 +67,10 @@ define($.map(FormItems, function(value) { return value; }), function() {
             //Remove the items key as part of the form attributes
             delete this.props.item.form.items;
             
-            return React.DOM.form(this.props.form, items);
+            //Bind the main submit action
+            this.props.item.form.onSubmit = this.handleSubmit;
+            
+            return React.DOM.form(this.props.item.form, items);
         }
     });
 

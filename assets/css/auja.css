@@ -80,6 +80,20 @@ a {
     text-decoration: none;
 }
 
+/* Generic elements */
+.button {
+    width: auto;
+    height: 40px;
+    margin: 0px;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #FFF;
+    border: none;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* Header */
 header {
     position: fixed;
     width: 100%;
@@ -89,6 +103,7 @@ header {
     header #user {
         float: right;
         margin-top: 20px;
+        line-height: 20px;
     }
     header #buttons {
         float: right;
@@ -247,4 +262,7 @@ ul#main-menu {
             font-size: 14px;
             color: #353535;
             line-height: 20px;
+        }
+        #panels .panel-page .row.form-item input[type="submit"] {
+            float: right;
         }

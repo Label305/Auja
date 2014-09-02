@@ -26,6 +26,12 @@
                             "name": "token",
                             "label": "Token"
                         }
+                    },
+                    {
+                        "type": "submit",
+                        "submit": {
+                            "name": "Create!"
+                        }
                     }
                 ]
             }
