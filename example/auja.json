@@ -20,7 +20,7 @@
         "menu": [
             {
                 "title": "Clubs",
-                "icon": "group",
+                "icon": "planet",
                 "target": "example/clubs/menu"
             },
             {
