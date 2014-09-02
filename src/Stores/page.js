@@ -1,14 +1,14 @@
 define(['fluxxor'], function(Fluxxor) {
 
     /**
-     * The menus store
+     * The pages store
      */
     return Fluxxor.createStore({
 
         /**
-         * All menus currently in view
+         * All pages currently in view
          */
-        menus: [],
+        pages: [],
         
         /**
          * On initialization and on system update we will update the state
@@ -16,7 +16,7 @@ define(['fluxxor'], function(Fluxxor) {
          */
         initialize: function(url) {
             this.bindActions(
-                'menu', this.dispatch
+                'page', this.dispatch
             )
         },
 
@@ -25,20 +25,20 @@ define(['fluxxor'], function(Fluxxor) {
          * @returns {*}
          */
         getState: function() {
-            return this.menus;
+            return this.pages;
         },
 
         /**
-         * Dispatching of a menu
-         * @param menu
+         * Dispatching of a page
+         * @param page
          */
-        dispatch: function(menu) {
-            this.menus.push(menu);
-            flux.stores.PanelStore.addPanel(menu);
+        dispatch: function(page) {
+            this.pages.push(page);
+            flux.stores.PanelStore.addPanel(page);
         },
 
         /**
-         * Update menu's
+         * Update page's
          */
         update: function() {
             //TODO implement

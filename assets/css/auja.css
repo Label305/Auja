@@ -169,8 +169,8 @@ ul#main-menu {
         }
         
 /* Menu */
-#panels .panel-menu {
-    width: 300px;
+#panels .panel-menu>ul {
+    width: 270px;
 }
 #panels .panel-menu ul {
     margin: 30px 0 0 30px;
@@ -206,4 +206,9 @@ ul#main-menu {
     cursor: default;
     text-transform: uppercase;
     background-color: white;
+}
+
+/* Page */
+#panels .panel-page>div {
+    width: 600px;
 }

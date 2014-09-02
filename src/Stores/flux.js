@@ -2,11 +2,13 @@ define([
     'build/Stores/auja',
     'build/Stores/panel',
     'build/Stores/menu',
+    'build/Stores/page'
 ], function() {
 
     var AujaStore = require('build/Stores/auja');
     var PanelStore = require('build/Stores/panel');
     var MenuStore = require('build/Stores/menu');
+    var PageStore = require('build/Stores/page');
     
     /**
      * All stores
@@ -14,7 +16,8 @@ define([
     var stores = {
         AujaStore: new AujaStore,
         PanelStore: new PanelStore,
-        MenuStore: new MenuStore
+        MenuStore: new MenuStore,
+        PageStore: new PageStore
     };
 
     /**

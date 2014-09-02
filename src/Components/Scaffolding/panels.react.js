@@ -6,7 +6,8 @@
     
 //Listing of all supported panels
 var PanelTypes = {
-    'menu': 'build/Components/Panels/menu.react'
+    'menu': 'build/Components/Panels/menu.react',
+    'page': 'build/Components/Panels/page.react'
 };
 
 //Map as an array to load panel dependencies

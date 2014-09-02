@@ -3,27 +3,27 @@
     "menu": [
         {
             "type": "link",
-            "order": 1,
+            "order": 3,
             "link": {
-                "name": "Clubs (recursive)",
-                "target": "example/clubs_menu.json",
+                "name": "FC Twente (recursive)",
+                "target": "example/clubs/menu",
                 "icon": "beer"
             }
         },
         {
             "type": "link",
-            "order": 3,
+            "order": 1,
             "link": {
-                "name": "FC Twente",
-                "target": "example/page.json",
-                "icon": "android-social"
+                "name": "Add club",
+                "target": "example/clubs/create",
+                "icon": "compose"
             }
         },
         {
             "type": "spacer",
             "order": 2,
             "spacer": {
-                "name": "Spacing between others"
+                "name": "Clubs"
             }
         }
     ]
