@@ -16,9 +16,9 @@ define(['build/Requests/route_factory', 'build/Requests/Handlers/http'], functio
          * Do a GET request
          * @return jQuery.Deferred
          */
-        this.get = function() {
+        this.get = function () {
             return RouteFactory.handler(url).get();
-        }
+        };
 
         /**
          * Do a POST request
@@ -26,6 +26,14 @@ define(['build/Requests/route_factory', 'build/Requests/Handlers/http'], functio
          */
         this.post = function(data) {
             return RouteFactory.handler(url).post(data);
+        },
+
+        /**
+         * Do a PUT request
+         * @return jQuery.Deferred
+         */
+        this.put = function(data) {
+            return RouteFactory.handler(url).put(data);
         }
 
     }
