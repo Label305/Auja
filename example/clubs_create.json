@@ -1,6 +1,34 @@
 {
     "type": "page",
     "page": [
-        
+        {
+            "type": "header",
+            "header": {
+                "contents": "Create club"
+            }
+        },
+        {
+            "type": "form",
+            "form": {
+                "action": "clubs",
+                "method": "post",
+                "items": [
+                    {
+                        "type": "text",
+                        "text": {
+                            "name": "name",
+                            "label": "Name of club"
+                        }
+                    },
+                    {
+                        "type": "password",
+                        "password": {
+                            "name": "token",
+                            "label": "Token"
+                        }
+                    }
+                ]
+            }
+        }
     ]
 }

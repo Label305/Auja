@@ -6,7 +6,8 @@
 
 //Listing of all supported page items
 var PageItems = {
-    
+    'header': 'build/Components/Panels/Page/header.react.js',
+    'form': 'build/Components/Panels/Page/form.react.js'
 };
 
 //Map as an array to load panel dependencies
@@ -29,7 +30,11 @@ define($.map(PageItems, function(value) { return value; }), function() {
                     return;
                 }
                 var Item = require(PageItems[item.type]);
-                return ( <Item panel={this.props.panel} item={item} /> );
+                return ( 
+                    <div class="row">
+                        <Item panel={this.props.panel} item={item} />
+                    </div>
+                    );
             }.bind(this));
 
             return (

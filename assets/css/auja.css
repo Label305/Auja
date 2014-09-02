@@ -71,6 +71,11 @@ h1 {
     line-height: 27px;
 }
 
+h2 {
+    font-size: 25px;
+    font-weight: 100;
+}
+
 a {
     text-decoration: none;
 }
@@ -105,12 +110,12 @@ ul#main-menu {
     position: fixed;
     z-index: 50;
     top: 115px;
-    left: 10px;
+    left: 15px;
 }
     ul#main-menu li {
         position: relative;
-        width: 56px;
-        height: 56px;
+        width: 60px;
+        height: 60px;
         cursor: pointer;
         margin-bottom: 30px;
         display: block;
@@ -119,10 +124,10 @@ ul#main-menu {
         ul#main-menu li:before {
             color: #FFF;
             position: absolute;
-            height: 56px;
-            width: 56px;
+            height: 60px;
+            width: 60px;
             font-size: 25px;
-            line-height: 56px;
+            line-height: 60px;
             text-align: center;
         }
         ul#main-menu li:after {
@@ -130,7 +135,7 @@ ul#main-menu {
             position: absolute;
             width: 0;
             height: 0;
-            border-width: 9px 19px 0 0;
+            border-width: 9px 15px 0 0;
             border-style: solid;
             border-color: transparent rgb(7, 166, 161) transparent transparent;/* TODO set color from JS */
             top: -10px;
@@ -165,7 +170,7 @@ ul#main-menu {
         border-right: 5px solid #f1f1f1;
     }
         #panels .panel:first-child {
-            padding-left: 35px;
+            padding-left: 45px;
         }
         
 /* Menu */
@@ -182,7 +187,7 @@ ul#main-menu {
 #panels .panel-menu .menu-item-link {
     height: 30px;
     margin-top: 1px;
-    padding: 10px 20px 10px 30px;
+    padding: 15px 15px 15px 30px;
     border-bottom: 1px solid;
     font-size: 14px;
     line-height: 30px;
@@ -211,4 +216,35 @@ ul#main-menu {
 /* Page */
 #panels .panel-page>div {
     width: 600px;
+    padding: 45px 30px;
 }
+    #panels .panel-page .row {
+        width: 100%;
+        clear: both;
+    }
+        #panels .panel-page .row.form-item {
+            margin: 30px 0 0 0;
+        }
+        #panels .panel-page .row.form-item label {
+            clear: both;
+            width: 100%;
+            display: inline-block;
+            float: left;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 12px;
+            min-height: 15px;
+            line-height: 15px;
+        }        
+        #panels .panel-page .row.form-item input[type="text"],
+        #panels .panel-page .row.form-item input[type="password"] {
+            clear: both;
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-bottom: 2px solid #E7EFEF;
+            background: #ededed;
+            font-size: 14px;
+            color: #353535;
+            line-height: 20px;
+        }
