@@ -136,7 +136,7 @@ ul#main-menu {
             top: -10px;
             left: 0;
         }
-        ul#main-menu li p {
+        ul#main-menu li span {
             display: none;
         }
 

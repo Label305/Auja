@@ -13,13 +13,12 @@ define([], function() {
             var className = "auja-bg-main";
             
             if(this.props.item.icon) {
-                className += " fa";
-                className += " fa-" + this.props.item.icon;
+                className += " icon ion-" + this.props.item.icon;
             }
             
             return (
                 <li className={className} title={this.props.item.title} onClick={this.handleClick}>
-                    <p>{this.props.item.title}</p>
+                    <span>{this.props.item.title}</span>
                 </li>
                 );
         }

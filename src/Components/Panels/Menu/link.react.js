@@ -22,11 +22,11 @@ define([], function() {
             if(this.props.item.link.icon) {
                 icon = this.props.item.link.icon;    
             }
-            className += "fa fa-" + icon;
+            className += "icon ion-" + icon;
             
             return (
                 <li className={className} onClick={this.handleClick}>
-                    <p>{this.props.item.link.name}</p>
+                    <span>{this.props.item.link.name}</span>
                 </li>
                 );
         }

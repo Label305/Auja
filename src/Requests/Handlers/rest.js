@@ -21,7 +21,7 @@ define(['build/Objects/menu'], function() {
                     var item = new MenuItemLink();
                     item.setName('Add ' + route.rest.name.toLowerCase().singularize());
                     item.setTarget(route.rest.resource + '/create');
-                    item.setIcon('plus');
+                    item.setIcon('compose');
                     menu.addItem(item);
                     
                     //Spacer
