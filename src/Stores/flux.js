@@ -1,24 +1,20 @@
-define([
-    'build/Stores/auja',
-    'build/Stores/panel',
-    'build/Stores/menu',
-    'build/Stores/page'
-], function() {
+var FluxStores = {
+    'AujaStore': 'build/Stores/auja', 
+    'PanelStore': 'build/Stores/panel', 
+    'MenuStore': 'build/Stores/menu', 
+    'PageStore': 'build/Stores/page',
+    'MessageStore': 'build/Stores/message'
+}
 
-    var AujaStore = require('build/Stores/auja');
-    var PanelStore = require('build/Stores/panel');
-    var MenuStore = require('build/Stores/menu');
-    var PageStore = require('build/Stores/page');
+//Map as an array to load store dependencies
+define($.map(FluxStores, function(value) { return value; }), function() {
     
-    /**
-     * All stores
-     */
-    var stores = {
-        AujaStore: new AujaStore,
-        PanelStore: new PanelStore,
-        MenuStore: new MenuStore,
-        PageStore: new PageStore
-    };
+    //Fill object with stores
+    var stores = {};
+    for(var name in FluxStores) {
+        var store = require(FluxStores[name]);
+        stores[name] = new store;
+    }
 
     /**
      * All actions that can be dispatched
@@ -63,16 +59,25 @@ define([
          * @param url
          * @param data
          */
-        submit: function(url, data) {
+        submit: function(url, method, data) {
             var panel = null;
-            if(arguments[2]) {
-                panel = arguments[2];
+            if(arguments[3]) {
+                panel = arguments[3];
             }
-
+            
             var request = new Request(url);
-            request.post(data).done(function(response) {
-                flux.actions.handle(response.type, response, panel);
-            });            
+            
+            switch(method) {
+                case 'get':
+                    request.get(data).done(function(response) {
+                        flux.actions.handle(response.type, response, panel);
+                    });                    
+                    break;
+                default:
+                    request.post(data).done(function(response) {
+                        flux.actions.handle(response.type, response, panel);
+                    });
+            }          
         },
 
         /**

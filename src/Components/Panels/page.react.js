@@ -12,9 +12,10 @@ var PageItems = {
 
 //Map as an array to load panel dependencies
 define($.map(PageItems, function(value) { return value; }), function() {
+    
     return React.createClass({
         render: function() {
-
+            
             //Order the items in the page as they are defined
             this.props.panel.page = this.props.panel.page.sort(function(a, b) {
                 if(a.order && b.order) {
@@ -32,7 +33,7 @@ define($.map(PageItems, function(value) { return value; }), function() {
                 var Item = require(PageItems[item.type]);
                 return ( 
                     <div class="row">
-                        <Item panel={this.props.panel} item={item} />
+                        <Item message={this.props.message} panel={this.props.panel} item={item} />
                     </div>
                     );
             }.bind(this));

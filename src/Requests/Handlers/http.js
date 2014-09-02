@@ -36,6 +36,9 @@ define([], function() {
          * @return Deferred
          */
         this.get = function () {
+            if(arguments[0]) {
+                this.setData(arguments[0]);
+            }
             this.settings.type = 'GET';
             return this._doAjax();
         };

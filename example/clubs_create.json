@@ -11,7 +11,7 @@
             "type": "form",
             "form": {
                 "action": "example/clubs/store",
-                "method": "post",
+                "method": "get",
                 "items": [
                     {
                         "type": "text",

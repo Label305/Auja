@@ -18,8 +18,13 @@ define($.map(FormItems, function(value) { return value; }), function() {
         /**
          * Handles form submission
          */
-        handleSubmit: function(e) {            
-            flux.actions.submit(this.props.item.form.action, $(event.target).serializeArray(), this.props.panel);
+        handleSubmit: function(e) {     
+            flux.actions.submit(
+                this.props.item.form.action,
+                event.target.getAttribute('method'),
+                $(event.target).serializeArray(), 
+                this.props.panel
+            );
             return false;
         },
         
@@ -56,23 +61,33 @@ define($.map(FormItems, function(value) { return value; }), function() {
                     console.error("Unsupported form item type requested: " + item.type);
                     return;
                 }
+            
+                //Fetch the item from the corresponding file
                 var Item = require(FormItems[item.type]);
                 
+                //Extract the vlaidation message from the item
+                //TODO implement displaying of validation messages in form elements
+                var validationMessage = null;
+                if(item[item.type].name && this.props.message.validation && this.props.message.validation[item[item.type].name]) {
+                    validationMessage = this.props.message.validation[item[item.type].name];
+                }
+                                
                 var className = 'row form-item form-item-{type}'.assign({type: item.type});                 
                 return (
                     <div className={className}>
-                        <Item itemId={this.getFormItemId(item)} item={item} />
+                        <Item validationMessage={validationMessage} itemId={this.getFormItemId(item)} item={item} />
                     </div>
                     );
             }.bind(this));
             
             //Remove the items key as part of the form attributes
-            delete this.props.item.form.items;
+            var form = Object.clone(this.props.item.form);
+            delete form.items;
             
             //Bind the main submit action
-            this.props.item.form.onSubmit = this.handleSubmit;
+            form.onSubmit = this.handleSubmit;
             
-            return React.DOM.form(this.props.item.form, items);
+            return React.DOM.form(form, items);
         }
     });
 

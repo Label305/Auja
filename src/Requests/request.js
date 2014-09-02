@@ -17,7 +17,7 @@ define(['build/Requests/route_factory', 'build/Requests/Handlers/http'], functio
          * @return jQuery.Deferred
          */
         this.get = function () {
-            return RouteFactory.handler(url).get();
+            return RouteFactory.handler(url).get(arguments[0] ? arguments[0] : null);
         };
 
         /**
@@ -26,7 +26,7 @@ define(['build/Requests/route_factory', 'build/Requests/Handlers/http'], functio
          */
         this.post = function(data) {
             return RouteFactory.handler(url).post(data);
-        },
+        };
 
         /**
          * Do a PUT request
