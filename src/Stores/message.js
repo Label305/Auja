@@ -29,6 +29,16 @@ define(['fluxxor'], function(Fluxxor) {
         },
 
         /**
+         * Reset
+         */
+        reset: function() {
+            this.message = {
+                message: null
+            };
+            this.emit('change');
+        },
+
+        /**
          * Dispatching of a message
          * @param message
          */
