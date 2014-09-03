@@ -4,7 +4,7 @@
         {
             "type": "header",
             "header": {
-                "contents": "Create club"
+                "text": "Create club"
             }
         },
         {

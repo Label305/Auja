@@ -12,7 +12,7 @@ define([], function() {
     return React.createClass({
         render: function() {
             return (
-                <h2>{this.props.item.header.contents}</h2>
+                <h2>{this.props.item.header.text}</h2>
                 );
         }
     });
