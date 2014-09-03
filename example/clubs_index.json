@@ -1,0 +1,23 @@
+{
+    "type": "items",
+    "items": [
+        {
+            "type": "link",
+            "order": 1,
+            "link": {
+                "name": "Trigger message",
+                "target": "example/message.json",
+                "icon": "alert"
+            }
+        },
+        {
+            "type": "link",
+            "order": 2,
+            "link": {
+                "name": "FC Twente (recursive)",
+                "target": "example/clubs/menu",
+                "icon": "beer"
+            }
+        }
+    ]
+}

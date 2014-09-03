@@ -242,7 +242,7 @@ ul#main-menu {
     font-size: 14px;
     line-height: 30px;
     cursor: pointer;
-    width: calc(100% - 50px);
+    width: calc(100% - 45px);
 }
     #panels .panel-menu .menu-item-link:before {
         position: absolute;
@@ -261,6 +261,9 @@ ul#main-menu {
     cursor: default;
     text-transform: uppercase;
     background-color: white;
+}
+#panels .panel-menu .menu-item-resource>ul {
+    margin: 0;
 }
 
 /* Page */

@@ -3,7 +3,8 @@ var FluxStores = {
     'PanelStore': 'build/Stores/panel', 
     'MenuStore': 'build/Stores/menu', 
     'PageStore': 'build/Stores/page',
-    'MessageStore': 'build/Stores/message'
+    'MessageStore': 'build/Stores/message',
+    'ItemsStore': 'build/Stores/items'
 }
 
 //Map as an array to load store dependencies
@@ -104,6 +105,25 @@ define($.map(FluxStores, function(value) { return value; }), function() {
          */
         addPanel: function(panel) {
             this.dispatch('panel-add', panel);
+        },
+
+        /**
+         * Mounts a resource with items
+         * @todo fix async error
+         * @param resource
+         */
+        mountResource: function(url) {
+            var request = new Request(url);
+            request.get().done(function(response) {
+                if(response.type != 'items') {
+                    console.error('Mounting of a resource resulted in a non-items response');
+                } else {
+                    this.dispatch('items', {
+                        resource: url,
+                        items: response
+                    });
+                }
+            }.bind(this));
         }
     };
     

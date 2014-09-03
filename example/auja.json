@@ -46,6 +46,11 @@
                 "action": "example/clubs_store.json"
             },
             {
+                "type": "http",
+                "target": "example/clubs",
+                "action": "example/clubs_index.json"
+            },
+            {
                 "type": "rest",
                 "resource": "clubs",
                 "endpoint": "clubs"

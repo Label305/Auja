@@ -45,7 +45,7 @@ define($.map(PanelTypes, function(value) { return value; }), function() {
                 
                 return (
                     <section style={style} className={"panel panel-" + panel.type}>
-                        <Panel message={m} panel={panel} />
+                        <Panel flux={this.props.flux} message={m} panel={panel} />
                     </section>
                     );  
             }.bind(this));

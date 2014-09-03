@@ -19,7 +19,7 @@ define($.map(MenuItems, function(value) { return value; }), function() {
             //Order the items in the menu as they are defined
             this.props.panel.menu = this.props.panel.menu.sort(function(a, b) {
                 if(a.order && b.order) {
-                    return a.order >= b.order ? 1 : -1;
+                    return a.order > b.order ? 1 : -1;
                 }
                 return 0;
             });
@@ -31,7 +31,7 @@ define($.map(MenuItems, function(value) { return value; }), function() {
                     return;
                 }
                 var Item = require(MenuItems[item.type]);
-                return ( <Item activeItem={this.props.panel.activeItem} panel={this.props.panel} item={item} /> );
+                return ( <Item flux={this.props.flux} activeItem={this.props.panel.activeItem} panel={this.props.panel} item={item} /> );
             }.bind(this));
             
             return (
