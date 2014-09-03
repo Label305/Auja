@@ -1,0 +1,7 @@
+{
+    "type": "message",
+    "message": {
+        "state": "info",
+        "contents": "Howdy mate!"
+    }
+}

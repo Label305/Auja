@@ -3,15 +3,6 @@
     "menu": [
         {
             "type": "link",
-            "order": 3,
-            "link": {
-                "name": "FC Twente (recursive)",
-                "target": "example/clubs/menu",
-                "icon": "beer"
-            }
-        },
-        {
-            "type": "link",
             "order": 1,
             "link": {
                 "name": "Add club",
@@ -20,10 +11,28 @@
             }
         },
         {
+            "type": "link",
+            "order": 1,
+            "link": {
+                "name": "Trigger message",
+                "target": "example/message.json",
+                "icon": "alert"
+            }
+        },
+        {
             "type": "spacer",
             "order": 2,
             "spacer": {
                 "name": "Clubs"
+            }
+        },
+        {
+            "type": "link",
+            "order": 3,
+            "link": {
+                "name": "FC Twente (recursive)",
+                "target": "example/clubs/menu",
+                "icon": "beer"
             }
         }
     ]

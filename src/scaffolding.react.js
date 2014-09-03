@@ -3,9 +3,10 @@
  */
 define([
     'build/Stores/auja',
+    'build/Components/Scaffolding/message.react',
     'build/Components/Scaffolding/header.react',
     'build/Components/Scaffolding/body.react'
-], function (Store, Header, Body) {
+], function (Store, Message, Header, Body) {
 
     var Style = React.createClass({
         /**
@@ -58,6 +59,7 @@ define([
 
             return (
                 <div id="auja">
+                    <Message flux={this.props.flux} />
                     <Header auja={this.state} />
                     <Body flux={this.props.flux} auja={this.state} />
                     <Style auja={this.state} />
