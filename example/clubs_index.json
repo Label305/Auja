@@ -5,18 +5,18 @@
             "type": "link",
             "order": 1,
             "link": {
-                "name": "Trigger message",
-                "target": "example/message.json",
-                "icon": "alert"
+                "name": "Barcelona",
+                "target": "example/clubs/1/menu",
+                "icon": "ios7-football-outline"
             }
         },
         {
             "type": "link",
             "order": 2,
             "link": {
-                "name": "FC Twente (recursive)",
-                "target": "example/clubs/menu",
-                "icon": "beer"
+                "name": "Manchester United",
+                "target": "example/clubs/2/menu",
+                "icon": "ios7-football-outline"
             }
         }
     ]
