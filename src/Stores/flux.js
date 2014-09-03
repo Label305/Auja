@@ -41,11 +41,17 @@ define($.map(FluxStores, function(value) { return value; }), function() {
          * @todo Fix async version of passing the panel to the response handler
          * @param url
          * @param panel (optional)
+         * @param item (optional) if isset will dispatch an activate-item event
          */
         click: function(url) {
             var panel = null;
             if(arguments[1]) {
                 panel = arguments[1];
+            }
+            
+            var item = null;
+            if(panel != null && arguments[2]) {
+                this.dispatch('activate-item', {panel: panel, item: arguments[2]});                
             }
             
             var request = new Request(url);

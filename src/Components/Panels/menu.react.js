@@ -30,7 +30,7 @@ define($.map(MenuItems, function(value) { return value; }), function() {
                     return;
                 }
                 var Item = require(MenuItems[item.type]);
-                return ( <Item panel={this.props.panel} item={item} /> );
+                return ( <Item activeItem={this.props.panel.activeItem} panel={this.props.panel} item={item} /> );
             }.bind(this));
             
             return (

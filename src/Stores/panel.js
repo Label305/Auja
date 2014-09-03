@@ -27,7 +27,8 @@ define(['fluxxor'], function(Fluxxor) {
         initialize: function(url) {
             this.bindActions(
                 'panel-add', this.addPanel,
-                'resize', this.resize
+                'resize', this.resize,
+                'activate-item', this.activateItem
             )
         },
 
@@ -82,6 +83,21 @@ define(['fluxxor'], function(Fluxxor) {
 
             //Force resizing
             this.resize();
+        },
+
+        /**
+         * Activate an item within a panel
+         * @param item
+         */
+        activateItem: function(item) {
+            for(var i in this.panels) {
+                if(this.panels[i]._index == item.panel._index) {
+                    this.panels[i].activeItem = item.item;
+                    break;
+                }
+            }
+            
+            this.emit('change');
         }
         
     })

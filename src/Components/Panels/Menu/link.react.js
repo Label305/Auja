@@ -11,7 +11,7 @@
 define([], function() {
     return React.createClass({
         handleClick: function() {
-            flux.actions.click(this.props.item.link.target, this.props.panel);
+            flux.actions.click(this.props.item.link.target, this.props.panel, this.props.item);
         },
         render: function() {
             
@@ -23,6 +23,11 @@ define([], function() {
                 icon = this.props.item.link.icon;    
             }
             className += "icon ion-" + icon;
+            
+            //Check if we match the active item
+            if(this.props.activeItem && this.props.activeItem.link && this.props.activeItem.link.target == this.props.item.link.target) {
+                className += " auja-color-main";
+            }
             
             return (
                 <li className={className} onClick={this.handleClick}>
