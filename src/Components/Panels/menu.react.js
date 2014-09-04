@@ -15,17 +15,28 @@ var MenuItems = {
 define($.map(MenuItems, function(value) { return value; }), function() {
     return React.createClass({
         render: function() {
+            //Copy so that we wont apply changes twice
+            var menu = this.props.panel.menu;
             
-            //Order the items in the menu as they are defined
-            this.props.panel.menu = this.props.panel.menu.sort(function(a, b) {
-                if(a.order && b.order) {
-                    return a.order > b.order ? 1 : -1;
+            //First check if we need to sort
+            //TODO move sorting to Store?
+            var flag = false;
+            for(var i in menu) {
+                if(menu[i].order) {
+                    flag = true;
+                    break;
                 }
-                return 0;
-            });
+            }
+            //Order the items in the menu as they are defined
+            if(flag) {
+                menu.sort(function(a, b) {
+                    return a.order > b.order ? 1 : -1;
+                });
+            }
             
+           
             //Combine menu items together to form a single list
-            var menu = this.props.panel.menu.map(function(item) {
+            var menu = menu.map(function(item) {
                 if(!MenuItems[item.type]) {
                     console.error("Unsupported menu item type requested: " + item.type);
                     return;
