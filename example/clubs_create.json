@@ -4,7 +4,14 @@
         {
             "type": "header",
             "header": {
-                "text": "Create club"
+                "text": "Create club",
+                "buttons": [
+                    {
+                        "text": "Delete",
+                        "confirm": "Are you sure?",
+                        "target": "example/message.json"
+                    }
+                ]
             }
         },
         {

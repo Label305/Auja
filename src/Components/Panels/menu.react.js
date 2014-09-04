@@ -36,7 +36,7 @@ define($.map(MenuItems, function(value) { return value; }), function() {
             
            
             //Combine menu items together to form a single list
-            var menu = menu.map(function(item) {
+            menu = menu.map(function(item) {
                 if(!MenuItems[item.type]) {
                     console.error("Unsupported menu item type requested: " + item.type);
                     return;
