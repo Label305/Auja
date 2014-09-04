@@ -1,4 +1,4 @@
-define(['fluxxor'], function(Fluxxor) {
+define(['fluxxor'], function (Fluxxor) {
 
     /**
      * The main Auja store
@@ -14,9 +14,10 @@ define(['fluxxor'], function(Fluxxor) {
          * On initialization and on system update we will update the state
          * @param url
          */
-        initialize: function(url) {
+        initialize: function (url) {
             this.bindActions(
-                'items', this.addItems
+                'items', this.addItems,
+                'items-extend', this.addItems
             )
         },
 
@@ -24,8 +25,8 @@ define(['fluxxor'], function(Fluxxor) {
          * Getter for the state of a resource
          * @returns {*}
          */
-        getState: function(resource) {
-            if(!this.resources[resource]) {
+        getState: function (resource) {
+            if (!this.resources[resource]) {
                 this.resources[resource] = {
                     items: [],
                     paging: {}
@@ -35,19 +36,20 @@ define(['fluxxor'], function(Fluxxor) {
         },
 
         /**
-         * 
-         * @param items
+         *
+         * @param resource
          */
-        addItems: function(resource) {
+        addItems: function (resource) {
+            
             //Add items
-            this.resources[resource.resource].items = this.resources[resource.resource].items.union(resource.items.items);
+            this.resources[resource.resource].items = this.resources[resource.resource].items.concat(resource.items.items);
             
             //Pass/reset the paging
             this.resources[resource.resource].paging = resource.paging ? resource.paging : {};
-            
+
             this.emit('change');
         }
-        
+
     })
 
 });

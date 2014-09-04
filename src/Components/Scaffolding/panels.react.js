@@ -12,6 +12,23 @@ var PanelTypes = {
 
 //Map as an array to load panel dependencies
 define($.map(PanelTypes, function(value) { return value; }), function() {
+    
+    var PanelSection = React.createClass({
+        handleScroll: function() {
+            flux.actions.onPanelScroll(this.props.panel);
+        },
+        render: function () {
+            var Panel = require(PanelTypes[this.props.panel.type]);
+            
+            return (
+                <section id={this.props.panel.id} ref="panel" className={"panel panel-" + this.props.panel.type}>
+                    <div onScroll={this.handleScroll} style={this.props.style}>
+                        <Panel flux={this.props.flux} message={this.props.message} panel={this.props.panel} />
+                    </div>
+                </section>
+                );
+        }
+    });
 
     /**
      * Main content with all panels
@@ -32,22 +49,17 @@ define($.map(PanelTypes, function(value) { return value; }), function() {
                         
             //Fetch and wrap all panels in a section having the class "panel panel-{type}"
             var panels = this.state.panels.map(function(panel) {
-                var Panel = require(PanelTypes[panel.type]);
                 var style = {
                     height: this.state.height  
                 };
                 
                 //When the current message is destined for this panel pass it, otherwise just an empty panel
                 var m = {};
-                if(message.origin && message.origin._index == panel._index) {
+                if(message.origin && message.origin.id == panel.id) {
                     m = message.message;
                 }
                 
-                return (
-                    <section style={style} className={"panel panel-" + panel.type}>
-                        <Panel flux={this.props.flux} message={m} panel={panel} />
-                    </section>
-                    );  
+                return (<PanelSection flux={this.props.flux} panel={panel} message={m} style={style} />);  
             }.bind(this));
 
             return (

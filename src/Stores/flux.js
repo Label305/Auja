@@ -100,17 +100,9 @@ define($.map(FluxStores, function(value) { return value; }), function() {
         },
 
         /**
-         * Add a panel
-         * @param panel
-         */
-        addPanel: function(panel) {
-            this.dispatch('panel-add', panel);
-        },
-
-        /**
          * Mounts a resource with items
          * @todo fix async error
-         * @param resource
+         * @param url
          */
         mountResource: function(url) {
             var request = new Request(url);
@@ -120,11 +112,41 @@ define($.map(FluxStores, function(value) { return value; }), function() {
                 } else {
                     this.dispatch('items', {
                         resource: url,
-                        items: response
+                        items: response,
+                        paging: response.paging ? response.paging : {}
                     });
                 }
             }.bind(this));
+        },
+
+        /**
+         * Extend a resource with new itemsd
+         * @todo fix async error
+         * @param url
+         */
+        extendResource: function(url) {
+            var request = new Request(url);
+            request.get().done(function(response) {
+                if(response.type != 'items') {
+                    console.error('Mounting of a resource resulted in a non-items response');
+                } else {
+                    this.dispatch('items-extend', {
+                        resource: url,
+                        items: response,
+                        paging: response.paging ? response.paging : {}
+                    });
+                }
+            }.bind(this));
+        },
+
+        /**
+         * Trigger scrolling of a panel
+         * @param panel
+         */
+        onPanelScroll: function(panel) {
+            this.dispatch('panel-scroll', panel);            
         }
+
     };
     
     return new Fluxxor.Flux(stores, actions); 

@@ -31,7 +31,7 @@ define($.map(MenuItems, function(value) { return value; }), function() {
                     return;
                 }
                 var Item = require(MenuItems[item.type]);
-                return ( <Item flux={this.props.flux} activeItem={this.props.panel.activeItem} panel={this.props.panel} item={item} /> );
+                return ( <Item scrollContainer={this.props.scrollContainer} flux={this.props.flux} activeItem={this.props.panel.activeItem} panel={this.props.panel} item={item} /> );
             }.bind(this));
             
             return (

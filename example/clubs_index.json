@@ -3,7 +3,6 @@
     "items": [
         {
             "type": "link",
-            "order": 1,
             "link": {
                 "name": "Barcelona",
                 "target": "example/clubs/1/menu",
@@ -12,12 +11,14 @@
         },
         {
             "type": "link",
-            "order": 2,
             "link": {
                 "name": "Manchester United",
                 "target": "example/clubs/2/menu",
                 "icon": "ios7-football-outline"
             }
         }
-    ]
+    ],
+    "paging": {
+        "next": "example/clubs"
+    }
 }

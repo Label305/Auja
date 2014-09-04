@@ -41,7 +41,7 @@ define($.map(FormItems, function(value) { return value; }), function() {
             var available = false;
             while(!available) {                
                 var id = 'input.{panel}.{type}.{index}'.assign({
-                    panel: this.props.panel._index, 
+                    panel: this.props.panel.id, 
                     type: item.type, 
                     index: i
                 });

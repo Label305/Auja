@@ -27,6 +27,7 @@ define(['fluxxor'], function(Fluxxor) {
         initialize: function(url) {
             this.bindActions(
                 'panel-add', this.addPanel,
+                'panel-scroll', this.scroll,
                 'resize', this.resize,
                 'activate-item', this.activateItem
             )
@@ -55,19 +56,35 @@ define(['fluxxor'], function(Fluxxor) {
         },
 
         /**
+         * Initialize the DOM node, will set the scrollTarget
+         * @param panel
+         */
+        panelDidMount: function (panel) {
+            this.emit('change');
+        },
+        
+        /**
+         * When somebody scrolls a panel
+         */
+        scroll: function(panel) {
+            this.emit('change');
+        },
+
+        /**
          * Add a panel
          * @param panel
          */
         addPanel: function(panel) {
             //Set the index, since adding will always be on the end
             panel._index = ++this.index;
+            panel.id = 'panel-' + panel._index;
             
             //If the panel from which this panel is added does not originate from the latest
             //we need to remove trailing panels
             if(panel.origin) {
                 var panels = [];
                 for(var i in this.panels) {
-                    if(this.panels[i]._index <= panel.origin._index) {
+                    if(this.panels[i].id <= panel.origin.id) {
                         panels.push(this.panels[i]);
                     }
                 }      
@@ -85,13 +102,15 @@ define(['fluxxor'], function(Fluxxor) {
             this.resize();
         },
 
+        
+        
         /**
          * Activate an item within a panel
          * @param item
          */
         activateItem: function(item) {
             for(var i in this.panels) {
-                if(this.panels[i]._index == item.panel._index) {
+                if(this.panels[i].id == item.panel.id) {
                     this.panels[i].activeItem = item.item;
                     break;
                 }
