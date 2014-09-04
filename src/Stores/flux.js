@@ -111,18 +111,21 @@ define($.map(FluxStores, function(value) { return value; }), function() {
          * @param url
          */
         mountResource: function(url) {
-            var request = new Request(url);
-            request.get().done(function(response) {
-                if(response.type != 'items') {
-                    console.error('Mounting of a resource resulted in a non-items response');
-                } else {
-                    this.dispatch('items', {
-                        resource: url,
-                        items: response,
-                        paging: response.paging ? response.paging : {}
-                    });
-                }
-            }.bind(this));
+            //Only when no items store exists for this url initialize it
+            if(!flux.stores.ItemsStore.exists(url)) { 
+                var request = new Request(url);
+                request.get().done(function(response) {
+                    if(response.type != 'items') {
+                        console.error('Mounting of a resource resulted in a non-items response');
+                    } else {
+                        this.dispatch('items', {
+                            resource: url,
+                            items: response,
+                            paging: response.paging ? response.paging : {}
+                        });
+                    }
+                }.bind(this));
+            }
         },
 
         /**

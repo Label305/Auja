@@ -37,6 +37,15 @@ define(['fluxxor'], function (Fluxxor) {
         },
 
         /**
+         * Check if items store already exists
+         * @param resource
+         * @returns {Boolean}
+         */
+        exists: function(resource) {
+            return this.getState(resource).items.length > 0;
+        },
+
+        /**
          *
          * @param resource
          */
