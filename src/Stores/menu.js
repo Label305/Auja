@@ -16,7 +16,8 @@ define(['fluxxor'], function(Fluxxor) {
          */
         initialize: function(url) {
             this.bindActions(
-                'menu', this.dispatch
+                'menu', this.dispatch,
+                'update', this.update
             )
         },
 
@@ -42,6 +43,7 @@ define(['fluxxor'], function(Fluxxor) {
          */
         update: function() {
             //TODO implement
+            console.log('TODO: Menu update');
         }
 
     })

@@ -97,6 +97,12 @@ define($.map(FluxStores, function(value) { return value; }), function() {
         handle: function(type, data, origin) {
             data.origin = origin;
             this.dispatch(type, data);
+            
+            switch(type) {
+                case 'message':
+                    this.dispatch('update');
+                    break;
+            }
         },
 
         /**

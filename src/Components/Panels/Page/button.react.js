@@ -29,7 +29,7 @@ define([], function() {
         },
         render: function() {
             var className = "button ";
-            className += this.props.button.confirm ? "auja-bg-alert" : "auja-bg-aler";
+            className += this.props.button.confirm ? "auja-bg-alert" : "auja-bg-main";
             
             if(this.state.confirming) {
                 return (

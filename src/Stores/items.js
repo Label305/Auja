@@ -17,7 +17,8 @@ define(['fluxxor'], function (Fluxxor) {
         initialize: function (url) {
             this.bindActions(
                 'items', this.addItems,
-                'items-extend', this.addItems
+                'items-extend', this.addItems,
+                'update', this.update
             )
         },
 
@@ -48,6 +49,14 @@ define(['fluxxor'], function (Fluxxor) {
             this.resources[resource.resource].paging = resource.paging ? resource.paging : {};
 
             this.emit('change');
+        },
+
+        /**
+         * Update items
+         */
+        update: function() {
+            //TODO implement
+            console.log('TODO: Items update');
         }
 
     })

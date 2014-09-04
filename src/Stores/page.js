@@ -37,13 +37,6 @@ define(['fluxxor'], function(Fluxxor) {
             flux.stores.PanelStore.addPanel(page);
         },
 
-        /**
-         * Update page's
-         */
-        update: function() {
-            //TODO implement
-        }
-
     })
 
 });
