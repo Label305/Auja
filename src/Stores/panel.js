@@ -71,6 +71,20 @@ define(['fluxxor'], function(Fluxxor) {
         },
 
         /**
+         * Update a panel
+         * @param panel
+         */
+        updatePanel: function(index, panel) {
+            for(var i in this.panels) {
+                if(this.panels[i]._index == panel._index) {
+                    this.panels[i] = panel;
+                    this.emit('change');
+                    break;
+                }
+            }
+        },
+
+        /**
          * Add a panel
          * @param panel
          */
@@ -95,7 +109,7 @@ define(['fluxxor'], function(Fluxxor) {
             }
                 
             //Put the panel in the view
-            this.panels.push(panel);
+            this.panels[panel._index] = panel;
             
             return panel;
         },

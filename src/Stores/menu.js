@@ -8,7 +8,13 @@ define(['fluxxor'], function(Fluxxor) {
         /**
          * All menus currently in view
          */
-        menus: [],
+        menus: {},
+
+        /**
+         * Key value pairs of url:[menu._index] so that the update action
+         * only has to update the same menu once
+         */
+        menuResources: {},
 
         /**
          * Key index for all menu items
@@ -39,10 +45,18 @@ define(['fluxxor'], function(Fluxxor) {
          * @param menu
          */
         dispatch: function(menu) {
-            this.menus.push(menu);            
+            //Create array with menus sharing this url
+            if(!this.menuResources[menu.url]) {
+                this.menuResources[menu.url] = [];
+            }
+                     
             menu = flux.stores.PanelStore.addPanel(menu);
+            this.menus[menu._index] = menu;
             menu = this.sortItems(menu);
             this.addKeys(menu);
+            
+            this.menuResources[menu.url].push(menu._index);
+            
             flux.stores.PanelStore.addPanelSuccess();
         },
 
@@ -69,13 +83,10 @@ define(['fluxxor'], function(Fluxxor) {
 
         /**
          * Add keys to menu items
+         * @todo use keys provided by server if applicable
          * @param menu
          */
-        addKeys: function(menu) {
-            if(!menu._index) {
-                return menu;
-            }
-            
+        addKeys: function(menu) {            
             //Arrange a key index
             if(!this.keyIndex[menu._index]) {
                 this.keyIndex[menu._index] = 0;
@@ -92,11 +103,46 @@ define(['fluxxor'], function(Fluxxor) {
         },
 
         /**
+         * Update a single menu
+         * 
+         * Note: this function does not emit change
+         * 
+         * @param menu
+         * @param response
+         */
+        updateMenu: function(menu, response) {
+            //Reset index
+            this.keyIndex[menu._index] = 0;
+            
+            this.menus[menu._index].menu = response.menu;
+            this.menus[menu._index] = this.sortItems(this.menus[menu._index]);
+            this.menus[menu._index] = this.addKeys(this.menus[menu._index]);
+            flux.stores.PanelStore.updatePanel(menu._index, this.menus[menu._index]);     
+            
+            this.emit('change');
+        },
+
+        /**
+         * Update a single entry of menuResources
+         * @param url
+         * @param menuIndexes
+         */
+        updateResource: function(url, menuIndexes) {
+            var request = new Request(url);
+            request.get().done(function(response) {
+                menuIndexes.map(function(index) {
+                    this.updateMenu(this.menus[index], response);
+                }.bind(this));
+            }.bind(this));
+        },
+
+        /**
          * Update menu's
          */
         update: function() {
-            //TODO implement
-            console.log('TODO: Menu update');
+            for(var url in this.menuResources) {
+                this.updateResource(url, this.menuResources[url]);
+            }
         }
 
     })

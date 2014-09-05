@@ -95,6 +95,7 @@ define(['fluxxor'], function (Fluxxor) {
             }
 
             //Set keys for every item
+            //TODO use keys from server if applicable
             for(var i in items.items) {
                 if(!items.items[i].key) {
                     items.items[i].key = ++this.keyIndex[resource.target];

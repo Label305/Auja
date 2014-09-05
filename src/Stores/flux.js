@@ -57,6 +57,7 @@ define($.map(FluxStores, function(value) { return value; }), function() {
             
             var request = new Request(url);
             request.get().done(function(response) {
+                response.url = url;
                 flux.actions.handle(response.type, response, panel); 
             });
         },
@@ -77,11 +78,13 @@ define($.map(FluxStores, function(value) { return value; }), function() {
             switch(method) {
                 case 'get':
                     request.get(data).done(function(response) {
+                        response.url = url;
                         flux.actions.handle(response.type, response, panel);
                     });                    
                     break;
                 default:
                     request.post(data).done(function(response) {
+                        response.url = url;
                         flux.actions.handle(response.type, response, panel);
                     });
             }          
