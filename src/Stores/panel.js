@@ -96,6 +96,8 @@ define(['fluxxor'], function(Fluxxor) {
                 
             //Put the panel in the view
             this.panels.push(panel);
+            
+            return panel;
         },
 
         /**

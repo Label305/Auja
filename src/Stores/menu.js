@@ -40,9 +40,31 @@ define(['fluxxor'], function(Fluxxor) {
          */
         dispatch: function(menu) {
             this.menus.push(menu);            
-            flux.stores.PanelStore.addPanel(menu);
+            menu = flux.stores.PanelStore.addPanel(menu);
+            menu = this.sortItems(menu);
             this.addKeys(menu);
             flux.stores.PanelStore.addPanelSuccess();
+        },
+
+        /**
+         * Sort items of a menu
+         * @param menu
+         */
+        sortItems: function(menu) {
+            var flag = false;
+            for(var i in menu.menu) {
+                if(menu.menu[i].order) {
+                    flag = true;
+                    break;
+                }
+            }
+            //Order the items in the menu as they are defined
+            if(flag) {
+                menu.menu.sort(function(a, b) {
+                    return a.order > b.order ? 1 : -1;
+                });
+            }
+            return menu;
         },
 
         /**
@@ -51,7 +73,7 @@ define(['fluxxor'], function(Fluxxor) {
          */
         addKeys: function(menu) {
             if(!menu._index) {
-                return;
+                return menu;
             }
             
             //Arrange a key index
@@ -65,6 +87,8 @@ define(['fluxxor'], function(Fluxxor) {
                     menu.menu[i].key = ++this.keyIndex[menu._index];
                 }
             }
+            
+            return menu
         },
 
         /**

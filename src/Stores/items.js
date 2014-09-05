@@ -59,8 +59,8 @@ define(['fluxxor'], function (Fluxxor) {
             //Increment key index
             if(!this.keyIndex[resource.resource]) {
                 this.keyIndex[resource.resource] = 0;
-            }
-                        
+            }            
+            
             //Set keys for every item
             for(var i in resource.items.items) {
                 if(!resource.items.items[i].key) {
@@ -71,10 +71,35 @@ define(['fluxxor'], function (Fluxxor) {
             //Add items
             this.resources[resource.resource].items = this.resources[resource.resource].items.concat(resource.items.items);
             
+            //Make sure the items are sorted
+            this.resources[resource.resource].items = flux.stores.ItemsStore.sortItems(this.resources[resource.resource].items); 
+            
             //Pass/reset the paging
             this.resources[resource.resource].paging = resource.paging ? resource.paging : {};
 
             this.emit('change');
+        },
+
+        /**
+         * Make sure the items are sorted
+         * @param items
+         * @returns {*}
+         */
+        sortItems: function(items) {
+            var flag = false;
+            for(var i in items) {
+                if(items[i].order) {
+                    flag = true;
+                    break;
+                }
+            }
+            //Order the items in the menu as they are defined
+            if(flag) {
+                items.sort(function(a, b) {
+                    return a.order > b.order ? 1 : -1;
+                });
+            }
+            return items;
         },
 
         /**
