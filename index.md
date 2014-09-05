@@ -4,7 +4,7 @@ title: "Auja"
 ---
 
 <div class="blog-item bg-white">
-	<div class="avatar"></div>
+	<div class="avatar intro"></div>
 	<div class="timeline"></div>
 	<h2 class="text-blue uppercase">Introduction to Auja</h2>
 	<span class="categories">Just a little about our interface</span>
@@ -14,7 +14,7 @@ title: "Auja"
 </div>
 
 <div class="blog-item bg-white">
-	<div class="avatar"></div>
+	<div class="avatar install"></div>
 	<div class="timeline"></div>
 	<h2 class="text-blue uppercase">Installation</h2>
 	<span class="categories">Install Auja easily</span>
@@ -24,7 +24,7 @@ title: "Auja"
 </div>
 
 <div class="blog-item bg-white">
-	<div class="avatar"></div>
+	<div class="avatar docs"></div>
 	<div class="timeline"></div>
 	<h2 class="text-blue uppercase">Documentation</h2>
 	<span class="categories">All you need to know</span>
