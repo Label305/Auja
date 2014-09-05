@@ -4,7 +4,14 @@
         {
             "type": "header",
             "header": {
-                "text": "Create club"
+                "text": "Edit club",
+                "buttons": [
+                    {
+                        "text": "Delete",
+                        "confirm": "Are you sure?",
+                        "target": "example/message.json"
+                    }
+                ]
             }
         },
         {
@@ -17,6 +24,7 @@
                         "type": "text",
                         "text": {
                             "name": "name",
+                            "value": "FC Twente",
                             "label": "Name of club"
                         }
                     },
@@ -31,13 +39,14 @@
                         "type": "textarea",
                         "textarea": {
                             "name": "description",
+                            "value": "Something about this club",
                             "label": "Description"
                         }
                     },
                     {
                         "type": "submit",
                         "submit": {
-                            "name": "Create!"
+                            "name": "Update"
                         }
                     }
                 ]
