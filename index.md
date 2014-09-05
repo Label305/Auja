@@ -17,7 +17,7 @@ title: "Auja"
 	<div class="avatar install"></div>
 	<div class="timeline"></div>
 	<h2 class="text-blue uppercase">Installation</h2>
-	<span class="categories">Install Auja easily</span>
+	<span class="categories">Install Auja and take a peek</span>
 	{% capture installation %}{% include introduction/installation.md %}{% endcapture %}
 	{{ installation | markdownify }}
 	<div class="devider-line"></div>

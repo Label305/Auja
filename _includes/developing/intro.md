@@ -4,4 +4,3 @@ how thing are laced together. In this section we'll describe the inner workings 
 </p>
 
 First thing: React! Auja uses the [React](http://facebook.github.io/react/) framework to render while implementing the [Flux](http://facebook.github.io/react/docs/flux-overview.html) architecture to manage dataflow and dispatching within the application. To ease implementation of this architecture we use [Fluxxor](http://fluxxor.com/).
-
