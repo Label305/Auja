@@ -100,7 +100,10 @@ define($.map(FluxStores, function(value) { return value; }), function() {
             
             switch(type) {
                 case 'message':
-                    this.dispatch('update');
+                    //You can set weither or not to update the system
+                    if(data.message.update == undefined || data.message.update) {
+                        this.dispatch('update');
+                    }
                     break;
             }
         },

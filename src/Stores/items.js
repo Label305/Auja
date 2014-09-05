@@ -34,6 +34,7 @@ define(['fluxxor'], function (Fluxxor) {
         getState: function (resource) {
             if (!this.resources[resource]) {
                 this.resources[resource] = {
+                    target: resource,
                     items: [],
                     paging: {}
                 };
@@ -51,7 +52,7 @@ define(['fluxxor'], function (Fluxxor) {
         },
 
         /**
-         *
+         * Add items to a resource store
          * @param resource
          */
         addItems: function (resource) {
@@ -81,6 +82,38 @@ define(['fluxxor'], function (Fluxxor) {
         },
 
         /**
+         * Set the items of a resource store
+         * @param resource
+         */
+        setItems: function (resource, items) {
+
+            flux.stores.ItemsStore.getState(resource.target);
+
+            //Increment key index
+            if(!this.keyIndex[resource.target]) {
+                this.keyIndex[resource.target] = 0;
+            }
+
+            //Set keys for every item
+            for(var i in items.items) {
+                if(!items.items[i].key) {
+                    items.items[i].key = ++this.keyIndex[resource.target];
+                }
+            }
+
+            //Set items
+            this.resources[resource.target].items = items.items;
+
+            //Make sure the items are sorted
+            this.resources[resource.target].items = flux.stores.ItemsStore.sortItems(this.resources[resource.target].items);
+
+            //Pass/reset the paging
+            this.resources[resource.target].paging = resource.paging ? resource.paging : {};
+
+            this.emit('change');
+        },
+
+        /**
          * Make sure the items are sorted
          * @param items
          * @returns {*}
@@ -103,11 +136,30 @@ define(['fluxxor'], function (Fluxxor) {
         },
 
         /**
-         * Update items
+         * Update items, trying to base it on "paging.current", if not present
+         * will fallback on the default
          */
         update: function() {
-            //TODO implement
-            console.log('TODO: Items update');
+            for(var key in this.resources) {
+                var url = this.resources[key].target;
+                if(this.resources[key].paging && this.resources[key].paging.current) {
+                    url = this.resources[key].paging.current;
+                } 
+                                        
+                this.updateResourceUsingUrl(this.resources[key], url);
+            }
+        },
+
+        /**
+         * Update resource using an url
+         * @param resource
+         * @param url
+         */
+        updateResourceUsingUrl: function(resource, url) {
+            var request = new Request(url);
+            request.get().done(function(response) {
+                this.setItems(resource, response); 
+            }.bind(this));
         }
 
     })
