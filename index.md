@@ -8,7 +8,7 @@ title: "Auja"
 	<div class="timeline"></div>
 	<h2 class="text-blue uppercase">Introduction to Auja</h2>
 	<span class="categories">Just a little about our interface</span>
-	{% capture intro %}{% include intro.md %}{% endcapture %}
+	{% capture intro %}{% include introduction/intro.md %}{% endcapture %}
 	{{ intro | markdownify }}
 	<div class="devider-line"></div>
 </div>
@@ -18,7 +18,7 @@ title: "Auja"
 	<div class="timeline"></div>
 	<h2 class="text-blue uppercase">Installation</h2>
 	<span class="categories">Install Auja easily</span>
-	{% capture installation %}{% include installation.md %}{% endcapture %}
+	{% capture installation %}{% include introduction/installation.md %}{% endcapture %}
 	{{ installation | markdownify }}
 	<div class="devider-line"></div>
 </div>
