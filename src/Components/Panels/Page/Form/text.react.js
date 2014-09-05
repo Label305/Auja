@@ -7,8 +7,7 @@
  *
  * @jsx React.DOM
  */
-
-define([], function() {
+define(['build/Components/Panels/Page/Form/label.react'], function(Label) {
     return React.createClass({
         render: function() {
             var attributes = Object.clone(this.props.item.text);
@@ -23,7 +22,7 @@ define([], function() {
             
             return (
                 <div>
-                    <label>{this.props.item.text.label}</label>
+                    <Label item={this.props.item} name={this.props.item.text.label} />
                     {React.DOM.input(attributes)}
                 </div>
                 );

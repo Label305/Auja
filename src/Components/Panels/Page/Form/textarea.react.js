@@ -8,8 +8,7 @@
  *
  * @jsx React.DOM
  */
-
-define([], function() {
+define(['build/Components/Panels/Page/Form/label.react'], function(Label) {
     return React.createClass({
         render: function() {
             var attributes = Object.clone(this.props.item.textarea);
@@ -25,7 +24,7 @@ define([], function() {
             
             return (
                 <div>
-                    <label>{this.props.item.textarea.label}</label>
+                    <Label item={this.props.item} name={this.props.item.textarea.label} />
                     {React.DOM.textarea(attributes, this.props.item.value ? this.props.item.value : '')}
                 </div>
                 );
