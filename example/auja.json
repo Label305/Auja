@@ -54,7 +54,7 @@
             {
                 "type": "http",
                 "target": "example/clubs/{id}/edit",
-                "action": "example/clubs_.json"
+                "action": "example/clubs_edit.json"
             },
             {
                 "type": "rest",
