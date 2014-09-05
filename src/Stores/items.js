@@ -11,6 +11,11 @@ define(['fluxxor'], function (Fluxxor) {
         resources: [],
 
         /**
+         * Key index for all menu items
+         */
+        keyIndex: [],
+
+        /**
          * On initialization and on system update we will update the state
          * @param url
          */
@@ -50,6 +55,18 @@ define(['fluxxor'], function (Fluxxor) {
          * @param resource
          */
         addItems: function (resource) {
+            
+            //Increment key index
+            if(!this.keyIndex[resource.resource]) {
+                this.keyIndex[resource.resource] = 0;
+            }
+                        
+            //Set keys for every item
+            for(var i in resource.items.items) {
+                if(!resource.items.items[i].key) {
+                    resource.items.items[i].key = ++this.keyIndex[resource.resource];
+                }
+            }
             
             //Add items
             this.resources[resource.resource].items = this.resources[resource.resource].items.concat(resource.items.items);

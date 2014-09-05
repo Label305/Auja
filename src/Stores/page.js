@@ -34,8 +34,9 @@ define(['fluxxor'], function(Fluxxor) {
          */
         dispatch: function(page) {
             this.pages.push(page);
-            flux.stores.PanelStore.addPanel(page);
-        },
+            flux.stores.PanelStore.addPanel(page);            
+            flux.stores.PanelStore.addPanelSuccess();
+        }
 
     })
 

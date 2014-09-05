@@ -96,13 +96,15 @@ define(['fluxxor'], function(Fluxxor) {
                 
             //Put the panel in the view
             this.panels.push(panel);
-            this.emit('change');
-
-            //Force resizing
-            this.resize();
         },
 
-        
+        /**
+         * Should be called when finished processing of panel adding
+         */
+        addPanelSuccess: function() {
+            this.emit('change');
+            this.resize();            
+        },        
         
         /**
          * Activate an item within a panel

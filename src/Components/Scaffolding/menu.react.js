@@ -28,7 +28,7 @@ define([], function() {
         render: function() {
             var menu = this.props.auja.menu.map(function(item) {
                 return (
-                    <Item auja={this.props.auja} item={item} />
+                    <Item key={item.target} auja={this.props.auja} item={item} />
                     );
             }.bind(this));
             

@@ -21,7 +21,7 @@ define($.map(PanelTypes, function(value) { return value; }), function() {
             var Panel = require(PanelTypes[this.props.panel.type]);
             
             return (
-                <section id={this.props.panel.id} ref="panel" className={"panel panel-" + this.props.panel.type}>
+                <section id={this.props.panel.id} key={this.props.panel.id} ref="panel" className={"panel panel-" + this.props.panel.type}>
                     <div onScroll={this.handleScroll} style={this.props.style}>
                         <Panel flux={this.props.flux} message={this.props.message} panel={this.props.panel} />
                     </div>
@@ -59,7 +59,7 @@ define($.map(PanelTypes, function(value) { return value; }), function() {
                     m = message.message;
                 }
                 
-                return (<PanelSection flux={this.props.flux} panel={panel} message={m} style={style} />);  
+                return (<PanelSection key={panel._index} flux={this.props.flux} panel={panel} message={m} style={style} />);  
             }.bind(this));
 
             return (

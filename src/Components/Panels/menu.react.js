@@ -41,8 +41,9 @@ define($.map(MenuItems, function(value) { return value; }), function() {
                     console.error("Unsupported menu item type requested: " + item.type);
                     return;
                 }
+                
                 var Item = require(MenuItems[item.type]);
-                return ( <Item scrollContainer={this.props.scrollContainer} flux={this.props.flux} activeItem={this.props.panel.activeItem} panel={this.props.panel} item={item} /> );
+                return ( <Item key={item.key} scrollContainer={this.props.scrollContainer} flux={this.props.flux} activeItem={this.props.panel.activeItem} panel={this.props.panel} item={item} /> );
             }.bind(this));
             
             return (
