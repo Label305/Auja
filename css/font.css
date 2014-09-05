@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'IntroLightAlt';
+    src: url('../font/Intro-Light-Alt.eot');
+    src: url('../font/Intro-Light-Alt.eot?#iefix') format('embedded-opentype'),
+         url('../font/Intro-Light-Alt.woff') format('woff'),
+         url('../font/Intro-Light-Alt.ttf') format('truetype'),
+         url('../font/Intro-Light-Alt.svg#IntroLightAlt') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IntroBookAlt';
+    src: url('../font/Intro-Book-Alt.eot');
+    src: url('../font/Intro-Book-Alt.eot?#iefix') format('embedded-opentype'),
+         url('../font/Intro-Book-Alt.woff') format('woff'),
+         url('../font/Intro-Book-Alt.ttf') format('truetype'),
+         url('../font/Intro-Book-Alt.svg#IntroBookAlt') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IntroRegular';
+    src: url('../font/Intro-webfont.eot');
+    src: url('../font/Intro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Intro-webfont.woff') format('woff'),
+         url('../font/Intro-webfont.ttf') format('truetype'),
+         url('../font/Intro-webfont.svg#IntroRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'IntroBoldAltRegular';
+    src: url('../font/Intro-bold-alt-webfont.eot');
+    src: url('../font/Intro-bold-alt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Intro-bold-alt-webfont.woff') format('woff'),
+         url('../font/Intro-bold-alt-webfont.ttf') format('truetype'),
+         url('../font/Intro-bold-alt-webfont.svg#IntroBoldAltRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'FuturaStdBookregular';
+    src: url('../font/Futurastd-book-webfont.eot');
+    src: url('../font/Futurastd-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Futurastd-book-webfont.woff') format('woff'),
+         url('../font/Futurastd-book-webfont.ttf') format('truetype'),
+         url('../font/Futurastd-book-webfont.svg#futura_std_bookregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

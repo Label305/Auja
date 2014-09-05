@@ -1,0 +1,6 @@
+name: Auja
+markdown: kramdown
+kramdown:
+  use_coderay: true
+highlighter: true
+exclude: [_html]
