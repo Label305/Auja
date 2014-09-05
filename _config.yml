@@ -1,6 +1,4 @@
 name: Auja
-markdown: kramdown
-kramdown:
-  use_coderay: true
+markdown: redcarpet
 highlighter: true
 exclude: [_html]
