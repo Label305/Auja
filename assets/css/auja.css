@@ -225,6 +225,7 @@ ul#main-menu {
         #panels .panel>div {
             overflow-y: auto;
             overflow-x: hidden;
+            float: left;
         }
         #panels .panel:first-child {
             padding-left: 45px;
@@ -275,9 +276,11 @@ ul#main-menu {
 
 /* Page */
 #panels .panel-page>div {
-    width: 600px;
-    padding: 45px 30px;
+    width: 660px;
 }
+    #panels .panel-page>div>div {
+        margin: 30px;
+    }
     #panels .panel-page .row {
         width: 100%;
         clear: both;
