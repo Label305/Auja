@@ -24,9 +24,17 @@
                         "type": "text",
                         "text": {
                             "name": "name",
-                            "value": "FC Twente",
                             "label": "Name of club"
                         }
+                        
+                    },
+                    {
+                        "type": "number",
+                        "number": {
+                            "name": "name",
+                            "label": "Number of club"
+                        }
+                        
                     },
                     {
                         "type": "password",

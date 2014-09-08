@@ -19,6 +19,15 @@
                             "name": "name",
                             "label": "Name of club"
                         }
+                        
+                    },
+                    {
+                        "type": "number",
+                        "number": {
+                            "name": "name",
+                            "label": "Number of club"
+                        }
+                        
                     },
                     {
                         "type": "password",
