@@ -24,9 +24,20 @@
                         "type": "text",
                         "text": {
                             "name": "name",
-                            "value": "FC Twente",
                             "label": "Name of club"
                         }
+                        
+                    },
+                    {
+                        "type": "number",
+                        "number": {
+                            "name": "totalPlayers",
+                            "label": "Number of players",
+                            "min": "7",
+                            "max": "25",
+                            "value": "11"
+                        }
+                        
                     },
                     {
                         "type": "password",
