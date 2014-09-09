@@ -24,8 +24,11 @@
                     {
                         "type": "number",
                         "number": {
-                            "name": "name",
-                            "label": "Number of club"
+                            "name": "totalPlayers",
+                            "label": "Number of players",
+                            "min": "7",
+                            "max": "25",
+                            "defaultValue": "11"
                         }
                         
                     },
