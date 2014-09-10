@@ -6,21 +6,23 @@
 
 //Listing of all supported page items
 var FormItems = {
-    'header': 'build/Components/Panels/Page/header.react.js',
-    'text': 'build/Components/Panels/Page/Form/text.react.js',
-    'password': 'build/Components/Panels/Page/Form/password.react.js',
-    'textarea': 'build/Components/Panels/Page/Form/textarea.react.js',
-    'trumbowyg': 'build/Components/Panels/Page/Form/trumbowyg.react.js',
-    'number': 'build/Components/Panels/Page/Form/number.react.js',
-    'submit': 'build/Components/Panels/Page/Form/submit.react.js'
+    'header': 'build/Components/Panels/Page/header.react',
+    'text': 'build/Components/Panels/Page/Form/text.react',
+    'password': 'build/Components/Panels/Page/Form/password.react',
+    'textarea': 'build/Components/Panels/Page/Form/textarea.react',
+    'trumbowyg': 'build/Components/Panels/Page/Form/trumbowyg.react',
+    'number': 'build/Components/Panels/Page/Form/number.react',
+    'submit': 'build/Components/Panels/Page/Form/submit.react'
 };
 
 define([
-    'build/Components/Panels/Page/Form/text.react.js',
-    'build/Components/Panels/Page/Form/password.react.js',
-    'build/Components/Panels/Page/Form/textarea.react.js',
-    'build/Components/Panels/Page/Form/number.react.js',
-    'build/Components/Panels/Page/Form/submit.react.js'
+    'build/Components/Panels/Page/header.react',
+    'build/Components/Panels/Page/Form/text.react',
+    'build/Components/Panels/Page/Form/password.react',
+    'build/Components/Panels/Page/Form/textarea.react',
+    'build/Components/Panels/Page/Form/trumbowyg.react',
+    'build/Components/Panels/Page/Form/number.react',
+    'build/Components/Panels/Page/Form/submit.react'
 ], function() {
     return React.createClass({
 

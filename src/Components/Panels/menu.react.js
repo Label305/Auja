@@ -6,16 +6,16 @@
 
 //Listing of all supported menu items
 var MenuItems = {
-    'link': 'build/Components/Panels/Menu/link.react.js',
-    'spacer': 'build/Components/Panels/Menu/spacer.react.js',
-    'resource': 'build/Components/Panels/Menu/resource.react.js'
+    'link': 'build/Components/Panels/Menu/link.react',
+    'spacer': 'build/Components/Panels/Menu/spacer.react',
+    'resource': 'build/Components/Panels/Menu/resource.react'
 };
 
 //Map as an array to load panel dependencies
 define([
-    'build/Components/Panels/Menu/link.react.js',
-    'build/Components/Panels/Menu/spacer.react.js',
-    'build/Components/Panels/Menu/resource.react.js'
+    'build/Components/Panels/Menu/link.react',
+    'build/Components/Panels/Menu/spacer.react',
+    'build/Components/Panels/Menu/resource.react'
 ], function() {
     return React.createClass({
         render: function() {

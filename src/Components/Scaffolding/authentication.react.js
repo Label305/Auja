@@ -1,7 +1,7 @@
 /**
  * @jsx React.DOM
  */
-define(['build/Components/Panels/Page/form.react.js'], function (Form) {
+define(['build/Components/Panels/Page/form.react'], function (Form) {
 
     return React.createClass({
 
