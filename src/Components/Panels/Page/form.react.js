@@ -66,8 +66,7 @@ define($.map(FormItems, function(value) { return value; }), function() {
                 //Fetch the item from the corresponding file
                 var Item = require(FormItems[item.type]);
                 
-                //Extract the vlaidation message from the item
-                //TODO implement displaying of validation messages in form elements
+                //Extract the validation message from the item
                 item.validationMessage = null;
                 if(item[item.type].name && this.props.message.validation && this.props.message.validation[item[item.type].name]) {
                     item.validationMessage = this.props.message.validation[item[item.type].name];
