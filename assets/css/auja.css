@@ -353,6 +353,7 @@ form .row.form-item {
     }        
     form .row.form-item input[type="text"],
     form .row.form-item input[type="password"],
+    form .row.form-item input[type="number"],
     form .row.form-item textarea {
         clear: both;
         width: calc(100% - 20px);
