@@ -9,6 +9,7 @@ var FormItems = {
     'text': 'build/Components/Panels/Page/Form/text.react.js',
     'password': 'build/Components/Panels/Page/Form/password.react.js',
     'textarea': 'build/Components/Panels/Page/Form/textarea.react.js',
+    'trumbowyg': 'build/Components/Panels/Page/Form/trumbowyg.react.js',
     'number': 'build/Components/Panels/Page/Form/number.react.js',
     'submit': 'build/Components/Panels/Page/Form/submit.react.js'
 };
