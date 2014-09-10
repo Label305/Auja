@@ -137,9 +137,49 @@ define(['fluxxor'], function(Fluxxor) {
         },
 
         /**
+         * Remove inactive menu panels
+         */
+        clean: function() {
+            
+            //Clean menu's that are not present anymore
+            var panelsState = flux.stores.PanelStore.getState();
+            for(var i in this.menus) {
+                var flag = false;
+                for(var j in panelsState.panels) {
+                    if(this.menus[i].id == panelsState.panels[j].id) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if(!flag) {
+                    delete this.menus[i];
+                }
+            }
+            
+            //Clean menu resources
+            for(var url in this.menuResources) {
+                var flag = false;
+                for(var i in this.menus) {
+                    if(this.menus[i].url == url) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if(!flag) {
+                    delete this.menuResources[url];
+                }
+            }
+        },
+
+        /**
          * Update menu's
          */
         update: function() {
+            
+            //Now is the moment to clean, we keep menu's as long as possible in memory
+            this.clean();            
+            
+            //Update from server
             for(var url in this.menuResources) {
                 this.updateResource(url, this.menuResources[url]);
             }
