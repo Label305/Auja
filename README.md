@@ -93,7 +93,7 @@ To fill the `dist` directory manually install [r.js](https://github.com/jrburke/
 `auja.js` and `auja.min.js` files by running:
 
 ```
-r.js -o build.js out=auja.min.js
+r.js -o build.js out=dist/auja.min.js
 ```
 
 and
