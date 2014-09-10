@@ -86,6 +86,22 @@ In other words, `new Request(url).get()` will return whatever the `get` method i
 The ables us to combine a menu containing a listing of clubs accompanied by an add button and other elements. While these
 were never explicitly defined, only "guessed" based on basic restful api rules. 
 
+The `dist` dir
+---
+
+To fill the `dist` directory manually install [r.js](https://github.com/jrburke/r.js/). After which you can create the
+`auja.js` and `auja.min.js` files by running:
+
+```
+r.js -o build.js out=auja.min.js
+```
+
+and
+
+```
+r.js -o build.js out=dist/auja.js
+```
+
 React component structure
 ---
 
