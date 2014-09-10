@@ -318,3 +318,11 @@ ul#main-menu {
         #panels .panel-page .row.form-item textarea {
             height: 200px;
         }
+        form .row.form-item .trumbowyg-box {
+            display: inline-block;
+            position: relative;
+            border: 1px solid #DDD;
+            width: 100%;
+            min-height: 300px;
+            margin: 0px auto;
+        }

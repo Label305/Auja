@@ -47,6 +47,13 @@
                         }
                     },
                     {
+                        "type": "trumbowyg",
+                        "trumbowyg": {
+                            "name": "description",
+                            "label": "Description Trumbowyg"
+                        }
+                    },
+                    {
                         "type": "submit",
                         "submit": {
                             "name": "Create!"
