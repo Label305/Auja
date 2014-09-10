@@ -340,33 +340,41 @@ ul#main-menu {
 form .row.form-item {
     margin: 30px 0 0 0;
 }
-form .row.form-item label {
-    clear: both;
-    width: 100%;
-    display: inline-block;
-    float: left;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-size: 12px;
-    min-height: 15px;
-    line-height: 15px;
-}        
-form .row.form-item input[type="text"],
-form .row.form-item input[type="password"],
-form .row.form-item textarea {
-    clear: both;
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: none;
-    border-bottom: 2px solid #E7EFEF;
-    background: #ededed;
-    font-size: 14px;
-    color: #353535;
-    line-height: 20px;
-}
-form .row.form-item input[type="submit"] {
-    float: right;
-}
-form .row.form-item textarea {
-    height: 200px;
-}
+    form .row.form-item label {
+        clear: both;
+        width: 100%;
+        display: inline-block;
+        float: left;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-size: 12px;
+        min-height: 15px;
+        line-height: 15px;
+    }        
+    form .row.form-item input[type="text"],
+    form .row.form-item input[type="password"],
+    form .row.form-item textarea {
+        clear: both;
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid #E7EFEF;
+        background: #ededed;
+        font-size: 14px;
+        color: #353535;
+        line-height: 20px;
+    }
+    form .row.form-item input[type="submit"] {
+        float: right;
+    }
+    form .row.form-item textarea {
+        height: 200px;
+    }
+            form .row.form-item .trumbowyg-box {
+                display: inline-block;
+                position: relative;
+                border: 1px solid #DDD;
+                width: 100%;
+                min-height: 300px;
+                margin: 0px auto;
+            }

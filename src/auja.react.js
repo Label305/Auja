@@ -31,6 +31,7 @@ require.config({
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
         sugar: 'bower_components/sugar/release/sugar-full.min',
+        trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
         request: 'build/Requests/request',
         stores: 'build/Stores/flux'
     }

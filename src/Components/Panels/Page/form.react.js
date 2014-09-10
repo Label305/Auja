@@ -10,6 +10,7 @@ var FormItems = {
     'text': 'build/Components/Panels/Page/Form/text.react.js',
     'password': 'build/Components/Panels/Page/Form/password.react.js',
     'textarea': 'build/Components/Panels/Page/Form/textarea.react.js',
+    'trumbowyg': 'build/Components/Panels/Page/Form/trumbowyg.react.js',
     'number': 'build/Components/Panels/Page/Form/number.react.js',
     'submit': 'build/Components/Panels/Page/Form/submit.react.js'
 };
@@ -69,17 +70,16 @@ define($.map(FormItems, function (value) {
                 //Fetch the item from the corresponding file
                 var Item = require(FormItems[item.type]);
 
-                //Extract the vlaidation message from the item
-                //TODO implement displaying of validation messages in form elements
-                var validationMessage = null;
-                if (item[item.type].name && this.props.message.validation && this.props.message.validation[item[item.type].name]) {
-                    validationMessage = this.props.message.validation[item[item.type].name];
+                //Extract the validation message from the item
+                item.validationMessage = null;
+                if(item[item.type].name && this.props.message.validation && this.props.message.validation[item[item.type].name]) {
+                    item.validationMessage = this.props.message.validation[item[item.type].name];
                 }
 
                 var className = 'row form-item form-item-{type}'.assign({type: item.type});
                 return (
                     <div className={className}>
-                        <Item validationMessage={validationMessage} itemId={this.getFormItemId(item)} item={item} />
+                        <Item itemId={this.getFormItemId(item)} item={item} />
                     </div>
                     );
             }.bind(this));
