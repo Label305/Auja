@@ -299,6 +299,10 @@ ul#main-menu {
             min-height: 15px;
             line-height: 15px;
         }        
+        #panels .panel-page .row.form-item label .validation-message {
+            display: inline-block;
+            float: right;
+        }
         #panels .panel-page .row.form-item input[type="text"],
         #panels .panel-page .row.form-item input[type="password"],
         #panels .panel-page .row.form-item textarea {
