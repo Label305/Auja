@@ -103,8 +103,7 @@ define(['fluxxor'], function(Fluxxor) {
                     }
                 }      
                 this.panels = panels;
-            } else{
-                // TODO check if this is the most elegant way of clearing after the main menu
+            } else {
                 this.panels = [];
             }
                 
