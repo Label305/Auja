@@ -11,7 +11,10 @@ var PanelTypes = {
 };
 
 //Map as an array to load panel dependencies
-define($.map(PanelTypes, function(value) { return value; }), function() {
+define([
+    'build/Components/Panels/menu.react',
+    'build/Components/Panels/page.react'
+], function() {
     
     var PanelSection = React.createClass({
         handleScroll: function() {

@@ -13,7 +13,13 @@ var FormItems = {
     'submit': 'build/Components/Panels/Page/Form/submit.react.js'
 };
 
-define($.map(FormItems, function(value) { return value; }), function() {
+define([
+    'build/Components/Panels/Page/Form/text.react.js',
+    'build/Components/Panels/Page/Form/password.react.js',
+    'build/Components/Panels/Page/Form/textarea.react.js',
+    'build/Components/Panels/Page/Form/number.react.js',
+    'build/Components/Panels/Page/Form/submit.react.js'
+], function() {
     return React.createClass({
 
         /**
