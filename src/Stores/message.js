@@ -45,13 +45,6 @@ define(['fluxxor'], function(Fluxxor) {
         dispatch: function(message) {
             this.message = message;
             this.emit('change');
-        },
-
-        /**
-         * Update messages
-         */
-        update: function() {
-            //TODO implement
         }
 
     })

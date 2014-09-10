@@ -2,7 +2,7 @@
     "type": "main",
     "main": {
         "title": "Auja example",
-        "authenticated": false,
+        "authenticated": true,
         "debug": true,
         "colors": {
             "main": "#1ebab8",
@@ -31,6 +31,11 @@
             }
         ],
         "routes": [
+            {
+                "type": "http",
+                "target": "example/login",
+                "action": "example/login.json"
+            },
             {
                 "type": "http",
                 "target": "example/clubs/menu",
@@ -62,6 +67,41 @@
                 "endpoint": "clubs"
             }
         ],
-        "authentication": false
+        "authentication": {
+            "type": "form",
+            "form": {
+                "action": "example/login",
+                "method": "get",
+                "items": [
+                    {
+                        "type": "header",
+                        "header": {
+                            "text": "Auja Example"
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "text": {
+                            "name": "username",
+                            "label": "Username"
+                        }
+
+                    },
+                    {
+                        "type": "password",
+                        "password": {
+                            "name": "password",
+                            "label": "Password"
+                        }
+                    },
+                    {
+                        "type": "submit",
+                        "submit": {
+                            "name": "Login"
+                        }
+                    }
+                ]
+            }
+        }
     }
 }

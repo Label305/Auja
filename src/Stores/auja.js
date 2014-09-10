@@ -31,7 +31,8 @@ define(['fluxxor'], function(Fluxxor) {
         initialize: function(url) {
             this.bindActions(
                 'initialize', this.update,
-                'update', this.update
+                'update', this.update,
+                'message', this.message
             )  
         },
 
@@ -57,6 +58,23 @@ define(['fluxxor'], function(Fluxxor) {
                 .fail(function () {
                     // TODO handle this
                 }.bind(this));
+        },
+
+        /**
+         * Messages can contain snippets that are relevant for auja
+         * @param message
+         */
+        message: function(message) {
+            var changed = false;
+            
+            if(message.authenticated && this.state.authenticated != message.authenticated) {
+                this.state.authenticated = message.authenticated;
+                changed = true;
+            }
+            
+            if(changed) {
+                this.emit('change');
+            }
         }
         
     })
