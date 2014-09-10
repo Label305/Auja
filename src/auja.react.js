@@ -18,15 +18,33 @@ require.config({
      * Location of dependencies
      */
     paths: {
-        react: 'bower_components/react/react',
-        jquery: 'bower_components/jquery/dist/jquery.min',
-        fluxxor: 'bower_components/fluxxor/build/fluxxor',
-        signals: 'bower_components/js-signals/dist/signals',
-        crossroads: 'bower_components/crossroads.js/dist/crossroads',
-        sugar: 'bower_components/sugar/release/sugar-full.min',
-        trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
-        request: 'build/Requests/request',
-        stores: 'build/Stores/flux'
+        'react': 'bower_components/react/react',
+        'jquery': 'bower_components/jquery/dist/jquery.min',
+        'fluxxor': 'bower_components/fluxxor/build/fluxxor',
+        'signals': 'bower_components/js-signals/dist/signals',
+        'crossroads': 'bower_components/crossroads.js/dist/crossroads',
+        'sugar': 'bower_components/sugar/release/sugar-full.min',
+        'trumbowyg': 'bower_components/trumbowyg/dist/trumbowyg.min',
+        'request': 'build/Requests/request',
+        'stores': 'build/Stores/flux',
+        
+        //Bunch of requirements needed for the blueimp file uploader
+        'jquery.ui.widget': 'bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget',
+        'jquery.fileupload': 'bower_components/blueimp-file-upload/js/jquery.fileupload',
+        'jquery.fileupload-ui': 'bower_components/blueimp-file-upload/js/jquery.fileupload-ui',
+        'jquery.fileupload-image': 'bower_components/blueimp-file-upload/js/jquery.fileupload-image',
+        'jquery.fileupload-validate': 'bower_components/blueimp-file-upload/js/jquery.fileupload-validate',
+        'jquery.fileupload-video': 'bower_components/blueimp-file-upload/js/jquery.fileupload-video',
+        'jquery.fileupload-audio': 'bower_components/blueimp-file-upload/js/jquery.fileupload-audio',
+        'jquery.fileupload-process': 'bower_components/blueimp-file-upload/js/jquery.fileupload-process',
+        'jquery.fileupload-jquery-ui': 'bower_components/blueimp-file-upload/js/jquery.fileupload-jquery-ui',
+        'jquery.iframe-transport': 'bower_components/blueimp-file-upload/js/jquery.iframe-transport',
+        'load-image': 'bower_components/blueimp-load-image/js/load-image',
+        'load-image-meta': 'bower_components/blueimp-load-image/js/load-image-meta',
+        'load-image-exif': 'bower_components/blueimp-load-image/js/load-image-exif',
+        'load-image-ios': 'bower_components/blueimp-load-image/js/load-image-ios',
+        'canvas-to-blob': 'bower_components/blueimp-canvas-to-blob/js/canvas-to-blob',
+        'tmpl': 'bower_components/blueimp-tmpl/js/tmpl'
     }
 });
 

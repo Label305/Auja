@@ -19,7 +19,15 @@
                             "name": "name",
                             "label": "Name of club"
                         }
-                        
+
+                    },
+                    {
+                        "type": "file",
+                        "file": {
+                            "name": "logos[]",
+                            "multiple": "multiple",
+                            "label": "Logo"
+                        }
                     },
                     {
                         "type": "number",

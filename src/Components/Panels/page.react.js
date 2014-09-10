@@ -35,7 +35,7 @@ define([
                 }
                 var Item = require(PageItems[item.type]);
                 return ( 
-                    <div class="row">
+                    <div className="row">
                         <Item message={this.props.message} panel={this.props.panel} item={item} />
                     </div>
                     );

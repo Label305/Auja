@@ -22,6 +22,7 @@
     "js-signals": "~1.0.0",
     "sugar": "~1.4.1",
     "Ionicons": "driftyco/ionicons#v1.5.2",
-    "trumbowyg": "~1.1.2"
+    "trumbowyg": "~1.1.2",
+    "blueimp-file-upload": "~9.7.1"
   }
 }
