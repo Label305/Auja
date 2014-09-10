@@ -11,7 +11,10 @@ var PageItems = {
 };
 
 //Map as an array to load panel dependencies
-define($.map(PageItems, function(value) { return value; }), function() {
+define([
+    'build/Components/Panels/Page/header.react.js',
+    'build/Components/Panels/Page/form.react.js'
+], function() {
     
     return React.createClass({
         render: function() {

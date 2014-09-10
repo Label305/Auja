@@ -7,10 +7,12 @@ var routers = {
     'rest': 'build/Requests/Routers/rest'
 };
 
-var routerDependencies = $.map(routers, function (value) {
-    return value;
-});
-define($.merge(['signals', 'crossroads'], routerDependencies), function (signals, crossroads) {
+define([
+    'signals', 
+    'crossroads',
+    'build/Requests/Routers/http',
+    'build/Requests/Routers/rest'
+], function (signals, crossroads) {
 
     //Register as a global
     window.crossroads = crossroads;

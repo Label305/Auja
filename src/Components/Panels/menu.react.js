@@ -12,7 +12,11 @@ var MenuItems = {
 };
 
 //Map as an array to load panel dependencies
-define($.map(MenuItems, function(value) { return value; }), function() {
+define([
+    'build/Components/Panels/Menu/link.react.js',
+    'build/Components/Panels/Menu/spacer.react.js',
+    'build/Components/Panels/Menu/resource.react.js'
+], function() {
     return React.createClass({
         render: function() {
             //Copy so that we wont apply changes twice

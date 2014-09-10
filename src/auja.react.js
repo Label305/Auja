@@ -1,13 +1,6 @@
 /**
  * @jsx React.DOM
  */
-
-
-//Debugging
-if (typeof __debug__ != 'undefined') {
-    var __debug = false;
-}
-
 //RequireJS config
 require.config({
 
@@ -19,7 +12,7 @@ require.config({
     /**
      * When debug is true add a bust to prevent caching
      */
-    urlArgs: __debug__ ? '_=' + (new Date()).getTime() : '',
+    urlArgs: (new Date()).getTime(),
 
     /**
      * Location of dependencies
