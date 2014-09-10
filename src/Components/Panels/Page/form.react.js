@@ -68,15 +68,15 @@ define($.map(FormItems, function(value) { return value; }), function() {
                 
                 //Extract the vlaidation message from the item
                 //TODO implement displaying of validation messages in form elements
-                var validationMessage = null;
+                item.validationMessage = null;
                 if(item[item.type].name && this.props.message.validation && this.props.message.validation[item[item.type].name]) {
-                    validationMessage = this.props.message.validation[item[item.type].name];
+                    item.validationMessage = this.props.message.validation[item[item.type].name];
                 }
                                 
                 var className = 'row form-item form-item-{type}'.assign({type: item.type});                 
                 return (
                     <div className={className}>
-                        <Item validationMessage={validationMessage} itemId={this.getFormItemId(item)} item={item} />
+                        <Item itemId={this.getFormItemId(item)} item={item} />
                     </div>
                     );
             }.bind(this));
