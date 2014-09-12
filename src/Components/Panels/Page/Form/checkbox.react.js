@@ -10,13 +10,12 @@
  define(['build/Components/Panels/Page/Form/label.react'], function(Label) {
     return React.createClass({
         getInitialState: function() {
-            if (this.props.item.checkbox.checked == 'true')
-            {
-            return {checked: true};
-        } else {
-
-            return {checked: false};
-        }
+            if (this.props.item.checkbox.checked && this.props.item.checkbox.checked == "true")
+            {               
+                return {checked: true};
+            } else {
+                return {checked: false};
+            }              
         },
         handleChange: function(event) {
             this.setState({checked: event.target.checked});
@@ -31,7 +30,8 @@
                 id: this.props.itemId,
                 type: 'checkbox',
                 onChange: this.handleChange,
-                checked: this.state.checked
+                checked: this.state.checked,
+                value: this.props.item.checkbox.value
             });            
             
             return (

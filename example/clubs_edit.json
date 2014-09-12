@@ -45,11 +45,6 @@
                         "checkbox": {
                             "name": "leagues",
                             "label": "Plays in leagues",
-                            "value": "Amateur"
-                        },
-                        "checkbox": {
-                            "name": "leagues",
-                            "label": "Plays in leagues",
                             "value": "Jupiler",
                             "checked": "true"
                         }
