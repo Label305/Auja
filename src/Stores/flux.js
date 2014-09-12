@@ -8,7 +8,14 @@ var FluxStores = {
 }
 
 //Map as an array to load store dependencies
-define($.map(FluxStores, function(value) { return value; }), function() {
+define([
+    'build/Stores/auja',
+    'build/Stores/panel',
+    'build/Stores/menu',
+    'build/Stores/page',
+    'build/Stores/message',
+    'build/Stores/items'
+], function() {
     
     //Fill object with stores
     var stores = {};

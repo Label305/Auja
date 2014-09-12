@@ -6,12 +6,15 @@
 
 //Listing of all supported page items
 var PageItems = {
-    'header': 'build/Components/Panels/Page/header.react.js',
-    'form': 'build/Components/Panels/Page/form.react.js'
+    'header': 'build/Components/Panels/Page/header.react',
+    'form': 'build/Components/Panels/Page/form.react'
 };
 
 //Map as an array to load panel dependencies
-define($.map(PageItems, function(value) { return value; }), function() {
+define([
+    'build/Components/Panels/Page/header.react',
+    'build/Components/Panels/Page/form.react'
+], function() {
     
     return React.createClass({
         render: function() {

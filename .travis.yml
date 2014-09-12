@@ -5,7 +5,10 @@ install:
     - npm install -g bower
     - npm install -g react-tools
     - yes no | bower install --allow-root
+    - npm install -g requirejs
 before_script:
     - jsx src/ build/
+    - r.js -o build.js out=dist/auja.min.js
+    - r.js -o build.js out=dist/auja.js
 script:
     - echo "TODO"

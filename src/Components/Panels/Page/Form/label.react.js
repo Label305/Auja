@@ -12,8 +12,20 @@
 define([], function () {
     return React.createClass({
         render: function () {
+            
+            //Extract the validation message
+            var validation = '';
+            if(this.props.item.validationMessage != null) {
+                validation = (
+                    <span className="validation-message auja-color-alert">{this.props.item.validationMessage}</span>
+                    );
+            }
+            
             return (
-                <label>{this.props.name}</label>
+                <label>
+                <span>{this.props.name}</span>
+                {validation}
+                </label>
                 );
         }
     });

@@ -24,7 +24,8 @@
                         "type": "text",
                         "text": {
                             "name": "name",
-                            "label": "Name of club"
+                            "label": "Name of club",
+                            "value": "The clicked club"
                         }
                         
                     },
