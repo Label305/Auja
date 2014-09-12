@@ -37,7 +37,8 @@
                         "checkbox": {
                             "name": "leagues",
                             "label": "Plays in leagues",
-                            "value": "Jupiler"
+                            
+                            "checked": true
                         }                        
                     },
                     {
