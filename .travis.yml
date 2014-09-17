@@ -11,4 +11,4 @@ before_script:
     - r.js -o build.js out=dist/auja.min.js
     - r.js -o build.js out=dist/auja.js
 script:
-    - echo "TODO"
+    - npm test

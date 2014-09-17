@@ -12,10 +12,10 @@
         "url": "git://github.com/Label305/Auja.git"
     },
     "scripts": {
-        "test": "jest"
+        "test": "node node_modules/jest-cli/bin/jest.js"
     },
     "jest": {
         "scriptPreprocessor": "<rootDir>/preprocessor.js",
-        "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"]
+        "unmockedModulePathPatterns": ["react"]
     }
 }

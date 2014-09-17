@@ -3,7 +3,7 @@
  */
 //jest.dontMock('../../../../src/Components/Panels/Menu/link.react.js');
 describe('MenuItemLInk', function() {
-    it('displays the link name', function() {
+    it('Displays a link in the menu', function() {
         //TODO debug the requiring of react/addons breaking our tests!
         
 //        var React = require('react/addons');
