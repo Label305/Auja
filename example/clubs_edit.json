@@ -44,8 +44,8 @@
                         "type": "checkbox",
                         "checkbox": {
                             "name": "leagues",
-                            "label": "Plays in leagues",
-                            "value": "Jupiler",
+                            "label": "Jupiler",
+                            "required": false,
                             "checked": true
                         }
                         

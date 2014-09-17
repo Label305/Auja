@@ -4,12 +4,12 @@
  * - label
  * - name
  * - .. any other allowed by input
- *
+ * TODO: Allow checkbox change when value is not set present in JSON
  * @jsx React.DOM
  */
  define(['build/Components/Panels/Page/Form/label.react'], function(Label) {
     return React.createClass({
-        getInitialState: function() {
+        getInitialState: function() {           
             return {checked: this.props.item.checkbox.checked && this.props.item.checkbox.checked == true}   
         },
         handleChange: function(event) {
@@ -40,7 +40,7 @@
                 <div>
                 <Label item={this.props.item} name={this.props.item.checkbox.label} />
                 <input type="hidden" value="0" name={this.props.item.checkbox.label} />
-                <input type="checkbox" value="1" name={this.props.item.checkbox.label} />
+                <input type="checkbox" value="1" name={this.props.item.checkbox.label} checked={this.props.item.checkbox.checked} onChange={this.handleChange}/>
                 </div>
                 );
         }
