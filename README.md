@@ -86,6 +86,22 @@ In other words, `new Request(url).get()` will return whatever the `get` method i
 The ables us to combine a menu containing a listing of clubs accompanied by an add button and other elements. While these
 were never explicitly defined, only "guessed" based on basic restful api rules. 
 
+The `dist` dir
+---
+
+To fill the `dist` directory manually install [r.js](https://github.com/jrburke/r.js/). After which you can create the
+`auja.js` and `auja.min.js` files by running:
+
+```
+r.js -o build.js out=dist/auja.min.js
+```
+
+and
+
+```
+r.js -o build.js out=dist/auja.js
+```
+
 React component structure
 ---
 
@@ -99,18 +115,17 @@ Scaffolding, listening to AujaStore (scaffolding.react.js)
 ```
 
 License
------
+---------
+Copyright 2014 Label305 B.V.
 
-	Copyright 2014 Label305
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-	http://www.apache.org/licenses/LICENSE-2.0
-
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

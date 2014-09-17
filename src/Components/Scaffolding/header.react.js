@@ -18,7 +18,7 @@ define([], function () {
             if (this.props.auja.buttons) {
                 buttons = this.props.auja.buttons.map(function (button) {
                     return (
-                        <a className="auja-bg-main" href={button.url}>{button.title}</a>
+                        <a className="auja-bg-main button" key={button.target} href={button.target}>{button.title}</a>
                         );
                 });
             }

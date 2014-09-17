@@ -1,0 +1,66 @@
+{
+    "type": "page",
+    "page": [
+        {
+            "type": "header",
+            "header": {
+                "text": "Create club"
+            }
+        },
+        {
+            "type": "form",
+            "form": {
+                "action": "example/clubs/store",
+                "method": "get",
+                "items": [
+                    {
+                        "type": "text",
+                        "text": {
+                            "name": "name",
+                            "label": "Name of club"
+                        }
+                        
+                    },
+                    {
+                        "type": "number",
+                        "number": {
+                            "name": "totalPlayers",
+                            "label": "Number of players",
+                            "min": "7",
+                            "max": "25",
+                            "value": "11"
+                        }
+                        
+                    },
+                    {
+                        "type": "password",
+                        "password": {
+                            "name": "token",
+                            "label": "Token"
+                        }
+                    },
+                    {
+                        "type": "textarea",
+                        "textarea": {
+                            "name": "description",
+                            "label": "Description"
+                        }
+                    },
+                    {
+                        "type": "trumbowyg",
+                        "trumbowyg": {
+                            "name": "description",
+                            "label": "Description Trumbowyg"
+                        }
+                    },
+                    {
+                        "type": "submit",
+                        "submit": {
+                            "name": "Create!"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

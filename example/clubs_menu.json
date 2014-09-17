@@ -5,25 +5,41 @@
             "type": "link",
             "order": 1,
             "link": {
-                "name": "Clubs (recursive)",
-                "target": "example/clubs_menu.json",
-                "icon": "magnet"
+                "name": "Add club",
+                "target": "example/clubs/create",
+                "icon": "compose"
             }
         },
         {
             "type": "link",
-            "order": 3,
+            "order": 1,
             "link": {
-                "name": "FC Twente",
-                "target": "example/page.json",
-                "icon": "random"
+                "name": "Trigger message",
+                "target": "example/message.json",
+                "icon": "alert"
             }
         },
         {
             "type": "spacer",
-            "order": 2,
+            "order": 3,
             "spacer": {
-                "name": "Spacing between others"
+                "name": "Clubs"
+            }
+        },
+        {
+            "type": "link",
+            "order": 2,
+            "link": {
+                "name": "FC Twente (recursive)",
+                "target": "example/clubs/menu",
+                "icon": "beer"
+            }
+        },
+        {
+            "type": "resource",
+            "order": 4,
+            "resource": {
+                "target": "example/clubs"
             }
         }
     ]

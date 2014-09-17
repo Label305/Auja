@@ -21,7 +21,7 @@ define(['build/Objects/menu'], function() {
                     var item = new MenuItemLink();
                     item.setName('Add ' + route.rest.name.toLowerCase().singularize());
                     item.setTarget(route.rest.resource + '/create');
-                    item.setIcon('plus');
+                    item.setIcon('compose');
                     menu.addItem(item);
                     
                     //Spacer
@@ -34,6 +34,15 @@ define(['build/Objects/menu'], function() {
             }
             
             return dfd.promise();
+        }
+        
+        
+        this.post = function(data) {
+            console.error('POST not implemented in REST handler');
+        }
+        
+        this.put = function(data) {
+            console.error('PUT not implemented in REST handler');
         }
     }
 });

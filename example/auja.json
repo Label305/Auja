@@ -2,11 +2,12 @@
     "type": "main",
     "main": {
         "title": "Auja example",
-        "authenticated": false,
+        "authenticated": true,
         "debug": true,
         "colors": {
-            "main": "red",
-            "secondary": "#E7EFEF"
+            "main": "#1ebab8",
+            "secondary": "#E7EFEF",
+            "alert": "#e85840"
         },
         "user": {
             "name": "Joris Blaak"
@@ -20,7 +21,7 @@
         "menu": [
             {
                 "title": "Clubs",
-                "icon": "group",
+                "icon": "planet",
                 "target": "example/clubs/menu"
             },
             {
@@ -32,8 +33,33 @@
         "routes": [
             {
                 "type": "http",
+                "target": "example/login",
+                "action": "example/login.json"
+            },
+            {
+                "type": "http",
                 "target": "example/clubs/menu",
                 "action": "example/clubs_menu.json"
+            },
+            {
+                "type": "http",
+                "target": "example/clubs/create",
+                "action": "example/clubs_create.json"
+            },
+            {
+                "type": "http",
+                "target": "example/clubs/store",
+                "action": "example/clubs_store.json"
+            },
+            {
+                "type": "http",
+                "target": "example/clubs",
+                "action": "example/clubs_index.json"
+            },
+            {
+                "type": "http",
+                "target": "example/clubs/{id}/edit",
+                "action": "example/clubs_edit.json"
             },
             {
                 "type": "rest",
@@ -41,6 +67,41 @@
                 "endpoint": "clubs"
             }
         ],
-        "authentication": false
+        "authentication": {
+            "type": "form",
+            "form": {
+                "action": "example/login",
+                "method": "get",
+                "items": [
+                    {
+                        "type": "header",
+                        "header": {
+                            "text": "Auja Example"
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "text": {
+                            "name": "username",
+                            "label": "Username"
+                        }
+
+                    },
+                    {
+                        "type": "password",
+                        "password": {
+                            "name": "password",
+                            "label": "Password"
+                        }
+                    },
+                    {
+                        "type": "submit",
+                        "submit": {
+                            "name": "Login"
+                        }
+                    }
+                ]
+            }
+        }
     }
 }

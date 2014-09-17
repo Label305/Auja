@@ -1,0 +1,68 @@
+{
+    "type": "page",
+    "page": [
+        {
+            "type": "header",
+            "header": {
+                "text": "Edit club",
+                "buttons": [
+                    {
+                        "text": "Delete",
+                        "confirm": "Are you sure?",
+                        "target": "example/message.json"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "form",
+            "form": {
+                "action": "example/clubs/store",
+                "method": "get",
+                "items": [
+                    {
+                        "type": "text",
+                        "text": {
+                            "name": "name",
+                            "label": "Name of club",
+                            "value": "The clicked club"
+                        }
+                        
+                    },
+                    {
+                        "type": "number",
+                        "number": {
+                            "name": "totalPlayers",
+                            "label": "Number of players",
+                            "min": "7",
+                            "max": "25",
+                            "value": "11"
+                        }
+                        
+                    },
+                    {
+                        "type": "password",
+                        "password": {
+                            "name": "token",
+                            "label": "Token"
+                        }
+                    },
+                    {
+                        "type": "textarea",
+                        "textarea": {
+                            "name": "description",
+                            "value": "Something about this club",
+                            "label": "Description"
+                        }
+                    },
+                    {
+                        "type": "submit",
+                        "submit": {
+                            "name": "Update"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

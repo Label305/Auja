@@ -60,6 +60,7 @@ table {
 body {
     background: #f1f1f1;
     color: #555555;
+    overflow-y: hidden;
 }
 h1 {
     float: left;
@@ -70,16 +71,127 @@ h1 {
     line-height: 27px;
 }
 
+h2 {
+    font-size: 25px;
+    font-weight: 100;
+    height: 40px;
+    line-height: 40px;
+}
+
 a {
     text-decoration: none;
 }
 
+/* Generic elements */
+.button {
+    width: auto;
+    margin: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #FFF;
+    border: none;
+    font-size: 14px;
+    line-height: 20px;
+}
+    h2>.button {
+        float: right;
+    }
+
+/* Authentication overlay */
+.authentication-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    vertical-align: middle;
+    background: rgb(241, 241, 241);
+}
+    .authentication-overlay form {
+        position: absolute;
+        display: table-cell;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 330px;
+        width: 420px;
+        padding: 45px;
+        margin: auto;
+        background: #FFF;
+    }
+    .authentication-overlay.transparent {
+        background: rgba(241, 241, 241, 0.8);
+    }
+    .authentication-overlay-hugeinc {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+        transition: opacity 0.5s, visibility 0s 0.5s;
+    }
+        .authentication-overlay-hugeinc.open {
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: opacity 0.5s;
+            transition: opacity 0.5s;
+        }
+
+@media screen and (max-height: 30.5em) {
+    .authentication-overlay nav {
+        height: 70%;
+        font-size: 34px;
+    }
+    .authentication-overlay ul li {
+        min-height: 34px;
+    }
+}
+
+/* Message */
+.message {
+    position: fixed;
+    z-index: 1001;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 550px;
+    min-height: 120px;
+    margin: -60px auto 0 auto;
+    padding: 20px;
+    color: white;
+}
+    .message:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+    }
+    .message:after {
+        content: "";
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        width: 15px;
+        height: 15px;
+        background-image: url('../img/close.svg');
+        background-size: 15px;
+        cursor: pointer;
+    }
+
+/* Header */
 header {
-    
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
 }
     header #user {
         float: right;
         margin-top: 20px;
+        line-height: 20px;
     }
     header #buttons {
         float: right;
@@ -97,16 +209,17 @@ header {
             font-size: 15px;
         }
 
+/* Main menu */
 ul#main-menu {
     position: fixed;
     z-index: 50;
     top: 115px;
-    left: 10px;
+    left: 15px;
 }
     ul#main-menu li {
         position: relative;
-        width: 56px;
-        height: 56px;
+        width: 60px;
+        height: 60px;
         cursor: pointer;
         margin-bottom: 30px;
         display: block;
@@ -115,10 +228,10 @@ ul#main-menu {
         ul#main-menu li:before {
             color: #FFF;
             position: absolute;
-            height: 56px;
-            width: 56px;
+            height: 60px;
+            width: 60px;
             font-size: 25px;
-            line-height: 56px;
+            line-height: 60px;
             text-align: center;
         }
         ul#main-menu li:after {
@@ -126,38 +239,51 @@ ul#main-menu {
             position: absolute;
             width: 0;
             height: 0;
-            border-width: 9px 19px 0 0;
+            border-width: 9px 15px 0 0;
             border-style: solid;
             border-color: transparent rgb(7, 166, 161) transparent transparent;/* TODO set color from JS */
             top: -10px;
             left: 0;
         }
-        ul#main-menu li p {
+        ul#main-menu li span {
             display: none;
         }
 
 /* Generic panel */        
 #panels {
     position: absolute;
+    display: table;
     top: 80px;
-    left: 30px;
-    right: 20px;
-    bottom: 20px;
+    height: calc(100% - 110px);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-left: 30px;
 }
-    #panels .panel {
-        float: left;
-        display: inline-block;
-        height: 100%;
-        background-color: #FFF;
-        margin-right: 5px;
+    #panels>div {
+        display: table-row;
+        position: absolute;
+        top: 0;
+        left: 30px;
+        right: 0;
+        bottom: 0;
     }
+    #panels .panel {
+        display: table-cell;
+        background-color: #FFF;
+        border-right: 5px solid #f1f1f1;
+    }
+        #panels .panel>div {
+            overflow-y: auto;
+            overflow-x: hidden;
+            float: left;
+        }
         #panels .panel:first-child {
-            padding-left: 35px;
+            padding-left: 45px;
         }
         
 /* Menu */
-#panels .panel-menu {
-    width: 300px;
+#panels .panel-menu>ul {
+    width: 270px;
 }
 #panels .panel-menu ul {
     margin: 30px 0 0 30px;
@@ -169,12 +295,12 @@ ul#main-menu {
 #panels .panel-menu .menu-item-link {
     height: 30px;
     margin-top: 1px;
-    padding: 10px 20px 10px 30px;
+    padding: 15px 15px 15px 30px;
     border-bottom: 1px solid;
     font-size: 14px;
     line-height: 30px;
     cursor: pointer;
-    width: calc(100% - 50px);
+    width: calc(100% - 45px);
 }
     #panels .panel-menu .menu-item-link:before {
         position: absolute;
@@ -194,3 +320,62 @@ ul#main-menu {
     text-transform: uppercase;
     background-color: white;
 }
+#panels .panel-menu .menu-item-resource>ul {
+    margin: 0;
+}
+
+/* Page */
+#panels .panel-page>div {
+    width: 660px;
+}
+    #panels .panel-page>div>div {
+        margin: 30px;
+    }
+    #panels .panel-page .row {
+        width: 100%;
+        clear: both;
+    }
+ 
+/* Form */
+form .row.form-item {
+    margin: 30px 0 0 0;
+}
+    form .row.form-item label {
+        clear: both;
+        width: 100%;
+        display: inline-block;
+        float: left;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-size: 12px;
+        min-height: 15px;
+        line-height: 15px;
+    }        
+    form .row.form-item input[type="text"],
+    form .row.form-item input[type="password"],
+    form .row.form-item input[type="number"],
+    form .row.form-item textarea {
+        clear: both;
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid #E7EFEF;
+        background: #ededed;
+        font-size: 14px;
+        color: #353535;
+        line-height: 20px;
+    }
+    form .row.form-item input[type="submit"] {
+        float: right;
+    }
+    form .row.form-item textarea {
+        height: 200px;
+    }
+            form .row.form-item .trumbowyg-box {
+                display: inline-block;
+                position: relative;
+                border: 1px solid #DDD;
+                width: 100%;
+                min-height: 300px;
+                margin: 0px auto;
+            }

@@ -1,13 +1,6 @@
 /**
  * @jsx React.DOM
  */
-
-
-//Debugging
-if (typeof __debug__ != 'undefined') {
-    var __debug = false;
-}
-
 //RequireJS config
 require.config({
 
@@ -19,7 +12,7 @@ require.config({
     /**
      * When debug is true add a bust to prevent caching
      */
-    urlArgs: __debug__ ? '_=' + (new Date()).getTime() : '',
+    urlArgs: (new Date()).getTime(),
 
     /**
      * Location of dependencies
@@ -31,6 +24,7 @@ require.config({
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
         sugar: 'bower_components/sugar/release/sugar-full.min',
+        trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
         request: 'build/Requests/request',
         stores: 'build/Stores/flux'
     }
@@ -60,6 +54,9 @@ require(['react', 'jquery', 'fluxxor', 'sugar'], function (react) {
         
         //Setup building block and its utilities
         require(['build/scaffolding.react', 'request'], function(Scaffolding) {
+            
+            //Bind resize
+            $(window).bind('resize', flux.actions.resize);
 
             //Render the main structure
             React.renderComponent(<Scaffolding flux={flux} />, document.body);

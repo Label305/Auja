@@ -36,24 +36,31 @@ define([], function() {
          * @return Deferred
          */
         this.get = function () {
+            if(arguments[0]) {
+                this.setData(arguments[0]);
+            }
             this.settings.type = 'GET';
             return this._doAjax();
         };
 
         /**
          * Post request
+         * @param data
          * @return Deferred
          */
-        this.post = function () {
+        this.post = function (data) {
+            this.setData(data);
             this.settings.type = 'POST';
             return this._doAjax();
         };
 
         /**
          * Put request
+         * @param data
          * @return Deferred
          */
-        this.put = function () {
+        this.put = function (data) {
+            this.setData(data);
             this.settings.data._method = 'PUT';
             return this.post();
         };
