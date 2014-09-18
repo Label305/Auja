@@ -32,7 +32,8 @@ define(['fluxxor'], function (Fluxxor) {
          * @returns {*}
          */
         getState: function (resource) {
-            if (!this.resources[resource]) {
+            
+            if (!this.resources.hasOwnProperty(resource)) {
                 this.resources[resource] = {
                     target: resource,
                     items: [],
@@ -73,7 +74,7 @@ define(['fluxxor'], function (Fluxxor) {
             this.resources[resource.resource].items = this.resources[resource.resource].items.concat(resource.items.items);
             
             //Make sure the items are sorted
-            this.resources[resource.resource].items = flux.stores.ItemsStore.sortItems(this.resources[resource.resource].items); 
+            this.resources[resource.resource].items = this.sortItems(this.resources[resource.resource].items); 
             
             //Pass/reset the paging
             this.resources[resource.resource].paging = resource.paging ? resource.paging : {};
@@ -86,8 +87,8 @@ define(['fluxxor'], function (Fluxxor) {
          * @param resource
          */
         setItems: function (resource, items) {
-
-            flux.stores.ItemsStore.getState(resource.target);
+            
+            this.getState(resource.target);
 
             //Increment key index
             if(!this.keyIndex[resource.target]) {
@@ -104,13 +105,13 @@ define(['fluxxor'], function (Fluxxor) {
 
             //Set items
             this.resources[resource.target].items = items.items;
-
+            
             //Make sure the items are sorted
-            this.resources[resource.target].items = flux.stores.ItemsStore.sortItems(this.resources[resource.target].items);
+            this.resources[resource.target].items = this.sortItems(this.resources[resource.target].items);
 
             //Pass/reset the paging
             this.resources[resource.target].paging = resource.paging ? resource.paging : {};
-
+            
             this.emit('change');
         },
 
