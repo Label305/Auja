@@ -99,7 +99,7 @@ r.js -o build.js out=dist/auja.min.js
 and
 
 ```
-r.js -o build.js out=dist/auja.js
+r.js -o build.js out=dist/auja.js optimize=none
 ```
 
 React component structure
