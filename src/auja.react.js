@@ -12,7 +12,7 @@ require.config({
     /**
      * When debug is true add a bust to prevent caching
      */
-    urlArgs: (new Date()).getTime(),
+//    urlArgs: (new Date()).getTime(), 
 
     /**
      * Location of dependencies

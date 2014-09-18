@@ -5,3 +5,4 @@ node_modules/
 ops/
 Vagrantfile
 .DS_Store
+.vagrant/
