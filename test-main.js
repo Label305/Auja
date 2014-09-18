@@ -27,6 +27,7 @@ require.config({
      * @todo load these from global config
      */
     paths: {
+        jasmine_matchers: 'tests/spec/matchers',
         react: 'bower_components/react/react',
         jquery: 'bower_components/jquery/dist/jquery.min',
         fluxxor: 'bower_components/fluxxor/build/fluxxor',

@@ -13,7 +13,9 @@ define(['fluxxor'], function(Fluxxor) {
             "authenticated": false,
             "debug": true,
             "colors": {
-                "main": ""
+                "main": "#1ebab8",
+                "secondary": "#E7EFEF",
+                "alert": "#e85840"
             },
             "user": {
                 "name": ""
