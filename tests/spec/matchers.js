@@ -1,5 +1,10 @@
 define([], function () {
     return {
+        /**
+         * Check if required keys are present
+         * @param keys
+         * @returns {boolean}
+         */
         toHaveKeys: function (keys) {
             for (var i in keys) {
                 var flag = false;
@@ -16,6 +21,13 @@ define([], function () {
             }
 
             return true;
+        },
+
+        /**
+         * Match if type is object
+         */
+        toBeAnObject: function() {
+            return typeof this.actual == 'object';
         }
     }
 });
