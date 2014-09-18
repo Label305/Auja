@@ -1,5 +1,5 @@
 var allTestFiles = [];
-var TEST_REGEXP = /(spec|test)\.js$/i;
+var TEST_REGEXP = /spec\.js$/i;
 
 var pathToModule = function(path) {
   return path.replace(/^\/base\//, '').replace(/\.js$/, '');
@@ -27,6 +27,7 @@ require.config({
      * @todo load these from global config
      */
     paths: {
+        jasmine_matchers: 'tests/spec/matchers',
         react: 'bower_components/react/react',
         jquery: 'bower_components/jquery/dist/jquery.min',
         fluxxor: 'bower_components/fluxxor/build/fluxxor',

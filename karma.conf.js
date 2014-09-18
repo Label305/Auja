@@ -24,7 +24,7 @@ module.exports = function (config) {
 
         // list of files to exclude
         exclude: [
-            'bower_components/**/*.js',
+            'bower_components/crossroads.js/dev/**/*.js',
             'build/auja.react.js'
         ],
 
@@ -65,6 +65,6 @@ module.exports = function (config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: true
+        singleRun: false
     });
 };
