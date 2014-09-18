@@ -22,8 +22,7 @@ define([
                 'buttons',
                 'menu',
                 'routes',
-                'authentication',
-                'NOPENOPENOPE'
+                'authentication'
             ]);
 
         });
