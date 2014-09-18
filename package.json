@@ -13,6 +13,6 @@
         "url": "git://github.com/Label305/Auja.git"
     },
     "scripts": {
-        "test": "karma start --browsers Firefox --single-run"
+        "test": "./node_modules/karma/bin/karma start --browsers Firefox --single-run"
     }
 }

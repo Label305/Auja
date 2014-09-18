@@ -8,7 +8,7 @@ define([
             this.addMatchers(require('jasmine_matchers'));
         });
 
-        it('its state should have keys', function () {
+        it('its state should have all keys', function () {
 
             var Store = require('build/Stores/auja');
             var store = new Store();
@@ -27,7 +27,7 @@ define([
 
         });
         
-        it('its state should have colors', function() {
+        it('its state should have all colors', function() {
 
             var Store = require('build/Stores/auja');
             var store = new Store();
