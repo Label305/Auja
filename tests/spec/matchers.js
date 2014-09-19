@@ -52,6 +52,13 @@ define([], function () {
          */
         toBeAnObject: function() {
             return typeof this.actual == 'object';
+        },
+
+        /**
+         * Match if type is an array
+         */
+        toBeAnArray: function() {
+            return this.actual instanceof Array;
         }
     }
 });

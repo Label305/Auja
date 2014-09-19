@@ -31,9 +31,13 @@ define(['fluxxor'], function(Fluxxor) {
         /**
          * Dispatching of a page
          * @param page
+         * @todo write spec test
+         * @todo remove panel store dependency
          */
         dispatch: function(page) {
             this.pages.push(page);
+            
+            //TODO Remove panel dependency
             flux.stores.PanelStore.addPanel(page);            
             flux.stores.PanelStore.addPanelSuccess();
         }
