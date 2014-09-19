@@ -59,6 +59,13 @@ define([], function () {
          */
         toBeAnArray: function() {
             return this.actual instanceof Array;
+        },
+
+        /**
+         * Match if type is an integer
+         */
+        toBeAnInteger: function() {
+            return parseInt(this.actual) == this.actual;
         }
     }
 });

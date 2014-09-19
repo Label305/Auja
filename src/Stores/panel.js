@@ -17,8 +17,9 @@ define(['fluxxor'], function(Fluxxor) {
 
         /**
          * Index of current panel as a reference
+         * Starts at -1 since adding will be done using ++index
          */
-        index: 0,
+        index: -1,
 
         /**
          * On initialization and on system update we will update the state
@@ -54,34 +55,12 @@ define(['fluxxor'], function(Fluxxor) {
                 this.emit('change');
             }
         },
-
-        /**
-         * Initialize the DOM node, will set the scrollTarget
-         * @param panel
-         */
-        panelDidMount: function (panel) {
-            this.emit('change');
-        },
         
         /**
          * When somebody scrolls a panel
          */
         scroll: function(panel) {
             this.emit('change');
-        },
-
-        /**
-         * Update a panel
-         * @param panel
-         */
-        updatePanel: function(index, panel) {
-            for(var i in this.panels) {
-                if(this.panels[i]._index == panel._index) {
-                    this.panels[i] = panel;
-                    this.emit('change');
-                    break;
-                }
-            }
         },
 
         /**
@@ -114,6 +93,22 @@ define(['fluxxor'], function(Fluxxor) {
         },
 
         /**
+         * Update a panel
+         * @param panel
+         */
+        updatePanel: function(index, panel) {
+            for(var i in this.panels) {
+                if(this.panels[i]._index == panel._index) {
+                    this.panels[i] = panel;
+                    return this.panels[i]
+                    this.emit('change');
+                    break;
+                }
+            }
+            return false;
+        },
+
+        /**
          * Should be called when finished processing of panel adding
          */
         addPanelSuccess: function() {
@@ -123,6 +118,7 @@ define(['fluxxor'], function(Fluxxor) {
         
         /**
          * Activate an item within a panel
+         * @todo add spec test
          * @param item
          */
         activateItem: function(item) {
