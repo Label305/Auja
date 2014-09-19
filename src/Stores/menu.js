@@ -42,6 +42,7 @@ define(['fluxxor'], function(Fluxxor) {
 
         /**
          * Dispatching of a menu
+         * @todo write spec test
          * @param menu
          */
         dispatch: function(menu) {
@@ -50,6 +51,7 @@ define(['fluxxor'], function(Fluxxor) {
                 this.menuResources[menu.url] = [];
             }
                      
+            //TODO, please don't do this
             menu = flux.stores.PanelStore.addPanel(menu);
             this.menus[menu._index] = menu;
             menu = this.sortItems(menu);
@@ -84,6 +86,7 @@ define(['fluxxor'], function(Fluxxor) {
         /**
          * Add keys to menu items
          * @todo use keys provided by server if applicable
+         * @todo write spec test
          * @param menu
          */
         addKeys: function(menu) {            
@@ -108,6 +111,7 @@ define(['fluxxor'], function(Fluxxor) {
          * Note: this function does not emit change
          * 
          * @param menu
+         * @todo write spec test
          * @param response
          */
         updateMenu: function(menu, response) {
@@ -138,10 +142,13 @@ define(['fluxxor'], function(Fluxxor) {
 
         /**
          * Remove inactive menu panels
+         * @todo write spec test
+         * @todo remove panel store dependency
          */
         clean: function() {
             
             //Clean menu's that are not present anymore
+            //TODO prevent this
             var panelsState = flux.stores.PanelStore.getState();
             for(var i in this.menus) {
                 var flag = false;
