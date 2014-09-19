@@ -68,24 +68,6 @@ The response will be handled by the aforementioned dispatcher which expects a va
 However, we want to be able to, for example, use a restful api as a datasource in combination with custom menu's. For this
 the `RouteFactory` is used. The `RouteFactory` will find the corresponding request handler from the `Requests/Handlers` directory.
 
-From the main Auja config an array of routes is parsed, and based on provided type the corresponding handler is returned, for example:
-
-```json
-"routes": [
-    {
-        "type": "rest",
-        "resource": "clubs",
-        "endpoint": "clubs"
-    }
-]
-```
-
-Now, when a request is initialized with the url `/clubs/menu` this will be handled using the rest handler object. 
-In other words, `new Request(url).get()` will return whatever the `get` method in `Requests/Handlers/rest.js` will return.
-
-The ables us to combine a menu containing a listing of clubs accompanied by an add button and other elements. While these
-were never explicitly defined, only "guessed" based on basic restful api rules. 
-
 The `dist` dir
 ---
 
