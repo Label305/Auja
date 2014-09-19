@@ -9,13 +9,14 @@ var FluxStores = {
 
 //Map as an array to load store dependencies
 define([
+    'fluxxor',
     'build/Stores/auja',
     'build/Stores/panel',
     'build/Stores/menu',
     'build/Stores/page',
     'build/Stores/message',
     'build/Stores/items'
-], function() {
+], function(Fluxxor) {
     
     //Fill object with stores
     var stores = {};
