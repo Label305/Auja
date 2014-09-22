@@ -1,8 +1,6 @@
 var FluxStores = {
     'AujaStore': 'build/Stores/auja', 
     'PanelStore': 'build/Stores/panel', 
-    'MenuStore': 'build/Stores/menu', 
-    'PageStore': 'build/Stores/page',
     'MessageStore': 'build/Stores/message',
     'ItemsStore': 'build/Stores/items'
 }
@@ -12,8 +10,6 @@ define([
     'fluxxor',
     'build/Stores/auja',
     'build/Stores/panel',
-    'build/Stores/menu',
-    'build/Stores/page',
     'build/Stores/message',
     'build/Stores/items'
 ], function(Fluxxor) {
@@ -120,47 +116,25 @@ define([
         },
 
         /**
-         * Mounts a resource with items
-         * @todo fix async error
-         * @param url
-         */
-        mountResource: function(url) {
-            //Only when no items store exists for this url initialize it
-            if(!flux.stores.ItemsStore.exists(url)) { 
-                var request = new Request(url);
-                request.get().done(function(response) {
-                    if(response.type != 'items') {
-                        console.error('Mounting of a resource resulted in a non-items response');
-                    } else {
-                        this.dispatch('items', {
-                            resource: url,
-                            items: response,
-                            paging: response.paging ? response.paging : {}
-                        });
-                    }
-                }.bind(this));
-            }
-        },
-
-        /**
          * Extend a resource with new itemsd
          * @todo fix async error
          * @param url
          * @param resource
          */
-        extendResource: function(url, resource) {
-            var request = new Request(url);
-            request.get().done(function(response) {
-                if(response.type != 'items') {
-                    console.error('Mounting of a resource resulted in a non-items response');
-                } else {
-                    this.dispatch('items-extend', {
-                        resource: resource,
-                        items: response,
-                        paging: response.paging ? response.paging : {}
-                    });
-                }
-            }.bind(this));
+        extendResource: function(resource) {
+            alert('Extend resource');
+            //var request = new Request(url);
+            //request.get().done(function(response) {
+            //    if(response.type != 'items') {
+            //        console.error('Mounting of a resource resulted in a non-items response');
+            //    } else {
+            //        this.dispatch('items-extend', {
+            //            resource: resource,
+            //            items: response,
+            //            paging: response.paging ? response.paging : {}
+            //        });
+            //    }
+            //}.bind(this));
         },
 
         /**

@@ -19,16 +19,8 @@ define([
     return React.createClass({
         render: function() {
             
-            //Order the items in the page as they are defined
-            this.props.panel.page = this.props.panel.page.sort(function(a, b) {
-                if(a.order && b.order) {
-                    return a.order > b.order ? 1 : -1;
-                }
-                return 0;
-            });
-
             //Combine page items together to form a single list
-            var page = this.props.panel.page.map(function(item) {
+            var page = this.props.panel.getContent().map(function(item) {
                 if(!PageItems[item.type]) {
                     console.error("Unsupported page item type requested: " + item.type);
                     return;

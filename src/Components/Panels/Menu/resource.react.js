@@ -6,27 +6,28 @@
  * @jsx React.DOM
  */
 
-define(['build/Components/Panels/Menu/Mixins/paging.mixin'], function(Paging) {
+define(['build/Components/Panels/Menu/Mixins/paging.mixin', 'build/Objects/menu'], function(Paging, Menu) {
     
     return React.createClass({
-        mixins: [Fluxxor.FluxMixin(React), Fluxxor.StoreWatchMixin('ItemsStore'), Paging],
-        getStateFromFlux: function() {
-            return flux.store('ItemsStore').getState(this.props.item.resource.target);
+        mixins: [Paging],
+        getInitialState: function() {
+            return {
+                item: this.props.item,
+                paging: this.props.item.paging ? this.props.item.paging : {}
+            };
         },
-        componentWillMount: function() {
-            flux.actions.mountResource(this.props.item.resource.target);
-        },  
         render: function() {     
             
-            var Menu = require('build/Components/Panels/menu.react');
+            var MenuPanel = require('build/Components/Panels/menu.react');
                         
-            //Use the panel where this item is present in as the panel of the submenu
-            var panel = Object.clone(this.props.panel);
-            panel.menu = this.state.items;
-                        
+            //Transfer different props to mock Menu
+            var panel = new Menu();
+            panel.setOrigin(this.props.panel.getOrigin());
+            panel.setItems(this.props.item.getItems());
+            
             return (
                 <li className="menu-item-resource">
-                    <Menu panel={panel} />
+                    <MenuPanel panel={panel} />
                 </li>
                 );
         }

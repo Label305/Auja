@@ -4,7 +4,7 @@
         {
             "type": "link",
             "link": {
-                "name": "Barcelona",
+                "text": "Barcelona",
                 "target": "example/clubs/1/edit",
                 "icon": "ios7-football-outline"
             }
@@ -12,7 +12,7 @@
         {
             "type": "link",
             "link": {
-                "name": "Manchester United",
+                "text": "Manchester United",
                 "target": "example/clubs/2/edit",
                 "icon": "ios7-football-outline"
             }
@@ -20,7 +20,7 @@
         {
             "type": "link",
             "link": {
-                "name": "Real Madrid",
+                "text": "Real Madrid",
                 "target": "example/clubs/3/edit",
                 "icon": "ios7-football-outline"
             }
@@ -28,7 +28,7 @@
         {
             "type": "link",
             "link": {
-                "name": "Bayern Munched",
+                "text": "Bayern Munched",
                 "target": "example/clubs/4/edit",
                 "icon": "ios7-football-outline"
             }
@@ -36,7 +36,7 @@
         {
             "type": "link",
             "link": {
-                "name": "Juventus",
+                "text": "Juventus",
                 "target": "example/clubs/5/edit",
                 "icon": "ios7-football-outline"
             }
@@ -44,7 +44,7 @@
         {
             "type": "link",
             "link": {
-                "name": "Paris Saint-Germain",
+                "text": "Paris Saint-Germain",
                 "target": "example/clubs/6/edit",
                 "icon": "ios7-football-outline"
             }
@@ -52,7 +52,7 @@
         {
             "type": "link",
             "link": {
-                "name": "Gent",
+                "text": "Gent",
                 "target": "example/clubs/7/edit",
                 "icon": "ios7-football-outline"
             }
