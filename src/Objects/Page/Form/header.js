@@ -6,11 +6,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         //Call the parent constructor
         FormItem.call(this, data);
 
-        /**
-         * Our custom type
-         * @type {string}
-         */
-        this.type = 'header';
+        //Set type of this object
+        this.setType('header');
 
         /**
          * Text

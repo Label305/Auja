@@ -9,45 +9,44 @@ define([], function() {
          * Location of menu item
          * @type {integer}
          */
-        this.order = 0;
+        this._order = 0;
 
         /**
          * Type of the menu item
          * @type {string}
          */
-        this.type = 'unknown';
+        this._type = 'unknown';
         
         /**
          * Name
          * @type {string}
          */
-        this.name = data.name || null;
-
+        this._name = data.name || null;
+                
         /**
          * Label
          * @type {string}
          */
-        this.label = data.label || '';
+        this._label = data.label || '';
 
         /**
          * Value
          * @type {string}
          */
-        this.value = data.value || '';
+        this._value = data.value || null;
 
         /**
          * Required
          * @type {boolean}
          */
-        this.required = data.required || false;
-
+        this._required = data.required || false;
 
         /**
          * Setter for the order
          * @param order
          */
         this.setOrder = function(order) {
-            this.order = order;
+            this._order = order;
         };
 
         /**
@@ -55,7 +54,7 @@ define([], function() {
          * @returns integer
          */
         this.getOrder = function() {
-            return this.order;
+            return this._order;
         };
 
         /**
@@ -63,7 +62,7 @@ define([], function() {
          * @param type
          */
         this.setType = function(type) {
-            this.type = type;
+            this._type = type;
         };
 
         /**
@@ -71,7 +70,7 @@ define([], function() {
          * @returns {type|*}
          */
         this.getType = function() {
-            return this.type;
+            return this._type;
         };
 
         /**
@@ -79,7 +78,7 @@ define([], function() {
          * @param name
          */
         this.setName = function(name) {
-            this.name = name;
+            this._name = name;
         };
 
         /**
@@ -87,7 +86,7 @@ define([], function() {
          * @returns {string}
          */
         this.getName = function() {
-            return this.name;
+            return this._name;
         };
 
         /**
@@ -95,7 +94,7 @@ define([], function() {
          * @param label
          */
         this.setLabel = function(label) {
-            this.label = label;
+            this._label = label;
         };
 
         /**
@@ -103,7 +102,7 @@ define([], function() {
          * @returns {string}
          */
         this.getLabel = function() {
-            return this.label;
+            return this._label;
         };
 
         /**
@@ -111,7 +110,7 @@ define([], function() {
          * @param value
          */
         this.setValue = function(value) {
-            this.value = value;
+            this._value = value;
         };
 
         /**
@@ -119,7 +118,7 @@ define([], function() {
          * @returns {string}
          */
         this.getValue = function() {
-            return this.value;
+            return this._value;
         };
 
         /**
@@ -127,7 +126,7 @@ define([], function() {
          * @param required
          */
         this.setRequired = function(required) {
-            this.required = required;
+            this._required = required;
         };
 
         /**
@@ -135,7 +134,7 @@ define([], function() {
          * @returns {boolean}
          */
         this.isRequired = function() {
-            return this.required;
+            return this._required;
         };
         
     };    

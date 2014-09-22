@@ -6,11 +6,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         //Call the parent constructor
         FormItem.call(this, data);
 
-        /**
-         * Our custom type
-         * @type {string}
-         */
-        this.type = 'text';
+        //Set type of this object
+        this.setType('text');
     };
 
     // Inherit FormItem
@@ -18,7 +15,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
     // Fix constructor
     Text.prototype.constructor = Text;
-
+    
     /**
      * Get attributes for this input
      * @return Object
