@@ -146,15 +146,16 @@ define([
          * Extend a resource with new itemsd
          * @todo fix async error
          * @param url
+         * @param resource
          */
-        extendResource: function(url) {
+        extendResource: function(url, resource) {
             var request = new Request(url);
             request.get().done(function(response) {
                 if(response.type != 'items') {
                     console.error('Mounting of a resource resulted in a non-items response');
                 } else {
                     this.dispatch('items-extend', {
-                        resource: url,
+                        resource: resource,
                         items: response,
                         paging: response.paging ? response.paging : {}
                     });

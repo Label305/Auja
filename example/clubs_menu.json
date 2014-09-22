@@ -39,7 +39,7 @@
             "type": "resource",
             "order": 4,
             "resource": {
-                "target": "example/clubs"
+                "target": "example/clubs_index.json"
             }
         }
     ]

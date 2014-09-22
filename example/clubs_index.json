@@ -59,6 +59,6 @@
         }
     ],
     "paging": {
-        "next": "example/clubs"
+        "next": "example/clubs_index.json?page=2"
     }
 }

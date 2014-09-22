@@ -48,11 +48,6 @@
             },
             {
                 "type": "http",
-                "target": "example/clubs",
-                "action": "example/clubs_index.json"
-            },
-            {
-                "type": "http",
                 "target": "example/clubs/{id}/edit",
                 "action": "example/clubs_edit.json"
             }
