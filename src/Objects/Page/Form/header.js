@@ -26,8 +26,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
     };
     
-    // Inherit Panel
-    Header.prototype = new FormItem({});
+    // Inherit item
+    Header.prototype = FormItem;
 
     // Fix constructor
     Header.prototype.constructor = Header;

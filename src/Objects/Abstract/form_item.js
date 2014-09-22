@@ -1,20 +1,22 @@
 /**
  * Abstract form of a form item
- * @todo remove item dependency
  */
-define(['build/Objects/Abstract/item'], function(Item) {
+define([], function() {
 
-    var FormItem = function(data) {
-
-        //Call the parent constructor
-        Item.call(this, arguments);
+    return function(data) {
 
         /**
-         * Our custom type
+         * Location of menu item
+         * @type {integer}
+         */
+        this.order = 0;
+
+        /**
+         * Type of the menu item
          * @type {string}
          */
         this.type = 'unknown';
-
+        
         /**
          * Name
          * @type {string}
@@ -38,78 +40,103 @@ define(['build/Objects/Abstract/item'], function(Item) {
          * @type {boolean}
          */
         this.required = data.required || false;
+
+
+        /**
+         * Setter for the order
+         * @param order
+         */
+        this.setOrder = function(order) {
+            this.order = order;
+        };
+
+        /**
+         * Getter for the order
+         * @returns integer
+         */
+        this.getOrder = function() {
+            return this.order;
+        };
+
+        /**
+         * Setter for the type
+         * @param type
+         */
+        this.setType = function(type) {
+            this.type = type;
+        };
+
+        /**
+         * Getter for the type
+         * @returns {type|*}
+         */
+        this.getType = function() {
+            return this.type;
+        };
+
+        /**
+         * Setter for name
+         * @param name
+         */
+        this.setName = function(name) {
+            this.name = name;
+        };
+
+        /**
+         * Getter for name
+         * @returns {string}
+         */
+        this.getName = function() {
+            return this.name;
+        };
+
+        /**
+         * Setter for label
+         * @param label
+         */
+        this.setLabel = function(label) {
+            this.label = label;
+        };
+
+        /**
+         * Getter for label
+         * @returns {string}
+         */
+        this.getLabel = function() {
+            return this.label;
+        };
+
+        /**
+         * Setter for value
+         * @param value
+         */
+        this.setValue = function(value) {
+            this.value = value;
+        };
+
+        /**
+         * Getter for value
+         * @returns {string}
+         */
+        this.getValue = function() {
+            return this.value;
+        };
+
+        /**
+         * Setter for required
+         * @param required
+         */
+        this.setRequired = function(required) {
+            this.required = required;
+        };
+
+        /**
+         * Getter for required
+         * @returns {boolean}
+         */
+        this.isRequired = function() {
+            return this.required;
+        };
         
-    };
-
-    // Inherit Panel
-    FormItem.prototype = Item;
-
-    // Fix constructor
-    FormItem.prototype.constructor = FormItem;
-
-    /**
-     * Setter for name
-     * @param name
-     */
-    FormItem.prototype.setName = function(name) {
-        this.name = name;
-    };
-
-    /**
-     * Getter for name
-     * @returns {string}
-     */
-    FormItem.prototype.getName = function() {
-        return this.name;
-    };
-
-    /**
-     * Setter for label
-     * @param label
-     */
-    FormItem.prototype.setLabel = function(label) {
-        this.label = label;
-    };
-
-    /**
-     * Getter for label
-     * @returns {string}
-     */
-    FormItem.prototype.getLabel = function() {
-        return this.label;
-    };
-
-    /**
-     * Setter for value
-     * @param value
-     */
-    FormItem.prototype.setValue = function(value) {
-        this.value = value;
-    };
-
-    /**
-     * Getter for value
-     * @returns {string}
-     */
-    FormItem.prototype.getValue = function() {
-        return this.value;
-    };
-
-    /**
-     * Setter for required
-     * @param required
-     */
-    FormItem.prototype.setRequired = function(required) {
-        this.required = required;
-    };
-
-    /**
-     * Getter for required
-     * @returns {boolean}
-     */
-    FormItem.prototype.isRequired = function() {
-        return this.required;
-    };
-    
-    return FormItem;
+    };    
 });

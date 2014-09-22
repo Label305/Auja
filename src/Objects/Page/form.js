@@ -85,7 +85,7 @@ define(['build/Objects/Abstract/item', 'build/Factories/form_item_factory'], fun
      * @returns {string}
      */
     Form.prototype.getAction = function() {
-        return action;
+        return this.action;
     };
 
     return Form;

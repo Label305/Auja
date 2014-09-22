@@ -31,7 +31,7 @@ define([
          */
         handleSubmit: function (e) {
             flux.actions.submit(
-                this.props.item.form.action,
+                this.props.item.getAction(),
                 event.target.getAttribute('method'),
                 $(event.target).serializeArray(),
                 this.props.panel
@@ -68,7 +68,7 @@ define([
         render: function () {
 
             var items = this.props.item.getItems().map(function (item) {
-                
+                                
                 if (!FormItems[item.getType()]) {
                     console.error("Unsupported form item type requested: " + item.getType());
                     return;
@@ -79,8 +79,8 @@ define([
 
                 //Extract the validation message from the item
                 item.validationMessage = null;
-                if (item[item.getType()].getName() && this.props.message.validation && this.props.message.validation[item[item.getType()].getName()]) {
-                    item.validationMessage = this.props.message.validation[item[item.getType()].getName()];
+                if (item.getName() && this.props.message.validation && this.props.message.validation[item.getName()]) {
+                    item.validationMessage = this.props.message.validation[item.getName()];
                 }
 
                 var className = 'row form-item form-item-{type}'.assign({type: item.getType()});
@@ -91,14 +91,9 @@ define([
                 );
             }.bind(this));
 
-            //Remove the items key as part of the form attributes
-            var form = Object.clone(this.props.item.form);
-            delete form.items;
-
-            //Bind the main submit action
-            form.onSubmit = this.handleSubmit;
-
-            return React.DOM.form(form, items);
+            return (
+                <form onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{this.props.item.getItems()}</form>  
+            );
         }
     });
 
