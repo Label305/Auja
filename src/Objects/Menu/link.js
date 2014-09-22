@@ -1,10 +1,10 @@
 
-define(['build/Objects/Abstract/item'], function(Item) {
+define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
 
     var Link = function(data) {
 
         //Call the parent constructor
-        Item.call(this, arguments);
+        MenuItem.call(this, arguments);
 
         /**
          * Our custom type
@@ -33,7 +33,7 @@ define(['build/Objects/Abstract/item'], function(Item) {
     };
 
     // Inherit Panel
-    Link.prototype = Item;
+    Link.prototype = MenuItem;
 
     // Fix constructor
     Link.prototype.constructor = Link;

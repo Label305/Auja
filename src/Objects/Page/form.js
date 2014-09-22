@@ -1,10 +1,10 @@
 
-define(['build/Objects/Abstract/item', 'build/Factories/form_item_factory'], function(Item, FormItemFactory) {
+define(['build/Objects/Abstract/page_item', 'build/Factories/form_item_factory'], function(PageItem, FormItemFactory) {
 
-    var Form = function() {
+    var Form = function(data) {
 
         //Call the parent constructor
-        Item.call(this, arguments);
+        PageItem.call(this, arguments);
 
         /**
          * Our custom type
@@ -13,7 +13,8 @@ define(['build/Objects/Abstract/item', 'build/Factories/form_item_factory'], fun
         this.type = 'form';
 
         /**
-         * Form items
+         * Form items, is set during construct to make sure we use
+         * the FormItemsFactory
          * @type {Array}
          */
         this.items = [];
@@ -22,18 +23,22 @@ define(['build/Objects/Abstract/item', 'build/Factories/form_item_factory'], fun
          * Method
          * @type {string}
          */
-        this.method = 'post';
+        this.method = data.method || 'post';
 
         /**
          * Action
          * @type {string}
          */
-        this.action = null;
-
+        this.action = data.action || null;
+        
+        if(data.items) {
+            this.setItems(data.items);
+        }
+        
     };
 
     // Inherit Panel
-    Form.prototype = Item;
+    Form.prototype = PageItem;
 
     // Fix constructor
     Form.prototype.constructor = Form;

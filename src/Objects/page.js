@@ -6,7 +6,10 @@
 define(['build/Objects/panel', 'build/Factories/page_item_factory'], function(Panel, PageItemFactory) {
 
     var Page = function() {
-
+        
+        //Call the parent constructor
+        Panel.call(this);
+        
         /**
          * Content of a page
          * @type {Array}
@@ -18,9 +21,6 @@ define(['build/Objects/panel', 'build/Factories/page_item_factory'], function(Pa
          * @type {string}
          */
         this.type = 'page';
-
-        //Call the parent constructor
-        Panel.call(this, arguments);
 
     };
 

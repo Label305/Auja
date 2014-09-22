@@ -11,7 +11,7 @@ define(['build/Objects/panel', 'build/Factories/menu_item_factory'], function(Pa
     var Menu = function() {
 
         //Call the parent constructor
-        Panel.call(this, arguments);
+        Panel.call(this);
 
         /**
          * Menu items

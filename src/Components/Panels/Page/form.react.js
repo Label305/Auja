@@ -92,7 +92,7 @@ define([
             }.bind(this));
 
             return (
-                <form onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{this.props.item.getItems()}</form>  
+                <form onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{items}</form>  
             );
         }
     });

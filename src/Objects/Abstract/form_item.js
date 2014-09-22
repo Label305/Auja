@@ -4,7 +4,7 @@
 define([], function() {
 
     return function(data) {
-
+        
         /**
          * Location of menu item
          * @type {integer}

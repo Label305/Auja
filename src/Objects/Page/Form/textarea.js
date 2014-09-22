@@ -4,7 +4,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
     var Textarea = function(data) {
 
         //Call the parent constructor
-        FormItem.call(this, arguments);
+        FormItem.call(this, data);
 
         /**
          * Our custom type
@@ -19,6 +19,18 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
     // Fix constructor
     Textarea.prototype.constructor = Textarea;
+
+    /**
+     * Get attributes for this input
+     * @return Object
+     */
+    Textarea.prototype.getAttributes = function() {
+        return {
+            type: this.getType(),
+            value: this.getValue(),
+            name: this.getName()
+        }
+    };
 
     return Textarea;
 });

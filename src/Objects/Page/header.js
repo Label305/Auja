@@ -1,10 +1,10 @@
 
-define(['build/Objects/Abstract/item'], function(Item) {
+define(['build/Objects/Abstract/page_item'], function(PageItem) {
 
     var Header = function(data) {
 
         //Call the parent constructor
-        Item.call(this, arguments);
+        PageItem.call(this, arguments);
 
         /**
          * Our custom type
@@ -27,7 +27,7 @@ define(['build/Objects/Abstract/item'], function(Item) {
     };
 
     // Inherit Panel
-    Header.prototype = Item;
+    Header.prototype = PageItem;
 
     // Fix constructor
     Header.prototype.constructor = Header;

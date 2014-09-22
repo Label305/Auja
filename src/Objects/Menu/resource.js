@@ -1,10 +1,10 @@
 
-define(['build/Objects/Abstract/item'], function(Item) {
+define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
 
     var Resource = function() {
 
         //Call the parent constructor
-        Item.call(this, arguments);
+        MenuItem.call(this, arguments);
 
         /**
          * Resource items
@@ -21,7 +21,7 @@ define(['build/Objects/Abstract/item'], function(Item) {
     };
 
     // Inherit Panel
-    Resource.prototype = Item;
+    Resource.prototype = MenuItem;
 
     // Fix constructor
     Resource.prototype.constructor = Resource;

@@ -16,7 +16,7 @@ define(['build/Components/Panels/Page/button.react'], function (Button) {
             }.bind(this));
 
             return (
-                <h2>{this.props.item.text}{buttons}</h2>
+                <h2>{this.props.item.text} {buttons}</h2>
             );
         }
     });

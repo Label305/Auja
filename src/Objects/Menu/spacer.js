@@ -1,10 +1,10 @@
 
-define(['build/Objects/Abstract/item'], function(Item) {
+define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
 
     var Spacer = function(data) {
 
         //Call the parent constructor
-        Item.call(this, arguments);
+        MenuItem.call(this, arguments);
 
         /**
          * Our custom type
@@ -21,7 +21,7 @@ define(['build/Objects/Abstract/item'], function(Item) {
     };
 
     // Inherit Panel
-    Spacer.prototype = Item;
+    Spacer.prototype = MenuItem;
 
     // Fix constructor
     Spacer.prototype.constructor = Spacer;

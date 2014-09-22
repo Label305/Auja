@@ -8,35 +8,24 @@
  *
  * @jsx React.DOM
  */
- define(['build/Components/Panels/Page/Form/label.react'], function(Label) {
+define(['build/Components/Panels/Page/Form/label.react'], function (Label) {
     return React.createClass({
-        getInitialState: function() {
-            return {value: this.props.item.textarea.value};
+        getInitialState: function () {
+            return {value: this.props.item.getValue()};
         },
-        handleChange: function(event) {
+        handleChange: function (event) {
             this.setState({value: event.target.value});
         },
-        render: function() {
-            var attributes = Object.clone(this.props.item.textarea);
-            
-            //Remove otherwise engaged attributes
-            delete attributes.label;
-            delete attributes.value;
-            
-            Object.merge(attributes, {
-                id: this.props.itemId,
-                type: 'text',
-                onChange: this.handleChange,
-                value: this.state.value
-            });
-            
+        render: function () {
+            var attributes = this.props.item.getAttributes();
+            attributes.onChange = this.handleChange;
+
             return (
                 <div>
-                <Label item={this.props.item} name={this.props.item.textarea.label} />
-                {React.DOM.textarea(attributes, this.props.item.value ? this.props.item.value : '')}
+                    <Label item={this.props.item} name={this.props.item.getLabel()} />
+                {React.DOM.textarea(attributes)}
                 </div>
-                );
+            );
         }
     });
-
 });
