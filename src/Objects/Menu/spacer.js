@@ -1,5 +1,5 @@
 
-define(['build/Objects/menu/item'], function(Item) {
+define(['build/Objects/Abstract/item'], function(Item) {
 
     var Spacer = function(data) {
 
@@ -11,7 +11,7 @@ define(['build/Objects/menu/item'], function(Item) {
          * @type {string}
          */
         this.type = 'spacer';
-        
+
         /**
          * Text
          * @type {string}
@@ -41,6 +41,6 @@ define(['build/Objects/menu/item'], function(Item) {
     Spacer.prototype.getText = function() {
         return this.text;
     };
-    
+
     return Spacer;
 });

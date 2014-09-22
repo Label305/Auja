@@ -19,8 +19,8 @@ define([], function() {
             
             //Create the icon class
             var icon = "fallback";
-            if(this.props.item.icon) {
-                icon = this.props.item.icon;    
+            if(this.props.item.getIcon()) {
+                icon = this.props.item.getIcon();    
             }
             className += "icon ion-" + icon;
             

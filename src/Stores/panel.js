@@ -81,14 +81,14 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
             //Set the index, since adding will always be on the end
             //TODO move to panel object
             panel._index = ++this.index;
-            panel.id = 'panel-' + panel._index;
+            panel.setId('panel-' + panel._index);
             
             //If the panel from which this panel is added does not originate from the latest
             //we need to remove trailing panels
             if(panel.getOrigin()) {
                 var panels = [];
                 for(var i in this.panels) {
-                    if(this.panels[i].id <= panel.getOrigin().id) {
+                    if(this.panels[i].getId() <= panel.getOrigin().getId()) {
                         panels.push(this.panels[i]);
                     }
                 }      
@@ -104,23 +104,6 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
         },
 
         /**
-         * Update a panel
-         * @todo call update method in panel
-         * @param panel
-         */
-        updatePanel: function(index, panel) {
-            for(var i in this.panels) {
-                if(this.panels[i]._index == panel._index) {
-                    this.panels[i] = panel;
-                    return this.panels[i]
-                    this.emit('change');
-                    break;
-                }
-            }
-            return false;
-        },        
-        
-        /**
          * Activate an item within a panel
          * @todo add spec test
          * @todo move to panel
@@ -128,7 +111,7 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
          */
         activateItem: function(item) {
             for(var i in this.panels) {
-                if(this.panels[i].id == item.panel.id) {
+                if(this.panels[i].getId() == item.panel.getId()) {
                     this.panels[i].activeItem = item.item;
                     break;
                 }

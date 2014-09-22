@@ -7,7 +7,6 @@ define(['build/Objects/page'], function(Page) {
 
         /**
          * Create the page
-         * @todo initialize an actual Page object
          */
         this.createPage = function(data) {
             var page = new Page();

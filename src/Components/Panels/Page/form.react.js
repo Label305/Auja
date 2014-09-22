@@ -23,7 +23,7 @@ define([
     'build/Components/Panels/Page/Form/trumbowyg.react',
     'build/Components/Panels/Page/Form/number.react',
     'build/Components/Panels/Page/Form/submit.react'
-], function() {
+], function () {
     return React.createClass({
 
         /**
@@ -53,7 +53,7 @@ define([
             while (!available) {
                 var id = 'input.{panel}.{type}.{index}'.assign({
                     panel: this.props.panel.id,
-                    type: item.type,
+                    type: item.getType(),
                     index: i
                 });
 
@@ -67,27 +67,28 @@ define([
 
         render: function () {
 
-            var items = this.props.item.form.items.map(function (item) {
-                if (!FormItems[item.type]) {
-                    console.error("Unsupported form item type requested: " + item.type);
+            var items = this.props.item.getItems().map(function (item) {
+                
+                if (!FormItems[item.getType()]) {
+                    console.error("Unsupported form item type requested: " + item.getType());
                     return;
                 }
 
                 //Fetch the item from the corresponding file
-                var Item = require(FormItems[item.type]);
+                var Item = require(FormItems[item.getType()]);
 
                 //Extract the validation message from the item
                 item.validationMessage = null;
-                if(item[item.type].name && this.props.message.validation && this.props.message.validation[item[item.type].name]) {
-                    item.validationMessage = this.props.message.validation[item[item.type].name];
+                if (item[item.getType()].getName() && this.props.message.validation && this.props.message.validation[item[item.getType()].getName()]) {
+                    item.validationMessage = this.props.message.validation[item[item.getType()].getName()];
                 }
 
-                var className = 'row form-item form-item-{type}'.assign({type: item.type});
+                var className = 'row form-item form-item-{type}'.assign({type: item.getType()});
                 return (
                     <div className={className}>
                         <Item itemId={this.getFormItemId(item)} item={item} />
                     </div>
-                    );
+                );
             }.bind(this));
 
             //Remove the items key as part of the form attributes

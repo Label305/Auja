@@ -3,7 +3,7 @@
  * 
  * @todo implement sorting
  */
-define(['build/Objects/panel'], function(Panel) {
+define(['build/Objects/panel', 'build/Factories/page_item_factory'], function(Panel, PageItemFactory) {
 
     var Page = function() {
 
@@ -34,7 +34,9 @@ define(['build/Objects/panel'], function(Panel) {
      * Set the content of a page
      */
     Page.prototype.setContent = function(content) {
-        this.content = content;
+        this.content = content.map(function(item) {
+            return PageItemFactory.createItem(item);
+        });
     };
 
     /**

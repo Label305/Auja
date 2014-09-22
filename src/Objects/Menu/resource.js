@@ -1,5 +1,5 @@
 
-define(['build/Objects/menu/item'], function(Item) {
+define(['build/Objects/Abstract/item'], function(Item) {
 
     var Resource = function() {
 
