@@ -21,7 +21,7 @@ After cloning you will first have to install Auja's dependencies using [Bower](h
 
 `bower install`
 
-Now RequieJS, Fluxxor, React and other dependencies should have been downloaded to the `bower_components` directory and we can
+Now RequireJS, Fluxxor, React and other dependencies should have been downloaded to the `bower_components` directory and we can
 continue to compile the JS using jsx. If you don't have jsx installed yet run: 
 
 `npm install -g react-tools` 
