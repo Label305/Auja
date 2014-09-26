@@ -47,7 +47,7 @@ In short, Flux constists of four main parts:
 - Dispatcher
 - Stores
  
-This is also the order of dataflow, starting with the user doing something in the view. This triggers an action, which is dispatched to certain stores. The stores will process/store the newly received data and, if applicable, emit that they have changed. Now the React views will be notified, through Fluxxor, that the state has changed after which the view will re-render with all React goodness.
+This is also the order of the dataflow, starting with the user doing something in the view. This triggers an action, which is dispatched to certain stores. The stores will process/store the newly received data and, if applicable, emit that they have changed. Now the React views will be notified, through Fluxxor, that the state has changed after which the view will re-render with all React goodness.
 
 Requests and Routing
 ---
