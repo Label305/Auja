@@ -18,6 +18,28 @@ define([], function() {
         this.type = 'unknown';
 
         /**
+         * ID
+         * @type {mixed}
+         */
+        this.id = 0;
+
+        /**
+         * Setter for the id
+         * @param id
+         */
+        this.setId = function(id) {
+            this.id = id;
+        };
+
+        /**
+         * Getter for the id
+         * @returns {id|*}
+         */
+        this.getId = function() {
+            return this.id;
+        };
+
+        /**
          * Setter for the order
          * @param order
          */

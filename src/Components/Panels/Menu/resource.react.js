@@ -16,6 +16,12 @@ define(['build/Components/Panels/Menu/Mixins/paging.mixin', 'build/Objects/menu'
                 paging: this.props.item.paging ? this.props.item.paging : {}
             };
         },
+        /**
+         * Mount the resource by triggering initial loading
+         */
+        componentDidMount: function() {
+            flux.actions.extendResource(this.props.panel, this.props.item);
+        },
         render: function() {     
             
             var MenuPanel = require('build/Components/Panels/menu.react');

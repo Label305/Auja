@@ -1,8 +1,8 @@
 /**
  * Panel factory will create panel objects based on input
  */
-define(['build/Factories/menu_factory', 'build/Factories/page_factory'], function (MenuFactory, PageFactory) {
-
+define(['build/Factories/menu_factory', 'build/Factories/page_factory'], function (MenuFactory, PageFactory) {  
+    
     return new function () {
 
         /**
@@ -40,7 +40,7 @@ define(['build/Factories/menu_factory', 'build/Factories/page_factory'], functio
             
             switch (panel.getType()) {
                 case 'menu':
-                    panel = MenuFactory.updateMenu(panel, data);
+                    panel = MenuFactory.updateMenu(data);
                     break;
             }
             

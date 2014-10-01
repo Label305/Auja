@@ -1,11 +1,6 @@
 /**
  * Menu panel type
  */
-var MenuItemObjects = {
-    'unknown': 'build/Objects/Menu/item',
-    'resource': 'build/Objects/Menu/resource'
-};
-
 define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], function(Panel, MenuItemFactory) {
     
     var Menu = function() {
@@ -24,6 +19,13 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
          * @type {Array}
          */
         this.items = [];
+
+        /**
+         * 
+         * @type {number}
+         * @private
+         */
+        this._lastIndex = 0;
         
     };
     
@@ -39,8 +41,13 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
      */
     Menu.prototype.setItems = function(items) {
         this.items = items.map(function(item) {
-            return MenuItemFactory.createItem(item);
-        });
+            var result = MenuItemFactory.createItem(item);
+            
+            //Arrange a panel id or transfer the passed id
+            result.setId(item.id || '_' + String(++this._lastIndex));
+            
+            return result;
+        }.bind(this));
     };
 
     /**
@@ -49,6 +56,24 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
      */
     Menu.prototype.getItems = function() {
         return this.items;
+    };
+
+    /**
+     * Update an item
+     * @param item
+     * @param data
+     */
+    Menu.prototype.updateItem = function(item, data) {
+        for(var i in this.items) {
+            if(this.items[i].getId() == item.getId()) {                
+                if(this.items[i].update) {
+                    this.items[i].update(data);
+                } else {
+                    console.error('Update requested on menu item without update method implemented');
+                }
+                break;
+            }
+        }
     };
     
     /**
