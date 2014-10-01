@@ -8,33 +8,55 @@ define([], function() {
         /**
          * The object that called this panel in existence
          */
-        this.origin;
+        this._origin;
 
         /**
          * Type of panel we're looking at
          */
-        this.type;
+        this._type;
 
         /**
          * ID of the panel
          * @type string
          */
-        this.id;
+        this._id;
+
+        /**
+         * Index of the panel
+         * @type string
+         */
+        this._index;
 
         /**
          * Setter for the ID
          * @param id
          */
         this.setId = function(id) {
-            this.id = id;
+            this._id = id;
+        };
+        
+        /**
+         * Getter for the ID
+         * @returns {string|*}
+         */
+        this.getId = function() {
+            return this._id;
         };
 
         /**
-         * Getter for the ID
-         * @returns {id|*}
+         * Setter for the index
+         * @param index
          */
-        this.getId = function() {
-            return this.id;
+        this.setIndex = function(index) {
+            this._index = index;
+        };
+
+        /**
+         * Getter for the index
+         * @returns {integer|*}
+         */
+        this.getIndex = function() {
+            return this._index;
         };
 
         /**
@@ -42,7 +64,7 @@ define([], function() {
          * @param origin
          */
         this.setOrigin = function(origin) {
-            this.origin = origin;
+            this._origin = origin;
         };
 
         /**
@@ -50,7 +72,7 @@ define([], function() {
          * @returns {origin|*}
          */
         this.getOrigin = function() {
-            return this.origin;  
+            return this._origin;  
         };
 
         /**
@@ -58,20 +80,21 @@ define([], function() {
          * @param type
          */
         this.setType = function(type) {
-            this.type = type;
+            this._type = type;
         };
         
         /**
          * Type of panel we're looking at 
          */
         this.getType = function() {
-            return this.type;
+            return this._type;
         };
 
         /**
          * Update the contents of a panel
          */
         this.update = function() {
+            alert('Update');
             return true;
         }
         

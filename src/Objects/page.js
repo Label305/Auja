@@ -3,24 +3,21 @@
  * 
  * @todo implement sorting
  */
-define(['build/Objects/panel', 'build/Factories/page_item_factory'], function(Panel, PageItemFactory) {
+define(['build/Objects/Abstract/panel', 'build/Factories/page_item_factory'], function(Panel, PageItemFactory) {
 
     var Page = function() {
         
         //Call the parent constructor
         Panel.call(this);
         
+        //Set the type
+        this.setType('page');
+        
         /**
          * Content of a page
          * @type {Array}
          */
         this.content = [];
-
-        /**
-         * Set panel type
-         * @type {string}
-         */
-        this.type = 'page';
 
     };
 

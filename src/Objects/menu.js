@@ -6,24 +6,21 @@ var MenuItemObjects = {
     'resource': 'build/Objects/Menu/resource'
 };
 
-define(['build/Objects/panel', 'build/Factories/menu_item_factory'], function(Panel, MenuItemFactory) {
+define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], function(Panel, MenuItemFactory) {
     
     var Menu = function() {
 
         //Call the parent constructor
         Panel.call(this);
+        
+        //Set the type
+        this.setType('menu');
 
         /**
          * Menu items
          * @type {Array}
          */
         this.items = [];
-
-        /**
-         * Set panel type
-         * @type {string}
-         */
-        this.type = 'menu';   
         
     };
     

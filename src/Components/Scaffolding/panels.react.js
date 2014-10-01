@@ -24,7 +24,7 @@ define([
             var Panel = require(PanelTypes[this.props.panel.getType()]);
 
             return (
-                <section id={this.props.panel.id} key={this.props.panel.id} ref="panel" className={"panel panel-" + this.props.panel.type}>
+                <section id={this.props.panel.id} key={this.props.panel.id} ref="panel" className={"panel panel-" + this.props.panel.getType()}>
                     <div onScroll={this.handleScroll} style={this.props.style}>
                         <Panel flux={this.props.flux} message={this.props.message} panel={this.props.panel} />
                     </div>
@@ -49,7 +49,7 @@ define([
         render: function () {
 
             var message = flux.store('MessageStore').getMessage();
-
+            
             //Fetch and wrap all panels in a section having the class "panel panel-{type}"
             var panels = this.state.panels.map(function (panel) {
                 var style = {
@@ -61,8 +61,8 @@ define([
                 if (message.origin && message.origin.id == panel.id) {
                     m = message.message;
                 }
-
-                return (<PanelSection key={panel._index} flux={this.props.flux} panel={panel} message={m} style={style} />);
+                
+                return (<PanelSection key={panel.getIndex()} flux={this.props.flux} panel={panel} message={m} style={style} />);
             }.bind(this));
 
             return (

@@ -79,26 +79,21 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
             }
             
             //Set the index, since adding will always be on the end
-            //TODO move to panel object
-            panel._index = ++this.index;
-            panel.setId('panel-' + panel._index);
+            panel.setIndex(++this.index);
+            panel.setId('panel-' + panel.getIndex());
             
             //If the panel from which this panel is added does not originate from the latest
             //we need to remove trailing panels
-            if(panel.getOrigin()) {
-                var panels = [];
-                for(var i in this.panels) {
-                    if(this.panels[i].getId() <= panel.getOrigin().getId()) {
-                        panels.push(this.panels[i]);
-                    }
-                }      
-                this.panels = panels;
-            } else {
-                this.panels = [];
-            }
+            var panels = [];
+            for(var i in this.panels) {
+                if(panel.getOrigin() && this.panels[i].getIndex() <= panel.getOrigin().getIndex()) {
+                    panels.push(this.panels[i]);
+                }
+            }      
+            this.panels = panels;
                 
             //Put the panel in the view
-            this.panels[panel._index] = panel;
+            this.panels[panel.getIndex()] = panel;
             
             this.emit('change');
         },
