@@ -1,18 +1,27 @@
 /**
  * Menu factory will create menu objects based on input
- * 
+ *
  * @todo implement sorting
  */
-define(['build/Objects/menu'], function(Menu) {
+define(['build/Objects/menu'], function (Menu) {
 
-    return new function() {
+    return new function () {
 
         /**
          * Create the menu
          */
-        this.createMenu = function(data) {
+        this.createMenu = function (data) {
             var menu = new Menu();
-            menu.setOrigin(data.origin);
+            menu.setItems(data.menu);
+            return menu;
+        };
+
+        /**
+         * Update contents of a menu
+         * @param menu
+         * @param data
+         */
+        this.updateMenu = function (menu, data) {
             menu.setItems(data.menu);
             return menu;
         }

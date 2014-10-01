@@ -15,6 +15,9 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
         
         //Set the type
         this.setType('menu');
+        
+        //Show that we're updateable
+        this.setIsUpdateable(true);
 
         /**
          * Menu items
@@ -47,7 +50,7 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
     Menu.prototype.getItems = function() {
         return this.items;
     };
-
+    
     /**
      * Getter for active item
      * @todo implement active item

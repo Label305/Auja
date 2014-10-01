@@ -31,6 +31,9 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
                 'resize', this.resize,
                 'activate-item', this.activateItem,
                 
+                //Update panels
+                'update', this.update,
+                
                 //Different types of panels
                 'menu', this.addPanel,
                 'page', this.addPanel
@@ -64,6 +67,22 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
          */
         scroll: function(panel) {
             this.emit('change');
+        },
+
+        /**
+         * Update content of all panels
+         * @todo group same origin requests (or do something in request object with ongoing requests)
+         */
+        update: function() {
+            this.panels.map(function(panel) {
+                if(panel.isUpdateable()) {
+                    var request = new Request(panel.getUrl());
+                    request.get().done(function (response) {
+                        PanelFactory.updatePanel(panel, response);
+                        this.emit('change');
+                    }.bind(this));
+                }
+            }.bind(this));
         },
 
         /**
