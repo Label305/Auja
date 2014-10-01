@@ -1,45 +1,90 @@
-/**
- * Object definition of a link
- */
-define([], function() {
 
-    window.MenuItemLink = function() {
-        
+define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
+
+    var Link = function(data) {
+
+        //Call the parent constructor
+        MenuItem.call(this, arguments);
+
+        /**
+         * Our custom type
+         * @type {string}
+         */
         this.type = 'link';
 
         /**
-         * The actual link
-         * @type {{name: string, target: string, icon: string}}
+         * Target of this link
+         * @type {string|boolean}
          */
-        this.link = {
-            name: 'undefined',
-            target: '',
-            icon: 'fallback'
-        };
+        this.target = data.target || false;
 
         /**
-         * Setter for name
-         * @param name
+         * Icon
+         * @type {string}
          */
-        this.setName = function(name) {
-            this.link.name = name;
-        };
+        this.icon = data.icon || 'planet';
 
         /**
-         * Setter for target
-         * @param target
+         * Text
+         * @type {string}
          */
-        this.setTarget = function(target) {
-            this.link.target = target;
-        };
+        this.text = data.text || 'NULL';
 
-        /**
-         * Setter for icon
-         * @param icon
-         */
-        this.setIcon = function(icon) {
-            this.link.icon = icon;
-        }
-    }
+    };
 
+    // Inherit Panel
+    Link.prototype = MenuItem;
+
+    // Fix constructor
+    Link.prototype.constructor = Link;
+
+    /**
+     * Setter for icon
+     * @param icon
+     */
+    Link.prototype.setIcon = function(icon) {
+        this.icon = icon;
+    };
+
+    /**
+     * Getter for icon
+     * @returns {string}
+     */
+    Link.prototype.getIcon = function() {
+        return this.icon;
+    };
+
+    /**
+     * Setter for target
+     * @param target
+     */
+    Link.prototype.setTarget = function(target) {
+        this.target = target;
+    };
+
+    /**
+     * Getter for target
+     * @returns {string|boolean}
+     */
+    Link.prototype.getTarget = function() {
+        return this.target;
+    };
+
+    /**
+     * Setter for text
+     * @param text
+     */
+    Link.prototype.setText = function(text) {
+        this.text = text;
+    };
+
+    /**
+     * Getter for text
+     * @returns {string}
+     */
+    Link.prototype.getText = function() {
+        return this.text;
+    };
+    
+    return Link;
 });

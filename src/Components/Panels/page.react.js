@@ -14,38 +14,33 @@ var PageItems = {
 define([
     'build/Components/Panels/Page/header.react',
     'build/Components/Panels/Page/form.react'
-], function() {
-    
+], function () {
+
     return React.createClass({
-        render: function() {
-            
-            //Order the items in the page as they are defined
-            this.props.panel.page = this.props.panel.page.sort(function(a, b) {
-                if(a.order && b.order) {
-                    return a.order > b.order ? 1 : -1;
-                }
-                return 0;
-            });
+        render: function () {
 
             //Combine page items together to form a single list
-            var page = this.props.panel.page.map(function(item) {
-                if(!PageItems[item.type]) {
-                    console.error("Unsupported page item type requested: " + item.type);
+            var page = this.props.panel.getContent().map(function (item) {
+                if (!item) {
+                    console.error('Undefined item passed, did you create an object for it?');
+                    return;
+                } else if (!PageItems[item.getType()]) {
+                    console.error("Unsupported page item type requested: " + item.getType());
                     return;
                 }
-                var Item = require(PageItems[item.type]);
-                return ( 
+                var Item = require(PageItems[item.getType()]);
+                return (
                     <div class="row">
                         <Item message={this.props.message} panel={this.props.panel} item={item} />
                     </div>
-                    );
+                );
             }.bind(this));
 
             return (
                 <div>
                     {page}
                 </div>
-                );
+            );
         }
     });
 

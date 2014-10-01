@@ -1,4 +1,4 @@
-define(['fluxxor'], function(Fluxxor) {
+define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFactory) {
 
     /**
      * The main Auja store
@@ -27,10 +27,13 @@ define(['fluxxor'], function(Fluxxor) {
          */
         initialize: function(url) {
             this.bindActions(
-                'panel-add', this.addPanel,
                 'panel-scroll', this.scroll,
                 'resize', this.resize,
-                'activate-item', this.activateItem
+                'activate-item', this.activateItem,
+                
+                //Different types of panels
+                'menu', this.addPanel,
+                'page', this.addPanel
             )
         },
 
@@ -65,65 +68,45 @@ define(['fluxxor'], function(Fluxxor) {
 
         /**
          * Add a panel
-         * @param panel
+         * @param p
          */
-        addPanel: function(panel) {
+        addPanel: function(p) {
+            var panel = PanelFactory.createPanel(p);
+            
+            if(!panel) {
+                console.error('Requested to dispatch unknown panel');
+                return;
+            }
+            
             //Set the index, since adding will always be on the end
-            panel._index = ++this.index;
-            panel.id = 'panel-' + panel._index;
+            panel.setIndex(++this.index);
+            panel.setId('panel-' + panel.getIndex());
             
             //If the panel from which this panel is added does not originate from the latest
             //we need to remove trailing panels
-            if(panel.origin) {
-                var panels = [];
-                for(var i in this.panels) {
-                    if(this.panels[i].id <= panel.origin.id) {
-                        panels.push(this.panels[i]);
-                    }
-                }      
-                this.panels = panels;
-            } else {
-                this.panels = [];
-            }
+            var panels = [];
+            for(var i in this.panels) {
+                if(panel.getOrigin() && this.panels[i].getIndex() <= panel.getOrigin().getIndex()) {
+                    panels.push(this.panels[i]);
+                }
+            }      
+            this.panels = panels;
                 
             //Put the panel in the view
-            this.panels[panel._index] = panel;
+            this.panels[panel.getIndex()] = panel;
             
-            return panel;
-        },
-
-        /**
-         * Update a panel
-         * @param panel
-         */
-        updatePanel: function(index, panel) {
-            for(var i in this.panels) {
-                if(this.panels[i]._index == panel._index) {
-                    this.panels[i] = panel;
-                    return this.panels[i]
-                    this.emit('change');
-                    break;
-                }
-            }
-            return false;
-        },
-
-        /**
-         * Should be called when finished processing of panel adding
-         */
-        addPanelSuccess: function() {
             this.emit('change');
-            this.resize();            
-        },        
-        
+        },
+
         /**
          * Activate an item within a panel
          * @todo add spec test
+         * @todo move to panel
          * @param item
          */
         activateItem: function(item) {
             for(var i in this.panels) {
-                if(this.panels[i].id == item.panel.id) {
+                if(this.panels[i].getId() == item.panel.getId()) {
                     this.panels[i].activeItem = item.item;
                     break;
                 }

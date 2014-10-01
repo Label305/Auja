@@ -1,4 +1,4 @@
-define(['fluxxor'], function(Fluxxor) {
+define(['fluxxor', 'build/Factories/form_factory'], function(Fluxxor, FormFactory) {
 
     /**
      * The main Auja store
@@ -54,6 +54,12 @@ define(['fluxxor'], function(Fluxxor) {
             var request = new Request(document.body.getAttribute('data-src'));
             request.get()
                 .done(function (response) {
+                    
+                    //Pass through the factory
+                    if(response.main.authentication) {
+                        response.main.authentication = FormFactory.createForm(response.main.authentication); 
+                    }
+                    
                     $.extend(this.state, response.main);
                     this.emit('change');
                 }.bind(this))
