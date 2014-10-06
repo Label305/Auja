@@ -21,11 +21,29 @@
                         }                        
                     },
                     {
+                        "type": "number",
+                        "number": {
+                            "name": "totalPlayers",
+                            "label": "Number of players",
+                            "min": "7",
+                            "max": "25",
+                            "value": "11"
+                        }                        
+                    },
+                    {
+                        "type": "email",
+                        "email": {
+                            "name": "email",
+                            "label": "Club Email"
+                        }
+                    },
+                   {
                         "type": "password",
                         "password": {
                             "name": "secret",
                             "label": "Secret to success"
                         }
+
                     },
                     {
                         "type": "number",

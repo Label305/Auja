@@ -1,5 +1,5 @@
 /**
- * A text field, properties:
+ * A email field, properties:
  *
  * - label
  * - name
@@ -19,7 +19,7 @@ define(['build/Components/Panels/Page/Form/label.react'], function (Label) {
             var attributes = this.props.item.getAttributes();
             attributes.value = this.state.value;
             attributes.onChange = this.handleChange;
-            
+
             return (
                 <div>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />
