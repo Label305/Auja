@@ -9,6 +9,17 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         //Set type of this object
         this.setType('number');
 
+        /**
+         * Get attributes for this input
+         * @return Object
+         */
+        this.getAttributes = function() {
+            return {
+                type: this.getType(),
+                value: this.getValue(),
+                name: this.getName()
+            }
+        };
     };
 
     // Inherit Panel
@@ -16,18 +27,6 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
     // Fix constructor
     Number.prototype.constructor = Number;
-
-    /**
-     * Get attributes for this input
-     * @return Object
-     */
-    Number.prototype.getAttributes = function() {
-        return {
-            type: this.getType(),
-            value: this.getValue(),
-            name: this.getName()
-        }
-    };
 
     return Number;
 });

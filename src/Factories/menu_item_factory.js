@@ -22,6 +22,8 @@ define([
             if(MenuItemObjects[data.type]) {
                 var Item = require(MenuItemObjects[data.type]);
                 return new Item(data[data.type]);
+            } else {
+                console.error('Unknown menu item type requested: ' + data.type);
             }
             return false;
         }

@@ -21,6 +21,38 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          */
         this.buttons = data.buttons || [];
 
+        /**
+         * Setter for text
+         * @param text
+         */
+        this.setText = function(text) {
+            this.text = text;
+        };
+
+        /**
+         * Getter for text
+         * @returns {string}
+         */
+        this.getText = function() {
+            return this.text;
+        };
+
+        /**
+         * Setter for buttons
+         * @param buttons
+         */
+        this.setButtons = function(buttons) {
+            this.buttons = buttons;
+        };
+
+        /**
+         * Getter for buttons
+         * @returns {array}
+         */
+        this.getButtons = function() {
+            return this.buttons;
+        };
+
     };
     
     // Inherit item
@@ -28,38 +60,6 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
     // Fix constructor
     Header.prototype.constructor = Header;
-
-    /**
-     * Setter for text
-     * @param text
-     */
-    Header.prototype.setText = function(text) {
-        this.text = text;
-    };
-
-    /**
-     * Getter for text
-     * @returns {string}
-     */
-    Header.prototype.getText = function() {
-        return this.text;
-    };
-
-    /**
-     * Setter for buttons
-     * @param buttons
-     */
-    Header.prototype.setButtons = function(buttons) {
-        this.buttons = buttons;
-    };
-
-    /**
-     * Getter for buttons
-     * @returns {array}
-     */
-    Header.prototype.getButtons = function() {
-        return this.buttons;
-    };
     
     return Header;
 });

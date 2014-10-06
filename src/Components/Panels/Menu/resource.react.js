@@ -6,30 +6,23 @@
  * @jsx React.DOM
  */
 
-define(['build/Components/Panels/Menu/Mixins/paging.mixin', 'build/Objects/menu'], function(Paging, Menu) {
-    
+define(['build/Components/Panels/Menu/Mixins/paging.mixin', 'build/Objects/menu'], function (Paging, Menu) {
+
     return React.createClass({
         mixins: [Paging],
-        getInitialState: function() {
-            return {
-                item: this.props.item,
-                paging: this.props.item.paging ? this.props.item.paging : {}
-            };
-        },
-        render: function() {     
-            
+        render: function () {
             var MenuPanel = require('build/Components/Panels/menu.react');
-                        
+
             //Transfer different props to mock Menu
             var panel = new Menu();
             panel.setOrigin(this.props.panel.getOrigin());
             panel.setItems(this.props.item.getItems());
-            
+
             return (
                 <li className="menu-item-resource">
-                    <MenuPanel panel={panel} />
+                    <MenuPanel panel={panel} originPanel={this.props.panel} />
                 </li>
-                );
+            );
         }
     });
 
