@@ -21,7 +21,6 @@
                         }                        
                     },
                     {
-<<<<<<< HEAD
                         "type": "number",
                         "number": {
                             "name": "totalPlayers",
@@ -36,14 +35,15 @@
                         "email": {
                             "name": "email",
                             "label": "Club Email"
-                        }                        
-=======
+                        }
+                    },
+                   {
                         "type": "password",
                         "password": {
                             "name": "secret",
                             "label": "Secret to success"
                         }
->>>>>>> de6639768467ee47c8cc54f46232dcdd3c1d6d48
+
                     },
                     {
                         "type": "number",
