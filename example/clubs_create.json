@@ -52,7 +52,7 @@
                             "name": "leagues",
                             "label": "Jupiler",
                             "value": true,
-                            "checked": true
+                            "checked": false
                         }
                         
                     },
