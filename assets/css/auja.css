@@ -159,6 +159,9 @@ a {
     margin: -60px auto 0 auto;
     padding: 20px;
     color: white;
+    -webkit-animation-duration: 0.25s!important;
+    -ms-animation-duration: 0.25s!important;
+    animation-duration: 0.25s!important;
 }
     .message:before {
         content: "";
@@ -271,19 +274,23 @@ ul#main-menu {
         display: table-cell;
         background-color: #FFF;
         border-right: 5px solid #f1f1f1;
+        -webkit-animation-duration: 0.25s!important;
+        -ms-animation-duration: 0.25s!important;
+        animation-duration: 0.25s!important;
     }
         #panels .panel>div {
             overflow-y: auto;
             overflow-x: hidden;
             float: left;
         }
-        #panels .panel:first-child {
-            padding-left: 45px;
+        #panels .panel:first-child>div {
+            margin-left: 45px;
         }
         
 /* Menu */
-#panels .panel-menu>ul {
+#panels .panel-menu>div {
     width: 270px;
+    display: block;
 }
 #panels .panel-menu ul {
     margin: 30px 0 0 30px;
@@ -309,7 +316,6 @@ ul#main-menu {
         line-height: 30px;
     }
 #panels .panel-menu .menu-item-spacer {
-    width: 270px;
     min-height: 15px;
     padding: 11px 0 5px 30px;
     margin: -1px 0 0 -30px;/* margin-top of -1px to hide the border of the element above */
