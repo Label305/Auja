@@ -24,7 +24,7 @@ define([
             var Panel = require(PanelTypes[this.props.panel.getType()]);
             
             return (
-                <section id={this.props.panel.getId()} key={this.props.panel.getId()} ref="panel" className={"animated slideInLeft panel panel-" + this.props.panel.getType()}>
+                <section id={this.props.panel.getId()} key={this.props.panel.getId()} ref="panel" className={"animated fadeInLeft panel panel-" + this.props.panel.getType()}>
                     <div onScroll={this.handleScroll} style={this.props.style}>
                         <Panel flux={this.props.flux} message={this.props.message} panel={this.props.panel} />
                     </div>
