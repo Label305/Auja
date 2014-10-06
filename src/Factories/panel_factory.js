@@ -40,7 +40,7 @@ define(['build/Factories/menu_factory', 'build/Factories/page_factory'], functio
             
             switch (panel.getType()) {
                 case 'menu':
-                    panel = MenuFactory.updateMenu(data);
+                    panel = MenuFactory.updateMenu(panel, data);
                     break;
             }
             

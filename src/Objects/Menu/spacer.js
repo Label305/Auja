@@ -17,7 +17,22 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
          * @type {string}
          */
         this.text = data.text || 'NULL';
+        
+        /**
+         * Setter for text
+         * @param text
+         */
+        this.setText = function(text) {
+            this.text = text;
+        };
 
+        /**
+         * Getter for text
+         * @returns {string}
+         */
+        this.getText = function() {
+            return this.text;
+        };
     };
 
     // Inherit Panel
@@ -25,22 +40,6 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
 
     // Fix constructor
     Spacer.prototype.constructor = Spacer;
-
-    /**
-     * Setter for text
-     * @param text
-     */
-    Spacer.prototype.setText = function(text) {
-        this.text = text;
-    };
-
-    /**
-     * Getter for text
-     * @returns {string}
-     */
-    Spacer.prototype.getText = function() {
-        return this.text;
-    };
-
+    
     return Spacer;
 });

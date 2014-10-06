@@ -22,7 +22,20 @@ define(['build/Objects/menu'], function (Menu) {
          * @param data
          */
         this.updateMenu = function (menu, data) {
-            menu.setItems(data.menu);
+            //Use a mock menu to be able to match id's and see which have disappeared
+            var oldItems = menu.getItems();
+            var items = this.createMenu(data).getItems().map(function(item) {
+                for(var i in oldItems) {
+                    //If item implements update method call it otherwise create the newly created item
+                    if(oldItems[i].getId() == item.getId()) {
+                        oldItems[i].update(item);
+                        return oldItems[i];
+                    }
+                }
+                return item;
+            });
+            
+            menu.setItems(items);
             return menu;
         }
 

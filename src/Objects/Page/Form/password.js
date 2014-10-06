@@ -8,7 +8,18 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
         //Set type of this object
         this.setType('password');
-
+        
+        /**
+         * Get attributes for this input
+         * @return Object
+         */
+        this.getAttributes = function() {
+            return {
+                type: this.getType(),
+                value: this.getValue(),
+                name: this.getName()
+            }
+        };
     };
 
     // Inherit FormItem
@@ -16,18 +27,6 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
     // Fix constructor
     Password.prototype.constructor = Password;
-
-    /**
-     * Get attributes for this input
-     * @return Object
-     */
-    Password.prototype.getAttributes = function() {
-        return {
-            type: this.getType(),
-            value: this.getValue(),
-            name: this.getName()
-        }
-    };
     
     return Password;
 });

@@ -1,7 +1,6 @@
+define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
 
-define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
-
-    var Link = function(data) {
+    var Link = function (data) {
 
         //Call the parent constructor
         MenuItem.call(this, arguments);
@@ -30,6 +29,72 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
          */
         this.text = data.text || 'NULL';
 
+        /**
+         * Getter for the id
+         * @returns string
+         * @override
+         */
+        this.getId = function () {
+            return this.target;
+        };
+        
+        /**
+         * Setter for icon
+         * @param icon
+         */
+        this.setIcon = function (icon) {
+            this.icon = icon;
+        };
+
+        /**
+         * Getter for icon
+         * @returns {string}
+         */
+        this.getIcon = function () {
+            return this.icon;
+        };
+
+        /**
+         * Setter for target
+         * @param target
+         */
+        this.setTarget = function (target) {
+            this.target = target;
+        };
+
+        /**
+         * Getter for target
+         * @returns {string|boolean}
+         */
+        this.getTarget = function () {
+            return this.target;
+        };
+
+        /**
+         * Setter for text
+         * @param text
+         */
+        this.setText = function (text) {
+            this.text = text;
+        };
+
+        /**
+         * Getter for text
+         * @returns {string}
+         */
+        this.getText = function () {
+            return this.text;
+        };
+
+        /**
+         * Update this Link with another Link
+         * @param item
+         */
+        this.update = function (item) {
+            this.setText(item.getText());
+            this.setIcon(item.getIcon());
+            this.setTarget(item.getTarget());
+        };
     };
 
     // Inherit Panel
@@ -37,54 +102,6 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
 
     // Fix constructor
     Link.prototype.constructor = Link;
-
-    /**
-     * Setter for icon
-     * @param icon
-     */
-    Link.prototype.setIcon = function(icon) {
-        this.icon = icon;
-    };
-
-    /**
-     * Getter for icon
-     * @returns {string}
-     */
-    Link.prototype.getIcon = function() {
-        return this.icon;
-    };
-
-    /**
-     * Setter for target
-     * @param target
-     */
-    Link.prototype.setTarget = function(target) {
-        this.target = target;
-    };
-
-    /**
-     * Getter for target
-     * @returns {string|boolean}
-     */
-    Link.prototype.getTarget = function() {
-        return this.target;
-    };
-
-    /**
-     * Setter for text
-     * @param text
-     */
-    Link.prototype.setText = function(text) {
-        this.text = text;
-    };
-
-    /**
-     * Getter for text
-     * @returns {string}
-     */
-    Link.prototype.getText = function() {
-        return this.text;
-    };
     
     return Link;
 });

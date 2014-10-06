@@ -9,6 +9,19 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         //Set type of this object
         this.setType('textarea');
 
+        /**
+         * Get attributes for this input
+         * @return Object
+         */
+        this.getAttributes = function() {
+            return {
+                type: this.getType(),
+                value: this.getValue(),
+                name: this.getName()
+            }
+        };
+
+
     };
 
     // Inherit Panel
@@ -16,18 +29,5 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
     // Fix constructor
     Textarea.prototype.constructor = Textarea;
-
-    /**
-     * Get attributes for this input
-     * @return Object
-     */
-    Textarea.prototype.getAttributes = function() {
-        return {
-            type: this.getType(),
-            value: this.getValue(),
-            name: this.getName()
-        }
-    };
-
     return Textarea;
 });

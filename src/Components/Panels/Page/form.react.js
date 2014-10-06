@@ -27,6 +27,13 @@ define([
     return React.createClass({
 
         /**
+         * Focus first element after form load
+         */
+        componentDidMount: function() {
+            $(this.refs.form.getDOMNode()).find('input:visible:first').focus();
+        },
+
+        /**
          * Handles form submission
          */
         handleSubmit: function (e) {
@@ -92,7 +99,7 @@ define([
             }.bind(this));
 
             return (
-                <form onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{items}</form>  
+                <form ref="form" onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{items}</form>  
             );
         }
     });

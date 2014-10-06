@@ -36,15 +36,31 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
     Menu.prototype.constructor = Menu;
 
     /**
+     * Generate a unique Id
+     * @returns {*|string}
+     */
+    Menu.prototype.getNextId = function(item) {
+        return '_' + String(++this._lastIndex);
+    };
+
+    /**
      * Setter for items
      * @param items
      */
     Menu.prototype.setItems = function(items) {
         this.items = items.map(function(item) {
+            
+            //Check if item already instantiated
+            //TODO make this more elegant
+            if(item.getId) {
+                item.setId(this.getNextId(item));
+                return item;
+            }
+            
             var result = MenuItemFactory.createItem(item);
             
             //Arrange a panel id or transfer the passed id
-            result.setId(item.id || '_' + String(++this._lastIndex));
+            result.setId(this.getNextId(item));
             
             return result;
         }.bind(this));

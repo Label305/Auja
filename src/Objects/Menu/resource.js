@@ -28,6 +28,53 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
          * @type {{}}
          */
         this.paging = {};
+
+        /**
+         * Getter for the id
+         * @returns string
+         * @override
+         */
+        this.getId = function() {
+            return this.target;
+        };
+
+        /**
+         * Getter for the target
+         * @returns String
+         */
+        this.getTarget = function() {
+            return this.target;
+        };
+
+        /**
+         * Get items in this resource
+         * @returns {Array}
+         */
+        this.getItems = function() {
+            return this.items;
+        };
+
+        /**
+         * Get the current paging
+         * @returns Object
+         */
+        this.getPaging = function() {
+            return this.paging;
+        };
+
+        /**
+         * Update with new data
+         * @todo make this a little more elegant
+         * @param data
+         */
+        this.update = function(data) {
+            if(data.items) {
+                this.items = this.items.concat(data.items);
+                this.paging = data.paging;
+            } else if(data.resource) {
+                alert('Updating');
+            }
+        };
     };
 
     // Inherit Panel
@@ -35,40 +82,6 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
 
     // Fix constructor
     Resource.prototype.constructor = Resource;
-
-    /**
-     * Getter for the target
-     * @returns String
-     */
-    Resource.prototype.getTarget = function() {
-        return this.target;
-    };
-
-    /**
-     * Get items in this resource
-     * @returns {Array}
-     */
-    Resource.prototype.getItems = function() {
-        return this.items;  
-    };
-
-    /**
-     * Get the current paging
-     * @returns Object
-     */
-    Resource.prototype.getPaging = function() {
-        return this.paging;
-    };
-
-    /**
-     * Update with new data
-     * @todo make this a little more elegant
-     * @param data
-     */
-    Resource.prototype.update = function(data) {
-        this.items = this.items.concat(data.items);
-        this.paging = data.paging;
-    };
     
     return Resource;
 });
