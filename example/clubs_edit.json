@@ -40,6 +40,15 @@
                         }
                         
                     },
+                      {
+                        "type": "url",
+                        "url": {
+                            "name": "website",
+                            "label": "Club Website",
+                            "value": "http://www.voetbalclub.org"
+                        }
+                        
+                    },
                     {
                         "type": "password",
                         "password": {
