@@ -2,6 +2,7 @@
  * The main menu on the left
  * 
  * @jsx React.DOM
+ * @todo new name!
  */
 define([], function() {
     

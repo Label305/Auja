@@ -3,15 +3,13 @@
  * to pass request to correct handler
  */
 var routers = {
-    'http': 'build/Requests/Routers/http',
-    'rest': 'build/Requests/Routers/rest'
+    'http': 'build/Requests/Routers/http'
 };
 
 define([
     'signals', 
     'crossroads',
-    'build/Requests/Routers/http',
-    'build/Requests/Routers/rest'
+    'build/Requests/Routers/http'
 ], function (signals, crossroads) {
 
     //Register as a global

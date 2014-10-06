@@ -18,10 +18,10 @@
                         "text": {
                             "name": "name",
                             "label": "Name of club"
-                        }
-                        
+                        }                        
                     },
                     {
+<<<<<<< HEAD
                         "type": "number",
                         "number": {
                             "name": "totalPlayers",
@@ -37,12 +37,19 @@
                             "name": "email",
                             "label": "Club Email"
                         }                        
-                    },
-                    {
+=======
                         "type": "password",
                         "password": {
-                            "name": "token",
-                            "label": "Token"
+                            "name": "secret",
+                            "label": "Secret to success"
+                        }
+>>>>>>> de6639768467ee47c8cc54f46232dcdd3c1d6d48
+                    },
+                    {
+                        "type": "number",
+                        "number": {
+                            "name": "no_member",
+                            "label": "Number of members"
                         }
                     },
                     {
@@ -55,14 +62,14 @@
                     {
                         "type": "trumbowyg",
                         "trumbowyg": {
-                            "name": "description",
-                            "label": "Description Trumbowyg"
+                            "name": "site_description",
+                            "label": "Site description"
                         }
                     },
                     {
                         "type": "submit",
                         "submit": {
-                            "name": "Create!"
+                            "value": "Create!"
                         }
                     }
                 ]

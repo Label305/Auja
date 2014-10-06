@@ -19,18 +19,16 @@ define([
 ], function() {
     return React.createClass({
         render: function() {
-            //Copy so that we wont apply changes twice
-            var menu = this.props.panel.menu;
             
             //Combine menu items together to form a single list
-            menu = menu.map(function(item) {
-                if(!MenuItems[item.type]) {
-                    console.error("Unsupported menu item type requested: " + item.type);
+            var menu = this.props.panel.getItems().map(function(item) {
+                if(!MenuItems[item.getType()]) {
+                    console.error("Unsupported menu item type requested: " + item.getType());
                     return;
                 }
                 
-                var Item = require(MenuItems[item.type]);
-                return ( <Item key={item.key} scrollContainer={this.props.scrollContainer} flux={this.props.flux} activeItem={this.props.panel.activeItem} panel={this.props.panel} item={item} /> );
+                var Item = require(MenuItems[item.getType()]);
+                return ( <Item key={item.key} scrollContainer={this.props.scrollContainer} flux={this.props.flux} activeItem={this.props.panel.getActiveItem()} panel={this.props.panel} item={item} /> );
             }.bind(this));
             
             return (
