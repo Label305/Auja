@@ -34,6 +34,17 @@ define([], function() {
         },
 
         /**
+         * Bind click on escape to reset the message
+         */
+        componentDidMount: function() {
+            $(document).bind('keyup', function(e) {
+                if(e.keyCode == 27) {
+                    flux.store('MessageStore').reset();
+                }  
+            });
+        },
+        
+        /**
          * Render the div with all panels
          * @returns {XML}
          */
