@@ -17,7 +17,8 @@
                         "type": "text",
                         "text": {
                             "name": "name",
-                            "label": "Name of club"
+                            "label": "Name of club",
+                            "value": "FC Twente"
                         }                        
                     },
                     {
@@ -33,7 +34,6 @@
                             "name": "leagues",
                             "label": "Jupiler",
                             "value": true,
-                            "required": false,
                             "checked": true
                         }
                         
@@ -50,7 +50,8 @@
                         "type": "number",
                         "number": {
                             "name": "no_member",
-                            "label": "Number of members"
+                            "label": "Number of members",
+                            "value": "2"
 
                         }
                     },

@@ -8,6 +8,7 @@ var FormItemObjects = {
     'submit': 'build/Objects/Page/Form/submit',
     'text': 'build/Objects/Page/Form/text',
     'textarea': 'build/Objects/Page/Form/textarea',
+    'checkbox': 'build/Objects/Page/Form/checkbox',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg'
 };
 
@@ -18,6 +19,7 @@ define([
     'build/Objects/Page/Form/submit',
     'build/Objects/Page/Form/text',
     'build/Objects/Page/Form/textarea',
+    'build/Objects/Page/Form/checkbox',
     'build/Objects/Page/Form/trumbowyg'
 ], function() {
 
