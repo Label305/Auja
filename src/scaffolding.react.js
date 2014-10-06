@@ -55,6 +55,9 @@ define([
         componentWillMount: function () {
             flux.actions.initialize();
         },
+        componentDidMount: function() {
+            flux.actions.resize();  
+        },
         render: function () {
             document.title = this.state.title;
 

@@ -18,19 +18,14 @@
                         "text": {
                             "name": "name",
                             "label": "Name of club"
-                        }
-                        
+                        }                        
                     },
                     {
-                        "type": "number",
-                        "number": {
-                            "name": "totalPlayers",
-                            "label": "Number of players",
-                            "min": "7",
-                            "max": "25",
-                            "value": "11"
+                        "type": "password",
+                        "password": {
+                            "name": "secret",
+                            "label": "Secret to success"
                         }
-                        
                     },
                     {
                         "type": "checkbox",
@@ -51,6 +46,15 @@
                         }
                     },
                     {
+                    
+                        "type": "number",
+                        "number": {
+                            "name": "no_member",
+                            "label": "Number of members"
+
+                        }
+                    },
+                    {
                         "type": "textarea",
                         "textarea": {
                             "name": "description",
@@ -60,14 +64,14 @@
                     {
                         "type": "trumbowyg",
                         "trumbowyg": {
-                            "name": "description",
-                            "label": "Description Trumbowyg"
+                            "name": "site_description",
+                            "label": "Site description"
                         }
                     },
                     {
                         "type": "submit",
                         "submit": {
-                            "name": "Create!"
+                            "value": "Create!"
                         }
                     }
                 ]

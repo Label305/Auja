@@ -11,35 +11,28 @@
 define(['build/Components/Panels/Page/Form/label.react', 'trumbowyg'], function(Label) {
     return React.createClass({
         componentDidMount: function() {
-            //Set default buttons
-            var btns = ['header', 'bold', 'italic', '|', 'unorderedList', 'orderedList', '|', 'insertImage', 'link', '|', 'viewHTML', 'fullscreen'];
-            if(this.props.item.trumbowyg.btns) {
-                btns = this.props.item.trumbowyg.btns;
-            }
-            var btnsGrps = {design:btns};            
+            var btnsGrps = {
+                design: this.props.item.getButtons()
+            };            
             
             $(this.refs.textarea.getDOMNode()).trumbowyg({
-                btns: btns,
+                btns: this.props.item.getButtons(),
                 btnsGrps: btnsGrps
             });
         },
         render: function() {
-            var attributes = Object.clone(this.props.item.trumbowyg);
-            
-            //Remove otherwise engaged attributes
-            delete attributes.label;
-            delete attributes.value;
+            var attributes = this.props.item.getAttributes();
             
             Object.merge(attributes, {
                 id: this.props.itemId,
-                type: 'text',
+                type: 'textarea',
                 ref: 'textarea'
             });
             
             return (
                 <div>
-                    <Label item={this.props.item} name={this.props.item.trumbowyg.label} />
-                    {React.DOM.textarea(attributes, this.props.item.value ? this.props.item.value : '')}
+                    <Label item={this.props.item} name={this.props.item.getLabel()} />
+                    {React.DOM.textarea(attributes, this.props.item.getValue())}
                 </div>
                 );
         }

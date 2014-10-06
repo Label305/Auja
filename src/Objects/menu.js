@@ -1,35 +1,61 @@
 /**
- * Scaffolding of a Auja menu panel
+ * Menu panel type
  */
-define(['build/Objects/Menu/link', 'build/Objects/Menu/spacer'], function() {
+var MenuItemObjects = {
+    'unknown': 'build/Objects/Menu/item',
+    'resource': 'build/Objects/Menu/resource'
+};
 
-    window.Menu = function() {
+define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], function(Panel, MenuItemFactory) {
+    
+    var Menu = function() {
+
+        //Call the parent constructor
+        Panel.call(this);
+        
+        //Set the type
+        this.setType('menu');
 
         /**
-         * Items in this menu
+         * Menu items
          * @type {Array}
          */
         this.items = [];
-
-        /**
-         * Add an item
-         * @param item
-         */
-        this.addItem = function(item) {
-            this.items.push(item);
-        };
         
-        /**
-         * Create the menu object
-         * @returns {{type: string, menu: *}}
-         */
-        this.getObject = function() {
-            return {
-                type: 'menu',
-                menu: this.items
-            }
-        }
-        
-    }
+    };
     
+    // Inherit Panel
+    Menu.prototype = Panel;
+    
+    // Fix constructor
+    Menu.prototype.constructor = Menu;
+
+    /**
+     * Setter for items
+     * @param items
+     */
+    Menu.prototype.setItems = function(items) {
+        this.items = items.map(function(item) {
+            return MenuItemFactory.createItem(item);
+        });
+    };
+
+    /**
+     * Getter for items
+     * @returns {Array}
+     */
+    Menu.prototype.getItems = function() {
+        return this.items;
+    };
+
+    /**
+     * Getter for active item
+     * @todo implement active item
+     * @returns {boolean}
+     */
+    Menu.prototype.getActiveItem = function() {
+        return false;
+    };
+    
+    return Menu;
 });

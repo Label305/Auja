@@ -23,11 +23,6 @@
                 "title": "Clubs",
                 "icon": "planet",
                 "target": "example/clubs/menu"
-            },
-            {
-                "title": "Clubs (resource)",
-                "icon": "cloud",
-                "target": "clubs/menu"
             }
         ],
         "routes": [
@@ -53,18 +48,8 @@
             },
             {
                 "type": "http",
-                "target": "example/clubs",
-                "action": "example/clubs_index.json"
-            },
-            {
-                "type": "http",
                 "target": "example/clubs/{id}/edit",
                 "action": "example/clubs_edit.json"
-            },
-            {
-                "type": "rest",
-                "resource": "clubs",
-                "endpoint": "clubs"
             }
         ],
         "authentication": {

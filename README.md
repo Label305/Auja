@@ -1,7 +1,7 @@
 Auja [![Build Status](https://magnum.travis-ci.com/Label305/Auja.svg?token=9SWtTh915DNJxYshmaTN&branch=dev)](https://magnum.travis-ci.com/Label305/Auja)
 ===
 
-Auja is a back-end interface designed designed to be friendly on both sides, for the end-user as well as the developer.
+Auja is a back-end interface designed to be friendly on both sides, for the end-user as well as the developer.
 
 In this repo you'll find the JavaScript source meant to be used together with a back-end implementation for your 
    preferred framework, whatever server side language you use. Current back-end implementations:
@@ -17,22 +17,22 @@ Installation
 
 *Stand alone*
 
-Load dependencies using [Bower](http://bower.io/) by running:
+After cloning you will first have to install Auja's dependencies using [Bower](http://bower.io/) by running:
 
 `bower install`
 
-Now RequieJS, Fluxxor, React and other should have been downloaded to the `bower_components` directory and we can
-continue to compile the JS. If you don't have jsx installed yet run: 
+Now RequireJS, Fluxxor, React and other dependencies should have been downloaded to the `bower_components` directory and we can
+continue to compile the JS using jsx. If you don't have jsx installed yet run: 
 
 `npm install -g react-tools` 
 
-After this you should compile the jsx code into browser readable JavaScript like:
+After this you have to compile the jsx code into browser-readable JavaScript using jsx as follows:
 
 `jsx src/ build/`
 
-Now the `build` directory should have been filled and you can serve the `exmaple/index.html` in the example directory with 
-any web-server you want. For example, run `npm install -g http-server` and then from the repository root run `http-server`
-after which you can visit `http://localhost:8080/example` to view the Auja implementation
+Now the `build` directory should have been filled and you can serve the `example/index.html` in the example directory with 
+any web-server you want. For example, run `npm install -g http-server` and then run `http-server` from the repository root.
+Now you can visit `http://localhost:8080/example` to view the Auja implementation
 
 Architecture
 ---
@@ -47,10 +47,7 @@ In short, Flux constists of four main parts:
 - Dispatcher
 - Stores
  
-In that order the dataflow will commence, the user does something in the view. Triggers an action, which is dispatched to
-certain stores. The stores will do process/store the newly received data and, if applicable, emit that they have changed. Now 
-the React views, using Fluxxor, will be notified that the state has changed after which the view will re-render with all
-React goodness.
+This is also the order of the dataflow, starting with the user doing something in the view. This triggers an action, which is dispatched to certain stores. The stores will process/store the newly received data and, if applicable, emit that they have changed. Now the React views will be notified, through Fluxxor, that the state has changed after which the view will re-render with all React goodness.
 
 Requests and Routing
 ---
@@ -65,26 +62,8 @@ request.get().done(function(response) {
 ```
 
 The response will be handled by the aforementioned dispatcher which expects a valid panel or other kind of view-compatible response.
-However, we want to be able to, for example, use a restful api as a datasource in combination with custom menu's. For this
+However, we want to be able to, for example, use a RESTful API as a datasource in combination with custom menu's. For this
 the `RouteFactory` is used. The `RouteFactory` will find the corresponding request handler from the `Requests/Handlers` directory.
-
-From the main Auja config an array of routes is parsed, and based on provided type the corresponding handler is returned, for example:
-
-```json
-"routes": [
-    {
-        "type": "rest",
-        "resource": "clubs",
-        "endpoint": "clubs"
-    }
-]
-```
-
-Now, when a request is initialized with the url `/clubs/menu` this will be handled using the rest handler object. 
-In other words, `new Request(url).get()` will return whatever the `get` method in `Requests/Handlers/rest.js` will return.
-
-The ables us to combine a menu containing a listing of clubs accompanied by an add button and other elements. While these
-were never explicitly defined, only "guessed" based on basic restful api rules. 
 
 The `dist` dir
 ---
@@ -99,7 +78,7 @@ r.js -o build.js out=dist/auja.min.js
 and
 
 ```
-r.js -o build.js out=dist/auja.js
+r.js -o build.js out=dist/auja.js optimize=none
 ```
 
 React component structure
