@@ -19,6 +19,23 @@ define(['build/Objects/Abstract/panel', 'build/Factories/page_item_factory'], fu
          */
         this.content = [];
 
+        /**
+         * Set the content of a page
+         */
+        this.setContent = function(content) {
+            this.content = content.map(function(item) {
+                return PageItemFactory.createItem(item);
+            });
+        };
+
+        /**
+         * Getter for the content
+         * @returns {Array}
+         */
+        this.getContent = function() {
+            return this.content;
+        };
+
     };
 
     // Inherit Panel
@@ -26,23 +43,6 @@ define(['build/Objects/Abstract/panel', 'build/Factories/page_item_factory'], fu
 
     // Fix constructor
     Page.prototype.constructor = Page;
-
-    /**
-     * Set the content of a page
-     */
-    Page.prototype.setContent = function(content) {
-        this.content = content.map(function(item) {
-            return PageItemFactory.createItem(item);
-        });
-    };
-
-    /**
-     * Getter for the content
-     * @returns {Array}
-     */
-    Page.prototype.getContent = function() {
-        return this.content;
-    };
 
     return Page;
 });

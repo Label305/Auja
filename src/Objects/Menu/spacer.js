@@ -33,6 +33,14 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
         this.getText = function() {
             return this.text;
         };
+
+        /**
+         * Update this item
+         * @param item
+         */
+        this.update = function(item) {
+            this.setText(item.getText());
+        }
     };
 
     // Inherit Panel

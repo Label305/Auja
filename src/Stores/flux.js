@@ -132,12 +132,27 @@ define([
         extendResource: function(panel, item) {
             var request = new Request(item.getTarget());
             request.get().done(function(data) {
-                this.dispatch('update-menu-item', {
+                this.dispatch('extend-resource', {
                     panel: panel,
                     item: item,
                     data: data
                 });
             }.bind(this));
+        },
+
+        /**
+         * Update a single item with the response of an url
+         * @param item
+         * @param url
+         */
+        updateResource: function(item, url) {
+            var request = new Request(url);
+            request.get().done(function(data) {
+                this.dispatch('update-resource', {
+                    item: item,
+                    data: data
+                });
+            }.bind(this));            
         }
     };
     

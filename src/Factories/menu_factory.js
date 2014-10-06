@@ -28,8 +28,13 @@ define(['build/Objects/menu'], function (Menu) {
                 for(var i in oldItems) {
                     //If item implements update method call it otherwise create the newly created item
                     if(oldItems[i].getId() == item.getId()) {
-                        oldItems[i].update(item);
-                        return oldItems[i];
+                        if(!oldItems[i].update) {
+                            console.error('Menu item does not implement update method');
+                            return item;
+                        } else {
+                            oldItems[i].update(item);
+                            return oldItems[i];
+                        }
                     }
                 }
                 return item;

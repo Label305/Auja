@@ -39,7 +39,8 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
                 'page', this.addPanel,
                 
                 //Menu specific actions
-                'update-menu-item', this.updateMenuItem
+                'extend-resource', this.extendResource,
+                'update-resource', this.updateResource
             )
         },
 
@@ -138,10 +139,10 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
         },
 
         /**
-         * Update a single item
+         * Extend a resource
          * @param data
          */
-        updateMenuItem: function(data) {
+        extendResource: function(data) {
             var panel = data.panel,
                 response = data.data,
                 item = data.item;
@@ -154,8 +155,26 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
                         console.error('Update of menu item requested on a non menu');
                         return;
                     }
-                    this.panels[i].updateItem(item, response);
+                    this.panels[i].extendItem(item, response);
                     this.emit('change');                    
+                    return;
+                }
+            }
+        },
+
+        /**
+         * Update a resource
+         * @param data
+         */
+        updateResource: function(data) {
+            var response = data.data,
+                item = data.item;
+
+            //Find the panel
+            for(var i in this.panels) {
+                if(this.panels[i].hasItem(item)) {
+                    this.panels[i].updateItem(item, response);
+                    this.emit('change');
                     return;
                 }
             }
