@@ -116,35 +116,44 @@ define([
         },
 
         /**
-         * Extend a resource with new itemsd
-         * @todo fix async error
-         * @param url
-         * @param resource
-         */
-        extendResource: function(resource) {
-            alert('Extend resource');
-            //var request = new Request(url);
-            //request.get().done(function(response) {
-            //    if(response.type != 'items') {
-            //        console.error('Mounting of a resource resulted in a non-items response');
-            //    } else {
-            //        this.dispatch('items-extend', {
-            //            resource: resource,
-            //            items: response,
-            //            paging: response.paging ? response.paging : {}
-            //        });
-            //    }
-            //}.bind(this));
-        },
-
-        /**
          * Trigger scrolling of a panel
          * @param panel
          */
         onPanelScroll: function(panel) {
             this.dispatch('panel-scroll', panel);            
-        }
+        },
 
+        /**
+         * Extend the items in a panel 
+         * @todo fix async
+         * @param panel
+         * @param item
+         */
+        extendResource: function(panel, item) {
+            var request = new Request(item.getTarget());
+            request.get().done(function(data) {
+                this.dispatch('extend-resource', {
+                    panel: panel,
+                    item: item,
+                    data: data
+                });
+            }.bind(this));
+        },
+
+        /**
+         * Update a single item with the response of an url
+         * @param item
+         * @param url
+         */
+        updateResource: function(item, url) {
+            var request = new Request(url);
+            request.get().done(function(data) {
+                this.dispatch('update-resource', {
+                    item: item,
+                    data: data
+                });
+            }.bind(this));            
+        }
     };
     
     return new Fluxxor.Flux(stores, actions); 

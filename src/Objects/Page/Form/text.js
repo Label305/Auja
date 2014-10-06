@@ -8,6 +8,18 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
         //Set type of this object
         this.setType('text');
+        
+        /**
+         * Get attributes for this input
+         * @return Object
+         */
+        this.getAttributes = function() {
+            return {
+                type: this.getType(),
+                value: this.getValue(),
+                name: this.getName()
+            }
+        };
     };
 
     // Inherit FormItem
@@ -16,17 +28,5 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
     // Fix constructor
     Text.prototype.constructor = Text;
     
-    /**
-     * Get attributes for this input
-     * @return Object
-     */
-    Text.prototype.getAttributes = function() {
-        return {
-            type: this.getType(),
-            value: this.getValue(),
-            name: this.getName()
-        }
-    };
-
     return Text;
 });

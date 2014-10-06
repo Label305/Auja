@@ -25,7 +25,7 @@ define([], function() {
             className += "icon ion-" + icon;
             
             //Check if we match the active item
-            if(this.props.activeItem && this.props.activeItem.link && this.props.activeItem.link.getTarget() == this.props.item.getTarget()) {
+            if(this.props.item.isActive()) {
                 className += " auja-color-main";
             }
             
