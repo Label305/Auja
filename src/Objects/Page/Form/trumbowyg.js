@@ -15,6 +15,33 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          */
         this.buttons = ['header', 'bold', 'italic', '|', 'unorderedList', 'orderedList', '|', 'insertImage', 'link', '|', 'viewHTML', 'fullscreen'];
 
+        /**
+         * Get attributes for this input
+         * @return Object
+         */
+        this.getAttributes = function() {
+            return {
+                type: this.getType(),
+                value: this.getValue(),
+                name: this.getName()
+            }
+        };
+
+        /**
+         * Setter of buttons
+         * @param buttons
+         */
+        this.setButtons = function(buttons) {
+            this.buttons = buttons;
+        };
+
+        /**
+         * Getter for buttons
+         */
+        this.getButtons = function() {
+            return this.buttons;
+        };
+
     };
 
     // Inherit Panel
@@ -22,33 +49,6 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
     // Fix constructor
     Trumbowyg.prototype.constructor = Trumbowyg;
-
-    /**
-     * Get attributes for this input
-     * @return Object
-     */
-    Trumbowyg.prototype.getAttributes = function() {
-        return {
-            type: this.getType(),
-            value: this.getValue(),
-            name: this.getName()
-        }
-    };
-
-    /**
-     * Setter of buttons
-     * @param buttons
-     */
-    Trumbowyg.prototype.setButtons = function(buttons) {
-        this.buttons = buttons;
-    };
-
-    /**
-     * Getter for buttons
-     */
-    Trumbowyg.prototype.getButtons = function() {
-        return this.buttons;
-    };
 
     return Trumbowyg;
 });

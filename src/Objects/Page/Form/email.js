@@ -1,14 +1,14 @@
 
 define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
-    var Submit = function(data) {
+    var Email = function(data) {
 
         //Call the parent constructor
         FormItem.call(this, data);
 
         //Set type of this object
-        this.setType('submit');
-
+        this.setType('email');
+        
         /**
          * Get attributes for this input
          * @return Object
@@ -20,15 +20,13 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 name: this.getName()
             }
         };
-
-
     };
 
-    // Inherit Panel
-    Submit.prototype = FormItem;
+    // Inherit FormItem
+    Email.prototype = FormItem;
 
     // Fix constructor
-    Submit.prototype.constructor = Submit;
+    Email.prototype.constructor = Email;
     
-    return Submit;
+    return Email;
 });

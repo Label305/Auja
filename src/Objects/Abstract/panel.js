@@ -7,25 +7,43 @@ define([], function() {
 
         /**
          * The object that called this panel in existence
+         * @private
          */
         this._origin;
 
         /**
          * Type of panel we're looking at
+         * @private
          */
         this._type;
 
         /**
          * ID of the panel
          * @type string
+         * @private
          */
         this._id;
 
         /**
          * Index of the panel
          * @type string
+         * @private
          */
         this._index;
+
+        /**
+         * Is updateable
+         * @type {boolean}
+         * @private
+         */
+        this._isUpdateable = false;
+
+        /**
+         * Url which the panel represents
+         * @typ string
+         * @private
+         */
+        this._url;
 
         /**
          * Setter for the ID
@@ -91,12 +109,37 @@ define([], function() {
         };
 
         /**
-         * Update the contents of a panel
+         * Setter for the url
+         * @param id
          */
-        this.update = function() {
-            alert('Update');
-            return true;
-        }
+        this.setUrl = function(url) {
+            this._url = url;
+        };
+
+        /**
+         * Getter for the url
+         * @returns {string|*}
+         */
+        this.getUrl = function() {
+            return this._url;
+        };
+
+
+        /**
+         * Getter for is updateable
+         * @returns {*}
+         */
+        this.isUpdateable = function() {
+            return this._isUpdateable;
+        };
+
+        /**
+         * Setter for is updateable
+         * @param is_updateable
+         */
+        this.setIsUpdateable = function(isUpdateable) {
+            this._isUpdateable = isUpdateable;
+        };
         
     }
     

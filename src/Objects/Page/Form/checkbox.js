@@ -18,7 +18,20 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
      isChecked = function(){
         this.checked
+        };
     };
+
+        /**
+     * Get attributes for this input
+     * @return Object
+     */
+     this.getAttributes = function() {
+        return {
+            type: this.getType(),
+            value: this.getValue(),
+            name: this.getName(),
+            checked: this.isChecked()
+        }
     };
 
     // Inherit FormItem
@@ -27,18 +40,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
     // Fix constructor
     Checkbox.prototype.constructor = Checkbox;
     
-    /**
-     * Get attributes for this input
-     * @return Object
-     */
-     Checkbox.prototype.getAttributes = function() {
-        return {
-            type: this.getType(),
-            value: this.getValue(),
-            name: this.getName(),
-            checked: this.isChecked()
-        }
-    };
+
 
     return Checkbox;
 });

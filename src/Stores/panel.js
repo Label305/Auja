@@ -31,9 +31,16 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
                 'resize', this.resize,
                 'activate-item', this.activateItem,
                 
+                //Update panels
+                'update', this.update,
+                
                 //Different types of panels
                 'menu', this.addPanel,
-                'page', this.addPanel
+                'page', this.addPanel,
+                
+                //Menu specific actions
+                'extend-resource', this.extendResource,
+                'update-resource', this.updateResource
             )
         },
 
@@ -64,6 +71,22 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
          */
         scroll: function(panel) {
             this.emit('change');
+        },
+
+        /**
+         * Update content of all panels
+         * @todo group same origin requests (or do something in request object with ongoing requests)
+         */
+        update: function() {
+            this.panels.map(function(panel) {
+                if(panel.isUpdateable()) {
+                    var request = new Request(panel.getUrl());
+                    request.get().done(function (response) {
+                        panel = PanelFactory.updatePanel(panel, response);
+                        this.emit('change');
+                    }.bind(this));
+                }
+            }.bind(this));
         },
 
         /**
@@ -107,12 +130,54 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
         activateItem: function(item) {
             for(var i in this.panels) {
                 if(this.panels[i].getId() == item.panel.getId()) {
-                    this.panels[i].activeItem = item.item;
+                    this.panels[i].setActiveItem(item.item);
                     break;
                 }
             }
             
             this.emit('change');
+        },
+
+        /**
+         * Extend a resource
+         * @param data
+         */
+        extendResource: function(data) {
+            var panel = data.panel,
+                response = data.data,
+                item = data.item;
+            
+            //Find the panel
+            for(var i in this.panels) {
+                if(this.panels[i].getId() == panel.getId()) {
+                    
+                    if(this.panels[i].getType() != 'menu') {
+                        console.error('Update of menu item requested on a non menu');
+                        return;
+                    }
+                    this.panels[i].extendItem(item, response);
+                    this.emit('change');                    
+                    return;
+                }
+            }
+        },
+
+        /**
+         * Update a resource
+         * @param data
+         */
+        updateResource: function(data) {
+            var response = data.data,
+                item = data.item;
+
+            //Find the panel
+            for(var i in this.panels) {
+                if(this.panels[i].hasItem(item)) {
+                    this.panels[i].updateItem(item, response);
+                    this.emit('change');
+                    return;
+                }
+            }
         }
         
     })

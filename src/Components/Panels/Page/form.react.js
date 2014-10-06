@@ -13,6 +13,7 @@ var FormItems = {
     'trumbowyg': 'build/Components/Panels/Page/Form/trumbowyg.react',
     'number': 'build/Components/Panels/Page/Form/number.react',
     'checkbox': 'build/Components/Panels/Page/Form/checkbox.react',
+    'email': 'build/Components/Panels/Page/Form/email.react',
     'submit': 'build/Components/Panels/Page/Form/submit.react'
 };
 
@@ -24,9 +25,17 @@ define([
     'build/Components/Panels/Page/Form/trumbowyg.react',
     'build/Components/Panels/Page/Form/number.react',
     'build/Components/Panels/Page/Form/checkbox.react',
+    'build/Components/Panels/Page/Form/email.react',
     'build/Components/Panels/Page/Form/submit.react'
 ], function () {
     return React.createClass({
+
+        /**
+         * Focus first element after form load
+         */
+        componentDidMount: function() {
+            $(this.refs.form.getDOMNode()).find('input:visible:first').focus();
+        },
 
         /**
          * Handles form submission
@@ -94,7 +103,7 @@ define([
             }.bind(this));
 
             return (
-                <form onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{items}</form>  
+                <form ref="form" onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{items}</form>  
             );
         }
     });

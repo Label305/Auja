@@ -4,7 +4,6 @@
  * - label
  * - name
  * - .. any other allowed by input
- * TODO: Allow checkbox change when value is not set present in JSON
  * @jsx React.DOM
  */
  define(['build/Components/Panels/Page/Form/label.react'], function(Label) {

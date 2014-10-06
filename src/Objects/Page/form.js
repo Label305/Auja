@@ -30,7 +30,57 @@ define(['build/Objects/Abstract/page_item', 'build/Factories/form_item_factory']
          * @type {string}
          */
         this.action = data.action || null;
-        
+
+        /**
+         * Setter for Items
+         * @param items
+         */
+        this.setItems = function(items) {
+            this.items = items.map(function(item) {
+                return FormItemFactory.createItem(item);
+            });
+        };
+
+        /**
+         * Getter for items
+         * @returns {Array}
+         */
+        this.getItems = function() {
+            return this.items;
+        };
+
+        /**
+         * Setter for method
+         * @param method
+         */
+        this.setMethod = function(method) {
+            this.method = method;
+        };
+
+        /**
+         * Getter for method
+         * @returns {string}
+         */
+        this.getMethod = function() {
+            return this.method;
+        };
+
+        /**
+         * Setter for action
+         * @param action
+         */
+        this.setAction = function(action) {
+            this.action = action;
+        };
+
+        /**
+         * Getter for action
+         * @returns {string}
+         */
+        this.getAction = function() {
+            return this.action;
+        };
+
         if(data.items) {
             this.setItems(data.items);
         }
@@ -42,56 +92,6 @@ define(['build/Objects/Abstract/page_item', 'build/Factories/form_item_factory']
 
     // Fix constructor
     Form.prototype.constructor = Form;
-
-    /**
-     * Setter for Items
-     * @param items
-     */
-    Form.prototype.setItems = function(items) {
-        this.items = items.map(function(item) {
-            return FormItemFactory.createItem(item); 
-        });
-    };
-
-    /**
-     * Getter for items
-     * @returns {Array}
-     */
-    Form.prototype.getItems = function() {
-        return this.items;
-    };
-    
-    /**
-     * Setter for method
-     * @param method
-     */
-    Form.prototype.setMethod = function(method) {
-        this.method = method;
-    };
-
-    /**
-     * Getter for method
-     * @returns {string}
-     */
-    Form.prototype.getMethod = function() {
-        return this.method;
-    };
-
-    /**
-     * Setter for action
-     * @param action
-     */
-    Form.prototype.setAction = function(action) {
-        this.action = action;
-    };
-
-    /**
-     * Getter for action
-     * @returns {string}
-     */
-    Form.prototype.getAction = function() {
-        return this.action;
-    };
 
     return Form;
 });
