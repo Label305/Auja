@@ -7,34 +7,25 @@
  *
  * @jsx React.DOM
  */
- define(['build/Components/Panels/Page/Form/label.react'], function(Label) {
+define(['build/Components/Panels/Page/Form/label.react'], function (Label) {
     return React.createClass({
-        getInitialState: function() {
-            return {value: this.props.item.email.value};
+        getInitialState: function () {
+            return {value: this.props.item.getValue()};
         },
-        handleChange: function(event) {
+        handleChange: function (event) {
             this.setState({value: event.target.value});
         },
-        render: function() {
-            var attributes = Object.clone(this.props.item.email);
+        render: function () {
+            var attributes = this.props.item.getAttributes();
+            attributes.value = this.state.value;
+            attributes.onChange = this.handleChange;
 
-            //Remove otherwise engaged attributes
-            delete attributes.label;
-            
-            Object.merge(attributes, {
-                id: this.props.itemId,
-                type: 'email',
-                onChange: this.handleChange,
-                value: this.state.value
-            });            
-            
             return (
                 <div>
-                <Label item={this.props.item} name={this.props.item.email.label} />
+                    <Label item={this.props.item} name={this.props.item.getLabel()} />
                 {React.DOM.input(attributes)}
                 </div>
-                );
+            );
         }
     });
-
 });
