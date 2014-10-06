@@ -97,13 +97,7 @@ a {
         float: right;
     }
     
-/* Custom animation */
-.animated {
-    -webkit-animation-duration: 0.35s;
-    animation-duration: 0.35s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
+/* Custom animation for menu */
 .slideInLeft {
     -webkit-animation-name: slideInLeft;
     animation-name: slideInLeft;
@@ -204,6 +198,9 @@ a {
     margin: -60px auto 0 auto;
     padding: 20px;
     color: white;
+    -webkit-animation-duration: 0.25s!important;
+    -ms-animation-duration: 0.25s!important;
+    animation-duration: 0.25s!important;
 }
     .message:before {
         content: "";
@@ -316,6 +313,9 @@ ul#main-menu {
         display: table-cell;
         background-color: #FFF;
         border-right: 5px solid #f1f1f1;
+        -webkit-animation-duration: 0.25s!important;
+        -ms-animation-duration: 0.25s!important;
+        animation-duration: 0.25s!important;
     }
         #panels .panel>div {
             overflow-y: auto;

@@ -8,7 +8,7 @@ define([], function() {
     var Info = React.createClass({
         render: function() {
             return (
-                <div className="message message-info auja-bg-main" onClick={this.props.handleOnClick}>
+                <div className="animated zoomIn message message-info auja-bg-main" onClick={this.props.handleOnClick}>
                     {this.props.message.contents}
                 </div>
                 );
