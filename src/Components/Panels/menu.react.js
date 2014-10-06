@@ -31,7 +31,7 @@ define([
                 }
                 
                 var Item = require(MenuItems[item.getType()]);
-                return ( <Item key={item.key} scrollContainer={this.props.scrollContainer} flux={this.props.flux} activeItem={this.props.panel.getActiveItem()} panel={originPanel} item={item} /> );
+                return ( <Item key={item.key} scrollContainer={this.props.scrollContainer} flux={this.props.flux} panel={originPanel} item={item} /> );
             }.bind(this));
             
             return (

@@ -130,7 +130,7 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
         activateItem: function(item) {
             for(var i in this.panels) {
                 if(this.panels[i].getId() == item.panel.getId()) {
-                    this.panels[i].activeItem = item.item;
+                    this.panels[i].setActiveItem(item.item);
                     break;
                 }
             }

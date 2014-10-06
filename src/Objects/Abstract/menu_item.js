@@ -1,9 +1,9 @@
 /**
  * Menu item definition
  */
-define([], function() {
+define([], function () {
 
-    return function() {
+    return function () {
 
         /**
          * Location of menu item
@@ -24,10 +24,16 @@ define([], function() {
         this.id = 0;
 
         /**
+         * Weither or not the item is active
+         * @type {boolean}
+         */
+        this.active = false;
+
+        /**
          * Setter for the id
          * @param id
          */
-        this.setId = function(id) {
+        this.setId = function (id) {
             this.id = id;
         };
 
@@ -35,7 +41,7 @@ define([], function() {
          * Getter for the id
          * @returns {id|*}
          */
-        this.getId = function() {
+        this.getId = function () {
             return this.id;
         };
 
@@ -43,7 +49,7 @@ define([], function() {
          * Setter for the order
          * @param order
          */
-        this.setOrder = function(order) {
+        this.setOrder = function (order) {
             this.order = order;
         };
 
@@ -51,7 +57,7 @@ define([], function() {
          * Getter for the order
          * @returns integer
          */
-        this.getOrder = function() {
+        this.getOrder = function () {
             return this.order;
         };
 
@@ -59,7 +65,7 @@ define([], function() {
          * Setter for the type
          * @param type
          */
-        this.setType = function(type) {
+        this.setType = function (type) {
             this.type = type;
         };
 
@@ -67,9 +73,25 @@ define([], function() {
          * Getter for the type
          * @returns {type|*}
          */
-        this.getType = function() {
+        this.getType = function () {
             return this.type;
         };
+
+        /**
+         * Getter for active
+         * @return {boolean}
+         */
+        this.isActive = function () {
+            return this.active;
+        };
+
+        /**
+         * Setter for active
+         * @param active
+         */
+        this.setIsActive = function(active) {
+            this.active = active;
+        }
     };
 
 });

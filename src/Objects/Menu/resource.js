@@ -1,7 +1,6 @@
+define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
 
-define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
-
-    var Resource = function(data) {
+    var Resource = function (data) {
 
         //Call the parent constructor
         MenuItem.call(this, arguments);
@@ -34,7 +33,7 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
          * @returns string
          * @override
          */
-        this.getId = function() {
+        this.getId = function () {
             return this.target;
         };
 
@@ -42,7 +41,7 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
          * Getter for the target
          * @returns String
          */
-        this.getTarget = function() {
+        this.getTarget = function () {
             return this.target;
         };
 
@@ -50,7 +49,7 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
          * Get items in this resource
          * @returns {Array}
          */
-        this.getItems = function() {
+        this.getItems = function () {
             return this.items;
         };
 
@@ -58,7 +57,7 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
          * Get the current paging
          * @returns Object
          */
-        this.getPaging = function() {
+        this.getPaging = function () {
             return this.paging;
         };
 
@@ -66,28 +65,53 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
          * Update with new data
          * @param data
          */
-        this.extend = function(data) {
+        this.extend = function (data) {
+
+            //Initialize like this otherwise we have circular dependencies
+            var MenuItemFactory = require('build/Factories/menu_item_factory');
+            
+            //Create actual items
+            data.items = data.items.map(function (item) {
+                return MenuItemFactory.createItem(item);
+            }.bind(this));
+
             this.items = this.items.concat(data.items);
             this.paging = data.paging;
+        };
+
+        /**
+         * Set the active item in our childs
+         * @param item
+         */
+        this.setActiveItem = function (item) {
+            for (var i in this.items) {
+                this.items[i].setIsActive(this.items[i].getId() == item.getId());
+            }
         };
 
         /**
          * Update with new data
          * @param data
          */
-        this.update = function(data) {
-            if(data.items && (data.items.length > 0 || this.items.length == 0)) {
+        this.update = function (data) {
+            if (data.items && (data.items.length > 0 || this.items.length == 0)) {
+
+                //Initialize like this otherwise we have circular dependencies
+                var MenuItemFactory = require('build/Factories/menu_item_factory');
+                
                 //When items are passed as data directly write them as the content
                 //Since we receive a Resource object here it will always have items, so we check if it already
                 //contains items, or if originally there were no items (this.items.length == 0)
-                this.items = data.items;
-            } else if(!this.paging.total) {
+                this.items = data.items.map(function (item) {
+                    return MenuItemFactory.createItem(item);
+                }.bind(this));
+            } else if (!this.paging.total) {
                 //When no total paging is defined reset and let the paging commence all over again
                 this.items = [];
             } else {
                 //When we have a clue what to call to update this resource do that
                 //setTimeout is to handle the "async" behavior of dispatching
-                setTimeout(function() {
+                setTimeout(function () {
                     flux.actions.updateResource(this, this.paging.total);
                 }.bind(this), 1);
             }
@@ -99,6 +123,6 @@ define(['build/Objects/Abstract/menu_item'], function(MenuItem) {
 
     // Fix constructor
     Resource.prototype.constructor = Resource;
-    
+
     return Resource;
 });

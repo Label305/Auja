@@ -21,11 +21,18 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
         this.items = [];
 
         /**
-         *
+         * Index used to generate ids for items
          * @type {number}
          * @private
          */
         this._lastIndex = 0;
+
+        /**
+         * Active item
+         * @type MenuItem
+         * @private
+         */
+        this._activeItem = false;
 
         /**
          * Generate a unique Id
@@ -43,7 +50,7 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
             this.items = items.map(function (item) {
 
                 //Check if item already instantiated
-                //TODO make this more elegant
+                //TODO make checking of this more elegant
                 if (item.getId) {
                     item.setId(this.getNextId(item));
                     return item;
@@ -113,14 +120,19 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
         };
 
         /**
-         * Getter for active item
-         * @todo implement active item
-         * @returns {boolean}
+         * Setter for the active item
+         * @param item
          */
-        this.getActiveItem = function () {
-            return false;
+        this.setActiveItem = function(item) {
+            for(var i in this.items) {
+                this.items[i].setIsActive(this.items[i].getId() == item.getId());
+                
+                //When the item has childs that might be active pass the item that is active
+                if(this.items[i].setActiveItem) {
+                    this.items[i].setActiveItem(item);
+                }
+            }
         };
-
 
     };
 
@@ -129,5 +141,6 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
 
     // Fix constructor
     Menu.prototype.constructor = Menu;
+    
     return Menu;
 });
