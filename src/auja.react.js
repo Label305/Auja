@@ -18,7 +18,7 @@ require.config({
      * Location of dependencies
      */
     paths: {
-        react: 'bower_components/react/react',
+        react: 'bower_components/react/react-with-addons',
         jquery: 'bower_components/jquery/dist/jquery.min',
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',

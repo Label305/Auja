@@ -96,6 +96,51 @@ a {
     h2>.button {
         float: right;
     }
+    
+/* Custom animation */
+.animated {
+    -webkit-animation-duration: 0.35s;
+    animation-duration: 0.35s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+}
+@-webkit-keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        -ms-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+    }
+}
+.slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+}
+
 
 /* Authentication overlay */
 .authentication-overlay {
@@ -277,13 +322,14 @@ ul#main-menu {
             overflow-x: hidden;
             float: left;
         }
-        #panels .panel:first-child {
-            padding-left: 45px;
+        #panels .panel:first-child>div {
+            margin-left: 45px;
         }
         
 /* Menu */
-#panels .panel-menu>ul {
+#panels .panel-menu>div {
     width: 270px;
+    display: block;
 }
 #panels .panel-menu ul {
     margin: 30px 0 0 30px;
@@ -309,7 +355,6 @@ ul#main-menu {
         line-height: 30px;
     }
 #panels .panel-menu .menu-item-spacer {
-    width: 270px;
     min-height: 15px;
     padding: 11px 0 5px 30px;
     margin: -1px 0 0 -30px;/* margin-top of -1px to hide the border of the element above */
