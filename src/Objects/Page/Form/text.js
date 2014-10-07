@@ -8,6 +8,29 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
         //Set type of this object
         this.setType('text');
+
+        /**
+         * Max length of the text 
+         * @type {Number|null}
+         * @private
+         */
+        this._maxLength = data.maxLength || null;
+
+        /**
+         * Getter for maxLength
+         * @returns {Number|null}
+         */
+        this.getMaxLength = function() {
+            return this._maxLength;
+        };
+
+        /**
+         * Setter for maxLength
+         * @param maxLength
+         */
+        this.setMaxLength = function(maxLength) {
+            this._maxLength = maxLength;
+        };
         
         /**
          * Get attributes for this input
@@ -17,7 +40,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             return {
                 type: this.getType(),
                 value: this.getValue(),
-                name: this.getName()
+                name: this.getName(),
+                maxLength: this.getMaxLength()
             }
         };
     };
