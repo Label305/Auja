@@ -7,18 +7,11 @@
  *
  * @jsx React.DOM
  */
-define(['build/Components/Panels/Page/Form/label.react'], function (Label) {
+define(['build/Components/Panels/Page/Form/label.react', 'build/Components/Panels/Page/Form/Mixins/validation.mixin'], function (Label, Validation) {
     return React.createClass({
-        getInitialState: function () {
-            return {value: this.props.item.getValue()};
-        },
-        handleChange: function (event) {
-            this.setState({value: event.target.value});
-        },
+        mixins: [Validation],
         render: function () {
-            var attributes = this.props.item.getAttributes();
-            attributes.value = this.state.value;
-            attributes.onChange = this.handleChange;
+            var attributes = this.getAttributes();
             
             return (
                 <div>
