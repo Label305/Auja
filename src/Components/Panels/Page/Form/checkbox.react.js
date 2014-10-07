@@ -9,7 +9,7 @@
  define(['build/Components/Panels/Page/Form/label.react'], function(Label) {
     return React.createClass({
         getInitialState: function() {
-            return {checked: this.props.item.checked}   
+            return {checked: this.props.item.getChecked()}   
         },
         handleChange: function(event) {
             this.setState({checked: event.target.checked});
@@ -21,11 +21,10 @@
 
             return (
                 <div>
-                <Label item={this.props.item} name={this.props.item.getLabel()} />
+                    <Label item={this.props.item} name={this.props.item.getLabel()} />
                 {React.DOM.input(attributes)}
                 </div>
-                );
+            );
         }
     });
-
 });

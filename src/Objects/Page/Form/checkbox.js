@@ -10,12 +10,27 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         this.setType('checkbox');
 
         /**
-     * Set default value
-     * If none is found set to false
-     */
+         * The checked state of checkbox
+         * @type {boolean|null}
+         * @private
+         */
+        this._checked = data.checked || null;
 
-     this.checked = data.checked || false;     
-            
+        /**
+         * Getter for checked
+         * @returns {boolean|null}
+         */
+        this.getChecked = function() {
+            return this._checked;
+        };
+
+        /**
+         * Setter for checked
+         * @param checked
+         */
+        this.setChecked = function(checked) {
+            this._checked = checked;
+        };
         /**
          * Get attributes for this input
          * @return Object
@@ -24,7 +39,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             return {
                 type: this.getType(),
                 value: this.getValue(),
-                name: this.getName()
+                name: this.getName(),
+                checked: this.getChecked()
             }
         };
     };
