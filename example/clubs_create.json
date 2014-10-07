@@ -18,7 +18,8 @@
                         "text": {
                             "name": "name",
                             "label": "Name of club",
-                            "value": "FC Twente"
+                            "value": "FC Twente",
+                            "maxLength": 10
                         }                        
                     },
                     {
