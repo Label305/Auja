@@ -46,6 +46,19 @@
                         }                        
                     },
                     {
+                        "type": "select",
+                        "select": {
+                            "name": "country",
+                            "label": "Country",
+                            "options": {
+                                "NL-nl": "Nederland",
+                                "DE-de": "Duitsland",
+                                "LL-ll": "Luilekkerland"
+                            },
+                            "selected": "LL-ll"
+                        }                        
+                    },
+                    {
                         "type": "password",
                         "password": {
                             "name": "token",

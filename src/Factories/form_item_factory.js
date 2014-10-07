@@ -9,6 +9,7 @@ var FormItemObjects = {
     'text': 'build/Objects/Page/Form/text',
     'textarea': 'build/Objects/Page/Form/textarea',
     'email': 'build/Objects/Page/Form/email',
+    'select': 'build/Objects/Page/Form/select',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg'
 };
 
@@ -20,6 +21,7 @@ define([
     'build/Objects/Page/Form/text',
     'build/Objects/Page/Form/textarea',
     'build/Objects/Page/Form/email',
+    'build/Objects/Page/Form/select',
     'build/Objects/Page/Form/trumbowyg'
 ], function() {
 
