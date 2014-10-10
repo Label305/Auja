@@ -13,6 +13,7 @@ var FormItems = {
     'trumbowyg': 'build/Components/Panels/Page/Form/trumbowyg.react',
     'number': 'build/Components/Panels/Page/Form/number.react',
     'email': 'build/Components/Panels/Page/Form/email.react',
+    'selectMultiple': 'build/Components/Panels/Page/Form/selectMultiple.react',
     'submit': 'build/Components/Panels/Page/Form/submit.react'
 };
 
@@ -24,6 +25,7 @@ define([
     'build/Components/Panels/Page/Form/trumbowyg.react',
     'build/Components/Panels/Page/Form/number.react',
     'build/Components/Panels/Page/Form/email.react',
+    'build/Components/Panels/Page/Form/selectMultiple.react',
     'build/Components/Panels/Page/Form/submit.react'
 ], function () {
     return React.createClass({
