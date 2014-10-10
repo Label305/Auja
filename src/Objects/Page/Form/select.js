@@ -11,17 +11,12 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
         /**
          * The Options of Select
-         * @type {boolean|null}
+         * @type {array|null}
          * @private
          */
         this._options = data.options || null;
 
-        /**
-         * The Selected state of Select
-         * @type {boolean|null}
-         * @private
-         */
-        this._selected = data.selected || null;
+        
 
         /**
          * Getter for Options
@@ -31,13 +26,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             return this._options;
         };
 
-        /**
-         * Getter for Selected
-         * @returns {boolean|null}
-         */
-        this.getSelected = function() {
-            return this._selected;
-        };
+        
 
         /**
          * Setter for Options
@@ -47,13 +36,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             this._options = options;
         };
 
-        /**
-         * Setter for Selected
-         * @param Selected
-         */
-        this.setSelected = function(selected) {
-            this._selected = selected;
-        };
+        
         /**
          * Get attributes for this input
          * @return Object
@@ -63,7 +46,6 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                selected: this.getSelected(),
                 options: this.getOptions()
             }
         };

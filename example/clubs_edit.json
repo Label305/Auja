@@ -50,13 +50,23 @@
                         "select": {
                             "name": "country",
                             "label": "Country",
-                            "options": {
-                                "NL-nl": "Nederland",
-                                "DE-de": "Duitsland",
-                                "LL-ll": "Luilekkerland"
-                            },
-                            "selected": "LL-ll"
-                        }                        
+                            "value": "DE-de",
+                            "options": [{
+                                "type": "option",
+                                "label": "Nederland",
+                                "value": "NL-nl"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Duitsland",
+                                "value": "DE-de"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Luilekkerland",
+                                "value": "LL-ll"
+                            }]
+                            }                        
                     },
                     {
                         "type": "password",
