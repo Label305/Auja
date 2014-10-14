@@ -26,8 +26,7 @@
                             "name": "name",
                             "label": "Name of club",
                             "value": "The clicked club"
-                        }
-                        
+                        }                        
                     },
                     {
                         "type": "number",
@@ -37,8 +36,24 @@
                             "min": "7",
                             "max": "25",
                             "value": "11"
-                        }
-                        
+                        }                        
+                    },
+                    {
+                        "type": "range",
+                        "range": {
+                            "name": "range",
+                            "label": "Shooting Range",
+                            "min": "7",
+                            "max": "25",
+                            "value": "11"
+                        }                        
+                    },
+                    {
+                        "type": "email",
+                        "email": {
+                            "name": "email",
+                            "label": "Club Email"
+                        }                        
                     },
                                         {
                         "type": "tel",

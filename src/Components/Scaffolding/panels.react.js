@@ -15,16 +15,16 @@ define([
     'build/Components/Panels/menu.react',
     'build/Components/Panels/page.react'
 ], function () {
-
+    
     var PanelSection = React.createClass({
         handleScroll: function () {
             flux.actions.onPanelScroll(this.props.panel);
         },
         render: function () {
             var Panel = require(PanelTypes[this.props.panel.getType()]);
-
+            
             return (
-                <section id={this.props.panel.getId()} key={this.props.panel.getId()} ref="panel" className={"panel panel-" + this.props.panel.getType()}>
+                <section id={this.props.panel.getId()} key={this.props.panel.getId()} ref="panel" className={"animated fadeInLeft panel panel-" + this.props.panel.getType()}>
                     <div onScroll={this.handleScroll} style={this.props.style}>
                         <Panel flux={this.props.flux} message={this.props.message} panel={this.props.panel} />
                     </div>
@@ -64,11 +64,11 @@ define([
                 
                 return (<PanelSection key={panel.getIndex()} flux={this.props.flux} panel={panel} message={m} style={style} />);
             }.bind(this));
-
+            
             return (
                 <div id="panels">
                     <div>
-                    {panels}
+                        {panels}
                     </div>
                 </div>
             );

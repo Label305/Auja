@@ -17,8 +17,9 @@ define(['build/Components/Panels/Page/Form/label.react'], function (Label) {
         },
         render: function () {
             var attributes = this.props.item.getAttributes();
+            attributes.value = this.state.value;
             attributes.onChange = this.handleChange;
-            
+
             return (
                 <div>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />
