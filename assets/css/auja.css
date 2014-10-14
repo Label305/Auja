@@ -291,12 +291,15 @@ form .row.form-item {
   form .row.form-item input[type="password"],
   form .row.form-item input[type="number"],
   form .row.form-item input[type="email"],
+  form .row.form-item input[type="tel"],
+  form .row.form-item input[type="url"],
+  form .row.form-item input[type="date"],
   form .row.form-item textarea {
     clear: both;
     width: calc(100% - 20px);
     padding: 10px;
     border: none;
-    border-bottom: 2px solid #e7efef;
+    border-bottom: 2px solid #E7EFEF;
     background: #ededed;
     font-size: 14px;
     color: #353535;
@@ -308,10 +311,67 @@ form .row.form-item {
   form .row.form-item .trumbowyg-box {
     display: inline-block;
     position: relative;
-    border: 1px solid #dddddd;
+    border: 1px solid #DDD;
     width: 100%;
     min-height: 300px;
     margin: 0px auto; }
+  form .row.form-item input[type="range"] {
+    border: 1px solid white;
+    width: calc(100% - 10px); }
+    form .row.form-item input[type="range"]::-webkit-slider-runnable-track {
+      width: calc(100% - 20px);
+      height: 5px;
+      background: #ededed;
+      border: none;
+      border-radius: 3px; }
+    form .row.form-item input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #1ebab8;
+      margin-top: -4px; }
+    form .row.form-item input[type="range"]:focus {
+      outline: none; }
+      form .row.form-item input[type="range"]:focus::-webkit-slider-runnable-track {
+        background: #ccc; }
+    form .row.form-item input[type="range"]::-moz-range-track {
+      width: calc(100% - 20px);
+      height: 5px;
+      background: #ededed;
+      border: none;
+      border-radius: 3px; }
+    form .row.form-item input[type="range"]::-moz-range-thumb {
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #1ebab8; }
+    form .row.form-item input[type="range"]:-moz-focusring {
+      outline: 1px solid white;
+      outline-offset: -1px; }
+    form .row.form-item input[type="range"]::-ms-track {
+      width: calc(100% - 20px);
+      height: 16px;
+      background: #ededed;
+      border: none;
+      border-radius: 10px;
+      color: transparent; }
+    form .row.form-item input[type="range"]::-ms-fill-lower {
+      outline: none;
+      background: #777;
+      border-radius: 10px 0 0 10px; }
+    form .row.form-item input[type="range"]::-ms-thumb {
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #1ebab8; }
+    form .row.form-item input[type="range"]:focus::-ms-track {
+      background: #ccc; }
+    form .row.form-item input[type="range"]:focus::-ms-fill-lower {
+      background: #888; }
 
 @media screen and (max-height: 30.5em) {
   .authentication-overlay nav {
@@ -319,3 +379,5 @@ form .row.form-item {
     font-size: 34px; }
   .authentication-overlay ul li {
     min-height: 34px; } }
+
+/*# sourceMappingURL=auja.css.map */

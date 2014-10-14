@@ -315,6 +315,9 @@ form
             input[type="password"],
             input[type="number"],
             input[type="email"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="date"],
             textarea 
                 clear: both
                 width: calc(100% - 20px)
@@ -336,6 +339,67 @@ form
                 width: 100%
                 min-height: 300px
                 margin: 0px auto
+            input[type="range"]
+                border: 1px solid white              
+                width: calc(100% - 10px)
+                &::-webkit-slider-runnable-track
+                    width: calc(100% - 20px)
+                    height: 5px
+                    background: #ededed
+                    border: none
+                    border-radius: 3px
+                &::-webkit-slider-thumb
+                    -webkit-appearance: none
+                    border: none
+                    height: 16px
+                    width: 16px
+                    border-radius: 50%
+                    background: #1ebab8
+                    margin-top: -4px
+                &:focus
+                    outline: none
+                    &::-webkit-slider-runnable-track
+                        background: #ccc
+                &::-moz-range-track
+                    width: calc(100% - 20px)
+                    height: 5px
+                    background: #ededed
+                    border: none
+                    border-radius: 3px
+                &::-moz-range-thumb
+                    border: none
+                    height: 16px
+                    width: 16px
+                    border-radius: 50%
+                    background: #1ebab8
+                &:-moz-focusring
+                    outline: 1px solid white
+                    outline-offset: -1px
+                &::-ms-track
+                    width: calc(100% - 20px)
+                    height: 16px
+                    background: #ededed
+                    border: none
+                    border-radius: 10px
+                    color: transparent
+                &::-ms-fill-lower
+                    outline: none
+                    background: #777
+                    border-radius: 10px 0 0 10px
+                &::-ms-thumb
+                    border: none
+                    height: 16px
+                    width: 16px
+                    border-radius: 50%
+                    background: #1ebab8
+                &:focus
+                    &::-ms-track
+                        background: #ccc
+                    &::-ms-fill-lower
+                        background: #888
+
+
+
             
 @media screen and (max-height: 30.5em)
     .authentication-overlay
