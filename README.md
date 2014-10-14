@@ -34,6 +34,11 @@ Now the `build` directory should have been filled and you can serve the `example
 any web-server you want. For example, run `npm install -g http-server` and then run `http-server` from the repository root.
 Now you can visit `http://localhost:8080/example` to view the Auja implementation
 
+*Running tests*
+
+We're using [Karma](http://karma-runner.github.io/0.12/index.html) for spec testing our objects. For installation
+and running refer to their [installation docs](http://karma-runner.github.io/0.12/intro/installation.html)
+
 Architecture
 ---
 
