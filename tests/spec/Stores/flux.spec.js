@@ -18,9 +18,9 @@ define([
                 'click',
                 'submit',
                 'handle',
-                'mountResource',
+                'onPanelScroll',
                 'extendResource',
-                'onPanelScroll'
+                'updateResource'
             ]);
         });
 
