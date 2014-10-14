@@ -12,6 +12,7 @@ var FormItems = {
     'textarea': 'build/Components/Panels/Page/Form/textarea.react',
     'trumbowyg': 'build/Components/Panels/Page/Form/trumbowyg.react',
     'number': 'build/Components/Panels/Page/Form/number.react',
+    'checkbox': 'build/Components/Panels/Page/Form/checkbox.react',
     'email': 'build/Components/Panels/Page/Form/email.react',
     'range': 'build/Components/Panels/Page/Form/range.react',
     'submit': 'build/Components/Panels/Page/Form/submit.react'
@@ -24,6 +25,7 @@ define([
     'build/Components/Panels/Page/Form/textarea.react',
     'build/Components/Panels/Page/Form/trumbowyg.react',
     'build/Components/Panels/Page/Form/number.react',
+    'build/Components/Panels/Page/Form/checkbox.react',
     'build/Components/Panels/Page/Form/email.react',
     'build/Components/Panels/Page/Form/range.react',
     'build/Components/Panels/Page/Form/submit.react'
