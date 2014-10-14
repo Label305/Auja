@@ -56,6 +56,44 @@
                             "checked": true
                         }
                         
+                    {
+                        "type": "selectMultipleCheckbox",
+                        "selectMultipleCheckbox": {
+                            "name": "divisions",
+                            "label": "Divisions",
+                            "value":[                            
+                                "DE-de"
+                                ,                                
+                                "SP-sp"                                
+                            ],
+                            "options": [
+                                {
+                                "type": "option",
+                                "label": "Nederland",
+                                "value": "NL-nl"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Duitsland",
+                                "value": "DE-de"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Frankrijk",
+                                "value": "FR-fr"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Spanje",
+                                "value": "SP-sp"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Luilekkerland",
+                                "value": "LL-ll"
+                            }
+                            ]
+                        }
                     },
                     {
                         "type": "password",
