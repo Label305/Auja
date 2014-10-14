@@ -17,10 +17,10 @@ define([
                 'resize',
                 'click',
                 'submit',
-                'handle', 
-                'mountResource',
+                'handle',
+                'onPanelScroll',
                 'extendResource',
-                'onPanelScroll'
+                'updateResource'
             ]);
         });
 
