@@ -38,6 +38,14 @@
                             "value": "11"
                         }                        
                     },
+                                        {
+                        "type": "date",
+                        "date": {
+                            "name": "foundingdate",
+                            "label": "Founded on",
+                            "value": "1982-17-08"
+                        }                        
+                    },
                     {
                         "type": "range",
                         "range": {
@@ -54,6 +62,33 @@
                             "name": "email",
                             "label": "Club Email"
                         }                        
+                    },
+                      {
+                        "type": "url",
+                        "url": {
+                            "name": "website",
+                            "label": "Club Website",
+                            "value": "http://www.voetbalclub.org"
+                       }
+                    },
+                    {
+                        "type": "tel",
+                        "tel": {
+                            "name": "telephone",
+                            "label": "Club phone number",
+                            "value": "11"
+                        }                       
+                    },
+                    {
+                        "type": "checkbox",
+                        "checkbox": {
+                            "name": "leagues",
+                            "label": "Jupiler",
+                            "required": false,
+                            "checked": false
+
+                        }
+                        
                     },
                     {
                         "type": "select",
