@@ -1,5 +1,5 @@
 /**
- * A text field, properties:
+ * A range input, properties:
  *
  * - label
  * - name
