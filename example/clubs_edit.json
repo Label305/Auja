@@ -92,7 +92,17 @@
                                 "value": "LL-ll"
                             }
                             ]
-                        }                        
+                        }
+                    },
+                        {                        
+                        "type": "checkbox",
+                        "checkbox": {
+                            "name": "leagues",
+                            "label": "Jupiler",
+                            "required": false,
+                            "checked": false
+                        }
+                        
                     },
                     {
                         "type": "password",
