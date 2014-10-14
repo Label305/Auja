@@ -47,6 +47,16 @@
                         }                        
                     },
                     {
+                        "type": "range",
+                        "range": {
+                            "name": "range",
+                            "label": "Shooting Range",
+                            "min": "7",
+                            "max": "25",
+                            "value": "11"
+                        }                        
+                    },
+                    {
                         "type": "email",
                         "email": {
                             "name": "email",
