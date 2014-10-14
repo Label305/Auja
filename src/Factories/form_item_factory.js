@@ -9,6 +9,7 @@ var FormItemObjects = {
     'text': 'build/Objects/Page/Form/text',
     'textarea': 'build/Objects/Page/Form/textarea',
     'tel': 'build/Objects/Page/Form/tel',
+    'checkbox': 'build/Objects/Page/Form/checkbox',
     'email': 'build/Objects/Page/Form/email',
     'range': 'build/Objects/Page/Form/range',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg'
@@ -22,6 +23,7 @@ define([
     'build/Objects/Page/Form/text',
     'build/Objects/Page/Form/textarea',
     'build/Objects/Page/Form/tel',
+    'build/Objects/Page/Form/checkbox',
     'build/Objects/Page/Form/email',
     'build/Objects/Page/Form/range',
     'build/Objects/Page/Form/trumbowyg'
