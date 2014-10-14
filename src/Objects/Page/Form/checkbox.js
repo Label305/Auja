@@ -20,7 +20,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * Getter for checked
          * @returns {boolean|null}
          */
-        this.getChecked = function() {
+        this.isChecked = function() {
             return this._checked;
         };
 
@@ -28,7 +28,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * Setter for checked
          * @param checked
          */
-        this.setChecked = function(checked) {
+        this.setIsChecked = function(checked) {
             this._checked = checked;
         };
         /**
@@ -40,7 +40,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                checked: this.getChecked()
+                checked: this.getIsChecked()
             }
         };
     };
