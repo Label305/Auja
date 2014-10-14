@@ -9,7 +9,7 @@ define([], function() {
          * Location of menu item
          * @type {integer}
          */
-        this._order = 0;
+        this._order = data.order || 0;
 
         /**
          * Type of the menu item
