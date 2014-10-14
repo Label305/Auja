@@ -27,6 +27,7 @@
                 );
             });
             attributes.value = this.state.value;
+            //We want to be able to deselect all options
             attributes.onClick = this.handleClick;
             attributes.multiple = true;
                        
