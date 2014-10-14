@@ -16,7 +16,7 @@ define(['build/Objects/Abstract/page_item'], function(PageItem) {
          * Text
          * @type {string}
          */
-        this.text = data.text || 'NULL';
+        this.text = data.text || '';
 
         /**
          * Buttons
