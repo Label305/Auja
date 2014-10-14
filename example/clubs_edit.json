@@ -55,6 +55,15 @@
                             "label": "Club Email"
                         }                        
                     },
+                                        {
+                        "type": "tel",
+                        "tel": {
+                            "name": "telephone",
+                            "label": "Club phone number",
+                            "value": "11"
+                        }
+                        
+                    },
                     {
                         "type": "checkbox",
                         "checkbox": {
