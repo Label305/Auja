@@ -16,6 +16,7 @@ var FormItems = {
     'tel': 'build/Components/Panels/Page/Form/tel.react',
     'checkbox': 'build/Components/Panels/Page/Form/checkbox.react',
     'email': 'build/Components/Panels/Page/Form/email.react',
+    'date': 'build/Components/Panels/Page/Form/date.react',
     'range': 'build/Components/Panels/Page/Form/range.react',
     'submit': 'build/Components/Panels/Page/Form/submit.react'
 };
@@ -31,6 +32,7 @@ define([
     'build/Components/Panels/Page/Form/tel.react',
     'build/Components/Panels/Page/Form/checkbox.react',
     'build/Components/Panels/Page/Form/email.react',
+    'build/Components/Panels/Page/Form/date.react',
     'build/Components/Panels/Page/Form/range.react',
     'build/Components/Panels/Page/Form/submit.react'
 ], function () {

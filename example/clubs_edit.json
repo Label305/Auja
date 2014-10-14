@@ -38,6 +38,14 @@
                             "value": "11"
                         }                        
                     },
+                                        {
+                        "type": "date",
+                        "date": {
+                            "name": "foundingdate",
+                            "label": "Founded on",
+                            "value": "1982-17-08"
+                        }                        
+                    },
                     {
                         "type": "range",
                         "range": {
