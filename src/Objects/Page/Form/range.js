@@ -1,37 +1,45 @@
 
 define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
-    var Text = function(data) {
+    var Range = function(data) {
 
         //Call the parent constructor
         FormItem.call(this, data);
 
         //Set type of this object
-        this.setType('text');
+        this.setType('range');
 
         /**
-         * Max length of the text 
+         * Min and max of the range 
          * @type {Number|null}
          * @private
          */
-        this._maxLength = data.maxLength || null;
+        this._min = data.min || null;
+        this._max = data.max || null;
 
         /**
-         * Getter for maxLength
+         * Getters for min and max
          * @returns {Number|null}
          */
-        this.getMaxLength = function() {
-            return this._maxLength;
+        this.getMin = function() {
+            return this._min;
+        };
+
+        this.getMax = function() {
+            return this._max;
         };
 
         /**
-         * Setter for maxLength
+         * Setters for min and max
          * @param maxLength
          */
-        this.setMaxLength = function(maxLength) {
-            this._maxLength = maxLength;
+        this.setMin = function(min) {
+            this._min = min;
         };
         
+        this.setMax = function(max) {
+            this._max = max;
+        };
         /**
          * Get attributes for this input
          * @return Object
@@ -41,16 +49,17 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                maxLength: this.getMaxLength()
+                min: this.getMin(),
+                max: this.getMax()
             }
         };
     };
 
-    // Inherit FormItem
-    Text.prototype = FormItem;
+    // Inherit Panel
+    Range.prototype = FormItem;
 
     // Fix constructor
-    Text.prototype.constructor = Text;
-    
-    return Text;
+    Range.prototype.constructor = Range;
+
+    return Range;
 });

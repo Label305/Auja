@@ -6,3 +6,4 @@ ops/
 Vagrantfile
 .DS_Store
 .vagrant/
+dist/

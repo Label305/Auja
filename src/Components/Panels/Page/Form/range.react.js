@@ -1,9 +1,8 @@
 /**
- * A textarea, properties:
+ * A range input, properties:
  *
  * - label
  * - name
- * - value will be entered as value
  * - .. any other allowed by input
  *
  * @jsx React.DOM
@@ -24,7 +23,7 @@ define(['build/Components/Panels/Page/Form/label.react'], function (Label) {
             return (
                 <div>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />
-                {React.DOM.textarea(attributes)}
+                {React.DOM.input(attributes)}
                 </div>
             );
         }
