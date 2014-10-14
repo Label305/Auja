@@ -17,7 +17,7 @@ define([
                 'resize',
                 'click',
                 'submit',
-                'handle',
+                'handle', 
                 'mountResource',
                 'extendResource',
                 'onPanelScroll'
