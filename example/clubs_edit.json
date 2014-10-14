@@ -55,6 +55,22 @@
                             "label": "Club Email"
                         }                        
                     },
+                      {
+                        "type": "url",
+                        "url": {
+                            "name": "website",
+                            "label": "Club Website",
+                            "value": "http://www.voetbalclub.org"
+                       }
+                    },
+                    {
+                        "type": "tel",
+                        "tel": {
+                            "name": "telephone",
+                            "label": "Club phone number",
+                            "value": "11"
+                        }                       
+                    },
                     {
                         "type": "selectMultiple",
                         "selectMultiple": {
@@ -101,6 +117,7 @@
                             "label": "Jupiler",
                             "required": false,
                             "checked": false
+
                         }
                         
                     },
