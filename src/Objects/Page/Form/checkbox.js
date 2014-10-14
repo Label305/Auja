@@ -40,7 +40,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                checked: this.getIsChecked()
+                checked: this.isChecked()
             }
         };
     };
