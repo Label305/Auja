@@ -317,9 +317,9 @@ form .row.form-item {
     margin: 0px auto; }
   form .row.form-item input[type="range"] {
     border: 1px solid white;
-    width: calc(100% - 10px); }
+    width: calc(100% - 18px);
+    font-size: 10px; }
     form .row.form-item input[type="range"]::-webkit-slider-runnable-track {
-      width: calc(100% - 20px);
       height: 5px;
       background: #ededed;
       border: none;
@@ -337,7 +337,6 @@ form .row.form-item {
       form .row.form-item input[type="range"]:focus::-webkit-slider-runnable-track {
         background: #ccc; }
     form .row.form-item input[type="range"]::-moz-range-track {
-      width: calc(100% - 20px);
       height: 5px;
       background: #ededed;
       border: none;
@@ -352,7 +351,6 @@ form .row.form-item {
       outline: 1px solid white;
       outline-offset: -1px; }
     form .row.form-item input[type="range"]::-ms-track {
-      width: calc(100% - 20px);
       height: 16px;
       background: #ededed;
       border: none;
