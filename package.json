@@ -4,6 +4,7 @@
   "main": "build/auja.react.js",
   "dependencies": {
     "grunt": "^0.4.5",
+    "grunt-contrib-requirejs": "^0.4.4",
     "grunt-react": "^0.9.0",
     "karma": "^0.12",
     "karma-firefox-launcher": "^0.1.3",
