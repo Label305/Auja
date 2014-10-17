@@ -3,12 +3,11 @@ node_js:
     - "0.10"
 install:
     - npm install -g bower
-    - npm install -g react-tools
     - yes no | bower install --allow-root
     - npm install -g requirejs
     - npm install
 before_script:
-    - jsx src/ build/
+    - grunt react
     - r.js -o build.js out=dist/auja.min.js
     - r.js -o build.js out=dist/auja.js optimize=none
     - export DISPLAY=:99.0
