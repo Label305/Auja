@@ -17,8 +17,9 @@ after_success:
 - grunt release
 - git config credential.helper "store --file=.git/credentials"
 - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+- git remote add dist https://github.com/Label305/Auja.git
 - git add -f dist/auja.js
-- git push origin feature_bower-repo
+- git push dist feature_bower-repo
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master"
 deploy:
   provider: releases
