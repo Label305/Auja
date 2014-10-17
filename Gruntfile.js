@@ -13,10 +13,9 @@ module.exports = function(grunt) {
             }
         },
         requirejs: {
-            compile: {
+            compileclosure: {
                 options: {    //Base from which the project is looked at
                     baseUrl: '.',
-
                     //Config file also used by production
                     mainConfigFile: 'build/auja.react.js',
 
@@ -34,6 +33,43 @@ module.exports = function(grunt) {
                     
                     //Output file
                     out: "dist/auja.min.js"
+                }
+            },
+            compile: {
+                options: {    //Base from which the project is looked at
+                    baseUrl: '.',
+                    
+                    optimize: 'none',
+                    
+                    //Config file also used by production
+                    mainConfigFile: 'build/auja.react.js',
+
+                    //Licence references can be found in READMEs
+                    preserveLicenseComments: false,
+
+                    //Let r.js search through all files
+                    findNestedDependencies: true,
+
+                    //Include
+                    include: [
+                        'bower_components/requirejs/require.js',
+                        'build/auja.react.js'
+                    ],
+
+                    "paths": {
+                        "react": "empty:",
+                        "jquery": "empty:",
+                        "fluxxor": "empty:",
+                        "crossroads.js": "empty:",
+                        "js-signals": "empty:",
+                        "sugar": "empty:",
+                        "Ionicons": "empty:",
+                        "trumbowyg": "empty:",
+                        "animate.css": "empty:"
+                    },
+
+                    //Output file
+                    out: "dist/auja.js"
                 }
             }
         }

@@ -15,4 +15,3 @@ script:
     - npm test
 after_success:
     - grunt release
-    - git add ./dist/auja.min.js
