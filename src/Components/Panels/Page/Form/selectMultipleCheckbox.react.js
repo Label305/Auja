@@ -11,33 +11,29 @@
 
         getInitialState: function() {
             return {options: this.props.item.getOptions(),
-                value: this.props.item.getValue()};
+                checked: this.props.item.isChecked()};
         },
-        handleClick: function(event) {
-            var selected = this.state.value.indexOf(event.target.value);
-            selected != -1 ? this.state.value.splice(selected ,1) :this.state.value.push(event.target.value)
-        
-            this.setState({value: this.state.value});
+        handleChange: function(event) {
+            this.setState({checked: event.target.checked});
         },
-        render: function () {
-            var attributes = this.props.item.getAttributes();
+        render: function () {           
 
             var options = this.props.item.getOptions().map(function(option) {
-            return (React.DOM.option(option, option.label)
+            return (
+
+                <div>
+                    <input type="checkbox" checked={option.checked} onChange={this.handleChange}/>
+                    {option.label}
+                    <br />
+                </div>
                 );
             });
-            attributes.value = this.state.value;
-            //We want to be able to deselect all options
-            attributes.onClick = this.handleClick;
-            attributes.multiple = true;
-                       
+            
+                 
             return (
                 <div>
                 <Label item={this.props.item} name={this.props.item.getLabel()} />
-                {React.DOM.select(attributes,
-                    options
-                    )}
-
+                {options}
                 </div>
             );
         }

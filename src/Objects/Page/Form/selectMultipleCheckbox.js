@@ -16,7 +16,12 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          */
         this._options = data.options || null;
 
-        
+        /**
+         * The checked state of checkbox option
+         * @type {boolean|null}
+         * @private
+         */
+        this._checked = data.options.checked || null;        
 
         /**
          * Getter for Options
@@ -24,6 +29,14 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          */
         this.getOptions = function() {
             return this._options;
+        };
+
+        /**
+         * Getter for checked
+         * @returns {boolean|null}
+         */
+        this.isChecked = function() {
+            return this._checked;
         };
 
         
@@ -36,6 +49,14 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             this._options = options;
         };
 
+        /**
+         * Setter for checked
+         * @param checked
+         */
+        this.setIsChecked = function(checked) {
+            this._checked = checked;
+        };
+
         
         /**
          * Get attributes for this input
@@ -46,7 +67,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                options: this.getOptions()
+                options: this.getOptions(),
+                checked: this.isChecked()
             }
         };
     };

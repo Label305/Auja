@@ -62,34 +62,29 @@
                         "selectMultipleCheckbox": {
                             "name": "divisions",
                             "label": "Divisions",
-                            "value":[                            
-                                "DE-de"
-                                ,                                
-                                "SP-sp"                                
-                            ],
                             "options": [
                                 {
-                                "type": "option",
+                                "checked": true,
                                 "label": "Nederland",
                                 "value": "NL-nl"
                                 },
                                 {
-                                "type": "option",
+                                "checked": true,
                                 "label": "Duitsland",
                                 "value": "DE-de"
                                 },
                                 {
-                                "type": "option",
+                                "checked": true,
                                 "label": "Frankrijk",
                                 "value": "FR-fr"
                                 },
                                 {
-                                "type": "option",
+                                "checked": true,
                                 "label": "Spanje",
                                 "value": "SP-sp"
                                 },
                                 {
-                                "type": "option",
+                                "checked": true,
                                 "label": "Luilekkerland",
                                 "value": "LL-ll"
                             }
