@@ -15,6 +15,7 @@ script:
 - npm test
 after_success:
 - grunt release
+- test $TRAVIS_BRANCH == "master"
 deploy:
   provider: releases
   api_key:
