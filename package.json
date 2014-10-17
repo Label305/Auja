@@ -6,7 +6,9 @@
     "karma": "^0.12",
     "karma-firefox-launcher": "^0.1.3",
     "karma-jasmine": "^0.1.5",
-    "karma-requirejs": "^0.2.2"
+    "karma-requirejs": "^0.2.2",
+    "grunt": "^0.4.5",
+    "grunt-react": "^0.9.0"
   },
   "repository": {
     "type": "git",
@@ -14,9 +16,5 @@
   },
   "scripts": {
     "test": "./node_modules/karma/bin/karma start --browsers Firefox --single-run"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-react": "^0.9.0"
   }
 }
