@@ -15,7 +15,11 @@ script:
 - npm test
 after_success:
 - grunt release
-- test $TRAVIS_BRANCH == "master"
+- git config credential.helper "store --file=.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+- git add -f dist/auja.js
+- git push origin feature_bower-repo
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master"
 deploy:
   provider: releases
   api_key:
@@ -25,3 +29,6 @@ deploy:
     repo: Label305/Auja
     tags: true
     all_branches: true
+env:
+  global:
+    secure: UD+S3gEXLgqTjtiKgze6AkSb6yRl6v7rx+hfHIvyRiR8od22sziHbxkt0dCdN26pYtIuD58H3AnDyJGZlbSUGhERpG3nPo6vcljM2TC1puky4bYlEqChxohPgMZWT6ue6QEYEC/4lCKwQikMXk7t4GmuoLSRyNPdEnHxulO2fwQ=
