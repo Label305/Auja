@@ -1,17 +1,26 @@
 language: node_js
 node_js:
-    - "0.10"
+- '0.10'
 install:
-    - npm install -g bower
-    - yes no | bower install --allow-root
-    - npm install -g requirejs
-    - npm install -g grunt-cli
-    - npm install
+- npm install -g bower
+- yes no | bower install --allow-root
+- npm install -g requirejs
+- npm install -g grunt-cli
+- npm install
 before_script:
-    - grunt test
-    - export DISPLAY=:99.0
-    - sh -e /etc/init.d/xvfb start
+- grunt test
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 script:
-    - npm test
+- npm test
 after_success:
-    - grunt release
+- grunt release
+deploy:
+  provider: releases
+  api_key:
+    secure: JQ26GqeJKXw1WSnDzQA8MelU/UZFAc7XECiVNXZbevfEOzSx4LAdn1wz5QR3fN83EcUkpsQuxPmmvX+7y12SmG2QEJsWgqvf6Bbo7qHXGpvYSYhrjN37Gr2Y32RdPKje7kkO4vHwxwoleHz+WbwAHsiax4gk+D7Haw27IeVlP5c=
+  file: dist/auja.min.js
+  on:
+    repo: Label305/Auja
+    tags: true
+    all_branches: true
