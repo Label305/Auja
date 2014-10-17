@@ -23,6 +23,18 @@
             urlArgs: '_=' +  (new Date()).getTime()
         }
     </script>
+    
+	<!--
+	    Compiled and minified including all of the dependencies, does not require bower to install
+	    <script type="text/javascript" src="dist/auja.min.js"></script>
+    -->
+	<!--
+	    Compiled to one file without the dependencies, this requires bower to install all of the dependencies
+	    <script type="text/javascript" data-main="dist/auja.js" src="bower_components/requirejs/require.js"></script>
+    -->
+    <!--
+        Development
+    -->
 	<script type="text/javascript" data-main="build/auja.react.js" src="bower_components/requirejs/require.js"></script>
 </head>
 <body data-src="example/auja.json"></body>
