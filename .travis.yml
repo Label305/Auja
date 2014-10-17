@@ -8,7 +8,7 @@ install:
     - npm install -g grunt-cli
     - npm install
 before_script:
-    - grunt react
+    - grunt test
     - r.js -o build.js out=dist/auja.min.js
     - r.js -o build.js out=dist/auja.js optimize=none
     - export DISPLAY=:99.0

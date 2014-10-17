@@ -14,4 +14,6 @@ module.exports = function(grunt) {
         }
     });
     grunt.loadNpmTasks('grunt-react');
+    
+    grunt.registerTask('test', ['react']);
 };
