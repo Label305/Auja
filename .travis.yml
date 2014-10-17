@@ -5,6 +5,7 @@ install:
     - npm install -g bower
     - yes no | bower install --allow-root
     - npm install -g requirejs
+    - npm install -g grunt
     - npm install
 before_script:
     - grunt react
