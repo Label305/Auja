@@ -61,8 +61,6 @@ define(['fluxxor', 'build/Factories/form_factory'], function(Fluxxor, FormFactor
                     }
                     
                     Object.merge(this.state, response.main, true, true);
-                    
-                    //$.extend(this.state, response.main);
                     this.emit('change');
                 }.bind(this))
                 .fail(function () {
