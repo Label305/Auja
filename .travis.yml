@@ -23,7 +23,7 @@ after_success:
 - git checkout $TRAVIS_BRANCH
 - git add -f dist/auja.min.js
 - git commit --amend -m "Built release $TRAVIS_TAG [ci skip]"
-- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && test $TRAVIS_TAG != "" && git push --force dist $TRAVIS_BRANCH
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $TRAVIS_TAG != "" ]]; then git push --force dist $TRAVIS_BRANCH ; fi
 deploy:
   provider: releases
   api_key:
