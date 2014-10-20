@@ -21,7 +21,7 @@ after_success:
 - git config --global user.email "hallo@label305.com"
 - git config --global user.name "Travis"
 - git checkout $TRAVIS_BRANCH
-- git add -f dist/auja.js
+- git add -f dist/auja.min.js
 - git commit --amend --no-edit
 - git push --force dist $TRAVIS_BRANCH
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master"
