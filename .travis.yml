@@ -20,13 +20,13 @@ after_success:
 - git remote add dist https://github.com/Label305/Auja.git
 - git config --global user.email "hallo@label305.com"
 - git config --global user.name "Travis"
-- git checkout $TRAVIS_BRANCH
+- MESSAGE="$(git log -1 --pretty=%B)"
+- git fetch dist release
+- git checkout release
+- git merge dev
 - git add -f dist/auja.min.js
-- git commit --amend -m "Built release $TRAVIS_TAG [ci skip]"
-- echo $TRAVIS_PULL_REQUEST
-- echo $TRAVIS_BRANCH
-- echo $TRAVIS_TAG
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $TRAVIS_TAG != "" ]]; then git push --force dist $TRAVIS_BRANCH ; fi
+- git commit -m "Built release [ci skip]"
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "dev" && $MESSAGE == *[release]* ]]; then git push --force dist release ; fi
 deploy:
   provider: releases
   api_key:
