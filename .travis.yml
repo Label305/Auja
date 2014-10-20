@@ -22,7 +22,7 @@ after_success:
 - git config --global user.name "Travis"
 - git checkout $TRAVIS_BRANCH
 - git add -f dist/auja.js
-- git commit -m "Added distribution files [skip ci]"
+- git commit --amend --no-edit
 - git push dist $TRAVIS_BRANCH
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master"
 deploy:
