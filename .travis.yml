@@ -20,9 +20,10 @@ after_success:
 - git remote add dist https://github.com/Label305/Auja.git
 - git config --global user.email "hallo@label305.com"
 - git config --global user.name "Travis"
+- git checkout $TRAVIS_BRANCH
 - git add -f dist/auja.js
 - git commit -m "Added distribution files [skip ci]"
-- git push dist feature_bower-repo
+- git push dist $TRAVIS_BRANCH
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master"
 deploy:
   provider: releases
