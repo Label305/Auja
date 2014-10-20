@@ -9,8 +9,12 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "karma.conf.js",
+    "test-main.js",
+    "gruntfile.js",
     "node_modules",
     "bower_components",
+    "example",
     "test",
     "tests"
   ],
