@@ -1,5 +1,5 @@
 /**
- * A number field, properties:
+ * An integer field, properties:
  *
  * - label
  * - name
@@ -17,9 +17,9 @@ define(['build/Components/Panels/Page/Form/label.react'], function (Label) {
         },
         render: function () {
             var attributes = this.props.item.getAttributes();
+            attributes.type = "number";
             attributes.value = this.state.value;
             attributes.onChange = this.handleChange;
-            attributes.step = "any";
 
             return (
                 <div>
