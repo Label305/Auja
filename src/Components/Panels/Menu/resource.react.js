@@ -6,10 +6,10 @@
  * @jsx React.DOM
  */
 
-define(['build/Components/Panels/Menu/Mixins/paging.mixin', 'build/Objects/menu'], function (Paging, Menu) {
+define(['build/Components/Panels/Menu/Mixins/paging.mixin', 'build/Components/Panels/Menu/Mixins/searchable.mixin', 'build/Objects/menu'], function (Paging, Searchable, Menu) {
 
     return React.createClass({
-        mixins: [Paging],
+        mixins: [Paging, Searchable],
         render: function () {
             var MenuPanel = require('build/Components/Panels/menu.react');
 
@@ -20,6 +20,7 @@ define(['build/Components/Panels/Menu/Mixins/paging.mixin', 'build/Objects/menu'
 
             return (
                 <li className="menu-item-resource">
+                    {this.getSearchableForm()}
                     <MenuPanel panel={panel} originPanel={this.props.panel} />
                 </li>
             );
