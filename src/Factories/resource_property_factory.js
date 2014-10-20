@@ -18,9 +18,7 @@ define([
             for(var name in data) {
                 if(ResourceItemProperties[name]) {
                     var propertyObject = require(ResourceItemProperties[name]);
-                    var property = new propertyObject(data[name]);
-                    property.setName(name);
-                    result.push(property);
+                    result.push(new propertyObject(data[name]));
                 } else {
                     console.error('Unknown resource item property requested: ' + name);
                 }
