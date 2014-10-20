@@ -69,7 +69,7 @@
                                 "value": "NL-nl"
                                 },
                                 {
-                                "checked": true,
+                                "checked": false,
                                 "label": "Duitsland",
                                 "value": "DE-de"
                                 },
@@ -79,12 +79,12 @@
                                 "value": "FR-fr"
                                 },
                                 {
-                                "checked": true,
+                                "checked": false,
                                 "label": "Spanje",
                                 "value": "SP-sp"
                                 },
                                 {
-                                "checked": true,
+                                "checked": false,
                                 "label": "Luilekkerland",
                                 "value": "LL-ll"
                             }
