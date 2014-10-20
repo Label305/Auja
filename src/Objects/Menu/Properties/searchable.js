@@ -4,6 +4,9 @@ define(['build/Objects/Abstract/property'], function(Property) {
         
         //Call the parent constructor
         Property.call(this, arguments);
+        
+        //Set name of this property
+        this.setName('searchable');
 
         /**
          * Target of the searchable, should contain a %s to replace with the search query

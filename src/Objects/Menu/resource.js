@@ -32,7 +32,7 @@ define(['build/Objects/Abstract/menu_item', 'build/Factories/resource_property_f
          * Special properties of a resource
          * @type {*|{}}
          */
-        this.properties = data.properties ? ResourceItemPropertyFactory.createProperties(data.properties) : {};
+        this.properties = data.properties ? ResourceItemPropertyFactory.createProperties(data.properties) : [];
 
         /**
          * Getter for the id

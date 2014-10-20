@@ -17,7 +17,26 @@ define(['build/Objects/Menu/resource'], function (Item) {
             expect(item.getProperties()).toBeAnObject();
             expect(item.isActive()).toBe(true);
         });
-        
-        //TODO: implement other methods
+
+
+        it('should have properties', function () {
+
+            var item = new Item({
+                properties: {
+                    searchable: {
+                        target: 'http://searchme'
+                    }
+                }
+            });
+            
+            expect(item.hasProperty('searchable')).toBe(true);
+            expect(item.getProperties().length).toBe(1);
+            expect(item.getProperty('searchable').getTarget()).toBe('http://searchme');
+
+            var item = new Item({});
+            expect(item.hasProperty('searchable')).toBe(false);
+            expect(item.getProperties()).toBeAnArray();
+
+        });
     });
 });
