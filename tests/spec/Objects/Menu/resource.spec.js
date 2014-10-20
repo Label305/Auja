@@ -14,6 +14,7 @@ define(['build/Objects/Menu/resource'], function (Item) {
             
             expect(item.getType()).toBe('resource');
             expect(item.getOrder()).toBe(72);
+            expect(item.getProperties()).toBeAnObject();
             expect(item.isActive()).toBe(true);
         });
         
