@@ -60,7 +60,9 @@ define(['fluxxor', 'build/Factories/form_factory'], function(Fluxxor, FormFactor
                         response.main.authentication = FormFactory.createForm(response.main.authentication); 
                     }
                     
-                    $.extend(this.state, response.main);
+                    Object.merge(this.state, response.main, true, true);
+                    
+                    //$.extend(this.state, response.main);
                     this.emit('change');
                 }.bind(this))
                 .fail(function () {
