@@ -10,7 +10,7 @@
         {
             "type": "form",
             "form": {
-                "action": "example/clubs/store",
+                "action": "clubs/store",
                 "method": "get",
                 "items": [
                     {

@@ -22,40 +22,40 @@
             {
                 "title": "Clubs",
                 "icon": "planet",
-                "target": "example/clubs/menu"
+                "target": "clubs/menu"
             }
         ],
         "routes": [
             {
                 "type": "http",
-                "target": "example/login",
-                "action": "example/login.json"
+                "target": "login",
+                "action": "login.json"
             },
             {
                 "type": "http",
-                "target": "example/clubs/menu",
-                "action": "example/clubs_menu.json"
+                "target": "clubs/menu",
+                "action": "clubs_menu.json"
             },
             {
                 "type": "http",
-                "target": "example/clubs/create",
-                "action": "example/clubs_create.json"
+                "target": "clubs/create",
+                "action": "clubs_create.json"
             },
             {
                 "type": "http",
-                "target": "example/clubs/store",
-                "action": "example/clubs_store.json"
+                "target": "clubs/store",
+                "action": "clubs_store.json"
             },
             {
                 "type": "http",
-                "target": "example/clubs/{id}/edit",
-                "action": "example/clubs_edit.json"
+                "target": "clubs/{id}/edit",
+                "action": "clubs_edit.json"
             }
         ],
         "authentication": {
             "type": "form",
             "form": {
-                "action": "example/login",
+                "action": "login",
                 "method": "get",
                 "items": [
                     {

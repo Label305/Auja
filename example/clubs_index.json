@@ -5,7 +5,7 @@
             "type": "link",
             "link": {
                 "text": "Barcelona",
-                "target": "example/clubs/1/edit",
+                "target": "clubs/1/edit",
                 "icon": "ios7-football-outline"
             }
         },
@@ -13,7 +13,7 @@
             "type": "link",
             "link": {
                 "text": "Manchester United",
-                "target": "example/clubs/2/edit",
+                "target": "clubs/2/edit",
                 "icon": "ios7-football-outline"
             }
         },
@@ -21,7 +21,7 @@
             "type": "link",
             "link": {
                 "text": "Real Madrid",
-                "target": "example/clubs/3/edit",
+                "target": "clubs/3/edit",
                 "icon": "ios7-football-outline"
             }
         },
@@ -29,7 +29,7 @@
             "type": "link",
             "link": {
                 "text": "Bayern Munched",
-                "target": "example/clubs/4/edit",
+                "target": "clubs/4/edit",
                 "icon": "ios7-football-outline"
             }
         },
@@ -37,7 +37,7 @@
             "type": "link",
             "link": {
                 "text": "Juventus",
-                "target": "example/clubs/5/edit",
+                "target": "clubs/5/edit",
                 "icon": "ios7-football-outline"
             }
         },
@@ -45,7 +45,7 @@
             "type": "link",
             "link": {
                 "text": "Paris Saint-Germain",
-                "target": "example/clubs/6/edit",
+                "target": "clubs/6/edit",
                 "icon": "ios7-football-outline"
             }
         },
@@ -53,13 +53,13 @@
             "type": "link",
             "link": {
                 "text": "Gent",
-                "target": "example/clubs/7/edit",
+                "target": "clubs/7/edit",
                 "icon": "ios7-football-outline"
             }
         }
     ],
     "paging": {
-        "next": "example/clubs_index.json?page=2",
-        "total": "example/clubs_index.json?page=1000"
+        "next": "clubs_index.json?page=2",
+        "total": "clubs_index.json?page=1000"
     }
 }

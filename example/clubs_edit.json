@@ -9,7 +9,7 @@
                     {
                         "text": "Delete",
                         "confirm": "Are you sure?",
-                        "target": "example/message.json"
+                        "target": "message.json"
                     }
                 ]
             }
@@ -17,7 +17,7 @@
         {
             "type": "form",
             "form": {
-                "action": "example/clubs/store",
+                "action": "clubs/store",
                 "method": "get",
                 "items": [
                     {
