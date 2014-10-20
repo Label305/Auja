@@ -20,10 +20,8 @@
                 checked: (option.label === label ? !option.checked : option.checked)
             };
         });
-
         this.setState({ options: state });
-
-    },
+            },
         render: function () {           
             var options = this.props.item.getOptions();
             var selected = this.state.options.map(function(option) {
