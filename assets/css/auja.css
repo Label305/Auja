@@ -46,11 +46,11 @@ body {
   overflow-y: hidden; }
   body h1 {
     float: left;
-    height: 25px;
-    margin: 25px 0px 25px 30px;
+    height: 40px;
+    margin: 15px 0px 15px 30px;
     font-size: 25px;
     font-weight: 300;
-    line-height: 25px; }
+    line-height: 40px; }
   body h2 {
     font-size: 25px;
     font-weight: 100;
@@ -153,15 +153,15 @@ header {
   width: 100%;
   left: 0;
   top: 0;
-  height: 75px; }
+  height: 70px; }
   header #user {
     float: right;
     margin-top: 15px;
-    line-height: 25px;
+    line-height: 20px;
     display: inline-block;
     width: auto;
     color: white;
-    height: 25px;
+    height: 20px;
     padding: 10px 15px;
     margin-right: 15px;
     font-size: 15px; }
@@ -173,11 +173,11 @@ header {
       display: inline-block;
       width: auto;
       color: white;
-      height: 25px;
+      height: 20px;
       padding: 10px 15px;
       margin-right: 10px;
       font-size: 15px;
-      line-height: 25px;
+      line-height: 20px;
       margin: 0; }
       header #buttons > a:hover {
         background-color: #e3e3e3 !important;
@@ -190,7 +190,7 @@ header {
 ul#main-menu {
   position: fixed;
   z-index: 999;
-  top: 105px;
+  top: 100px;
   left: 15px; }
   ul#main-menu span {
     display: none; }
@@ -223,8 +223,8 @@ ul#main-menu {
 #panels {
   position: absolute;
   display: table;
-  top: 75px;
-  height: calc(100% - 105px);
+  top: 70px;
+  height: calc(100% - 100px);
   overflow-x: scroll;
   overflow-y: hidden;
   left: 30px; }
@@ -233,8 +233,8 @@ ul#main-menu {
     display: block;
     position: fixed;
     left: 0;
-    top: 75px;
-    height: calc(100% - 75px);
+    top: 70px;
+    height: calc(100% - 70px);
     width: 30px;
     background-color: #f1f1f1;
     z-index: 998; }
