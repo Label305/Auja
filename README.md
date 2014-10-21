@@ -1,4 +1,4 @@
-Auja [![Build Status](https://travis-ci.org/Label305/Auja.svg?branch=dev)](https://travis-ci.org/Label305/Auja)
+Auja [![Build Status](https://travis-ci.org/Label305/Auja.svg?branch=master)](https://travis-ci.org/Label305/Auja)
 ===
 
 Auja is a back-end interface designed to be friendly on both sides, for the end-user as well as the developer.
@@ -33,6 +33,11 @@ After this you have to compile the jsx code into browser-readable JavaScript usi
 Now the `build` directory should have been filled and you can serve the `example/index.html` in the example directory with 
 any web-server you want. For example, run `npm install -g http-server` and then run `http-server` from the repository root.
 Now you can visit `http://localhost:8080/example` to view the Auja implementation
+
+*Running tests*
+
+We're using [Karma](http://karma-runner.github.io/0.12/index.html) for spec testing our objects. For installation
+and running refer to their [installation docs](http://karma-runner.github.io/0.12/intro/installation.html)
 
 Architecture
 ---

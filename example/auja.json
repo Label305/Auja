@@ -14,7 +14,7 @@
         },
         "buttons": [
             {
-                "title": "Logout",
+                "text": "Logout",
                 "target": "#logout"
             }
         ],
