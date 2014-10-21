@@ -267,52 +267,70 @@ ul#main-menu {
 #panels .panel-menu > div {
   width: 300px;
   display: block; }
-#panels .panel-menu ul {
-  margin: 30px 0 0 30px; }
-  #panels .panel-menu ul li {
-    position: relative; }
-#panels .panel-menu .menu-item-link {
-  display: block;
-  height: 30px;
-  padding: 15px 15px 14px 30px;
-  border-bottom: 1px solid;
-  font-size: 14px;
-  line-height: 30px;
-  cursor: pointer;
-  width: calc(100% - 45px); }
-  #panels .panel-menu .menu-item-link:before, #panels .panel-menu .menu-item-link:after {
-    position: absolute;
-    font-size: 18px;
-    line-height: 30px;
-    height: 30px;
-    width: 30px;
+  #panels .panel-menu > div ul {
+    margin: 30px 0 0 30px; }
+    #panels .panel-menu > div ul li {
+      position: relative; }
+  #panels .panel-menu > div .menu-item-link {
     display: block;
-    top: 15px; }
-  #panels .panel-menu .menu-item-link:before {
-    left: 0; }
-  #panels .panel-menu .menu-item-link:after {
-    content: "\f154";
-    font-family: "Ionicons";
-    right: 0;
-    color: #e3e3e3; }
-  #panels .panel-menu .menu-item-link.active.auja-active-border-main {
+    height: 30px;
+    padding: 15px 15px 14px 30px;
+    border-bottom: 1px solid;
+    font-size: 14px;
+    line-height: 30px;
+    cursor: pointer;
+    width: calc(100% - 45px); }
+    #panels .panel-menu > div .menu-item-link:before, #panels .panel-menu > div .menu-item-link:after {
+      position: absolute;
+      font-size: 18px;
+      line-height: 30px;
+      height: 30px;
+      width: 30px;
+      display: block;
+      top: 15px; }
+    #panels .panel-menu > div .menu-item-link:before {
+      left: 0; }
+    #panels .panel-menu > div .menu-item-link:after {
+      content: "\f154";
+      font-family: "Ionicons";
+      right: 0;
+      color: #e3e3e3; }
+    #panels .panel-menu > div .menu-item-link.active.auja-active-border-main {
+      border-bottom: 2px solid;
+      border-color: inherit;
+      padding-bottom: 13px; }
+      #panels .panel-menu > div .menu-item-link.active.auja-active-border-main:after, #panels .panel-menu > div .menu-item-link.active.auja-active-border-mainbefore {
+        color: inherit; }
+  #panels .panel-menu > div .menu-item-spacer {
+    min-height: 15px;
+    padding: 23px 0 5px 30px;
+    margin: 0 0 0 -30px;
     border-bottom: 2px solid;
-    border-color: inherit;
-    padding-bottom: 13px; }
-    #panels .panel-menu .menu-item-link.active.auja-active-border-main:after, #panels .panel-menu .menu-item-link.active.auja-active-border-mainbefore {
-      color: inherit; }
-#panels .panel-menu .menu-item-spacer {
-  min-height: 15px;
-  padding: 23px 0 5px 30px;
-  margin: 0 0 0 -30px;
-  border-bottom: 2px solid;
-  font-size: 12px;
-  line-height: 15px;
-  cursor: default;
-  text-transform: uppercase;
-  background-color: white; }
-#panels .panel-menu .menu-item-resource > ul {
-  margin: 0; }
+    font-size: 12px;
+    line-height: 15px;
+    cursor: default;
+    text-transform: uppercase;
+    background-color: white; }
+  #panels .panel-menu > div .menu-item-resource > ul {
+    margin: 0; }
+  #panels .panel-menu > div input[type="text"] {
+    width: 100%;
+    display: inline-block;
+    height: 40px;
+    background-color: #ededed;
+    margin-left: -30px;
+    padding: 0 15px;
+    border: 0;
+    border-bottom: 2px solid #e3e3e3;
+    font-size: 14px; }
+    #panels .panel-menu > div input[type="text"]:focus {
+      outline: none;
+      border: none;
+      border-bottom: 2px solid #1ebab8;
+      transition: 0.25s;
+      -ms-transition: 0.25s;
+      -moz-transition: 0.25s;
+      -webkit-transition: 0.25s; }
 
 #panels .panel-page > div {
   width: 600px; }
