@@ -26,7 +26,8 @@ after_success:
 - git checkout master
 - git add -f auja.min.js
 - git commit -m "Released $TRAVIS_TAG"
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then git push --force origin master ; fi
+- git tag -a $TRAVIS_TAG -m "Release $TRAVIS_TAG build.$TRAVIS_BUILD_ID"
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && -z $TRAVIS_TAG]]; then git push --force origin master ; fi
 deploy:
   provider: releases
   api_key:
