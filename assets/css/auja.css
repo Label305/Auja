@@ -71,6 +71,12 @@ body {
 
 h2 > .button {
   float: right; }
+h2 span {
+  height: 40px;
+  display: inline-block;
+  width: auto;
+  line-height: 40px;
+  float: left; }
 
 .authentication-overlay {
   position: fixed;
@@ -95,19 +101,18 @@ h2 > .button {
     padding: 45px;
     margin: auto;
     background: white; }
-
-.authentication-overlay-hugeinc {
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.25s;
-  -ms-transition: 0.25s;
-  -moz-transition: 0.25s;
-  -webkit-transition: 0.25s; }
-  .authentication-overlay-hugeinc.open {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transition: opacity 0.5s;
-    transition: opacity 0.5s; }
+  .authentication-overlay.authentication-overlay-hugeinc {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s;
+    -ms-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -webkit-transition: 0.25s; }
+    .authentication-overlay.authentication-overlay-hugeinc.open {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transition: opacity 0.5s;
+      transition: opacity 0.5s; }
 
 .message {
   position: fixed;
@@ -371,13 +376,16 @@ form .row.form-item {
     background: #ededed;
     border: 0;
     border-bottom: 2px solid #e3e3e3;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-appearance: none;
     -moz-appearance: none;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -webkit-padding-start: 5px;
+    -webkit-padding-start: 10px;
     -moz-padding-start: 5px; }
     form .row.form-item select:focus {
       border-bottom: 2px solid #1ebab8 !important;
@@ -401,8 +409,23 @@ form .row.form-item {
     form .row.form-item input[type="submit"]:focus {
       outline: none;
       border: 0; }
+  form .row.form-item.form-item-checkbox input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    float: left; }
+  form .row.form-item.form-item-checkbox label {
+    width: calc(100% - 25px);
+    float: right;
+    display: inline-block;
+    height: 15px;
+    margin: 0;
+    text-transform: none;
+    font-size: 14px; }
   form .row.form-item textarea {
-    height: 200px; }
+    height: 200px;
+    resize: none; }
   form .row.form-item .trumbowyg-box {
     display: inline-block;
     position: relative;
@@ -414,7 +437,7 @@ form .row.form-item {
     border: 0;
     width: 100%;
     font-size: 10px;
-    margin: 0; }
+    margin: 5px 0; }
     form .row.form-item input[type="range"]::-webkit-slider-runnable-track {
       height: 5px;
       background: #ededed;

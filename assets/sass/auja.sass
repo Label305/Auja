@@ -87,6 +87,12 @@ body
 h2 
     & > .button
         float: right
+    span
+        height: 40px
+        display: inline-block
+        width: auto
+        line-height: 40px
+        float: left
 
 // ------ Authentication overlay ------
 .authentication-overlay
@@ -112,18 +118,18 @@ h2
         padding: 45px
         margin: auto
         background: white
-.authentication-overlay-hugeinc
-    opacity: 0
-    visibility: hidden
-    transition: 0.25s
-    -ms-transition: 0.25s
-    -moz-transition: 0.25s
-    -webkit-transition: 0.25s
-    &.open
-        opacity: 1
-        visibility: visible
-        -webkit-transition: opacity 0.5s
-        transition: opacity 0.5s
+    &.authentication-overlay-hugeinc
+        opacity: 0
+        visibility: hidden
+        transition: 0.25s
+        -ms-transition: 0.25s
+        -moz-transition: 0.25s
+        -webkit-transition: 0.25s
+        &.open
+            opacity: 1
+            visibility: visible
+            -webkit-transition: opacity 0.5s
+            transition: opacity 0.5s
 
 // ------ Message ------
 .message
@@ -397,13 +403,16 @@ form
                 background: $input-color
                 border: 0
                 border-bottom: 2px solid $input-border-color
+                -webkit-box-sizing: border-box
+                -moz-box-sizing: border-box
+                box-sizing: border-box
                 -webkit-appearance: none
                 -moz-appearance: none
                 -webkit-border-radius: 0px
                 -moz-border-radius: 0px
                 -webkit-user-select: none
                 -moz-user-select: none
-                -webkit-padding-start: 5px
+                -webkit-padding-start: 10px
                 -moz-padding-start: 5px
                 &:focus
                     border-bottom: 2px solid $auja-main-color !important
@@ -427,8 +436,24 @@ form
                 &:focus
                     outline: none
                     border: 0
+            &.form-item-checkbox
+                input[type="checkbox"]
+                    width: 15px
+                    height: 15px
+                    display: inline-block
+                    margin: 0 10px 0 0
+                    float: left
+                label
+                    width: calc(100% - 25px)
+                    float: right
+                    display: inline-block
+                    height: 15px
+                    margin: 0
+                    text-transform: none
+                    font-size: 14px
             textarea 
                 height: 200px
+                resize: none
             .trumbowyg-box 
                 display: inline-block
                 position: relative
@@ -440,7 +465,7 @@ form
                 border: 0        
                 width: 100%
                 font-size: 10px
-                margin: 0
+                margin: 5px 0
                 &::-webkit-slider-runnable-track
                     height: 5px
                     background: $input-color
