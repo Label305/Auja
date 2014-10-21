@@ -203,7 +203,7 @@ header
 // ------ Main menu ------
 ul#main-menu 
     position: fixed
-    z-index: 50
+    z-index: 999
     top: 105px
     left: 15px
     span 
@@ -252,7 +252,7 @@ ul#main-menu
         height: calc(100% - 75px)
         width: 30px
         background-color: $body-color
-        z-index: 49
+        z-index: 998
     & > div 
         display: table-row
         position: absolute
@@ -262,12 +262,16 @@ ul#main-menu
         bottom: 0
     .panel 
         display: table-cell
+        position: relative
         background-color: white
         border-right: 4px solid $body-color       
         animation-duration: 0.25s !important
         -ms-animation-duration: 0.25s !important
         -moz-animation-duration: 0.25s !important
         -webkit-animation-duration: 0.25s !important
+        z-index: 99
+        &.animated:last-child
+            z-index: 1 !important
         &:first-child > div 
             margin-left: 45px
 
@@ -280,7 +284,7 @@ ul#main-menu
 #panels
     .panel-menu
         & > div 
-            width: 270px
+            width: 300px
             display: block
         ul 
             margin: 30px 0 0 30px
@@ -318,12 +322,13 @@ ul#main-menu
 #panels 
     .panel-page
         & > div 
-            width: 660px
+            width: 600px
             & > div 
                 margin: 30px
     .row 
         width: 100%
-        clear: both    
+        clear: both
+        display: inline-block    
  
 // ------ Form ------
 form 
@@ -366,6 +371,16 @@ form
                     -webkit-transition: 0.25s
             input[type="submit"] 
                 float: right
+                &:hover
+                    background-color: $button-hover-color !important
+                    transition: 0.25s
+                    -ms-transition: 0.25s
+                    -moz-transition: 0.25s
+                    -webkit-transition: 0.25s
+                    color: $font-color
+                &:focus
+                    outline: none
+                    border: 0
             textarea 
                 height: 200px
             .trumbowyg-box 

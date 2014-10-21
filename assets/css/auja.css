@@ -184,7 +184,7 @@ header {
 
 ul#main-menu {
   position: fixed;
-  z-index: 50;
+  z-index: 999;
   top: 105px;
   left: 15px; }
   ul#main-menu span {
@@ -232,7 +232,7 @@ ul#main-menu {
     height: calc(100% - 75px);
     width: 30px;
     background-color: #f1f1f1;
-    z-index: 49; }
+    z-index: 998; }
   #panels > div {
     display: table-row;
     position: absolute;
@@ -242,12 +242,16 @@ ul#main-menu {
     bottom: 0; }
   #panels .panel {
     display: table-cell;
+    position: relative;
     background-color: white;
     border-right: 4px solid #f1f1f1;
     animation-duration: 0.25s !important;
     -ms-animation-duration: 0.25s !important;
     -moz-animation-duration: 0.25s !important;
-    -webkit-animation-duration: 0.25s !important; }
+    -webkit-animation-duration: 0.25s !important;
+    z-index: 99; }
+    #panels .panel.animated:last-child {
+      z-index: 1 !important; }
     #panels .panel:first-child > div {
       margin-left: 45px; }
     #panels .panel > div {
@@ -256,7 +260,7 @@ ul#main-menu {
       float: left; }
 
 #panels .panel-menu > div {
-  width: 270px;
+  width: 300px;
   display: block; }
 #panels .panel-menu ul {
   margin: 30px 0 0 30px; }
@@ -290,12 +294,13 @@ ul#main-menu {
   margin: 0; }
 
 #panels .panel-page > div {
-  width: 660px; }
+  width: 600px; }
   #panels .panel-page > div > div {
     margin: 30px; }
 #panels .row {
   width: 100%;
-  clear: both; }
+  clear: both;
+  display: inline-block; }
 
 form .row.form-item {
   margin: 30px 0 0 0; }
@@ -342,6 +347,16 @@ form .row.form-item {
       -webkit-transition: 0.25s; }
   form .row.form-item input[type="submit"] {
     float: right; }
+    form .row.form-item input[type="submit"]:hover {
+      background-color: #e3e3e3 !important;
+      transition: 0.25s;
+      -ms-transition: 0.25s;
+      -moz-transition: 0.25s;
+      -webkit-transition: 0.25s;
+      color: #454545; }
+    form .row.form-item input[type="submit"]:focus {
+      outline: none;
+      border: 0; }
   form .row.form-item textarea {
     height: 200px; }
   form .row.form-item .trumbowyg-box {
