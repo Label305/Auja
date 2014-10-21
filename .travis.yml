@@ -19,7 +19,7 @@ after_success:
 - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 - git config --global user.email "hallo@label305.com"
 - git config --global user.name "Travis"
-- git clone https://github.com/Label305/Auja.git auja-bower
+- git clone https://github.com/Label305/Auja-bower.git auja-bower
 - cp -f dist/auja.min.js auja-bower/auja.min.js
 - cd auja-bower
 - git fetch origin master
