@@ -8,3 +8,4 @@ Vagrantfile
 .vagrant/
 dist/
 assets/css
+.sass-cache
