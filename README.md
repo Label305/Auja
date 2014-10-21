@@ -1,4 +1,4 @@
-Auja [![Build Status](https://travis-ci.org/Label305/Auja.svg?branch=dev)](https://travis-ci.org/Label305/Auja)
+Auja [![Build Status](https://travis-ci.org/Label305/Auja.svg?branch=master)](https://travis-ci.org/Label305/Auja)
 ===
 
 Auja is a back-end interface designed to be friendly on both sides, for the end-user as well as the developer.
