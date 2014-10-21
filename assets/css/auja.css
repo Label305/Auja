@@ -117,12 +117,12 @@ h2 span {
 .message {
   position: fixed;
   z-index: 1001;
-  top: 50%;
+  top: calc(50% - 80px);
   right: 0;
   left: 0;
   width: 550px;
   min-height: 120px;
-  margin: -60px auto 0 auto;
+  margin: 0 auto;
   padding: 20px;
   color: white;
   animation-duration: 0.25s !important;
