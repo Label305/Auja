@@ -14,7 +14,7 @@ define(['fluxxor', 'build/Factories/form_factory'], function(Fluxxor, FormFactor
             "debug": true,
             "colors": {
                 "main": "#1ebab8",
-                "secondary": "#E7EFEF",
+                "secondary": "#EDEDED",
                 "alert": "#e85840"
             },
             "user": {

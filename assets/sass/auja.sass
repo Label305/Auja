@@ -1,15 +1,18 @@
-//
-//Fonts imported from Google Fonts, when offline use is required, download zip from the import page 
-//
+@import includes
+
+// ------ 
+// Fonts imported from Google Fonts, when offline use is required, download zip from the import page
+// ------
+
 @import url('https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,700')
 
-//
+// ------
 // CSS reset, including force setting of font-family
 //
 // http://meyerweb.com/eric/tools/css/reset/ 
 // v2.0 | 20110126
 // License: none (public domain)
-//
+// ------
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -35,33 +38,34 @@ time, mark, audio, video
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section 
     display: block
-body
-    line-height: 1
 ol, ul
-    list-style: none
-blockquote, q
+    list-style-type: none
+blockquote
     quotes: none
-blockquote:before,
-blockquote:after,
-q:before, q:after
-    content: ''
-    content: none
+    &:before,
+    &:after
+        content: none
+q
+    quotes: none
+    &:before,
+    &:after
+        content: none
 table 
     border-collapse: collapse
     border-spacing: 0
 
 // ------ Scaffolding ------
 body
-    background: #f1f1f1
-    color: #555555
+    background: $body-color
+    color: $font-color
     overflow-y: hidden
     h1
         float: left
-        height: 30px
-        margin: 25px 0px 25px 45px
-        font-size: 27px
+        height: 25px
+        margin: 25px 0px 25px 30px
+        font-size: 25px
         font-weight: 300
-        line-height: 27px
+        line-height: 25px
     h2
         font-size: 25px
         font-weight: 100
@@ -77,12 +81,13 @@ body
     padding: 10px 15px
     cursor: pointer
     color: white
-    border: none
+    border: 0
     font-size: 14px
     line-height: 20px
 h2 
     & > .button
         float: right
+
 // ------ Authentication overlay ------
 .authentication-overlay
     position: fixed
@@ -110,8 +115,10 @@ h2
 .authentication-overlay-hugeinc
     opacity: 0
     visibility: hidden
-    -webkit-transition: opacity 0.5s, visibility 0s 0.5s
-    transition: opacity 0.5s, visibility 0s 0.5s
+    transition: 0.25s
+    -ms-transition: 0.25s
+    -moz-transition: 0.25s
+    -webkit-transition: 0.25s
     &.open
         opacity: 1
         visibility: visible
@@ -130,11 +137,12 @@ h2
     margin: -60px auto 0 auto
     padding: 20px
     color: white
-    -webkit-animation-duration: 0.25s !important
-    -ms-animation-duration: 0.25s !important
     animation-duration: 0.25s !important
+    -ms-animation-duration: 0.25s !important
+    -moz-animation-duration: 0.25s !important
+    -webkit-animation-duration: 0.25s !important
     &:before 
-        content: ""
+        content: ''
         position: fixed
         top: 0
         left: 0
@@ -142,7 +150,7 @@ h2
         width: 100%
         opacity: 0
     &:after 
-        content: ""
+        content: ''
         position: absolute
         right: 15px
         top: 15px
@@ -158,35 +166,45 @@ header
     width: 100%
     left: 0
     top: 0
+    height: 75px
     #user 
         float: right
-        margin-top: 20px
-        line-height: 20px
+        margin-top: 15px
+        line-height: 25px
         display: inline-block
         width: auto
         color: white
-        height: 20px
+        height: 25px
         padding: 10px 15px
-        margin-right: 10px
+        margin-right: 15px
         font-size: 15px
     #buttons 
         float: right
-        margin-top: 20px
-        margin-right: 10px
+        margin-top: 15px
+        margin-right: 15px
         & > a 
             display: inline-block
             width: auto
             color: white
-            height: 20px
+            height: 25px
             padding: 10px 15px
             margin-right: 10px
             font-size: 15px
+            line-height: 25px
+            margin: 0
+            &:hover
+                background-color: $button-hover-color !important
+                transition: 0.25s
+                -ms-transition: 0.25s
+                -moz-transition: 0.25s
+                -webkit-transition: 0.25s
+                color: $font-color
 
 // ------ Main menu ------
 ul#main-menu 
     position: fixed
     z-index: 50
-    top: 115px
+    top: 105px
     left: 15px
     span 
         display: none
@@ -206,13 +224,13 @@ ul#main-menu
             line-height: 60px
             text-align: center
         &:after 
-            content: ""
+            content: ''
             position: absolute
             width: 0
             height: 0
             border-width: 9px 15px 0 0
             border-style: solid
-            border-color: transparent rgb(7, 166, 161) transparent transparent/* TODO set color from JS */
+            border-color: transparent rgb(7, 166, 161) transparent transparent
             top: -10px
             left: 0
 
@@ -220,25 +238,36 @@ ul#main-menu
 #panels 
     position: absolute
     display: table
-    top: 80px
-    height: calc(100% - 110px)
+    top: 75px
+    height: calc(100% - 105px)
     overflow-x: scroll
     overflow-y: hidden
-    padding-left: 30px
+    left: 30px
+    &:before
+        content: ''
+        display: block
+        position: fixed
+        left: 0
+        top: 75px
+        height: calc(100% - 75px)
+        width: 30px
+        background-color: $body-color
+        z-index: 49
     & > div 
         display: table-row
         position: absolute
         top: 0
-        left: 30px
+        left: 0
         right: 0
         bottom: 0
     .panel 
         display: table-cell
         background-color: white
-        border-right: 5px solid #f1f1f1
-        -webkit-animation-duration: 0.25s !important
-        -ms-animation-duration: 0.25s !important
+        border-right: 4px solid $body-color       
         animation-duration: 0.25s !important
+        -ms-animation-duration: 0.25s !important
+        -moz-animation-duration: 0.25s !important
+        -webkit-animation-duration: 0.25s !important
         &:first-child > div 
             margin-left: 45px
 
@@ -258,9 +287,9 @@ ul#main-menu
             li 
                 position: relative
         .menu-item-link 
+            display: block
             height: 30px
-            margin-top: 1px
-            padding: 15px 15px 15px 30px
+            padding: 15px 15px 14px 30px
             border-bottom: 1px solid
             font-size: 14px
             line-height: 30px
@@ -273,7 +302,7 @@ ul#main-menu
                 line-height: 30px
         .menu-item-spacer 
             min-height: 15px
-            padding: 11px 0 5px 30px
+            padding: 9px 0 5px 30px
             margin: -1px 0 0 -30px
             border-bottom: 2px solid
             font-size: 12px
@@ -322,12 +351,19 @@ form
                 clear: both
                 width: calc(100% - 20px)
                 padding: 10px
-                border: none
-                border-bottom: 2px solid #E7EFEF
-                background: #ededed
+                border: 0
+                border-bottom: 2px solid $input-border-color
+                background: $input-color
                 font-size: 14px
-                color: #353535
+                color: $font-color
                 line-height: 20px
+                &:focus
+                    border-bottom: 2px solid $auja-main-color !important
+                    outline: none
+                    transition: 0.25s
+                    -ms-transition: 0.25s
+                    -moz-transition: 0.25s
+                    -webkit-transition: 0.25s
             input[type="submit"] 
                 float: right
             textarea 
@@ -335,70 +371,72 @@ form
             .trumbowyg-box 
                 display: inline-block
                 position: relative
-                border: 1px solid #DDD
+                border: 1px solid $input-border-color
                 width: 100%
                 min-height: 300px
                 margin: 0px auto
             input[type="range"]
-                border: 1px solid white              
-                width: calc(100% - 18px)
+                border: 0        
+                width: 100%
                 font-size: 10px
+                margin: 0
                 &::-webkit-slider-runnable-track
                     height: 5px
-                    background: #ededed
-                    border: none
-                    border-radius: 3px
+                    background: $input-color
+                    border: 0
                 &::-webkit-slider-thumb
                     -webkit-appearance: none
-                    border: none
+                    border: 0
                     height: 16px
                     width: 16px
                     border-radius: 50%
-                    background: #1ebab8
+                    background: $auja-main-color
                     margin-top: -4px
                 &:focus
                     outline: none
+                    border: 0
                     &::-webkit-slider-runnable-track
-                        background: #ccc
+                        background: $input-border-color
+                &:active
+                    outline: none !important
+                    border: 0 !important
                 &::-moz-range-track
                     height: 5px
-                    background: #ededed
-                    border: none
+                    background: $input-color
+                    border: 0
                     border-radius: 3px
                 &::-moz-range-thumb
-                    border: none
+                    border: 0
                     height: 16px
                     width: 16px
                     border-radius: 50%
-                    background: #1ebab8
-                &:-moz-focusring
-                    outline: 1px solid white
-                    outline-offset: -1px
+                    background: $auja-main-color
+                &:-moz-focusring,
+                &::-moz-focus-inner
+                    outline: none !important
+                    border: 0 !important
                 &::-ms-track
                     height: 16px
-                    background: #ededed
-                    border: none
+                    background: $input-color
+                    border: 0
                     border-radius: 10px
                     color: transparent
                 &::-ms-fill-lower
                     outline: none
-                    background: #777
+                    background: #777777
                     border-radius: 10px 0 0 10px
                 &::-ms-thumb
-                    border: none
+                    border: 0
                     height: 16px
                     width: 16px
                     border-radius: 50%
-                    background: #1ebab8
+                    background: $auja-main-color
                 &:focus
                     &::-ms-track
-                        background: #ccc
+                        background: $input-border-color
                     &::-ms-fill-lower
-                        background: #888
+                        background: #888888
 
-
-
-            
 @media screen and (max-height: 30.5em)
     .authentication-overlay
         nav
