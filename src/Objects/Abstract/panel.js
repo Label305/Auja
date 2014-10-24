@@ -46,6 +46,11 @@ define([], function() {
         this._url;
 
         /**
+         * If this panel is active
+         */
+        this._active = false;
+
+        /**
          * Setter for the ID
          * @param id
          */
@@ -110,7 +115,7 @@ define([], function() {
 
         /**
          * Setter for the url
-         * @param id
+         * @param url
          */
         this.setUrl = function(url) {
             this._url = url;
@@ -135,11 +140,27 @@ define([], function() {
 
         /**
          * Setter for is updateable
-         * @param is_updateable
+         * @param isUpdateable
          */
         this.setIsUpdateable = function(isUpdateable) {
             this._isUpdateable = isUpdateable;
         };
+
+        /**
+         * Check if active
+         * @return boolean
+         */
+        this.isActive = function() {
+            return this._active;
+        };
+
+        /**
+         * Set active state
+         * @param active
+         */
+        this.setIsActive = function(active) {
+            this._active = active;
+        }
         
     }
     

@@ -9,3 +9,4 @@ Vagrantfile
 dist/
 assets/css/
 .sass-cache/
+assets/css/

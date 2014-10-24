@@ -151,6 +151,20 @@ define([
                     data: data
                 });
             }.bind(this));            
+        },
+
+        /**
+         * Navigate to the panel left of the currently active
+         */
+        navigateToPanelLeft: function() {
+            this.dispatch('activate-panel-left');
+        },
+
+        /**
+         * Navigate to the panel right of the currently active
+         */
+        navigateToPanelRight: function() {
+            this.dispatch('activate-panel-right');
         }
     };
     

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,700");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -16,7 +17,7 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: "Open Sans", Helvetica, Arial;
+  font-family: "Open Sans", Helvetica, Arial, serif;
   vertical-align: baseline; }
 
 article, aside, details, figcaption, figure,
@@ -41,13 +42,13 @@ table {
   border-spacing: 0; }
 
 body {
-  background: #f1f1f1;
+  background: #F1F1F1;
   color: #454545;
   overflow-y: hidden; }
   body h1 {
     float: left;
     height: 40px;
-    margin: 15px 0px 15px 30px;
+    margin: 15px 0 15px 30px;
     font-size: 25px;
     font-weight: 400;
     line-height: 40px; }
@@ -175,12 +176,11 @@ header {
       color: white;
       height: 20px;
       padding: 10px 15px;
-      margin-right: 10px;
       font-size: 15px;
       line-height: 20px;
       margin: 0; }
       header #buttons > a:hover {
-        background-color: #e3e3e3 !important;
+        background-color: #E3E3E3 !important;
         transition: 0.25s;
         -ms-transition: 0.25s;
         -moz-transition: 0.25s;
@@ -236,7 +236,7 @@ ul#main-menu {
     top: 70px;
     height: calc(100% - 70px);
     width: 30px;
-    background-color: #f1f1f1;
+    background-color: #F1F1F1;
     z-index: 998; }
   #panels > div {
     display: table-row;
@@ -249,7 +249,7 @@ ul#main-menu {
     display: table-cell;
     position: relative;
     background-color: white;
-    border-right: 4px solid #f1f1f1;
+    border-right: 4px solid #F1F1F1;
     animation-duration: 0.25s !important;
     -ms-animation-duration: 0.25s !important;
     -moz-animation-duration: 0.25s !important;
@@ -259,6 +259,8 @@ ul#main-menu {
       z-index: 1 !important; }
     #panels .panel:first-child > div {
       margin-left: 45px; }
+    #panels .panel.active {
+      border-top: 5px solid black; }
     #panels .panel > div {
       overflow-y: auto;
       overflow-x: hidden;
@@ -291,10 +293,10 @@ ul#main-menu {
     #panels .panel-menu > div .menu-item-link:before {
       left: 0; }
     #panels .panel-menu > div .menu-item-link:after {
-      content: "\f154";
+      content: "";
       font-family: "Ionicons";
       right: 0;
-      color: #e3e3e3; }
+      color: #E3E3E3; }
     #panels .panel-menu > div .menu-item-link.active.auja-active-border-main {
       border-bottom: 2px solid;
       border-color: inherit;
@@ -317,11 +319,11 @@ ul#main-menu {
     width: 100%;
     display: inline-block;
     height: 40px;
-    background-color: #ededed;
+    background-color: #EDEDED;
     margin-left: -30px;
     padding: 0 15px;
     border: 0;
-    border-bottom: 2px solid #e3e3e3;
+    border-bottom: 2px solid #E3E3E3;
     font-size: 14px; }
     #panels .panel-menu > div input[type="text"]:focus {
       outline: none;
@@ -365,12 +367,12 @@ form .row.form-item {
     width: calc(100% - 20px);
     padding: 10px;
     border: 0;
-    border-bottom: 2px solid #e3e3e3;
-    background: #ededed;
+    border-bottom: 2px solid #E3E3E3;
+    background: #EDEDED;
     font-size: 14px;
     color: #454545;
     line-height: 20px;
-    font-family: "Open Sans", Helvetica, Arial; }
+    font-family: "Open Sans", Helvetica, Arial, serif; }
     form .row.form-item input[type="text"]:focus,
     form .row.form-item input[type="password"]:focus,
     form .row.form-item input[type="number"]:focus,
@@ -391,16 +393,16 @@ form .row.form-item {
     display: inline-block;
     font-size: 14px;
     color: #454545;
-    background: #ededed;
+    background: #EDEDED;
     border: 0;
-    border-bottom: 2px solid #e3e3e3;
+    border-bottom: 2px solid #E3E3E3;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-appearance: none;
     -moz-appearance: none;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
     -webkit-user-select: none;
     -moz-user-select: none;
     -webkit-padding-start: 10px;
@@ -418,7 +420,7 @@ form .row.form-item {
   form .row.form-item input[type="submit"] {
     float: right; }
     form .row.form-item input[type="submit"]:hover {
-      background-color: #e3e3e3 !important;
+      background-color: #E3E3E3 !important;
       transition: 0.25s;
       -ms-transition: 0.25s;
       -moz-transition: 0.25s;
@@ -447,10 +449,10 @@ form .row.form-item {
   form .row.form-item .trumbowyg-box {
     display: inline-block;
     position: relative;
-    border: 1px solid #e3e3e3;
+    border: 1px solid #E3E3E3;
     width: 100%;
     min-height: 300px;
-    margin: 0px auto; }
+    margin: 0 auto; }
   form .row.form-item input[type="range"] {
     border: 0;
     width: 100%;
@@ -460,7 +462,7 @@ form .row.form-item {
     display: inline-block; }
     form .row.form-item input[type="range"]::-webkit-slider-runnable-track {
       height: 5px;
-      background: #ededed;
+      background: #EDEDED;
       border: 0; }
     form .row.form-item input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
@@ -474,13 +476,13 @@ form .row.form-item {
       outline: none;
       border: 0; }
       form .row.form-item input[type="range"]:focus::-webkit-slider-runnable-track {
-        background: #e3e3e3; }
+        background: #E3E3E3; }
     form .row.form-item input[type="range"]:active {
       outline: none !important;
       border: 0 !important; }
     form .row.form-item input[type="range"]::-moz-range-track {
       height: 5px;
-      background: #ededed;
+      background: #EDEDED;
       border: 0;
       border-radius: 3px; }
     form .row.form-item input[type="range"]::-moz-range-thumb {
@@ -491,7 +493,7 @@ form .row.form-item {
       background: #1ebab8; }
     form .row.form-item input[type="range"]::-ms-track {
       height: 16px;
-      background: #ededed;
+      background: #EDEDED;
       border: 0;
       border-radius: 10px;
       color: transparent; }
@@ -506,7 +508,7 @@ form .row.form-item {
       border-radius: 50%;
       background: #1ebab8; }
     form .row.form-item input[type="range"]:focus::-ms-track {
-      background: #e3e3e3; }
+      background: #E3E3E3; }
     form .row.form-item input[type="range"]:focus::-ms-fill-lower {
       background: #888888; }
 
@@ -516,3 +518,5 @@ form .row.form-item {
     font-size: 34px; }
   .authentication-overlay ul li {
     min-height: 34px; } }
+
+/*# sourceMappingURL=auja.css.map */
