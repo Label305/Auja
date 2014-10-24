@@ -26,7 +26,7 @@ define([], function() {
             
             //Check if we match the active item
             if(this.props.item.isActive()) {
-                className += " auja-color-main";
+                className += " auja-color-main active auja-active-border-main";
             }
             
             return (
