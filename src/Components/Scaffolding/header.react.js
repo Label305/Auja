@@ -24,7 +24,7 @@ define([], function () {
             }
             return (
                 <header>
-                    <h1 className="auja-color-main">{this.props.auja.title}</h1>
+                    <h1>{this.props.auja.title}</h1>
                     <div id="buttons">{buttons}</div>
                     {user}
                 </header>

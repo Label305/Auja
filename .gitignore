@@ -7,3 +7,5 @@ Vagrantfile
 .DS_Store
 .vagrant/
 dist/
+assets/css/
+.sass-cache/
