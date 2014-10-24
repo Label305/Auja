@@ -1,0 +1,31 @@
+@import includes
+
+// ------ Trumboywg styling ------
+
+.trumbowyg-box
+    border: 0 !important
+
+    .trumbowyg-editor
+        background-color: $input-color
+        padding: 20px
+
+    .trumbowyg-button-pane
+        background-color: $input-border-color
+        border: 0 !important
+        .trumbowyg-separator
+            background-color: #cccccc
+            margin: 0 !important
+
+        button
+            margin: 0 !important
+            &:hover
+                background-color: $auja-main-color !important
+                transition: 0.25s
+                -ms-transition: 0.25s
+                -moz-transition: 0.25s
+                -webkit-transition: 0.25s
+            &.trumbowyg-active
+                background-color: $auja-main-color !important
+    textarea
+        width: 100% !important
+        padding: 20px !important
