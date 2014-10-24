@@ -30,6 +30,8 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
                 'panel-scroll', this.scroll,
                 'resize', this.resize,
                 'activate-item', this.activateItem,
+                'activate-panel-left', this.activatePanelLeft,
+                'activate-panel-right', this.activatePanelRight,
                 
                 //Update panels
                 'update', this.update,
@@ -118,13 +120,14 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
             //Put the panel in the view
             this.panels[panel.getIndex()] = panel;
             
+            //Set latest addition as active
+            this.setActivePanel(panel);
+            
             this.emit('change');
         },
 
         /**
          * Activate an item within a panel
-         * @todo add spec test
-         * @todo move to panel
          * @param item
          */
         activateItem: function(item) {
@@ -135,6 +138,64 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
                 }
             }
             
+            this.emit('change');
+        },
+
+        /**
+         * Activate a panel to the left
+         */
+        activatePanelLeft: function() {
+            //First try to find to activate
+            var flag = false;
+            for(var i = this.panels.length-1; i >= 0; i--) {
+                if(flag) {
+                    this.setActivePanel(this.panels[i]);
+                    return
+                } else if(this.panels[i].isActive()) {
+                    flag = true;
+                }
+            }
+            
+            //If nothing found set all to inactive
+            for(var i in this.panels) {
+                this.panels[i].setIsActive(false);
+            }
+            this.emit('change');
+        },
+
+        /**
+         * Activate a panel to the right
+         */
+        activatePanelRight: function() {
+            //First try to find to activate
+            var flag = false;
+            for(var i = 0; i < this.panels.length; i++) {
+                if(flag) {
+                    this.setActivePanel(this.panels[i]);
+                    return
+                } else if(this.panels[i].isActive()) {
+                    flag = true;
+                }
+            }
+            
+            //If none active, also not the last one, activate the first one
+            if(!flag) {
+                this.panels.first().setIsActive(true);
+            }
+            
+            this.emit('change');
+        },
+
+        /**
+         * Set the active panel
+         * @param panel
+         */
+        setActivePanel: function(panel) {
+            for(var i in this.panels) {
+                var isActive = this.panels[i].getId() == panel.getId();
+                this.panels[i].setIsActive(isActive);
+            }
+
             this.emit('change');
         },
 

@@ -20,7 +20,9 @@ define([
                 'handle',
                 'onPanelScroll',
                 'extendResource',
-                'updateResource'
+                'updateResource',
+                'navigateToPanelLeft',
+                'navigateToPanelRight'
             ]);
         });
 

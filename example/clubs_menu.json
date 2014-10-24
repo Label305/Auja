@@ -20,19 +20,19 @@
             }
         },
         {
-            "type": "spacer",
-            "order": 3,
-            "spacer": {
-                "text": "Clubs"
-            }
-        },
-        {
             "type": "link",
             "order": 2,
             "link": {
                 "text": "FC Twente (recursive)",
                 "target": "example/clubs/menu",
                 "icon": "beer"
+            }
+        },
+        {
+            "type": "spacer",
+            "order": 3,
+            "spacer": {
+                "text": "Clubs"
             }
         },
         {

@@ -30,6 +30,7 @@ define([
                 result += this.entry('.auja-bg-' + name, 'background-color', colors[name]);
                 result += this.entry('.auja-color-' + name, 'color', colors[name]);
                 result += this.entry('.auja-border-' + name, 'border-color', colors[name]);
+                result += this.entry('.active.auja-active-border-' + name, 'border-color', colors[name]);
             }
             return result;
         },
