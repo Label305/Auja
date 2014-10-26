@@ -1,0 +1,24 @@
+{
+    "type": "menu",
+    "menu": [
+        {
+            "type": "spacer",
+            "order": 3,
+            "spacer": {
+                "text": "Pages"
+            }
+        },
+        {
+            "type": "resource",
+            "order": 4,
+            "resource": {
+                "target": "example/pages_index.json",
+                "properties": {
+                    "sortable": {
+                        "target": "somewhere/to/save/the/order"
+                    }
+                }
+            }
+        }
+    ]
+}

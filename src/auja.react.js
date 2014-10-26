@@ -25,6 +25,7 @@ require.config({
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
         sugar: 'bower_components/sugar/release/sugar-full.min',
         trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
+        jstree: 'bower_components/jstree/dist/jstree.min',
         request: 'build/Requests/request',
         stores: 'build/Stores/flux'
     }

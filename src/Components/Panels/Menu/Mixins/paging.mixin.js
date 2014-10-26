@@ -14,7 +14,7 @@ define([], function () {
             flux.actions.extendResource(this.props.panel, this.props.item);
         },
         componentDidUpdate: function () {
-            if (this.props.item.getPaging().next && this.needsExtending()) {
+            if (this.props.item.getPaging() && this.props.item.getPaging().next && this.needsExtending()) {
                 flux.actions.extendResource(this.props.panel, this.props.item);
             }
         },
