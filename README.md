@@ -36,7 +36,7 @@ Now you can visit `http://localhost:8080/example` to view the Auja implementatio
 
 To build the CSS, compile Sass to CSS by running:
 
-'sass --update assets/sass:assets/css'
+`sass --update assets/sass:assets/css`
 
 *Running tests*
 
