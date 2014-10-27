@@ -90,29 +90,7 @@
                         }
                         
                     },
-                    {
-                        "type": "select",
-                        "select": {
-                            "name": "country",
-                            "label": "Country",
-                            "value": "DE-de",
-                            "options": [{
-                                "type": "option",
-                                "label": "Nederland",
-                                "value": "NL-nl"
-                                },
-                                {
-                                "type": "option",
-                                "label": "Duitsland",
-                                "value": "DE-de"
-                                },
-                                {
-                                "type": "option",
-                                "label": "Luilekkerland",
-                                "value": "LL-ll"
-                            }]
-                            }                        
-                    },
+                   
                     {
                         "type": "password",
                         "password": {

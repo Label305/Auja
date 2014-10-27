@@ -1,5 +1,5 @@
 
-define(['build/Objects/Abstract/form_item'], function(FormItem) {
+define(['build/Objects/Abstract/form_item', 'build/Objects/Page/Form/checkbox'], function(FormItem, Checkbox) {
 
     var SelectMultipleCheckbox = function(data) {
 
@@ -14,15 +14,9 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * @type {array|null}
          * @private
          */
-        this._options = data.options || null;
+        this._options = [];
 
-        /**
-         * The checked state of checkbox option
-         * @type {boolean|null}
-         * @private
-         */
-        this._checked = data.options.checked || null;        
-
+        
         /**
          * Getter for Options
          * @returns {array|null}
@@ -31,33 +25,25 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             return this._options;
         };
 
-        /**
-         * Getter for checked
-         * @returns {boolean|null}
-         */
-        this.isChecked = function() {
-            return this._checked;
-        };
-
-        
-
+               
         /**
          * Setter for Options
          * @param SelectMultipleCheckbox
          */
-        this.setOptions = function(options) {
-            this._options = options;
+         this.setOptions = function(options) {
+            if(options) {
+                //Initialize the options as an array of Checkbox-es
+                this._options = options.map(function(checkbox) {
+                    checkbox.fallback = false;
+                    checkbox.name = this.getName();
+                    return new Checkbox(checkbox);
+                }.bind(this));
+                
+            } 
+            return this._options;         
         };
 
-        /**
-         * Setter for checked
-         * @param checked
-         */
-        this.setIsChecked = function(checked) {
-            this._checked = checked;
-        };
-
-        
+          
         /**
          * Get attributes for this input
          * @return Object
@@ -68,9 +54,11 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 value: this.getValue(),
                 name: this.getName(),
                 options: this.getOptions(),
-                checked: this.isChecked()
-            }
+                }
         };
+
+        this.setOptions(data.options);
+
     };
 
     // Inherit FormItem
