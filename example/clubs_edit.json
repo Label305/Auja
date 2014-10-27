@@ -86,9 +86,7 @@
                             "label": "Jupiler",
                             "required": false,
                             "checked": false
-
-                        }
-                        
+                        }                        
                     },
                     {
                         "type": "select",
