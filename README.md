@@ -21,22 +21,21 @@ After cloning you will first have to install Auja's dependencies using [Bower](h
 
 `bower install`
 
-Now RequireJS, Fluxxor, React and other dependencies should have been downloaded to the `bower_components` directory and we can
-continue to compile the JS using jsx. If you don't have jsx installed yet run: 
+For testing and maintenance we'll be using [npm](https://www.npmjs.org/) you can install those dependencies using:
 
-`npm install -g react-tools` 
+`npm install`
 
-After this you have to compile the jsx code into browser-readable JavaScript using jsx as follows:
+Now RequireJS, Fluxxor, React and other dependencies should have been downloaded to the `bower_components` and `node_modules` directories and we can
+continue to compile the JSX and SASS files. You can do this using [Grunt](http://gruntjs.com/). If you don't have Grunt
+installed you can get your hands on the CLI with
 
-`jsx src/ build/`
+`npm install -g grunt-cli`
+
+To compile the files simply run `grunt` from the repository root.
 
 Now the `build` directory should have been filled and you can serve the `example/index.html` in the example directory with 
 any web-server you want. For example, run `npm install -g http-server` and then run `http-server` from the repository root.
 Now you can visit `http://localhost:8080/example` to view the Auja implementation
-
-To build the CSS, compile Sass to CSS by running:
-
-'sass --update assets/sass:assets/css'
 
 *Running tests*
 
@@ -57,50 +56,6 @@ In short, Flux constists of four main parts:
 - Stores
  
 This is also the order of the dataflow, starting with the user doing something in the view. This triggers an action, which is dispatched to certain stores. The stores will process/store the newly received data and, if applicable, emit that they have changed. Now the React views will be notified, through Fluxxor, that the state has changed after which the view will re-render with all React goodness.
-
-Requests and Routing
----
-
-Executing a basic AJAX request can be done using the `Request` object, e.g.:
-
-```javascript
-var request = new Request(url);
-request.get().done(function(response) {
-    flux.actions.handle(response.type, response); 
-});
-```
-
-The response will be handled by the aforementioned dispatcher which expects a valid panel or other kind of view-compatible response.
-However, we want to be able to, for example, use a RESTful API as a datasource in combination with custom menu's. For this
-the `RouteFactory` is used. The `RouteFactory` will find the corresponding request handler from the `Requests/Handlers` directory.
-
-The `dist` dir
----
-
-To fill the `dist` directory manually install [r.js](https://github.com/jrburke/r.js/). After which you can create the
-`auja.js` and `auja.min.js` files by running:
-
-```
-r.js -o build.js out=dist/auja.min.js
-```
-
-and
-
-```
-r.js -o build.js out=dist/auja.js optimize=none
-```
-
-React component structure
----
-
-```
-Scaffolding, listening to AujaStore (scaffolding.react.js)
-├── Header (Components/Scaffolding/header.react.js)
-└── Body (Components/Scaffolding/body.react.js)
-	└── Menu  (Components/Scaffolding/menu.react.js)
-    └── Panels, listening to PanelStore (Components/Scaffolding/panels.react.js)
-        └── Menu (Components/Panels/menu.react.js)
-```
 
 License
 ---------
