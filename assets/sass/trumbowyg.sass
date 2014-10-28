@@ -4,26 +4,35 @@
 
 .trumbowyg-box
     border: 0 !important
-
+    font-family: inherit
+    &.trumbowyg-fullscreen
+        position: fixed !important
+        padding: 30px
+        width: calc(100% - 60px) !important
+        height: calc(100% - 60px) !important
     .trumbowyg-editor
         background-color: $input-color
         padding: 20px
-
     .trumbowyg-button-pane
         background-color: $input-border-color
         border: 0 !important
         .trumbowyg-separator
             background-color: #cccccc
-            margin: 0 !important
-
+            margin
         button
             margin: 0 !important
-            &:hover
+            &:hover,
+            &:focus
                 background-color: $dark-gray-color !important
                 transition: 0.25s
                 -ms-transition: 0.25s
                 -moz-transition: 0.25s
                 -webkit-transition: 0.25s
+                &.trumbowyg-fullscreen-button
+                    transition: 0
+                    -ms-transition: 0
+                    -moz-transition: 0
+                    -webkit-transition: 0
             &.trumbowyg-active
                 background-color: $dark-gray-color !important
     .trumbowyg-dropdown
@@ -43,6 +52,8 @@
                 -ms-transition: 0.25s
                 -moz-transition: 0.25s
                 -webkit-transition: 0.25s
+    .trumbowyg-overlay
+        background-color: rgba(0,0,0,0.1)
     .trumbowyg-modal
         width: calc(100% - 40px)
         left: 20px
@@ -58,7 +69,7 @@
             -ms-box-shadow: rgba(0,0,0,0.05) 0 1px 1px
             box-shadow: rgba(0,0,0,0.05) 0px 1px 1px
             span
-                font-size: 16px
+                font-size: 14px
                 font-weight: 400
                 color: $font-color
                 padding: 10px 0
@@ -69,13 +80,14 @@
                     margin: 0 0 5px 0
                     height: 42px
                     input
-                        width: calc(100% - 100px)
+                        width: calc(100% - 110px)
                         float: right
                         position: relative
                         display: inline-block
                         margin: 0
+                        height: 20px
                     .trumbowyg-input-infos
-                        width: 80px
+                        width: 90px
                         float: left
                         position: relative
                         display: inline-block
@@ -94,8 +106,21 @@
                             width: 80px
                 button
                     height: 40px
-
-
+                    margin: 0 20px 0 0
+                    bottom: 20px
+                    font-size: 14px
+                    padding: 10px 0
+                    line-height: 20px
+                    width: 90px
+                    &:hover
+                        opacity: 0.75
+                        filter: alpha(opacity=75)
+                        transition: 0.25s
+                        -ms-transition: 0.25s
+                        -moz-transition: 0.25s
+                        -webkit-transition: 0.25s
+                    &.trumbowyg-modal-reset
+                        background-color: $dark-gray-color
     textarea
         width: 100% !important
         padding: 20px !important

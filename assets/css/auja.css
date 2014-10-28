@@ -1,6 +1,12 @@
 @import url("https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,700");
 .trumbowyg-box {
-  border: 0 !important; }
+  border: 0 !important;
+  font-family: inherit; }
+  .trumbowyg-box.trumbowyg-fullscreen {
+    position: fixed !important;
+    padding: 30px;
+    width: calc(100% - 60px) !important;
+    height: calc(100% - 60px) !important; }
   .trumbowyg-box .trumbowyg-editor {
     background-color: #ededed;
     padding: 20px; }
@@ -8,16 +14,20 @@
     background-color: #e3e3e3;
     border: 0 !important; }
     .trumbowyg-box .trumbowyg-button-pane .trumbowyg-separator {
-      background-color: #cccccc;
-      margin: 0 !important; }
+      background-color: #cccccc; }
     .trumbowyg-box .trumbowyg-button-pane button {
       margin: 0 !important; }
-      .trumbowyg-box .trumbowyg-button-pane button:hover {
+      .trumbowyg-box .trumbowyg-button-pane button:hover, .trumbowyg-box .trumbowyg-button-pane button:focus {
         background-color: #cdcdcd !important;
         transition: 0.25s;
         -ms-transition: 0.25s;
         -moz-transition: 0.25s;
         -webkit-transition: 0.25s; }
+        .trumbowyg-box .trumbowyg-button-pane button:hover.trumbowyg-fullscreen-button, .trumbowyg-box .trumbowyg-button-pane button:focus.trumbowyg-fullscreen-button {
+          transition: 0;
+          -ms-transition: 0;
+          -moz-transition: 0;
+          -webkit-transition: 0; }
       .trumbowyg-box .trumbowyg-button-pane button.trumbowyg-active {
         background-color: #cdcdcd !important; }
   .trumbowyg-box .trumbowyg-dropdown {
@@ -37,6 +47,8 @@
         -ms-transition: 0.25s;
         -moz-transition: 0.25s;
         -webkit-transition: 0.25s; }
+  .trumbowyg-box .trumbowyg-overlay {
+    background-color: rgba(0, 0, 0, 0.1); }
   .trumbowyg-box .trumbowyg-modal {
     width: calc(100% - 40px);
     left: 20px;
@@ -52,7 +64,7 @@
       -ms-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
       box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px; }
       .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box span {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
         color: #454545;
         padding: 10px 0;
@@ -62,13 +74,14 @@
         margin: 0 0 5px 0;
         height: 42px; }
         .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form label input {
-          width: calc(100% - 100px);
+          width: calc(100% - 110px);
           float: right;
           position: relative;
           display: inline-block;
-          margin: 0; }
+          margin: 0;
+          height: 20px; }
         .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form label .trumbowyg-input-infos {
-          width: 80px;
+          width: 90px;
           float: left;
           position: relative;
           display: inline-block;
@@ -86,7 +99,22 @@
             height: 20px;
             width: 80px; }
       .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form button {
-        height: 40px; }
+        height: 40px;
+        margin: 0 20px 0 0;
+        bottom: 20px;
+        font-size: 14px;
+        padding: 10px 0;
+        line-height: 20px;
+        width: 90px; }
+        .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form button:hover {
+          opacity: 0.75;
+          filter: alpha(opacity=75);
+          transition: 0.25s;
+          -ms-transition: 0.25s;
+          -moz-transition: 0.25s;
+          -webkit-transition: 0.25s; }
+        .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form button.trumbowyg-modal-reset {
+          background-color: #cdcdcd; }
   .trumbowyg-box textarea {
     width: 100% !important;
     padding: 20px !important; }
@@ -154,7 +182,7 @@ body {
 .button {
   width: auto;
   margin: 0;
-  padding: 10px 15px;
+  padding: 10px 20px;
   cursor: pointer;
   color: white;
   border: 0;
@@ -266,7 +294,7 @@ header {
       width: auto;
       color: white;
       height: 20px;
-      padding: 10px 15px;
+      padding: 10px 20px;
       margin-right: 10px;
       font-size: 15px;
       line-height: 20px;
@@ -477,8 +505,6 @@ form .row.form-item {
       -ms-transition: 0.25s;
       -moz-transition: 0.25s;
       -webkit-transition: 0.25s; }
-  form .row.form-item input {
-    height: 20px; }
   form .row.form-item select {
     width: 100%;
     height: 40px;
@@ -510,14 +536,15 @@ form .row.form-item {
       color: #454545;
       padding: 5px 10px; }
   form .row.form-item input[type="submit"] {
-    float: right; }
+    float: right;
+    padding: 10px 20px; }
     form .row.form-item input[type="submit"]:hover {
-      background-color: #e3e3e3 !important;
+      opacity: 0.75;
+      filter: alpha(opacity=75);
       transition: 0.25s;
       -ms-transition: 0.25s;
       -moz-transition: 0.25s;
-      -webkit-transition: 0.25s;
-      color: #454545; }
+      -webkit-transition: 0.25s; }
     form .row.form-item input[type="submit"]:focus {
       outline: none;
       border: 0; }
