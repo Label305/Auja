@@ -1,4 +1,5 @@
 @import includes
+@import trumbowyg
 
 // ------ 
 // Fonts imported from Google Fonts, when offline use is required, download zip from the import page
@@ -78,7 +79,7 @@ body
 .button
     width: auto
     margin: 0
-    padding: 10px 15px
+    padding: 10px 20px
     cursor: pointer
     color: white
     border: 0
@@ -193,7 +194,7 @@ header
             width: auto
             color: white
             height: 20px
-            padding: 10px 15px
+            padding: 10px 20px
             margin-right: 10px
             font-size: 15px
             line-height: 20px
@@ -447,13 +448,14 @@ form
                     padding: 5px 10px
             input[type="submit"] 
                 float: right
+                padding: 10px 20px
                 &:hover
-                    background-color: $button-hover-color !important
+                    opacity: 0.75
+                    filter: alpha(opacity=75)
                     transition: 0.25s
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
-                    color: $font-color
                 &:focus
                     outline: none
                     border: 0
