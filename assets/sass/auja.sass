@@ -423,6 +423,13 @@ form
             textarea,
             textarea:focus
                 border-bottom: 0
+            input,
+            select,
+            textarea
+                border-radius: 0 !important
+                -ms-border-radius: 0 !important
+                -moz-border-radius: 0 !important
+                -webkit-border-radius: 0 !important
             select
                 width: 100%
                 height: 40px
@@ -566,6 +573,7 @@ form
             ul
                 margin-left: 20px
                 li
+                    font-size: 15px !important
                     &:after
                         width: 20px !important
                     &.menu-item-resource
@@ -575,5 +583,8 @@ form
             width: 520px
             & > div
                 margin: 30px 20px
+        .row
+            &.form-item
+                margin-top: 15px
     .message
         width: 400px
