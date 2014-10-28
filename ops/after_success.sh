@@ -8,7 +8,7 @@ then
     git clone https://github.com/Label305/Auja-bower.git auja-bower
     
     cp -f dist/auja.min.js auja-bower/auja.min.js
-    cp -f assets/css/auja.js auja-bower/auja.css
+    cp -f assets/css/auja.css auja-bower/auja.css
     
     cd auja-bower
     
