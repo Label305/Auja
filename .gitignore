@@ -2,10 +2,9 @@ bower_components/
 build/
 .idea/
 node_modules/
-ops/
 Vagrantfile
 .DS_Store
 .vagrant/
 dist/
-assets/css/
 .sass-cache/
+assets/css/

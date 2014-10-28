@@ -1,5 +1,12 @@
 module.exports = function(grunt) {
     grunt.initConfig({
+        sass: {
+            dist: {
+                files: {
+                    'assets/css/auja.css': 'assets/sass/auja.sass'
+                }
+            }  
+        },
         react: {
             dynamic_mappings: {
                 files: [
@@ -76,7 +83,8 @@ module.exports = function(grunt) {
     });
     grunt.loadNpmTasks('grunt-react');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     
-    grunt.registerTask('test', ['react']);
-    grunt.registerTask('release', ['react', 'requirejs']);
+    grunt.registerTask('test', ['react', 'sass']);
+    grunt.registerTask('release', ['react', 'requirejs', 'sass']);
 };
