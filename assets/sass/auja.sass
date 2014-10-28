@@ -255,11 +255,15 @@ ul#main-menu
         display: block
         position: fixed
         left: 0
-        top: 70px
-        height: calc(100% - 70px)
-        width: 30px
+        top: 60px
+        height: calc(100% - 60px)
+        width: 20px
         background-color: $body-color
         z-index: 998
+        box-shadow: rgba(241,241,241,1.0) 10px 0 20px
+        -ms-box-shadow: rgba(241,241,241,1.0) 10px 0 20px
+        -moz-box-shadow: rgba(241,241,241,1.0) 10px 0 20px
+        -webkit-box-shadow: rgba(241,241,241,1.0) 10px 0 20px
     & > div 
         display: table-row
         position: absolute
@@ -555,3 +559,21 @@ form
         ul 
             li
                 min-height: 34px
+@media (max-width: 768px)
+    #panels
+        .panel-menu > div
+            width: 260px
+            ul
+                margin-left: 20px
+                li
+                    &:after
+                        width: 20px !important
+                    &.menu-item-resource
+                        input
+                            margin-left: -20px
+        .panel-page > div
+            width: 520px
+            & > div
+                margin: 30px 20px
+    .message
+        width: 400px
