@@ -20,6 +20,73 @@
         -webkit-transition: 0.25s; }
       .trumbowyg-box .trumbowyg-button-pane button.trumbowyg-active {
         background-color: #cdcdcd !important; }
+  .trumbowyg-box .trumbowyg-dropdown {
+    padding: 0;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
+    -ms-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px; }
+    .trumbowyg-box .trumbowyg-dropdown button {
+      width: 100%;
+      height: 40px;
+      padding: 10px 20px;
+      line-height: 20px; }
+      .trumbowyg-box .trumbowyg-dropdown button:hover {
+        background-color: #cdcdcd !important;
+        transition: 0.25s;
+        -ms-transition: 0.25s;
+        -moz-transition: 0.25s;
+        -webkit-transition: 0.25s; }
+  .trumbowyg-box .trumbowyg-modal {
+    width: calc(100% - 40px);
+    left: 20px;
+    margin: 0; }
+    .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box {
+      width: calc(100% - 40px);
+      padding: 0 20px;
+      left: 0;
+      margin: 0;
+      display: block;
+      -webkit-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
+      -moz-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
+      -ms-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px; }
+      .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box span {
+        font-size: 16px;
+        font-weight: 400;
+        color: #454545;
+        padding: 10px 0;
+        border-bottom: 1px solid #e3e3e3;
+        margin: 0 0 20px 0; }
+      .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form label {
+        margin: 0 0 5px 0;
+        height: 42px; }
+        .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form label input {
+          width: calc(100% - 100px);
+          float: right;
+          position: relative;
+          display: inline-block;
+          margin: 0; }
+        .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form label .trumbowyg-input-infos {
+          width: 80px;
+          float: left;
+          position: relative;
+          display: inline-block;
+          border: 0;
+          padding: 0;
+          margin: 0;
+          height: 42px; }
+          .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form label .trumbowyg-input-infos span {
+            padding: 11px 0;
+            margin: 0;
+            background-color: transparent;
+            border: 0;
+            font-size: 12px;
+            text-transform: uppercase;
+            height: 20px;
+            width: 80px; }
+      .trumbowyg-box .trumbowyg-modal .trumbowyg-modal-box form button {
+        height: 40px; }
   .trumbowyg-box textarea {
     width: 100% !important;
     padding: 20px !important; }
@@ -410,6 +477,8 @@ form .row.form-item {
       -ms-transition: 0.25s;
       -moz-transition: 0.25s;
       -webkit-transition: 0.25s; }
+  form .row.form-item input {
+    height: 20px; }
   form .row.form-item select {
     width: 100%;
     height: 40px;
