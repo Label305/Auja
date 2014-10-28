@@ -86,5 +86,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     
     grunt.registerTask('test', ['react', 'sass']);
+    grunt.registerTask('default', ['react', 'sass']);
     grunt.registerTask('release', ['react', 'requirejs', 'sass']);
 };
