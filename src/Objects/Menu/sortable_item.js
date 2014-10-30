@@ -18,6 +18,13 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
         this.target = data.target || false;
 
         /**
+         * Id, this also will be posted back to the server
+         *
+         * @type integer
+         */
+        this.id = data.id;
+
+        /**
          * Text
          * @type {string}
          */
@@ -43,7 +50,7 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
          * @override
          */
         this.getId = function () {
-            return this.target;
+            return this.id;
         };
 
         /**
