@@ -100,17 +100,19 @@ define(['jstree'], function() {
         /**
          * Simplifies nested SortableItem objecrt to something much flatter
          * @param tree
+         * @param root
          */
-        simplifyForJsTree: function(tree) {
+        simplifyForJsTree: function(tree, root) {
             var result = [];
             
             for(var i in tree) {
                 result.push({
+                    type: root ? 'root' : 'child',
                     text: tree[i].getText(),
                     state: {
                         opened: true
                     },
-                    children: this.simplifyForJsTree(tree[i].children)
+                    children: this.simplifyForJsTree(tree[i].children, false)
                 });
             }
             
@@ -131,7 +133,7 @@ define(['jstree'], function() {
             tree = this.addChildren(tree);
             
             //Simplify so that jsTree will like it
-            tree = this.simplifyForJsTree(tree);
+            tree = this.simplifyForJsTree(tree, true);
             
             return tree;
         },
@@ -142,8 +144,17 @@ define(['jstree'], function() {
                 
                 $(this.refs.tree.getDOMNode()).jstree({
                     core: {
-                        data: this.getJsTree()
-                    } 
+                        data: this.getJsTree(),
+                        check_callback : true
+                    },
+                    plugins: [
+                        "dnd"
+                    ],
+                    types: {
+                        root: {
+                            max_depth: 4
+                        }
+                    }
                 });                
             }  
         },
