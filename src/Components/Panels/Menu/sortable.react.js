@@ -96,34 +96,53 @@ define(['jstree'], function() {
                 return item;
             }.bind(this));
         },
+
+        /**
+         * Simplifies nested SortableItem objecrt to something much flatter
+         * @param tree
+         */
+        simplifyForJsTree: function(tree) {
+            var result = [];
+            
+            for(var i in tree) {
+                result.push({
+                    text: tree[i].getText(),
+                    state: {
+                        opened: true
+                    },
+                    children: this.simplifyForJsTree(tree[i].children)
+                });
+            }
+            
+            return result;
+        },
         
         /**
          * Transform to the way JsTree want the tree
          */
         getJsTree: function() {
+            //Fetch all items without any parent
             var items = this.props.item.getItems();
             var tree = items.filter(function(item) {
                 return !this.hasParent(item);
             }.bind(this));
             
+            //Add children
             tree = this.addChildren(tree);
             
-            var jstree = [];
-            //TODO create the actual tree
+            //Simplify so that jsTree will like it
+            tree = this.simplifyForJsTree(tree);
+            
+            return tree;
         },
         componentDidUpdate: function() {
             //Draw the tree if we're not initialized and we have received our items 
             if(!this.initialized && this.props.item.getItems().length > 0) {
                 this.initialized = true;
                 
-                var data = this.getJsTree();
-                console.log(data);
-                
                 $(this.refs.tree.getDOMNode()).jstree({
                     core: {
-                        data: [
-                            'ROOT NOOT'
-                        ]
+                        data: this.getJsTree()
                     } 
                 });                
             }  
