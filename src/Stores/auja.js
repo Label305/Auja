@@ -56,8 +56,8 @@ define(['fluxxor', 'build/Factories/form_factory'], function(Fluxxor, FormFactor
                 .done(function (response) {
                     
                     //Pass through the factory
-                    if(response.main.authentication) {
-                        response.main.authentication = FormFactory.createForm(response.main.authentication); 
+                    if(response.main.authentication && response.main.authentication.form) {
+                        response.main.authentication = FormFactory.createForm(response.main.authentication.form); 
                     }
                     
                     Object.merge(this.state, response.main, true, true);
