@@ -67,7 +67,8 @@ define([
         /**
          * Submitting a form
          * @param url
-         * @param data
+         * @param method
+         * @param data  
          */
         submit: function(url, method, data) {
             var panel = null;

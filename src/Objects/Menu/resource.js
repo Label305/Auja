@@ -142,10 +142,14 @@ define(['build/Objects/Abstract/menu_item', 'build/Factories/resource_property_f
                 this.items = data.items.map(function (item) {
                     return MenuItemFactory.createItem(item);
                 }.bind(this));
-            } else if (!this.paging.total) {
-                //When no total paging is defined reset and let the paging commence all over again
+            } else if (!this.paging || !this.paging.total) {
                 this.items = [];
-            } else {
+                
+                //Just load the original resource again
+                setTimeout(function () {
+                    flux.actions.updateResource(this, this.getTarget());
+                }.bind(this), 1);
+            } else if(this.paging.total) {
                 //When we have a clue what to call to update this resource do that
                 //setTimeout is to handle the "async" behavior of dispatching
                 setTimeout(function () {
