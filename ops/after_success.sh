@@ -9,6 +9,7 @@ then
     
     cp -f dist/auja.min.js auja-bower/auja.min.js
     cp -f assets/css/auja.css auja-bower/auja.css
+    cp -f assets/css/auja.css.map auja-bower/auja.css.map
     
     cd auja-bower
     
@@ -21,6 +22,7 @@ then
     git checkout master
     git add -f auja.min.js
     git add -f auja.css
+    git add -f auja.css.map
     
     git commit -m "Build.$TRAVIS_BUILD_ID $TRAVIS_TAG"
     git push --force origin master 
