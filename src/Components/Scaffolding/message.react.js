@@ -31,7 +31,7 @@ define([], function() {
         },
         render: function() {
             return (
-                <div ref="message" className="animated fadeIn message message-success auja-bg-main" onClick={this.props.handleOnClick}>
+                <div ref="message" className="animated fadeIn message message-success" onClick={this.props.handleOnClick}>
                     {this.props.message.contents}
                 </div>
             );

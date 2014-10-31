@@ -97,9 +97,40 @@ h2
     -moz-animation-duration: 0.25s !important
     -webkit-animation-duration: 0.25s !important
     &.message-success
-        top: calc(50% - 250px)
-        width: 500px
-        height: 500px
+        position: absolute
+        width: 300px
+        height: 300px
+        top: calc(50% - 150px)
+        &:before
+            content: ''
+            width: 30px
+            height: 150px
+            display: block
+            position: absolute
+            background-color: green
+            bottom: 29px
+            transform: rotate(135deg)
+            -ms-transform: rotate(135deg)
+            -webkit-transform: rotate(135deg)
+            left: calc(50% + 15px)
+            transform-origin: 15px 0
+            -ms-transform-origin: 15px 0
+            -webkit-transform-origin: 15px 0
+        &:after
+            content: ''
+            width: 30px
+            height: 200px
+            display: block
+            position: absolute
+            background-color: green
+            bottom: 0
+            transform: rotate(-135deg)
+            -ms-transform: rotate(-135deg)
+            -webkit-transform: rotate(-135deg)
+            left: calc(50% + 15px)
+            transform-origin: 15px 0
+            -ms-transform-origin: 15px 0
+            -webkit-transform-origin: 15px 0
     &.message-info
         top: calc(50% - 80px)
         width: 550px
