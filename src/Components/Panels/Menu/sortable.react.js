@@ -187,11 +187,8 @@ define(['jstree'], function() {
          * @param tree
          */
         treeChanged: function(tree) {
-            var parse = this.parseTree(tree, 1);
-            
-            //TODO: dispatch to flux
-            console.log(tree);
-            console.log(parse);
+            var parsed = this.parseTree(tree, 1);
+            flux.actions.submit(this.props.item.getTarget(), 'post', { tree: parsed });
         },
 
         /**
