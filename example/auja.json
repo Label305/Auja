@@ -2,7 +2,7 @@
     "type": "main",
     "main": {
         "title": "Auja example",
-        "authenticated": true,
+        "authenticated": false,
         "debug": true,
         "colors": {
             "main": "#1ebab8",
