@@ -87,11 +87,8 @@ h2
 .message
     position: fixed
     z-index: 1001
-    top: calc(50% - 80px)
     right: 0
     left: 0
-    width: 550px
-    min-height: 120px
     margin: 0 auto
     padding: 20px
     color: white
@@ -99,24 +96,32 @@ h2
     -ms-animation-duration: 0.25s !important
     -moz-animation-duration: 0.25s !important
     -webkit-animation-duration: 0.25s !important
-    &:before 
-        content: ''
-        position: fixed
-        top: 0
-        left: 0
-        height: 100%
-        width: 100%
-        opacity: 0
-    &:after 
-        content: ''
-        position: absolute
-        right: 15px
-        top: 15px
-        width: 15px
-        height: 15px
-        background-image: url('../img/close.svg')
-        background-size: 15px
-        cursor: pointer  
+    &.message-success
+        top: calc(50% - 250px)
+        width: 500px
+        height: 500px
+    &.message-info
+        top: calc(50% - 80px)
+        width: 550px
+        min-height: 120px
+        &:before 
+            content: ''
+            position: fixed
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            opacity: 0
+        &:after 
+            content: ''
+            position: absolute
+            right: 15px
+            top: 15px
+            width: 15px
+            height: 15px
+            background-image: url('../img/close.svg')
+            background-size: 15px
+            cursor: pointer  
 
 // ------ Header ------
 header
