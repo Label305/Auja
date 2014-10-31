@@ -1,0 +1,65 @@
+{
+    "type": "items",
+    "items": [
+        {
+            "type": "sortable_item",
+            "sortable_item": {
+                "id": 1,
+                "text": "Home",
+                "target": "example/pages/1/edit",
+                "left": 1,
+                "right": 2
+            }
+        },
+        {
+            "type": "sortable_item",
+            "sortable_item": {
+                "id": 2,
+                "text": "About",
+                "target": "example/pages/2/edit",
+                "left": 3,
+                "right": 6
+            }
+        },
+        {
+            "type": "sortable_item",
+            "sortable_item": {
+                "id": 3,
+                "text": "Portfolio",
+                "target": "example/pages/3/edit",
+                "left": 4,
+                "right": 5
+            }
+        },
+        {
+            "type": "sortable_item",
+            "sortable_item": {
+                "id": 4,
+                "text": "Contact",
+                "target": "example/pages/4/edit",
+                "left": 7,
+                "right": 12
+            }
+        },
+        {
+            "type": "sortable_item",
+            "sortable_item": {
+                "id": 5,
+                "text": "Bestuur",
+                "target": "example/pages/4/edit",
+                "left": 8,
+                "right": 11
+            }
+        },
+        {
+            "type": "sortable_item",
+            "sortable_item": {
+                "id": 6,
+                "text": "Voorzitter",
+                "target": "example/pages/4/edit",
+                "left": 9,
+                "right": 10 
+            }
+        }
+    ]
+}
