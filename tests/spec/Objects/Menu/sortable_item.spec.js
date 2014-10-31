@@ -5,16 +5,6 @@ define(['build/Objects/Menu/sortable_item'], function (Item) {
             this.addMatchers(require('jasmine_matchers'));
         });
 
-        it('should use its target as an ID', function () {
-
-            var item = new Item({
-                target: '/users'
-            });
-
-            expect(item.getTarget()).toBe('/users');
-            expect(item.getId()).toBe(item.getTarget());
-        });
-
         it('should implement link item specific methods', function () {
 
             var item = new Item({
