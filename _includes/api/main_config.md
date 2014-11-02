@@ -1,7 +1,7 @@
 The config that initializes Auja and shapes it. The file referenced on the body tag should return this config, .e.g `<body data-src="main.json"></body>`.
 
-title | `string` | Title left upper corner
-authenticated | `boolean` | Will show the authentication form if true
+title | `string` | Title left upper corner 
+authenticated | `boolean` | Will show the authentication form if true 
 color | `Object` | Different colors used in the interface, see `Color` object definition
 user | `Object` | In the right upper corner, name of the currenlty logged in user
 buttons | `Array` | Of `Button` objects
@@ -43,41 +43,40 @@ action | `string` | Target url
 
 ### Example JSON
 
-```json
-{
-    "type": "main",
-    "main": {
-        "title": "Auja example",
-        "authenticated": true,
-        "colors": {
-            "main": "#1ebab8",
-            "secondary": "#EDEDED",
-            "alert": "#e85840"
-        },
-        "user": {
-            "name": "Joris Blaak"
-        },
-        "buttons": [
-            {
-                "text": "Logout",
-                "target": "#logout"
-            }
-        ],
-        "menu": [`
-            {
-                "title": "Clubs",
-                "icon": "planet",
-                "target": "example/clubs/menu"
-            }
-        ],
-        "routes": [
-            {
-                "type": "http",
-                "target": "example/clubs/{id}/edit",
-                "action": "example/clubs_edit.json"
-            }
-        ],
-        "authentication": /* See Form */
-    }
-}
-```
+	{
+	    "type": "main",
+	    "main": {
+	        "title": "Auja example",
+	        "authenticated": true,
+	        "colors": {
+	            "main": "#1ebab8",
+	            "secondary": "#EDEDED",
+	            "alert": "#e85840"
+	        },
+	        "user": {
+	            "name": "Joris Blaak"
+	        },
+	        "buttons": [
+	            {
+	                "text": "Logout",
+	                "target": "#logout"
+	            }
+	        ],
+	        "menu": [`
+	            {
+	                "title": "Clubs",
+	                "icon": "planet",
+	                "target": "example/clubs/menu"
+	            }
+	        ],
+	        "routes": [
+	            {
+	                "type": "http",
+	                "target": "example/clubs/{id}/edit",
+	                "action": "example/clubs_edit.json"
+	            }
+	        ],
+	        "authentication": /* See Form */
+	    }
+	}
+	

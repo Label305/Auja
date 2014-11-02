@@ -15,11 +15,11 @@ Since we support routing, which ables us to hook up to different api types, we c
 
 All JSON objects in our api's are wrapped in their own namespace with a `type` key that announces that presence of the namespace. For example:
 
-```json
-{
-	"type": "form",
-	"form": {
-		/* A Form object */
+
+	{
+		"type": "form",
+		"form": {
+			/* A Form object */
+		}
 	}
-}
-```
+
