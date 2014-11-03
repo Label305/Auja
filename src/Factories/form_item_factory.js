@@ -4,6 +4,7 @@
 var FormItemObjects = {
     'header': 'build/Objects/Page/Form/header',
     'number': 'build/Objects/Page/Form/number',
+    'integer': 'build/Objects/Page/Form/integer',
     'password': 'build/Objects/Page/Form/password',
     'submit': 'build/Objects/Page/Form/submit',
     'text': 'build/Objects/Page/Form/text',
@@ -21,6 +22,7 @@ var FormItemObjects = {
 define([
     'build/Objects/Page/Form/header',
     'build/Objects/Page/Form/number',
+    'build/Objects/Page/Form/integer',
     'build/Objects/Page/Form/password',
     'build/Objects/Page/Form/submit',
     'build/Objects/Page/Form/text',
