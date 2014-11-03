@@ -96,3 +96,57 @@ menu on the left.
 	        "total": "example/clubs_index.json?from=0&till=1000"
 	    }
 	}
+
+**Resource - properties**
+
+To be able to add special functionalities to a resource we can add properties. These include `searchable` and `sortable`.
+
+*Searchable*
+
+Adds a searchbox to the top of the resource
+
+target | `string` | url where the entered search term is merged with
+
+	"properties": {
+	    "searchable": {
+	        "target": "example/club_index.json?q=%s"
+	    }
+	}
+
+
+*Sortable*
+
+Will create a tree from the resource, note that you cannot paginate a sortable resource. Also, when items are loaded from
+the server these should all be `sortable_item` objects.
+
+target | `string` | url where the new ordering is posted to
+
+	"properties": {
+	    "sortable": {
+			"target": "somewhere/to/save/the/order"
+	    }
+	}
+
+When the tree changes the new tree will be submitted to the server, all entries will have, at least, three keys `id`, `left` and `right`. 
+Which are represented as a nested set.
+
+*Sortable - sortable_item*
+
+Item within a sortable resource.
+
+id | `string` | 
+text | `string` | Inside the element
+target | `string` | To do a GET request to (similiar to `Link`)
+left | `integer` | Left value of nested set
+right | `integer` | Right value of nested set
+
+	{
+	    "type": "sortable_item",
+	    "sortable_item": {
+	        "id": 4,
+	        "text": "Contact",
+	        "target": "example/pages/4/edit",
+	        "left": 7,
+	        "right": 12
+	    }
+	}
