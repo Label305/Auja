@@ -1,0 +1,27 @@
+@import includes
+
+// ------ JSTree styling ------
+
+ul.jstree-children
+  margin: 0 0 0 30px!important
+  &.jstree-container-ul
+    margin: 0!important
+  li
+    a
+      display: block
+      padding: 5px 15px
+      margin: 10px 0
+      color: $font-color
+      border-left: 2px dotted $dark-gray-color
+#jstree-marker
+  position: absolute
+  display: block
+  z-index: 100
+  padding: 0
+  width: 0
+  height: 0
+  border-left: 6px solid $dark-gray-color
+  border-bottom: 6px solid transparent
+  border-top: 6px solid transparent
+  background: none
+    

@@ -24,6 +24,7 @@
     "sugar": "~1.4.1",
     "Ionicons": "driftyco/ionicons#v1.5.2",
     "trumbowyg": "~1.1.2",
-    "animate.css": "~3.2.0"
+    "animate.css": "~3.2.0",
+    "jstree": "~3.0.8"
   }
 }

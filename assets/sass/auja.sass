@@ -1,68 +1,20 @@
+@import reset
 @import includes
 
-// ------ 
-// Fonts imported from Google Fonts, when offline use is required, download zip from the import page
-// ------
+// ------ Fonts ------
 
 @import url('https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,700')
-
-// ------
-// CSS reset, including force setting of font-family
-//
-// http://meyerweb.com/eric/tools/css/reset/ 
-// v2.0 | 20110126
-// License: none (public domain)
-// ------
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video
-    margin: 0
-    padding: 0
-    border: 0
-    font-size: 100%
-    font-family: 'Open Sans', Helvetica, Arial
-    vertical-align: baseline
-
-// ------ HTML5 display-role reset for older browsers ------
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section 
-    display: block
-ol, ul
-    list-style-type: none
-blockquote
-    quotes: none
-    &:before,
-    &:after
-        content: none
-q
-    quotes: none
-    &:before,
-    &:after
-        content: none
-table 
-    border-collapse: collapse
-    border-spacing: 0
 
 // ------ Scaffolding ------
 body
     background: $body-color
     color: $font-color
     overflow-y: hidden
+    font-family: 'Open Sans', Helvetica, Arial, serif
     h1
         float: left
         height: 40px
-        margin: 15px 0px 15px 30px
+        margin: 15px 0 15px 30px
         font-size: 25px
         font-weight: 400
         line-height: 40px
@@ -78,7 +30,7 @@ body
 .button
     width: auto
     margin: 0
-    padding: 10px 15px
+    padding: 10px 20px
     cursor: pointer
     color: white
     border: 0
@@ -193,8 +145,7 @@ header
             width: auto
             color: white
             height: 20px
-            padding: 10px 15px
-            margin-right: 10px
+            padding: 10px 20px
             font-size: 15px
             line-height: 20px
             margin: 0
@@ -354,7 +305,7 @@ ul#main-menu
                 &:focus
                     outline: none
                     border: none
-                    border-bottom: 2px solid $auja-main-color
+                    border-bottom: 2px solid
                     transition: 0.25s
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
@@ -407,14 +358,17 @@ form
                 font-size: 14px
                 color: $font-color
                 line-height: 20px
-                font-family: 'Open Sans', Helvetica, Arial
+                font-family: 'Open Sans', Helvetica, Arial,serif
                 &:focus
-                    border-bottom: 2px solid $auja-main-color !important
+                    border-bottom: 2px solid
                     outline: none
                     transition: 0.25s
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
+            textarea,
+            textarea:focus
+                border-bottom: 0
             select
                 width: 100%
                 height: 40px
@@ -429,14 +383,14 @@ form
                 box-sizing: border-box
                 -webkit-appearance: none
                 -moz-appearance: none
-                -webkit-border-radius: 0px
-                -moz-border-radius: 0px
+                -webkit-border-radius: 0
+                -moz-border-radius: 0
                 -webkit-user-select: none
                 -moz-user-select: none
                 -webkit-padding-start: 10px
                 -moz-padding-start: 5px
                 &:focus
-                    border-bottom: 2px solid $auja-main-color !important
+                    border-bottom: 2px solid
                     outline: none
                     transition: 0.25s
                     -ms-transition: 0.25s
@@ -447,13 +401,14 @@ form
                     padding: 5px 10px
             input[type="submit"] 
                 float: right
+                padding: 10px 20px
                 &:hover
-                    background-color: $button-hover-color !important
+                    opacity: 0.75
+                    filter: alpha(opacity=75)
                     transition: 0.25s
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
-                    color: $font-color
                 &:focus
                     outline: none
                     border: 0
@@ -481,7 +436,7 @@ form
                 border: 1px solid $input-border-color
                 width: 100%
                 min-height: 300px
-                margin: 0px auto
+                margin: 0 auto
             input[type="range"]
                 border: 0        
                 width: 100%
@@ -499,7 +454,7 @@ form
                     height: 16px
                     width: 16px
                     border-radius: 50%
-                    background: $auja-main-color
+                    background: $dark-gray-color
                     margin-top: -4px
                 &:focus
                     outline: none
@@ -519,7 +474,7 @@ form
                     height: 16px
                     width: 16px
                     border-radius: 50%
-                    background: $auja-main-color
+                    background: $dark-gray-color
                 &::-ms-track
                     height: 16px
                     background: $input-color
@@ -535,7 +490,7 @@ form
                     height: 16px
                     width: 16px
                     border-radius: 50%
-                    background: $auja-main-color
+                    background: $dark-gray-color
                 &:focus
                     &::-ms-track
                         background: $input-border-color
@@ -550,3 +505,6 @@ form
         ul 
             li
                 min-height: 34px
+                
+@import trumbowyg
+@import jstree

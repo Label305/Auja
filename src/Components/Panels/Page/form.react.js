@@ -89,7 +89,7 @@ define([
         },
 
         render: function () {
-
+            
             var items = this.props.item.getItems().map(function (item) {
                                 
                 if (!FormItems[item.getType()]) {
