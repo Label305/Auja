@@ -14,7 +14,7 @@ define(['build/Objects/Abstract/form_item', 'build/Objects/Page/Form/checkbox'],
          * @type {array|null}
          * @private
          */
-        this._options = [];
+        this._options = data.options || [];
 
         
         /**

@@ -86,12 +86,39 @@
                             "label": "Jupiler",
                             "required": false,
                             "checked": false
-
                         }
                         
                     },
-                   
                     {
+                        "type": "selectMultipleCheckbox",
+                        "selectMultipleCheckbox": {
+                            "name": "beers",
+                            "label": "Beers",
+                            "required": false,
+                            "options":
+                            [
+                                {
+                                "type": "checkbox",
+                                "label": "Jupiler",
+                                "checked": false
+                                },
+                                {
+                                "label": "Grolsch",
+                                "checked": true
+                                },
+                                {
+                                "label": "Heineken",
+                                "checked": false
+                                },
+                                {
+                                "label": "Duvel",
+                                "checked": false
+                                }
+                           ]
+                        }
+                        
+                    },
+                     {
                         "type": "password",
                         "password": {
                             "name": "token",
