@@ -79,6 +79,12 @@ define([
             var request = new Request(url);
             
             switch(method) {
+                case 'put':
+                    request.put(data).done(function(response) {
+                        response.url = url;
+                        flux.actions.handle(response.type, response, panel);
+                    });
+                    break;
                 case 'get':
                     request.get(data).done(function(response) {
                         response.url = url;
