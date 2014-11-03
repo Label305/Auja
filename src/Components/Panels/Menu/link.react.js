@@ -22,7 +22,7 @@ define([], function() {
             if(this.props.item.getIcon()) {
                 icon = this.props.item.getIcon();    
             }
-            className += "icon ion-" + icon;
+            className += "icon " + icon;
             
             //Check if we match the active item
             if(this.props.item.isActive()) {
