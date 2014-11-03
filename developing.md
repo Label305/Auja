@@ -16,29 +16,20 @@ title: "Auja - Developing for"
 <div class="blog-item bg-white">
 	<div class="avatar"></div>
 	<div class="timeline"></div>
-	<h2 class="text-blue uppercase">Requests &amp; routing</h2>
-	<span class="categories">Doing a request and adding magic</span>
-	{% capture requests %}{% include developing/requests.md %}{% endcapture %}
-	{{ requests | markdownify }}
+	<h2 class="text-blue uppercase">Setup</h2>
+	<span class="categories">How to get up and running</span>
+	{% capture setup %}{% include developing/setup.md %}{% endcapture %}
+	{{ setup | markdownify }}
 	<div class="devider-line"></div>
 </div>
+
 
 <div class="blog-item bg-white">
 	<div class="avatar"></div>
 	<div class="timeline"></div>
-	<h2 class="text-blue uppercase">Menu's</h2>
-	<span class="categories">Managing menu's and writing additions</span>
-	{% capture menus %}{% include developing/menus.md %}{% endcapture %}
-	{{ menus | markdownify }}
-	<div class="devider-line"></div>
-</div>
-
-<div class="blog-item bg-white">
-	<div class="avatar"></div>
-	<div class="timeline"></div>
-	<h2 class="text-blue uppercase">Pages &amp; forms</h2>
-	<span class="categories">Receiving and presenting content</span>
-	{% capture pages %}{% include developing/pages.md %}{% endcapture %}
-	{{ pages | markdownify }}
+	<h2 class="text-blue uppercase">Spec testing</h2>
+	<span class="categories">How we test if objects are properly put together</span>
+	{% capture spec %}{% include developing/spec.md %}{% endcapture %}
+	{{ spec | markdownify }}
 	<div class="devider-line"></div>
 </div>
