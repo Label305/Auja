@@ -21,3 +21,14 @@ title: "Auja - API"
 	{{ main_config | markdownify }}
 	<div class="devider-line"></div>
 </div>
+
+<div class="blog-item bg-white">
+	<div class="avatar"></div>
+	<div class="timeline"></div>
+	<h2 class="text-blue uppercase">Menus and menu items</h2>
+	<span class="categories">Menu's and what they can do for you</span>
+	{% capture menus %}{% include api/menus.md %}{% endcapture %}
+	{{ menus | markdownify }}
+	<div class="devider-line"></div>
+</div>
+
