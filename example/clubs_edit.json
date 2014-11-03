@@ -29,10 +29,10 @@
                         }                        
                     },
                     {
-                        "type": "number",
-                        "number": {
-                            "name": "totalPlayers",
-                            "label": "Number of players",
+                        "type": "integer",
+                        "integer": {
+                            "name": "activePlayers",
+                            "label": "Number of active players",
                             "min": "7",
                             "max": "25",
                             "value": "11"

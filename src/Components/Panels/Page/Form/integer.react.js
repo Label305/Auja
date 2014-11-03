@@ -1,5 +1,5 @@
 /**
- * A number field, properties:
+ * An integer field, properties:
  *
  * - label
  * - name
@@ -17,11 +17,12 @@ define(['build/Components/Panels/Page/Form/label.react'], function (Label) {
         },
         render: function () {
             var attributes = this.props.item.getAttributes();
+            /* Ensure the input is properly understood in the browser, set type to number */
+            attributes.type = "number";
             attributes.value = this.state.value;
             attributes.onChange = this.handleChange;
-            /* Tell the stepping prop any increment is allowed, for browser validation of the number input type */
-            attributes.step = "any";
-
+            /* Set stepping to 1, for browser validation of the number input type */
+            attributes.step = 1;
             return (
                 <div>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />

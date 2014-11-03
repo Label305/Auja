@@ -2,7 +2,7 @@
     "type": "main",
     "main": {
         "title": "Auja example",
-        "authenticated": false,
+        "authenticated": true,
         "debug": true,
         "colors": {
             "main": "#1ebab8",
@@ -21,8 +21,13 @@
         "menu": [
             {
                 "title": "Clubs",
-                "icon": "planet",
+                "icon": "ion-planet",
                 "target": "example/clubs/menu"
+            },
+            {
+                "title": "Pages",
+                "icon": "ion-cube",
+                "target": "example/pages_menu.json"
             }
         ],
         "routes": [
@@ -49,6 +54,11 @@
             {
                 "type": "http",
                 "target": "example/clubs/{id}/edit",
+                "action": "example/clubs_edit.json"
+            },
+            {
+                "type": "http",
+                "target": "example/pages/{id}/edit",
                 "action": "example/clubs_edit.json"
             }
         ],

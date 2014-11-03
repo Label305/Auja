@@ -67,7 +67,8 @@ define([
         /**
          * Submitting a form
          * @param url
-         * @param data
+         * @param method
+         * @param data  
          */
         submit: function(url, method, data) {
             var panel = null;
@@ -77,7 +78,7 @@ define([
             
             var request = new Request(url);
             
-            switch(method) {
+            switch(method.toLowerCase()) {
                 case 'put':
                     request.put(data).done(function(response) {
                         response.url = url;
@@ -128,13 +129,14 @@ define([
         },
 
         /**
-         * Extend the items in a panel 
+         * Extend the items in a panel
          * @todo fix async
          * @param panel
          * @param item
+         * @param url
          */
-        extendResource: function(panel, item) {
-            var request = new Request(item.getTarget());
+        extendResource: function(panel, item, url) {
+            var request = new Request(url);
             request.get().done(function(data) {
                 this.dispatch('extend-resource', {
                     panel: panel,

@@ -2,10 +2,12 @@
  * Resource property factory will create objects from resource item properties
  */
 var ResourceItemProperties = {
-    'searchable': 'build/Objects/Menu/Properties/searchable'
+    'searchable': 'build/Objects/Menu/Properties/searchable',
+    'sortable':  'build/Objects/Menu/Properties/sortable'
 };
 define([
-    'build/Objects/Menu/Properties/searchable'
+    'build/Objects/Menu/Properties/searchable',
+    'build/Objects/Menu/Properties/sortable'
 ], function () {
 
     return new function () {
