@@ -23,8 +23,9 @@ require.config({
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
-        sugar: 'bower_components/sugar/release/sugar-full.min',
         trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
+        jstree: 'bower_components/jstree/dist/jstree.min',
+        sugar: 'bower_components/sugar/release/sugar.min',
         request: 'build/Requests/request',
         stores: 'build/Stores/flux'
     }

@@ -30,7 +30,19 @@ define([
                 result += this.entry('.auja-bg-' + name, 'background-color', colors[name]);
                 result += this.entry('.auja-color-' + name, 'color', colors[name]);
                 result += this.entry('.auja-border-' + name, 'border-color', colors[name]);
+                result += this.entry('.active.auja-active-border-' + name, 'border-color', colors[name]);
+
+                //Dependency specific CSS
+                switch(name) {
+                    case 'main':
+                        result += this.entry('.trumbowyg-modal-submit', 'background-color', colors[name]);
+                        result += this.entry('.trumbowyg-fullscreen .trumbowyg-fullscreen-button', 'background-color', colors[name]);
+                        result += this.entry('input:focus', 'border-color', colors[name]);
+                        result += this.entry('select:focus', 'border-color', colors[name]);
+                        break;
+                }
             }
+
             return result;
         },
         render: function () {

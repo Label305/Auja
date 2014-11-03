@@ -38,6 +38,8 @@ define(['build/Objects/Abstract/page_item', 'build/Factories/form_item_factory']
         this.setItems = function(items) {
             this.items = items.map(function(item) {
                 return FormItemFactory.createItem(item);
+            }).filter(function(item) {
+                return item !== false;
             });
         };
 

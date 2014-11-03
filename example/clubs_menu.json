@@ -20,13 +20,6 @@
             }
         },
         {
-            "type": "spacer",
-            "order": 3,
-            "spacer": {
-                "text": "Clubs"
-            }
-        },
-        {
             "type": "link",
             "order": 2,
             "link": {
@@ -36,10 +29,22 @@
             }
         },
         {
+            "type": "spacer",
+            "order": 3,
+            "spacer": {
+                "text": "Clubs"
+            }
+        },
+        {
             "type": "resource",
             "order": 4,
             "resource": {
-                "target": "example/clubs_index.json"
+                "target": "example/clubs_index.json",
+                "properties": {
+                    "searchable": {
+                        "target": "example/club_index.json?q=%s"
+                    }
+                }
             }
         }
     ]

@@ -18,13 +18,13 @@ define([], function () {
             if (this.props.auja.buttons) {
                 buttons = this.props.auja.buttons.map(function (button) {
                     return (
-                        <a className="auja-bg-main button" key={button.target} href={button.target}>{button.title}</a>
+                        <a className="auja-bg-main button" key={button.target} href={button.target}>{button.text}</a>
                         );
                 });
             }
             return (
                 <header>
-                    <h1 className="auja-color-main">{this.props.auja.title}</h1>
+                    <h1>{this.props.auja.title}</h1>
                     <div id="buttons">{buttons}</div>
                     {user}
                 </header>
