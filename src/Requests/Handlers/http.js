@@ -61,7 +61,6 @@ define([], function() {
          */
         this.put = function (data) {
             this.setData(data);
-            alert('meh');
             this.settings.type = 'PUT';
             return this._doAjax();
         };
