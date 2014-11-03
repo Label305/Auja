@@ -98,7 +98,6 @@
                             "options":
                             [
                                 {
-                                "type": "checkbox",
                                 "label": "Jupiler",
                                 "checked": false
                                 },
