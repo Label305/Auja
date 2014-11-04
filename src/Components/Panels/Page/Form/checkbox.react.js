@@ -18,13 +18,23 @@
             var attributes = this.props.item.getAttributes();
             attributes.checked = this.state.checked;
             attributes.onChange = this.handleChange;
-
+            if (this.props.item.getName() == null ){
             return (
                 <div>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />
                 {React.DOM.input(attributes)}
                 </div>
-            );
+            )
+        } else if (this.props.item.hasFallback() == true){
+            return(
+            <div>
+            <input type="hidden" value="0"/>
+            <input type="checkbox" value="1"/>
+            </div>
+            )
+        } else {
+            return(<p>Darn, another checkbox got away!</p>)
+        }
         }
     });
 });
