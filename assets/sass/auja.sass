@@ -200,20 +200,6 @@ ul#main-menu
     overflow-x: scroll
     overflow-y: hidden
     left: 30px
-    &:before
-        content: ''
-        display: block
-        position: fixed
-        left: 0
-        top: 60px
-        height: calc(100% - 60px)
-        width: 20px
-        background-color: $body-color
-        z-index: 998
-        box-shadow: rgba(241,241,241,1.0) 10px 0 20px
-        -ms-box-shadow: rgba(241,241,241,1.0) 10px 0 20px
-        -moz-box-shadow: rgba(241,241,241,1.0) 10px 0 20px
-        -webkit-box-shadow: rgba(241,241,241,1.0) 10px 0 20px
     & > div 
         display: table-row
         position: absolute
@@ -304,10 +290,10 @@ ul#main-menu
             input[type="text"]
                 width: 100%
                 display: inline-block
-                height: 40px
+                height: 20px
                 background-color: $input-color
                 margin-left: -30px
-                padding: 0 15px
+                padding: 10px 15px
                 border: 0
                 border-bottom: 2px solid $input-border-color
                 font-size: 14px
@@ -327,7 +313,7 @@ ul#main-menu
 #panels 
     .panel-page
         & > div 
-            width: 600px
+            width: 550px
             & > div 
                 margin: 30px
     .row 
@@ -336,7 +322,14 @@ ul#main-menu
         display: inline-block    
  
 // ------ Form ------
-form 
+input,
+select,
+textarea
+    border-radius: 0 !important
+    -ms-border-radius: 0 !important
+    -moz-border-radius: 0 !important
+    -webkit-border-radius: 0 !important
+form
     .row
         &.form-item 
             margin: 30px 0 0 0
@@ -378,13 +371,6 @@ form
             textarea,
             textarea:focus
                 border-bottom: 0
-            input,
-            select,
-            textarea
-                border-radius: 0 !important
-                -ms-border-radius: 0 !important
-                -moz-border-radius: 0 !important
-                -webkit-border-radius: 0 !important
             select
                 width: 100%
                 height: 40px
@@ -521,28 +507,44 @@ form
         ul 
             li
                 min-height: 34px
-@media (max-width: 768px)
+@media (max-width: 1024px)
     #panels
         .panel-menu > div
             width: 260px
             ul
                 margin-left: 20px
-                li
-                    font-size: 15px !important
+                .menu-item-link
+                    padding-top: 10px
+                    padding-bottom: 9px
+                    &.active
+                        padding-bottom: 8px !important
+                    &:before
+                        top: 10px
                     &:after
                         width: 20px !important
+                        top: 10px
                     &.menu-item-resource
                         input
                             margin-left: -20px
+            input
+                margin-left: -20px !important
+                padding-left: 10px !important
+                padding-right: 10px !important
         .panel-page > div
-            width: 520px
+            width: 450px
             & > div
-                margin: 30px 20px
+                margin: 20px
         .row
             &.form-item
                 margin-top: 15px
     .message
         width: 400px
+    input
+        padding-top: 5px !important
+        padding-bottom: 5px !important
+        &.button
+            padding-top: 10px !important
+            padding-bottom: 10px !important
                 
 @import trumbowyg
 @import jstree
