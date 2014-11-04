@@ -21,12 +21,12 @@
         "menu": [
             {
                 "title": "Clubs",
-                "icon": "planet",
+                "icon": "ion-planet",
                 "target": "example/clubs/menu"
             },
             {
                 "title": "Pages",
-                "icon": "cube",
+                "icon": "ion-cube",
                 "target": "example/pages_menu.json"
             }
         ],
