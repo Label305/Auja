@@ -31,8 +31,10 @@ define([], function() {
         },
         render: function() {
             return (
-                <div ref="message" className="animated fadeIn message message-success" onClick={this.props.handleOnClick}>
+                <div ref="message" className="message message-success" onClick={this.props.handleOnClick}>
                     {this.props.message.contents}
+                    <div className="check-left auja-bg-main animated rotate-left-scale"></div>
+                    <div className="check-right auja-bg-main animated rotate-right-scale"></div>
                 </div>
             );
         }

@@ -84,6 +84,50 @@ h2
             transition: opacity 0.5s
 
 // ------ Message ------
+// Keyframes rotate left and scale animation
+@-Webkit-Keyframes rotateLeftScale
+    from
+        -webkit-transform: rotate(180deg) scale(0)
+    to
+        -webkit-transform: rotate(135deg) scale(1)
+@-ms-Keyframes rotateLeftScale
+    from
+        -webkit-transform: rotate(180deg) scale(0)
+    to
+        -webkit-transform: rotate(135deg) scale(1)
+@Keyframes rotateLeftScale
+    from
+        transform: rotate(180deg) scale(0)
+    to
+        transform: rotate(135deg) scale(1)
+// Keyframes rotate left and scale animation
+@-Webkit-Keyframes rotateRightScale
+    from
+        -webkit-transform: rotate(-180deg) scale(0)
+    to
+        -webkit-transform: rotate(-135deg) scale(1)
+@-ms-Keyframes rotateRightScale
+    from
+        -webkit-transform: rotate(-180deg) scale(0)
+    to
+        -webkit-transform: rotate(-135deg) scale(1)
+@Keyframes rotateRightScale
+    from
+        transform: rotate(-180deg) scale(0)
+    to
+        transform: rotate(-135deg) scale(1)
+// Keyframes rotate left and scale classes
+.rotate-left-scale
+    -webkit-animation-name: rotateLeftScale
+    -moz-animation-name: rotateLeftScale
+    -o-animation-name: rotateLeftScale
+    animation-name: rotateLeftScale
+
+.rotate-right-scale
+    -webkit-animation-name: rotateRightScale
+    -moz-animation-name: rotateRightScale
+    -o-animation-name: rotateRightScale
+    animation-name: rotateRightScale
 .message
     position: fixed
     z-index: 1001
@@ -92,45 +136,48 @@ h2
     margin: 0 auto
     padding: 20px
     color: white
-    animation-duration: 0.25s !important
-    -ms-animation-duration: 0.25s !important
-    -moz-animation-duration: 0.25s !important
-    -webkit-animation-duration: 0.25s !important
+    &.animated
+        animation-duration: 0.25s !important
+        -moz-animation-duration: 0.25s !important
+        -webkit-animation-duration: 0.25s !important
     &.message-success
         position: absolute
         width: 300px
         height: 300px
         top: calc(50% - 150px)
-        &:before
-            content: ''
+        .check-left,
+        .check-right
             width: 30px
-            height: 150px
             display: block
             position: absolute
-            background-color: green
-            bottom: 29px
-            transform: rotate(135deg)
-            -ms-transform: rotate(135deg)
-            -webkit-transform: rotate(135deg)
-            left: calc(50% + 15px)
-            transform-origin: 15px 0
-            -ms-transform-origin: 15px 0
-            -webkit-transform-origin: 15px 0
-        &:after
-            content: ''
-            width: 30px
-            height: 200px
-            display: block
-            position: absolute
-            background-color: green
-            bottom: 0
-            transform: rotate(-135deg)
-            -ms-transform: rotate(-135deg)
-            -webkit-transform: rotate(-135deg)
-            left: calc(50% + 15px)
-            transform-origin: 15px 0
-            -ms-transform-origin: 15px 0
-            -webkit-transform-origin: 15px 0
+            left: calc(50% - 15px)
+            transform-origin: 15px 15px
+            -ms-transform-origin: 15px 15px
+            -webkit-transform-origin: 15px 15px
+            border-top-right-radius: 15px
+            border-top-left-radius: 15px
+            -moz-border-radius-topright: 15px
+            -moz-border-radius-topleft: 15px
+            -webkit-border-top-right-radius: 15px
+            -webkit-border-top-left-radius: 15px
+            &.animated
+                animation-iteration-count: 1
+                animation-direction: normal
+                animation-delay: 0
+                animation-play-state: running
+                -webkit-animation-fill-mode: both
+                -moz-animation-fill-mode: both
+                -o-animation-fill-mode: both
+                animation-fill-mode: both
+                animation-duration: 0.4s !important
+                -moz-animation-duration: 0.4s !important
+                -webkit-animation-duration: 0.4s !important
+        .check-left
+            height: 100px
+            bottom: 75px
+        .check-right
+            height: 225px
+            bottom: -50px
     &.message-info
         top: calc(50% - 80px)
         width: 550px
