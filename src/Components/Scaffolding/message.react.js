@@ -26,12 +26,12 @@ define([], function() {
                 //Force reset after automatic 
                 setTimeout(function() {
                     this.props.handleOnClick();
-                }.bind(this), 50);
-            }.bind(this), 500);  
+                }.bind(this), 250);
+            }.bind(this), 750);  
         },
         render: function() {
             return (
-                <div ref="message" className="message message-success" onClick={this.props.handleOnClick}>
+                <div ref="message" className="message animated message-success" onClick={this.props.handleOnClick}>
                     {this.props.message.contents}
                     <div className="check-left auja-bg-main animated rotate-left-scale"></div>
                     <div className="check-right auja-bg-main animated rotate-right-scale"></div>
