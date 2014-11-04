@@ -283,6 +283,16 @@ ul#main-menu
     overflow-x: scroll
     overflow-y: hidden
     left: 30px
+    &:before
+        content: ''
+        display: block
+        position: fixed
+        left: 0
+        top: 70px
+        height: calc(100% - 70px)
+        width: 30px
+        background-color: $body-color
+        z-index: 998
     & > div 
         display: table-row
         position: absolute
@@ -388,10 +398,6 @@ ul#main-menu
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
-
-
-
-
 // ------ Page ------
 #panels 
     .panel-page
