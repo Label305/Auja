@@ -18,7 +18,7 @@
             var attributes = this.props.item.getAttributes();
             attributes.checked = this.state.checked;
             attributes.onChange = this.handleChange;
-            if (this.props.item.getName() == null ){
+            if (this.props.item.getName() != null ){
             return (
                 <div>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />

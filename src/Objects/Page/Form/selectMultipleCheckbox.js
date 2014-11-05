@@ -34,7 +34,6 @@ define(['build/Objects/Abstract/form_item', 'build/Objects/Page/Form/checkbox'],
             if(options) {
                 //Initialize the options as an array of Checkbox-es
                 this._options = options.map(function(checkbox) {
-                    checkbox.fallback = false;
                     checkbox.name = this.getName();
                     return new Checkbox(checkbox);
                 }.bind(this));
