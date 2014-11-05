@@ -85,6 +85,7 @@
                             "name": "leagues",
                             "label": "Jupiler",
                             "required": false,
+                            "value": true,
                             "checked": false
                         }
                         
@@ -95,6 +96,7 @@
                             "name": "beers",
                             "label": "Beers",
                             "required": false,
+                            "value": true,
                             "options":
                             [
                                 {
