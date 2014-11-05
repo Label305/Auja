@@ -8,3 +8,4 @@ Vagrantfile
 dist/
 .sass-cache/
 assets/css/
+npm-debug.log
