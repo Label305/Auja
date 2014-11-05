@@ -15,6 +15,7 @@ var FormItemObjects = {
     'email': 'build/Objects/Page/Form/email',
     'select': 'build/Objects/Page/Form/select',
     'date': 'build/Objects/Page/Form/date',
+    'datetime': 'build/Objects/Page/Form/datetime',
     'range': 'build/Objects/Page/Form/range',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg'
 };
@@ -33,6 +34,7 @@ define([
     'build/Objects/Page/Form/email',
     'build/Objects/Page/Form/select',
     'build/Objects/Page/Form/date',
+    'build/Objects/Page/Form/datetime',
     'build/Objects/Page/Form/range',
     'build/Objects/Page/Form/trumbowyg'
 ], function() {

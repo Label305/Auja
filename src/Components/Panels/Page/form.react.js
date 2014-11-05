@@ -19,6 +19,7 @@ var FormItems = {
     'email': 'build/Components/Panels/Page/Form/email.react',
     'select': 'build/Components/Panels/Page/Form/select.react',
     'date': 'build/Components/Panels/Page/Form/date.react',
+    'datetime': 'build/Components/Panels/Page/Form/datetime.react',
     'range': 'build/Components/Panels/Page/Form/range.react',
     'submit': 'build/Components/Panels/Page/Form/submit.react'
 };
@@ -37,6 +38,7 @@ define([
     'build/Components/Panels/Page/Form/email.react',
     'build/Components/Panels/Page/Form/select.react',
     'build/Components/Panels/Page/Form/date.react',
+    'build/Components/Panels/Page/Form/datetime.react',
     'build/Components/Panels/Page/Form/range.react',
     'build/Components/Panels/Page/Form/submit.react'
 ], function () {

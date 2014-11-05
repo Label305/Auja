@@ -38,12 +38,20 @@
                             "value": "11"
                         }                        
                     },
-                                        {
+                    {
                         "type": "date",
                         "date": {
                             "name": "foundingdate",
                             "label": "Founded on",
                             "value": "1982-17-08"
+                        }                        
+                    },
+                    {
+                        "type": "datetime",
+                        "datetime": {
+                            "name": "lastgame",
+                            "label": "Last Game",
+                            "value": "2009-11-13T20:00Z"
                         }                        
                     },
                     {
