@@ -8,7 +8,7 @@
 var PageItems = {
     'header': 'build/Components/Panels/Page/header.react',
     'form': 'build/Components/Panels/Page/form.react'
-};
+}
 
 //Map as an array to load panel dependencies
 define([
