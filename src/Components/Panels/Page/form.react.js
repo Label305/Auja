@@ -102,13 +102,13 @@ define([
 
                 //Extract the validation message from the item
                 item.validationMessage = null;
-                if (item.getName() && this.props.message.validation && this.props.message.validation[item.getName()]) {
+                if (item.getName() && this.props.message && this.props.message.validation && this.props.message.validation[item.getName()]) {
                     item.validationMessage = this.props.message.validation[item.getName()];
                 }
 
                 var className = 'row form-item form-item-{type}'.assign({type: item.getType()});
                 return (
-                    <div className={className}>
+                    <div key={this.getFormItemId(item)} className={className}>
                         <Item itemId={this.getFormItemId(item)} item={item} />
                     </div>
                 );
