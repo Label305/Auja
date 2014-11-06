@@ -2,9 +2,10 @@
  * @jsx React.DOM
  */
 define([
+    'react',
     'build/Components/Scaffolding/menu.react',
     'build/Components/Scaffolding/panels.react'
-], function(Menu, Panels) {
+], function(React, Menu, Panels) {
 
     return React.createClass({
         render: function() {

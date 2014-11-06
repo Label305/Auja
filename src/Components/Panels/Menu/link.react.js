@@ -8,7 +8,7 @@
  * @jsx React.DOM
  */
 
-define([], function() {
+define(['react'], function(React) {
     return React.createClass({
         handleClick: function() {
             flux.actions.click(this.props.item.getTarget(), this.props.panel, this.props.item);

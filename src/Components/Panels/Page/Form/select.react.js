@@ -6,7 +6,7 @@
  * - .. any other allowed by input
  * @jsx React.DOM
  */
- define(['build/Components/Panels/Page/Form/label.react'], function(Label) {
+ define(['react', 'build/Components/Panels/Page/Form/label.react'], function(React, Label) {
     return React.createClass({
 
         getInitialState: function() {
