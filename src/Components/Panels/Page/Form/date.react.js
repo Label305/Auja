@@ -24,11 +24,6 @@
         this.setState({value: event.target.value});
     },
     render: function () {
-
-
-    // chain a few methods for the first datepicker, jQuery style!
-
-
     var attributes = this.props.item.getAttributes();
     attributes.value = this.state.value;
     attributes.onChange = this.handleChange;
