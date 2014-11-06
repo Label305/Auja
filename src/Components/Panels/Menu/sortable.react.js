@@ -2,7 +2,7 @@
  * @jsx React.DOM
  */
  
-define(['jstree'], function() {
+define(['react', 'jstree'], function(React) {
     
     return React.createClass({
         /**

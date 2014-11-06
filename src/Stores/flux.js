@@ -2,7 +2,7 @@ var FluxStores = {
     'AujaStore': 'build/Stores/auja', 
     'PanelStore': 'build/Stores/panel', 
     'MessageStore': 'build/Stores/message'
-}
+};
 
 //Map as an array to load store dependencies
 define([
@@ -11,6 +11,11 @@ define([
     'build/Stores/panel',
     'build/Stores/message'
 ], function(Fluxxor) {
+    
+    //Make sure we only render one instance
+    if(window.flux) {
+        return window.flux;
+    }
     
     //Fill object with stores
     var stores = {};
@@ -162,5 +167,6 @@ define([
         }
     };
     
-    return new Fluxxor.Flux(stores, actions); 
+    window.flux = new Fluxxor.Flux(stores, actions);
+    return window.flux;
 });
