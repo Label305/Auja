@@ -23,6 +23,8 @@ require.config({
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
+        pikaday: 'bower_components/pikaday/pikaday',
+        pikadayjq: 'bower_components/pikaday/plugins/pikaday.jquery',
         trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
         jstree: 'bower_components/jstree/dist/jstree.min',
         sugar: 'bower_components/sugar/release/sugar.min',
