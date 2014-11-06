@@ -24,6 +24,7 @@ var FormItems = {
 };
 
 define([
+    'react',
     'build/Components/Panels/Page/header.react',
     'build/Components/Panels/Page/Form/text.react',
     'build/Components/Panels/Page/Form/password.react',
@@ -39,7 +40,7 @@ define([
     'build/Components/Panels/Page/Form/date.react',
     'build/Components/Panels/Page/Form/range.react',
     'build/Components/Panels/Page/Form/submit.react'
-], function () {
+], function (React) {
     return React.createClass({
 
         /**
@@ -108,7 +109,7 @@ define([
 
                 var className = 'row form-item form-item-{type}'.assign({type: item.getType()});
                 return (
-                    <div key={this.getFormItemId(item)} className={className}>
+                    <div className={className}>
                         <Item itemId={this.getFormItemId(item)} item={item} />
                     </div>
                 );

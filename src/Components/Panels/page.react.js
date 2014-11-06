@@ -12,9 +12,10 @@ var PageItems = {
 
 //Map as an array to load panel dependencies
 define([
+    'react',
     'build/Components/Panels/Page/header.react',
     'build/Components/Panels/Page/form.react'
-], function () {
+], function (React) {
 
     return React.createClass({
         render: function () {
@@ -32,7 +33,7 @@ define([
                 var Item = require(PageItems[item.getType()]);
                 
                 return (
-                    <div key={this.props.panel.getId()} className="row">
+                    <div className="row">
                         <Item message={this.props.message} panel={this.props.panel} item={item} />
                     </div>
                 );
