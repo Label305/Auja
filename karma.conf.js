@@ -25,6 +25,9 @@ module.exports = function (config) {
         // list of files to exclude
         exclude: [
             'bower_components/crossroads.js/dev/**/*.js',
+            'bower_components/jstree/src/**/*.js',
+            'bower_components/jquery/src/**/*.js',
+            'bower_components/jquery/src/**/*.js',
             'build/auja.react.js'
         ],
 
@@ -58,8 +61,10 @@ module.exports = function (config) {
 
 
         // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        // available browser launchers: htt
+        // ps://npmjs.org/browse/keyword/karma-launcher
         browsers: ['Firefox'],
+        //browsers: ['Firefox', 'Chrome', 'IE'],
 
 
         // Continuous Integration mode

@@ -45,4 +45,5 @@ define(['build/Requests/route_factory', 'build/Requests/cache'], function (Route
 
     }
     
+    return window.Request;
 });

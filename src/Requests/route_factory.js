@@ -18,16 +18,18 @@ define([
     /**
      * Setup listening to the AujaStore to update routes in crossroads
      */
-    flux.store('AujaStore').on('change', function () {
-        crossroads.removeAllRoutes();
-
-        this.getState().routes.map(function (route) {
-            require(routers[route.type]).addRoute(route);
-        }.bind(this));
-
-        //Add fallback route to http router 
-        require(routers['http']).addRoute({
-            target: /(.*)/
+    require(['flux'], function(flux) {
+        flux.store('AujaStore').on('change', function () {
+            crossroads.removeAllRoutes();
+    
+            this.getState().routes.map(function (route) {
+                require(routers[route.type]).addRoute(route);
+            }.bind(this));
+    
+            //Add fallback route to http router 
+            require(routers['http']).addRoute({
+                target: /(.*)/
+            });
         });
     });
 

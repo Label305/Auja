@@ -29,7 +29,10 @@ require.config({
         request: 'build/Requests/request',
         flux: 'build/Stores/flux'
     },
-    
+
+    /**
+     * Shim
+     */
     shim: {
         trumbowyg: {
             deps: ['jquery']
@@ -37,7 +40,7 @@ require.config({
     }
 });
 
-require(['react', 'flux', 'request', 'build/scaffolding.react'], function (React, flux, Request, Scaffolding) {
+require(['react', 'flux', 'build/scaffolding.react'], function (React, flux, Scaffolding) {
     React.renderComponent(<Scaffolding flux={flux} />, document.body);
 });
     
