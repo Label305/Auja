@@ -36,8 +36,15 @@ ul.jstree-children
                 background-color: $dark-gray-color
             &:focus
                 outline: none
-            &.jstree-hovered
+            &:hover
                 text-decoration: underline
+                transition: 0.25s
+                -ms-transition: 0.25s
+                -moz-transition: 0.25s
+                -webkit-transition: 0.25s
+
+            &:active
+                cursor: move !important
         &.jstree-open
 
             li
