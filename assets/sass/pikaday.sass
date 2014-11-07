@@ -42,141 +42,122 @@
     width: 240px
     margin: 15px
 
-.pika-title
-    position: relative
-    text-align: center
-
-.pika-label
-    display: inline-block
-    *display: inline
-    position: relative
-    z-index: 9999
-    overflow: hidden
-    margin: 0
-    padding: 5px
-    font-size: 14px
-    line-height: 20px
-    font-weight: bold
-    background-color: white
-
-.pika-title select
-    cursor: pointer
-    position: absolute
-    z-index: 9998
-    margin: 0
-    left: 0
-    top: 5px
-    filter: alpha(opacity=0)
-    opacity: 0
-
-.pika-prev, .pika-next
-    display: block
-    cursor: pointer
-    position: relative
-    outline: none
-    border: 0
-    padding: 0
-    width: 20px
-    height: 30px
-    /* hide text using text-indent trick, using width value (it's enough)
-    text-indent: 20px
-    white-space: nowrap
-    overflow: hidden
-    background-color: transparent
-    background-position: center center
-    background-repeat: no-repeat
-    background-size: 75% 75%
-    opacity: .5
-    *position: absolute
-    *top: 0
-
-.pika-prev:hover, .pika-next:hover
-    opacity: 1
-
-.pika-next
-    float: right
-    padding: 0
-    margin: 11px 3px
-    width: 0
-    height: 0
-    border-left: 6px solid $dark-gray-color
-    border-bottom: 6px solid transparent
-    border-top: 6px solid transparent
-    background: none
-
-.pika-prev
-    float: left
-    padding: 0
-    margin: 11px 3px
-    width: 0
-    height: 0
-    border-right: 6px solid $dark-gray-color
-    border-bottom: 6px solid transparent
-    border-top: 6px solid transparent
-    background: none
-
-.pika-prev.is-disabled, .pika-next.is-disabled
-    cursor: default
-    opacity: .2
-
-.pika-select
-    display: inline-block
-    *display: inline
-
-.pika-table
-    width: 100%
-    border-collapse: collapse
-    border-spacing: 0
-    border: 0
-    th, td
-        width: 30px
-        padding: 0
-        display: block
-        float: left
-    th
-        color: #999
-        font-size: 12px
-        line-height: 25px
-        font-weight: bold
+    .pika-title
+        position: relative
         text-align: center
+        height: 30px
 
-.pika-button
-    cursor: pointer
-    display: block
-    box-sizing: border-box
-    -moz-box-sizing: border-box
-    outline: none
-    border: 0
-    margin: 0
-    width: 100%
-    padding: 5px
-    color: #666
-    font-size: 12px
-    line-height: 15px
-    text-align: center
-    background: $input-color
+        .pika-label
+            display: inline-block
+            position: relative
+            z-index: 9999
+            overflow: hidden
+            margin: 0 5px
+            padding: 0
+            font-size: 14px
+            line-height: 30px
+            height: 30px
+            font-weight: bold
+            background-color: white
+            select
+                cursor: pointer
+                position: absolute
+                z-index: 9998
+                margin: 0 5px
+                left: 0
+                top: 0
+                height: 30px
+                line-height: 30px
+                filter: alpha(opacity=0)
+                opacity: 0
+        .pika-prev,
+        .pika-next
+            display: block
+            cursor: pointer
+            position: relative
+            outline: none
+            padding: 0
+            margin: 9px 5px
+            width: 0
+            height: 0
+            border: 0
+            color: transparent
+            overflow: hidden
+            opacity: .5
+            background: none
+            font-size: 0 !important
+            &:hover
+                opacity: 1
+            &.is-disabled
+                cursor: default
+                opacity: .2
+        .pika-next
+            float: right
+            border-left: 6px solid $dark-gray-color
+            border-bottom: 6px solid transparent
+            border-top: 6px solid transparent
+        .pika-prev
+            float: left
+            border-right: 6px solid $dark-gray-color
+            border-bottom: 6px solid transparent
+            border-top: 6px solid transparent
 
-.pika-week
-    font-size: 12px
-    color: #999
+    .pika-table
+        width: 100%
+        border-collapse: collapse
+        border-spacing: 0
+        border: 0
+        th, td
+            width: 30px
+            height: 30px
+            padding: 0
+            display: block
+            float: left
+        th
+            color: $dark-gray-color
+            font-size: 12px
+            line-height: 25px
+            text-align: center
+            font-weight: normal
+        td
+            &.pika-week
+                font-size: 12px
+                color: $font-color
+                height: 30px
+                line-height: 30px
+            .pika-button
+                cursor: pointer
+                display: block
+                box-sizing: border-box
+                -moz-box-sizing: border-box
+                outline: none
+                border: 0
+                margin: 0
+                width: 100%
+                padding: 5px
+                color: #666
+                font-size: 12px
+                line-height: 15px
+                text-align: center
+                background: $input-color
+                &:hover
+                    background: $dark-gray-color !important
+                    transition: 0.25s
+                    -ms-transition: 0.25s
+                    -moz-transition: 0.25s
+                    -webkit-transition: 0.25s
+            &.is-today
+                .pika-button
+                    color: #33aaff
+                    font-weight: bold
+            &.is-selected
+                .pika-button
+                    color: #fff
+                    font-weight: bold
+            &.is-disabled
+                .pika-button
+                    pointer-events: none
+                    cursor: default
+                    color: #999
+                    opacity: .3
 
-.is-today .pika-button
-    color: #33aaff
-    font-weight: bold
-
-.is-selected .pika-button
-    color: #fff
-    font-weight: bold
-
-.is-disabled .pika-button
-    pointer-events: none
-    cursor: default
-    color: #999
-    opacity: .3
-
-.pika-button:hover
-    background: $dark-gray-color !important
-    transition: 0.25s
-    -ms-transition: 0.25s
-    -moz-transition: 0.25s
-    -webkit-transition: 0.25s
