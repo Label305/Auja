@@ -4,7 +4,7 @@
  * @jsx React.DOM
  * @todo new name!
  */
-define([], function() {
+define(['react'], function(React) {
     
     var Item = React.createClass({
         handleClick: function() {

@@ -35,7 +35,7 @@ define(['build/Objects/Abstract/panel', 'build/Factories/page_item_factory'], fu
         this.getContent = function() {
             return this.content;
         };
-
+        
     };
 
     // Inherit Panel

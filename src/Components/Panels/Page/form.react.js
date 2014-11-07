@@ -24,6 +24,7 @@ var FormItems = {
 };
 
 define([
+    'react',
     'build/Components/Panels/Page/header.react',
     'build/Components/Panels/Page/Form/text.react',
     'build/Components/Panels/Page/Form/password.react',
@@ -39,7 +40,7 @@ define([
     'build/Components/Panels/Page/Form/date.react',
     'build/Components/Panels/Page/Form/range.react',
     'build/Components/Panels/Page/Form/submit.react'
-], function () {
+], function (React) {
     return React.createClass({
 
         /**
@@ -102,7 +103,7 @@ define([
 
                 //Extract the validation message from the item
                 item.validationMessage = null;
-                if (item.getName() && this.props.message.validation && this.props.message.validation[item.getName()]) {
+                if (item.getName() && this.props.message && this.props.message.validation && this.props.message.validation[item.getName()]) {
                     item.validationMessage = this.props.message.validation[item.getName()];
                 }
 

@@ -1,4 +1,4 @@
-define(['fluxxor', 'build/Factories/form_factory'], function(Fluxxor, FormFactory) {
+define(['fluxxor', 'request', 'build/Factories/form_factory'], function(Fluxxor, Request, FormFactory) {
 
     /**
      * The main Auja store

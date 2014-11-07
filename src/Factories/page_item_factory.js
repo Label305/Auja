@@ -20,6 +20,8 @@ define([
             if(PageItemObjects[data.type]) {
                 var Item = require(PageItemObjects[data.type]);
                 return new Item(data[data.type]);
+            } else {
+                console.error('Invalid page type requested: ' + data.type);
             }
             return false;
         }

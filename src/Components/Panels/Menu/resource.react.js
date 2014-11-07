@@ -6,7 +6,12 @@
  * @jsx React.DOM
  */
 
-define(['build/Components/Panels/Menu/Mixins/paging.mixin', 'build/Components/Panels/Menu/Mixins/searchable.mixin', 'build/Objects/menu', 'build/Components/Panels/Menu/sortable.react'], function (Paging, Searchable, Menu, SortableMenu) {
+define([
+    'react', 
+    'build/Components/Panels/Menu/Mixins/paging.mixin', 
+    'build/Components/Panels/Menu/Mixins/searchable.mixin', 
+    'build/Objects/menu', 
+    'build/Components/Panels/Menu/sortable.react'], function (React, Paging, Searchable, Menu, SortableMenu) {
 
     return React.createClass({
         mixins: [Paging, Searchable],

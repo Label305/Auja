@@ -13,10 +13,11 @@ var MenuItems = {
 
 //Map as an array to load panel dependencies
 define([
+    'react',
     'build/Components/Panels/Menu/link.react',
     'build/Components/Panels/Menu/spacer.react',
     'build/Components/Panels/Menu/resource.react'
-], function() {
+], function(React) {
     return React.createClass({
         render: function() {
             

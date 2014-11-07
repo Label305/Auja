@@ -7,17 +7,17 @@
  *
  * @jsx React.DOM
  */
- define(['build/Components/Panels/Page/Form/label.react', 'moment', 'pikaday', 'pikadayjq'], function (Label) {
+ define(['react', 'build/Components/Panels/Page/Form/label.react','moment', 'pikadayjq'], function (React, Label) {
     return React.createClass({
-        componentDidMount: function() {
-         var $datepicker = $('#datepicker').pikaday({
+        componentDidMount: function() {            
+         var datepicker = $(this.refs.date.getDOMNode()).pikaday({
             firstDay: 1,
-            format: 'YYYY-MM-DD',
-        });
+            format: ('DD MM YYYY'),
+            defaultDate: new Date(this.props.item.getValue()),
+            showWeekNumber: true
+            });
      },
-
-
-     getInitialState: function () {
+    getInitialState: function () {
         return {value: this.props.item.getValue()};
     },
     handleChange: function (event) {
@@ -25,9 +25,11 @@
     },
     render: function () {
     var attributes = this.props.item.getAttributes();
-    attributes.value = this.state.value;
+    attributes.value = moment(this.state.value).format('DD MM YYYY');
+    console.log(this.state.value);
     attributes.onChange = this.handleChange;
-    attributes.id = 'datepicker';
+    attributes.ref = 'date';
+    attributes.readOnly = true;
 
     return (
         <div>
