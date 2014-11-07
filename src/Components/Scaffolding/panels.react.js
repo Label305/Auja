@@ -12,9 +12,12 @@ var PanelTypes = {
 
 //Map as an array to load panel dependencies
 define([
+    'react',
+    'fluxxor',
+    'flux',
     'build/Components/Panels/menu.react',
     'build/Components/Panels/page.react'
-], function () {
+], function (React, Fluxxor, flux) {
     
     var PanelSection = React.createClass({
         handleScroll: function () {

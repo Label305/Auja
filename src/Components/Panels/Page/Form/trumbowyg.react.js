@@ -8,7 +8,7 @@
  *
  * @jsx React.DOM
  */
-define(['build/Components/Panels/Page/Form/label.react', 'trumbowyg'], function(Label) {
+define(['react', 'build/Components/Panels/Page/Form/label.react', 'trumbowyg'], function(React, Label) {
     return React.createClass({
         componentDidMount: function() {
             var btnsGrps = {

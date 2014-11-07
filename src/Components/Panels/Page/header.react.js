@@ -6,7 +6,7 @@
  * @jsx React.DOM
  */
 
-define(['build/Components/Panels/Page/button.react'], function (Button) {
+define(['react', 'build/Components/Panels/Page/button.react'], function (React, Button) {
     return React.createClass({
         render: function () {
             var buttons = this.props.item.getButtons().map(function (button) {
@@ -16,7 +16,7 @@ define(['build/Components/Panels/Page/button.react'], function (Button) {
             }.bind(this));
 
             return (
-                <h2>{this.props.item.text} {buttons}</h2>
+                <h2>{this.props.item.text}{buttons}</h2>
             );
         }
     });
