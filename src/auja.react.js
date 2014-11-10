@@ -27,7 +27,8 @@ require.config({
         jstree: 'bower_components/jstree/dist/jstree.min',
         sugar: 'bower_components/sugar/release/sugar.min',
         request: 'build/Requests/request',
-        flux: 'build/Stores/flux'
+        flux: 'build/Stores/flux',
+        jquerytimepicker: 'bower_components/jquery-timepicker-jt/jquery.timepicker.min'
     },
 
     /**
@@ -35,6 +36,9 @@ require.config({
      */
     shim: {
         trumbowyg: {
+            deps: ['jquery']
+        },
+        jquerytimepicker: {
             deps: ['jquery']
         }
     }

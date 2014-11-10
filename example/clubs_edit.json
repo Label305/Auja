@@ -79,6 +79,14 @@
                             "value": "11"
                         }                       
                     },
+                                        {
+                        "type": "time",
+                        "time": {
+                            "name": "time",
+                            "label": "Start tijd",
+                            "value": "11"
+                        }                       
+                    },
                     {
                         "type": "checkbox",
                         "checkbox": {
