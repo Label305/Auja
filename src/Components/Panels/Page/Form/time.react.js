@@ -7,13 +7,12 @@
  *
  * @jsx React.DOM
  */
-define(['react', 'build/Components/Panels/Page/Form/label.react', 'jquerytimepicker'], function (React, Label) {
+define(['react', 'build/Components/Panels/Page/Form/label.react', 'clockpicker'], function (React, Label) {
     return React.createClass({
         componentDidMount: function() {
-              $(this.refs.time.getDOMNode()).timepicker({
-                disableTouchKeyboard: true,
-                timeFormat: 'H:i'
-            });
+              $(this.refs.time.getDOMNode()).clockpicker({
+                autoclose: true
+              });
         },
         getInitialState: function () {
             return {value: this.props.item.getValue()};
@@ -26,8 +25,6 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'jquerytimepic
             attributes.value = this.state.value;
             attributes.onChange = this.handleChange;
             attributes.ref = 'time';
-
-
             return (
                 <div>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />
