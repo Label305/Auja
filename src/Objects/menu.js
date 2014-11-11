@@ -58,11 +58,16 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
 
                 var result = MenuItemFactory.createItem(item);
 
+                //When unable to create menu item just return the invalid version
+                if(!result) return result;
+                
                 //Arrange a panel id or transfer the passed id
                 result.setId(this.getNextId(item));
 
                 return result;
-            }.bind(this));
+            }.bind(this)).filter(function(item) {
+                return item !== false;
+            });
         };
 
         /**

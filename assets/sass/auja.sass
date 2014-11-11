@@ -1,12 +1,11 @@
+@import reset
 @import includes
-@import trumbowyg
 
-// ------ 
-// Fonts imported from Google Fonts, when offline use is required, download zip from the import page
-// ------
+// ------ Fonts ------
 
 @import url('https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,700')
 
+<<<<<<< HEAD
 // ------
 // CSS reset, including force setting of font-family
 //
@@ -55,11 +54,14 @@ table
     border-collapse: collapse
     border-spacing: 0
 
+=======
+>>>>>>> dev
 // ------ Scaffolding ------
 body
     background: $body-color
     color: $font-color
     overflow-y: hidden
+    font-family: 'Open Sans', Helvetica, Arial, serif
     h1
         float: left
         height: 40px
@@ -133,39 +135,122 @@ h2
             transition: opacity 0.5s
 
 // ------ Message ------
+// Keyframes rotate left and scale animation
+@-Webkit-Keyframes rotateLeftScale
+    from
+        -webkit-transform: rotate(180deg) scale(0)
+    to
+        -webkit-transform: rotate(135deg) scale(1)
+@-ms-Keyframes rotateLeftScale
+    from
+        -webkit-transform: rotate(180deg) scale(0)
+    to
+        -webkit-transform: rotate(135deg) scale(1)
+@Keyframes rotateLeftScale
+    from
+        transform: rotate(180deg) scale(0)
+    to
+        transform: rotate(135deg) scale(1)
+// Keyframes rotate left and scale animation
+@-Webkit-Keyframes rotateRightScale
+    from
+        -webkit-transform: rotate(-180deg) scale(0)
+    to
+        -webkit-transform: rotate(-135deg) scale(1)
+@-ms-Keyframes rotateRightScale
+    from
+        -webkit-transform: rotate(-180deg) scale(0)
+    to
+        -webkit-transform: rotate(-135deg) scale(1)
+@Keyframes rotateRightScale
+    from
+        transform: rotate(-180deg) scale(0)
+    to
+        transform: rotate(-135deg) scale(1)
+// Keyframes rotate left and scale classes
+.rotate-left-scale
+    -webkit-animation-name: rotateLeftScale
+    -moz-animation-name: rotateLeftScale
+    -o-animation-name: rotateLeftScale
+    animation-name: rotateLeftScale
+
+.rotate-right-scale
+    -webkit-animation-name: rotateRightScale
+    -moz-animation-name: rotateRightScale
+    -o-animation-name: rotateRightScale
+    animation-name: rotateRightScale
 .message
     position: fixed
     z-index: 1001
-    top: calc(50% - 80px)
     right: 0
     left: 0
-    width: 550px
-    min-height: 120px
     margin: 0 auto
     padding: 20px
     color: white
-    animation-duration: 0.25s !important
-    -ms-animation-duration: 0.25s !important
-    -moz-animation-duration: 0.25s !important
-    -webkit-animation-duration: 0.25s !important
-    &:before 
-        content: ''
-        position: fixed
-        top: 0
-        left: 0
-        height: 100%
-        width: 100%
-        opacity: 0
-    &:after 
-        content: ''
+    &.animated
+        animation-duration: 0.25s !important
+        -moz-animation-duration: 0.25s !important
+        -webkit-animation-duration: 0.25s !important
+    &.message-success
         position: absolute
-        right: 15px
-        top: 15px
-        width: 15px
-        height: 15px
-        background-image: url('../img/close.svg')
-        background-size: 15px
-        cursor: pointer  
+        width: 300px
+        height: 300px
+        top: calc(50% - 150px)
+        .check-left,
+        .check-right
+            width: 30px
+            display: block
+            position: absolute
+            left: calc(50% - 15px)
+            transform-origin: 15px 15px
+            -ms-transform-origin: 15px 15px
+            -webkit-transform-origin: 15px 15px
+            border-top-right-radius: 15px
+            border-top-left-radius: 15px
+            -moz-border-radius-topright: 15px
+            -moz-border-radius-topleft: 15px
+            -webkit-border-top-right-radius: 15px
+            -webkit-border-top-left-radius: 15px
+            &.animated
+                animation-iteration-count: 1
+                animation-direction: normal
+                animation-delay: 0
+                animation-play-state: running
+                -webkit-animation-fill-mode: both
+                -moz-animation-fill-mode: both
+                -o-animation-fill-mode: both
+                animation-fill-mode: both
+                animation-duration: 0.4s !important
+                -moz-animation-duration: 0.4s !important
+                -webkit-animation-duration: 0.4s !important
+        .check-left
+            height: 100px
+            bottom: 75px
+        .check-right
+            height: 225px
+            bottom: -50px
+    &.message-info
+        top: calc(50% - 80px)
+        width: 550px
+        min-height: 120px
+        &:before 
+            content: ''
+            position: fixed
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            opacity: 0
+        &:after 
+            content: ''
+            position: absolute
+            right: 15px
+            top: 15px
+            width: 15px
+            height: 15px
+            background-image: url('../img/close.svg')
+            background-size: 15px
+            cursor: pointer  
 
 // ------ Header ------
 header
@@ -195,7 +280,6 @@ header
             color: white
             height: 20px
             padding: 10px 20px
-            margin-right: 10px
             font-size: 15px
             line-height: 20px
             margin: 0
@@ -329,6 +413,11 @@ ul#main-menu
                     &:after,
                     &before
                         color: inherit
+                span
+                    white-space: nowrap
+                    width: calc(100% - 30px)
+                    display: inline-block
+                    overflow: hidden
             .menu-item-spacer 
                 min-height: 15px
                 padding: 23px 0 5px 30px
@@ -345,30 +434,26 @@ ul#main-menu
             input[type="text"]
                 width: 100%
                 display: inline-block
-                height: 40px
+                height: 20px
                 background-color: $input-color
                 margin-left: -30px
-                padding: 0 15px
+                padding: 10px 15px
                 border: 0
                 border-bottom: 2px solid $input-border-color
                 font-size: 14px
                 &:focus
                     outline: none
                     border: none
-                    border-bottom: 2px solid $auja-main-color
+                    border-bottom: 2px solid
                     transition: 0.25s
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
-
-
-
-
 // ------ Page ------
 #panels 
     .panel-page
         & > div 
-            width: 600px
+            width: 550px
             & > div 
                 margin: 30px
     .row 
@@ -377,7 +462,14 @@ ul#main-menu
         display: inline-block    
  
 // ------ Form ------
-form 
+input,
+select,
+textarea
+    border-radius: 0 !important
+    -ms-border-radius: 0 !important
+    -moz-border-radius: 0 !important
+    -webkit-border-radius: 0 !important
+form
     .row
         &.form-item 
             margin: 30px 0 0 0
@@ -410,12 +502,15 @@ form
                 line-height: 20px
                 font-family: 'Open Sans', Helvetica, Arial,serif
                 &:focus
-                    border-bottom: 2px solid $auja-main-color !important
+                    border-bottom: 2px solid
                     outline: none
                     transition: 0.25s
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
+            textarea,
+            textarea:focus
+                border-bottom: 0
             select
                 width: 100%
                 height: 40px
@@ -437,7 +532,7 @@ form
                 -webkit-padding-start: 10px
                 -moz-padding-start: 5px
                 &:focus
-                    border-bottom: 2px solid $auja-main-color !important
+                    border-bottom: 2px solid
                     outline: none
                     transition: 0.25s
                     -ms-transition: 0.25s
@@ -501,7 +596,7 @@ form
                     height: 16px
                     width: 16px
                     border-radius: 50%
-                    background: $auja-main-color
+                    background: $dark-gray-color
                     margin-top: -4px
                 &:focus
                     outline: none
@@ -521,7 +616,7 @@ form
                     height: 16px
                     width: 16px
                     border-radius: 50%
-                    background: $auja-main-color
+                    background: $dark-gray-color
                 &::-ms-track
                     height: 16px
                     background: $input-color
@@ -537,7 +632,7 @@ form
                     height: 16px
                     width: 16px
                     border-radius: 50%
-                    background: $auja-main-color
+                    background: $dark-gray-color
                 &:focus
                     &::-ms-track
                         background: $input-border-color
@@ -553,7 +648,46 @@ form
             li
                 min-height: 34px
 
-@media screen and (max-width: 640px)
+@media (max-width: 1280px)
+    #panels
+        .panel-menu > div
+            width: 260px
+            ul
+                margin-left: 20px
+                .menu-item-link
+                    padding-top: 10px
+                    padding-bottom: 9px
+                    &.active
+                        padding-bottom: 8px !important
+                    &:before
+                        top: 10px
+                    &:after
+                        width: 20px !important
+                        top: 10px
+                    &.menu-item-resource
+                        input
+                            margin-left: -20px
+            input
+                margin-left: -20px !important
+                padding-left: 10px !important
+                padding-right: 10px !important
+        .panel-page > div
+            width: 450px
+            & > div
+                margin: 20px
+        .row
+            &.form-item
+                margin-top: 15px
+    .message
+        width: 400px !important
+    input
+        padding-top: 5px !important
+        padding-bottom: 5px !important
+        &.button
+            padding-top: 10px !important
+            padding-bottom: 10px !important
+
+        @media screen and (max-width: 640px)
 
     body
         width: 100%
@@ -574,3 +708,5 @@ form
         .panel
             & > div
                 width: 100% !important
+@import trumbowyg
+@import jstree

@@ -4,13 +4,15 @@
 var MenuItemObjects = {
     'link': 'build/Objects/Menu/link',
     'spacer': 'build/Objects/Menu/spacer',
-    'resource': 'build/Objects/Menu/resource'
+    'resource': 'build/Objects/Menu/resource',
+    'sortable_item': 'build/Objects/Menu/sortable_item'
 };
 
 define([
     'build/Objects/Menu/link',
     'build/Objects/Menu/spacer',
-    'build/Objects/Menu/resource'
+    'build/Objects/Menu/resource',
+    'build/Objects/Menu/sortable_item'
 ], function() {
 
     return new function() {
