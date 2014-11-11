@@ -28,6 +28,16 @@
         "title": "Pages",
         "icon": "ion-cube",
         "target": "example/pages_menu.json"
+      },
+      {
+        "title": "Pages",
+        "icon": "ion-cube",
+        "target": "example/pages_m.json"
+      },
+      {
+        "title": "Pages",
+        "icon": "ion-cube",
+        "target": "example/qwef.json"
       }
     ],
     "routes": [
