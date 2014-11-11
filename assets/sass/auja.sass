@@ -552,3 +552,25 @@ form
         ul 
             li
                 min-height: 34px
+
+@media screen and (max-width: 640px)
+
+    body
+        width: 100%
+        display: block
+    #main-menu
+        width: 100%
+        position: fixed !important
+        top: 70px !important
+        left: 30px !important
+        height: 60px !important
+        display: block
+        li
+            margin: 0 15px 0 0 !important
+            display: inline-block
+            float: left
+    #panels
+        top: 130px !important
+        .panel
+            & > div
+                width: 100% !important

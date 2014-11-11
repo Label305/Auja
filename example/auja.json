@@ -23,6 +23,11 @@
                 "title": "Clubs",
                 "icon": "planet",
                 "target": "example/clubs/menu"
+            },
+            {
+              "title": "Clubs",
+              "icon": "planet",
+              "target": "example/clubs/menu"
             }
         ],
         "routes": [
