@@ -24,7 +24,10 @@ define(['react'], function (React) {
             }
             return (
                 <header>
-                    <h1>{this.props.auja.title}</h1>
+                <a href="#" className="menu-trigger">
+                    <span></span>
+                </a>
+                <h1>{this.props.auja.title}</h1>
                     <div id="buttons">{buttons}</div>
                     {user}
                 </header>

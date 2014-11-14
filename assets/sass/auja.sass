@@ -228,6 +228,8 @@ header
     left: 0
     top: 0
     height: 70px
+    .menu-trigger
+        display: none
     #user 
         float: right
         margin-top: 15px
@@ -658,6 +660,13 @@ form
             padding-bottom: 10px !important
 
 @media screen and (max-width: 640px)
+
+    .menu-trigger
+        display: block !important
+        span:before,
+        span:after
+            content: ''
+
     body
         width: 100%
         display: block
@@ -757,3 +766,4 @@ form
 
 @import trumbowyg
 @import jstree
+@import hamburger
