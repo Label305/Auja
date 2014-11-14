@@ -16,6 +16,7 @@
     .trumbowyg-button-pane
         background-color: $input-border-color
         border: 0 !important
+        float: left
         .trumbowyg-separator
             background-color: #cccccc
         button
@@ -52,21 +53,24 @@
                 -moz-transition: 0.25s
                 -webkit-transition: 0.25s
     .trumbowyg-overlay
-        background-color: rgba(0,0,0,0.1)
+        background-color: transparent
+        float: left
+        display: none !important
     .trumbowyg-modal
         width: calc(100% - 40px)
         left: 20px
         margin: 0
+        box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
+        -ms-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
+        -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
+        -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
         .trumbowyg-modal-box
-            width: calc(100% - 40px)
-            padding: 0 20px
+            width: 100%
+            height: 100%
+            padding: 0
             left: 0
             margin: 0
             display: block
-            -webkit-box-shadow: rgba(0,0,0,0.05) 0 1px 1px
-            -moz-box-shadow: rgba(0,0,0,0.05) 0 1px 1px
-            -ms-box-shadow: rgba(0,0,0,0.05) 0 1px 1px
-            box-shadow: rgba(0,0,0,0.05) 0px 1px 1px
             span
                 font-size: 14px
                 font-weight: 400
@@ -75,6 +79,8 @@
                 border-bottom: 1px solid $input-border-color
                 margin: 0 0 20px 0
             form
+                margin: 0 20px
+                width: calc(100% - 40px)
                 label
                     margin: 0 0 5px 0
                     height: 42px
