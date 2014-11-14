@@ -41,7 +41,7 @@ require.config({
             deps: ['jquery']
         },
         pikadayjq: {
-            deps: ['jquery', 'pikaday']
+            deps: ['jquery', 'moment', 'pikaday']
         }
     }
 });

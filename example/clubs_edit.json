@@ -43,7 +43,8 @@
                         "date": {
                             "name": "foundingdate",
                             "label": "Founded on",
-                            "value": "1982-08-17"
+                            "value": "1982-08-17",
+                            "format": "YYYY-MM-DD"
                         }                        
                     },
                     {
