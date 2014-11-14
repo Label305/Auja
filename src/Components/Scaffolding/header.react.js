@@ -24,14 +24,15 @@ define(['react'], function (React) {
             }
             return (
                 <header>
-                <a href="#" className="menu-trigger">
-                    <span></span>
-                </a>
+                <div className="menu-back ion-chevron-left"></div>
                 <h1>{this.props.auja.title}</h1>
                     <div id="buttons">{buttons}</div>
                     {user}
+                <div className="menu-trigger">
+                    <span></span>
+                </div>
                 </header>
-                );
+            );
 
         }
     });
