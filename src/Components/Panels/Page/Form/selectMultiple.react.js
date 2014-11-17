@@ -6,7 +6,7 @@
  * - .. any other allowed by input
  * @jsx React.DOM
  */
- define(['build/Components/Panels/Page/Form/label.react'], function(Label) {
+ define(['react', 'build/Components/Panels/Page/Form/label.react'], function(React, Label) {
     return React.createClass({
 
         getInitialState: function() {
@@ -15,9 +15,9 @@
         },
         handleClick: function(event) {
             var selected = this.state.value.indexOf(event.target.value);
-            selected != -1 ? this.state.value.splice(selected ,1) :this.state.value.push(event.target.value)
-        
-            this.setState({value: this.state.value});
+            selected != -1 ? this.state.value.splice(selected ,1) : this.state.value.push(event.target.value);
+            
+            return this.setState({value: this.state.value});
         },
         render: function () {
             var attributes = this.props.item.getAttributes();
@@ -26,9 +26,9 @@
             return (React.DOM.option(option, option.label)
                 );
             });
-            attributes.value = this.state.value;
-            //We want to be able to deselect all options
+            //We want to be able to deselect all options, onChange does not allow this
             attributes.onClick = this.handleClick;
+            attributes.value = this.state.value;
             attributes.multiple = true;
                        
             return (

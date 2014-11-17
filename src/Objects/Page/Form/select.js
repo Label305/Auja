@@ -14,7 +14,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * @type {array|null}
          * @private
          */
-        this._options = data.options || null;
+        this._options = data.options || [];
 
         
 
