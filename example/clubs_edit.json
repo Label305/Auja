@@ -99,7 +99,7 @@
                             "options": [{
                                 "type": "option",
                                 "label": "Nederland",
-                                "value": "NL-nl"
+                                "value": "NL-nl"                                
                                 },
                                 {
                                 "type": "option",
@@ -110,6 +110,65 @@
                                 "type": "option",
                                 "label": "Luilekkerland",
                                 "value": "LL-ll"
+                            }]
+                            }                        
+                    },
+                    {
+                        "type": "multipleDropdowns",
+                        "multipleDropdowns": {
+                            "name": "country",
+                            "label": "Country to fly to",
+                            "value": "DE-de",
+                            "options": [{
+                                "type": "option",
+                                "label": "Nederland",
+                                "value": "NL-nl",
+                                "options": [{
+                                    "type": "option",
+                                    "name": "Amsterdam",
+                                    "label": "City",
+                                    "value": "AMS"
+                                    },
+                                    {
+                                    "type": "option",
+                                    "name": "Rotterdam",
+                                    "label": "City",
+                                    "value": "RTM"
+                                    }]
+                                },
+                                {
+                                "type": "option",
+                                "label": "Duitsland",
+                                "value": "DE-de",
+                                "options": [{
+                                    "type": "option",
+                                    "name": "Berlin",
+                                    "label": "City",
+                                    "value": "TXL"
+                                    },
+                                    {
+                                    "type": "option",
+                                    "name": "Dusseldorf-Weeze",
+                                    "label": "City",
+                                    "value": "NRN"
+                                    }]
+                                },
+                                {
+                                "type": "option",
+                                "label": "Luilekkerland",
+                                "value": "LL-ll",
+                                "options": [{
+                                    "type": "option",
+                                    "name": "Honey Town",
+                                    "label": "City",
+                                    "value": "HTN"
+                                    },
+                                    {
+                                    "type": "option",
+                                    "name": "Sugar Ville",
+                                    "label": "City",
+                                    "value": "SVA"
+                                    }]
                             }]
                             }                        
                     },
