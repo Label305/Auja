@@ -7,13 +7,13 @@
  *
  * @jsx React.DOM
  */
-define(['react', 'build/Components/Panels/Page/Form/label.react', 'minicolors'], function (React, Label) {
+ define(['react', 'build/Components/Panels/Page/Form/label.react', 'minicolors'], function (React, Label) {
     return React.createClass({
         componentDidMount: function() {
-$(this.refs.color.getDOMNode()).minicolors({
-autoclose: true
-});
-},
+            $(this.refs.color.getDOMNode()).minicolors({
+                changeDelay: 200
+            });
+        },
         getInitialState: function () {
             return {value: this.props.item.getValue()};
         },
@@ -29,10 +29,10 @@ autoclose: true
             
             return (
                 <div>
-                    <Label item={this.props.item} name={this.props.item.getLabel()} />
+                <Label item={this.props.item} name={this.props.item.getLabel()} />
                 {React.DOM.input(attributes)}
                 </div>
-            );
+                );
         }
     });
 });
