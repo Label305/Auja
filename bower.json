@@ -1,8 +1,9 @@
 {
-  "name": "Auja",
-  "version": "3.0.0",
+  "name": "auja",
   "authors": [
-    "Joris Blaak <joris@label305.com>"
+    "Joris Blaak <joris@label305.com>",
+    "Olav Peuscher <olav@label305.com>",
+    "Alexander van Brakel <alexander@label305.com>"
   ],
   "main": "build/auja.react.js",
   "license": "MIT",
@@ -23,6 +24,7 @@
     "sugar": "~1.4.1",
     "Ionicons": "driftyco/ionicons#v1.5.2",
     "trumbowyg": "~1.1.2",
-    "animate.css": "~3.2.0"
+    "animate.css": "~3.2.0",
+    "jstree": "~3.0.8"
   }
 }

@@ -4,7 +4,7 @@
  * @jsx React.DOM
  * @todo new name!
  */
-define([], function() {
+define(['react'], function(React) {
     
     var Item = React.createClass({
         handleClick: function() {
@@ -14,7 +14,7 @@ define([], function() {
             var className = "auja-bg-main";
             
             if(this.props.item.icon) {
-                className += " icon ion-" + this.props.item.icon;
+                className += " icon " + this.props.item.icon;
             }
             
             return (

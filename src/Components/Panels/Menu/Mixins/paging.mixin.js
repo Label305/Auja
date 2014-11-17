@@ -6,16 +6,16 @@
  *
  * @jsx React.DOM
  */
-define([], function () {
+define(['react'], function(React) {
 
     return {
         pagingThreshHold: 300,
         componentDidMount: function() {
-            flux.actions.extendResource(this.props.panel, this.props.item);
+            flux.actions.extendResource(this.props.panel, this.props.item, this.props.item.getTarget());
         },
         componentDidUpdate: function () {
-            if (this.props.item.getPaging().next && this.needsExtending()) {
-                flux.actions.extendResource(this.props.panel, this.props.item);
+            if (this.props.item.getPaging() && this.props.item.getPaging().next && this.needsExtending()) {
+                flux.actions.extendResource(this.props.panel, this.props.item, this.props.item.getPaging().next);
             }
         },
         needsExtending: function () {

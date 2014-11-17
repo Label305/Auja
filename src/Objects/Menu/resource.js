@@ -1,4 +1,4 @@
-define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
+define(['build/Objects/Abstract/menu_item', 'build/Factories/resource_property_factory'], function (MenuItem, ResourceItemPropertyFactory) {
 
     var Resource = function (data) {
 
@@ -27,6 +27,12 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
          * @type {{}}
          */
         this.paging = {};
+
+        /**
+         * Special properties of a resource
+         * @type {*|{}}
+         */
+        this.properties = data.properties ? ResourceItemPropertyFactory.createProperties(data.properties) : [];
 
         /**
          * Getter for the id
@@ -59,6 +65,37 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
          */
         this.getPaging = function () {
             return this.paging;
+        };
+
+        /**
+         * Get the properties active on this resource
+         * @returns {*|{}}
+         */
+        this.getProperties = function() {
+            return this.properties;  
+        };
+
+        /**
+         * Check if certain named property is present
+         * @param name
+         * @return boolean
+         */
+        this.hasProperty = function(name) {
+            return this.getProperty(name) !== false;
+        };
+
+        /**
+         * Get the property
+         * @param name
+         * @return Property
+         */
+        this.getProperty = function(name) {
+            for(var i in this.properties) {
+                if(this.properties[i].getName() == name) {
+                    return this.properties[i];
+                }
+            }
+            return false;
         };
 
         /**
@@ -105,10 +142,14 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
                 this.items = data.items.map(function (item) {
                     return MenuItemFactory.createItem(item);
                 }.bind(this));
-            } else if (!this.paging.total) {
-                //When no total paging is defined reset and let the paging commence all over again
+            } else if (!this.paging || !this.paging.total) {
                 this.items = [];
-            } else {
+                
+                //Just load the original resource again
+                setTimeout(function () {
+                    flux.actions.updateResource(this, this.getTarget());
+                }.bind(this), 1);
+            } else if(this.paging.total) {
                 //When we have a clue what to call to update this resource do that
                 //setTimeout is to handle the "async" behavior of dispatching
                 setTimeout(function () {

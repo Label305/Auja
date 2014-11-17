@@ -12,6 +12,7 @@ var FormItems = {
     'textarea': 'build/Components/Panels/Page/Form/textarea.react',
     'trumbowyg': 'build/Components/Panels/Page/Form/trumbowyg.react',
     'number': 'build/Components/Panels/Page/Form/number.react',
+    'integer': 'build/Components/Panels/Page/Form/integer.react',
     'url': 'build/Components/Panels/Page/Form/url.react',
     'tel': 'build/Components/Panels/Page/Form/tel.react',
     'checkbox': 'build/Components/Panels/Page/Form/checkbox.react',
@@ -24,12 +25,14 @@ var FormItems = {
 };
 
 define([
+    'react',
     'build/Components/Panels/Page/header.react',
     'build/Components/Panels/Page/Form/text.react',
     'build/Components/Panels/Page/Form/password.react',
     'build/Components/Panels/Page/Form/textarea.react',
     'build/Components/Panels/Page/Form/trumbowyg.react',
     'build/Components/Panels/Page/Form/number.react',
+    'build/Components/Panels/Page/Form/integer.react',
     'build/Components/Panels/Page/Form/url.react',
     'build/Components/Panels/Page/Form/tel.react',
     'build/Components/Panels/Page/Form/checkbox.react',
@@ -39,7 +42,7 @@ define([
     'build/Components/Panels/Page/Form/date.react',
     'build/Components/Panels/Page/Form/range.react',
     'build/Components/Panels/Page/Form/submit.react'
-], function () {
+], function (React) {
     return React.createClass({
 
         /**
@@ -89,7 +92,7 @@ define([
         },
 
         render: function () {
-
+            
             var items = this.props.item.getItems().map(function (item) {
                                 
                 if (!FormItems[item.getType()]) {
@@ -102,7 +105,7 @@ define([
 
                 //Extract the validation message from the item
                 item.validationMessage = null;
-                if (item.getName() && this.props.message.validation && this.props.message.validation[item.getName()]) {
+                if (item.getName() && this.props.message && this.props.message.validation && this.props.message.validation[item.getName()]) {
                     item.validationMessage = this.props.message.validation[item.getName()];
                 }
 
