@@ -16,6 +16,11 @@ h1{
     height:40px;
     line-height: 40px;
 }
+    h1 a,
+    h1 a:hover{
+        color: #1ebab8;
+        text-decoration: none;
+    }
 h2{
     font-size: 30px;
     line-height: 30px;
@@ -91,7 +96,7 @@ header{
         height: 20px;
         position: absolute;
         right: 30px;
-        top: 30px;
+        top: 32px;
         background-image: url("../images/svg/the-logo.svg");
         background-size: 135px;
         background-position: 0 0;
@@ -121,7 +126,7 @@ header{
     }
         header.minified .label-logo,
         header.docs .label-logo{
-            top: 20px;
+            top: 22px;
             -webkit-transition: 0.25s;
             -moz-transition: 0.25s;
             -o-transition: 0.25s;
@@ -381,5 +386,7 @@ section.docs{
             display: inline-block;
             width: 100%;
             float: left
-
         }
+footer{
+
+}

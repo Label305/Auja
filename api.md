@@ -1,5 +1,5 @@
 ---
-layout: empty
+layout: docs
 title: "Auja - API"
 ---
 
