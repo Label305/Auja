@@ -1,24 +1,31 @@
 ---
-layout: empty
+layout: home
 title: "Auja"
 ---
 
-<div class="blog-item bg-white">
-	<div class="avatar intro"></div>
-	<div class="timeline"></div>
-	<h2 class="text-blue uppercase">Introduction to Auja</h2>
-	<span class="categories">Just a little about our interface</span>
-	{% capture intro %}{% include introduction/intro.md %}{% endcapture %}
-	{{ intro | markdownify }}
-	<div class="devider-line"></div>
+<h2 class="no-line"> An Open source Javascript interface for different frameworks.</h2>
+
+### Auja is a Facebook React based Javascript interface meant to be used together with a back-end implementation for your preferred framework, whatever server side language you use.
+
+<div class="row">
+    <div class="col-xs-12 col-md-4">
+        <h4>Item 1</h4>
+        <p>text text.</p>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <h4>Item 2</h4>
+        <p>text text.</p>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <h4>Item 3</h4>
+        <p>text text.</p>
+    </div>
 </div>
 
-<div class="blog-item bg-white">
-	<div class="avatar install"></div>
-	<div class="timeline"></div>
-	<h2 class="text-blue uppercase">Installation</h2>
-	<span class="categories">Install Auja and take a peek</span>
-	{% capture installation %}{% include introduction/installation.md %}{% endcapture %}
-	{{ installation | markdownify }}
-	<div class="devider-line"></div>
+### Auja is open source. It is developed and maintained with love on GitHub.
+
+<div class="align-center">
+    <a href="https://github.com/Label305/Auja" class="button black">View Auja on GitHub</a>
 </div>
+
+## Bladiebla

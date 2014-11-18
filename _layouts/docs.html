@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<!--
+ _            _          _ ____   ___  _____
+| |          | |        | |___ \ / _ \| ____|
+| |      __ _| |__   ___| | __) | |_| | |__
+| |     / _` | '_ \ / _ \ ||__ <|     |___ \
+| |____| (_| | |_) |  __/ |___) |     |___) |
+|______|\__,_|_.__/ \___|_|____/ \___/|____/
+
+-->
+<head>
+    <title>{{ site.name }}</title>
+    <meta name="description" content="{{ page.description }}" />
+    <meta name="keywords" content="Label, Label305, Label 305, Internetbureau, Enschede, Twente, Interactiebureau, Internet, Website, App, Webdesign, Ontwerp, Ontwikkeling, Software" />
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- All favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="icons/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="icons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="icons/mstile-144x144.png">
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/ie.css" />
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font.css" />
+    <link rel="stylesheet" type="text/css" href="css/retina.css" />
+    <link rel="stylesheet" type="text/css" href="css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+
+
+<html>
+<body>
+{% assign current = page.url | downcase | split: '/' %}
+<header class="docs">
+    <h1>Auja</h1>
+
+    <nav id="nav-menu">
+        <ul id="nav-menu-list">
+            <li class="nav-menu-item {% if current[1] == 'index' %}current{% endif %}"><a href="index.html">Introduction</a></li>
+            <li class="nav-menu-item {% if current[1] == 'api' %}current{% endif %}"><a href="api.html">API</a></li>
+            <li class="nav-menu-item {% if current[1] == 'developing' %}current{% endif %}"><a href="developing.html">Developing</a></li>
+        </ul>
+    </nav>
+
+    <a class="label-logo" href="http://www.label305.com"></a>
+
+</header>
+
+<main class="wrapper pos-rel docs-introduction">
+    <div class="container">
+        <div class="row">
+            <h2 class="no-line">{{ page.title }}</h2>
+        </div>
+    </div>
+</main>
+
+<!-- Page -->
+<section class="docs pos-rel">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3 docs-menu">
+
+            </div>
+            <div class="col-xs-9 docs-content pull-right">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- Page end -->
+<!--FOOTER -->
+<footer class="wrapper bg-gray">
+    <div class="container">
+
+        <div id="copyright" class="wrapper">&copy; 2014 <a href="http://label305.com">Label305 B.V.</a><br />Auja is released under the Apache License Version 2.0</div>
+    </div>
+</footer>
+</body>
+</html>
