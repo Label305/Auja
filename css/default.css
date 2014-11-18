@@ -35,7 +35,7 @@ p.leading{
     font-size: 18px;
     line-height: 30px;
     color: #555555;
-    margin: 15px 0;
+    margin: 0 0 15px 0;
 }
 h4{
     text-align: left;
@@ -43,6 +43,18 @@ h4{
     line-height: 30px;
     margin: 0 0 15px 0;
 }
+a{
+    color: #353535;
+    text-decoration: underline;
+}
+    a:hover{
+        color: #1ebab8;
+        text-decoration: underline;
+        -webkit-transition: 0.25s;
+        -moz-transition: 0.25s;
+        -o-transition: 0.25s;
+        transition: 0.25s;
+    }
 p{
     font-size: 16px;
     line-height: 30px;
