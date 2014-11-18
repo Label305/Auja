@@ -19,46 +19,27 @@ h1{
 h2{
     font-size: 30px;
     line-height: 30px;
-    text-align: center;
+    text-align: left;
     color: #353535;
     margin: 0;
 }
-    h2:before{
-        content: '';
-        width: 100%;
-        height: 1px;
-        display: block;
-        background-color: #dadada;
-        margin: 90px auto;
-    }
-    h2.no-line:before{
-        display: none;
-    }
 h3,
 p.leading{
-    text-align: center;
+    text-align: left;
     font-size: 18px;
     line-height: 30px;
     color: #555555;
     margin: 15px 0;
 }
-    h3:after{
-        content: '';
-        width: 60px;
-        height: 2px;
-        display: block;
-        background-color: #ed3338;
-        margin: 45px auto;
-
-    }
 h4{
-    text-align: center;
+    text-align: left;
     font-size: 22px;
     line-height: 30px;
     margin: 0 0 15px 0;
 }
 p{
-
+    font-size: 16px;
+    line-height: 30px;
 }
 p > span{
     font-weight: 700;
@@ -258,18 +239,42 @@ section.content{
         .content main.introduction .button{
             margin: 30px 15px;
         }
-    .content section.first-home-item{
+    .content section.home{
         margin-top: -90px;
     }
-        .content section.first-home-item > .container{
+        .content section.home h2,
+        .content section.home h3,
+        .content section.home h4{
+            text-align: center;
+        }
+        .content section.home > .container{
             background-color: white;
             padding: 90px 0;
         }
-    .content h3{
-        display: block;
-        width: 80%;
-        margin-left: 10%;
-    }
+        .content section.home h2:before{
+            content: '';
+            width: 100%;
+            height: 1px;
+            display: block;
+            background-color: #dadada;
+            margin: 90px auto;
+        }
+        .content section.home h2.no-line:before{
+            display: none;
+        }
+        .content section.home h3{
+            display: block;
+            width: 80%;
+            margin-left: 10%;
+        }
+        .content section.home h3:after{
+            content: '';
+            width: 60px;
+            height: 2px;
+            display: block;
+            background-color: #ed3338;
+            margin: 45px auto;
+        }
 main.docs-introduction{
     padding-top: 60px;
     background-color: #1ebab8;
@@ -296,14 +301,24 @@ main.docs-introduction{
 section.docs{
 
 }
+    section.docs h2:after{
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: #dadada;
+        display: block;
+        float: left;
+        margin: 15px 0;
+    }
+    section.docs h3{
+        font-weight: 700;
+    }
     section.docs .container{
         width: 100% !important;
     }
-    section.docs .container div div{
-        padding: 60px;
-    }
     section.docs .docs-content{
         background-color: white;
+        padding: 60px;
     }
     section.docs .docs-menu{
         background: #fafafa;
@@ -311,8 +326,24 @@ section.docs{
         left: 0;
         top: 0px;
         height: 100%;
+        padding: 30px 0 30px 30px;
     }
         section.docs .docs-menu.fixed{
             position: fixed !important;
             top: 60px;
         }
+        section.docs .docs-menu ul{
+            list-style-type: none;
+            padding: 0;
+        }
+        section.docs .docs-menu ul li{
+            width: 100%;
+            font-size: 16px;
+            display: inline-block;
+            float: left;
+            padding: 0 0 10px 0;
+            font-weight: 400;
+        }
+            section.docs .docs-menu ul li.active{
+                border-right: 2px solid #1ebab8;
+            }

@@ -28,7 +28,7 @@ $(window).scroll(function() {
     }
 
     // Position docs menu
-    if ($(this).scrollTop() > 300) {
+    if ($(this).scrollTop() > 240) {
         $(".docs-menu").addClass("fixed");
     } else{
         $(".docs-menu").removeClass("fixed");
