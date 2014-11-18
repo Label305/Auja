@@ -22,16 +22,14 @@ $(window).scroll(function() {
     }
 
     if ($(this).scrollTop() > 40) {
-        $("header").stop().addClass('minified');
+        $("header.home").stop().addClass('minified');
     } else{
-        $("header").stop().removeClass('minified');
+        $("header.home").stop().removeClass('minified');
     }
-
-    // Position docs menu
-    if ($(this).scrollTop() > 240) {
-        $(".docs-menu").addClass("fixed");
+    if ($(this).scrollTop() > 100) {
+        $("header.docs").stop().addClass('minified');
     } else{
-        $(".docs-menu").removeClass("fixed");
+        $("header.docs").stop().removeClass('minified');
     }
 });
 

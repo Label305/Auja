@@ -57,7 +57,7 @@
 <html>
 	<body>
         {% assign current = page.url | downcase | split: '/' %}
-		<header class="{% if current[2] == 'developing' %}minified{% endif %}">
+		<header class="home{% if current[2] == 'developing' %}minified{% endif %}">
             <h1>Auja</h1>
 
             <nav id="nav-menu">

@@ -22,6 +22,7 @@ h2{
     text-align: left;
     color: #353535;
     margin: 0;
+    font-weight: 300;
 }
 h3,
 p.leading{
@@ -62,19 +63,26 @@ p.intro{
     position: relative;
 }
 header{
-    height: 80px;
-    width: calc(100% - 60px);
-    padding: 0 30px;
-    background-color: rgba(255,255,255,0.95);
-    position: fixed;
-    left: 30px;
-    top: 30px;
     z-index: 99;
     -webkit-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
     -moz-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
     -ms-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px;
+    background-color: rgba(255,255,255,0.95);
 }
+    header.home{
+        position: fixed;
+        left: 30px;
+        top: 30px;
+        height: 80px;
+        width: calc(100% - 60px);
+        padding: 0 30px;
+    }
+    header.docs {
+        position: relative;
+        float: left;
+        width: 100%;
+    }
     header h1{
         margin: 20px 0;
     }
@@ -91,10 +99,18 @@ header{
         opacity: 1;
         z-index: 999;
     }
-    header.minified,
-    header.docs{
+    header.home.minified{
         top: 0;
         left: 0;
+        position: fixed;
+    }
+    header.docs.minified{
+        top: 0;
+        left: 0;
+        position: fixed;
+    }
+    header.minified,
+    header.docs{
         height: 60px;
         width: 100%;
         -webkit-transition: 0.25s;
@@ -276,27 +292,16 @@ section.content{
             margin: 45px auto;
         }
 main.docs-introduction{
-    padding-top: 60px;
     background-color: #1ebab8;
-    height: 300px;
+    height: 120px;
 }
     main.docs-introduction .container{
-        height: 240px;
-        padding: 60px 0;
-        display: table;
-    }
-    main.docs-introduction .container div{
-        display: table-row;
-        padding: 0 30px;
-    }
-    main.docs-introduction .container div div{
-        text-align: center;
-        display: table-cell;
-        vertical-align: middle;
+        height: 120px;
     }
     main.docs-introduction h2{
         color: white;
-        margin: 30px;
+        line-height: 30px;
+        margin: 45px 0;
     }
 section.docs{
 
@@ -314,7 +319,7 @@ section.docs{
         font-weight: 700;
     }
     section.docs .container{
-        width: 100% !important;
+        margin-top: 60px;
     }
     section.docs .docs-content{
         background-color: white;
@@ -322,28 +327,59 @@ section.docs{
     }
     section.docs .docs-menu{
         background: #fafafa;
-        position: absolute;
-        left: 0;
-        top: 0px;
         height: 100%;
         padding: 30px 0 30px 30px;
+        position: absolute;
+        left: 0;
+        top: 0;
     }
         section.docs .docs-menu.fixed{
             position: fixed !important;
             top: 60px;
+            left: inherit;
         }
         section.docs .docs-menu ul{
             list-style-type: none;
             padding: 0;
+            margin: -10px 0 0 0;
         }
-        section.docs .docs-menu ul li{
+        section.docs .docs-menu li a{
+            color: #888888;
+        }
+            section.docs .docs-menu li a:hover{
+                color: #353535;
+                -webkit-transition: 0.25s;
+                -moz-transition: 0.25s;
+                -o-transition: 0.25s;
+                transition: 0.25s;
+            }
+            section.docs .docs-menu > ul > li:hover{
+                border-right: 2px solid #1ebab8;
+            }
+        section.docs .docs-menu > ul > li{
             width: 100%;
-            font-size: 16px;
+            font-size: 18px;
+            min-height: 20px;
+            line-height: 20px;
             display: inline-block;
             float: left;
-            padding: 0 0 10px 0;
+            padding: 10px 0;
             font-weight: 400;
         }
             section.docs .docs-menu ul li.active{
                 border-right: 2px solid #1ebab8;
             }
+        section.docs .docs-menu ul li ul{
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+        section.docs .docs-menu ul li ul li{
+            font-size: 14px;
+            height: 20px;
+            line-height: 20px;
+            margin-top: 5px;
+            display: inline-block;
+            width: 100%;
+            float: left
+
+        }
