@@ -56,15 +56,16 @@
 
 <html>
 	<body>
-        {% assign current = page.url | downcase | split: '/' %}
-		<header class="home{% if current[2] == 'developing' %}minified{% endif %}">
+
+		<header class="home">
             <h1><a href="/">Auja</a></h1>
 
             <nav id="nav-menu">
                 <ul id="nav-menu-list">
-                    <li class="nav-menu-item {% if current[1] == 'index' %}current{% endif %}"><a href="index.html">Introduction</a></li>
-                    <li class="nav-menu-item {% if current[1] == 'api' %}current{% endif %}"><a href="api.html">API</a></li>
-                    <li class="nav-menu-item {% if current[1] == 'developing' %}current{% endif %}"><a href="developing.html">Developing</a></li>
+                    {% assign current = page.url | downcase | split: '/' %}
+                    <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="getting_started.html">Getting started</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="documentation.html">Documentation</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'Github' %}current{% endif %}"><a href="https://github.com/Label305/Auja">Auja on Github</a></li>
                 </ul>
             </nav>
 

@@ -72,9 +72,10 @@
 
             <nav id="nav-menu">
                 <ul id="nav-menu-list">
-                    <li class="nav-menu-item {% if current[1] == 'index' %}current{% endif %}"><a href="index.html">Introduction</a></li>
-                    <li class="nav-menu-item {% if current[1] == 'api' %}current{% endif %}"><a href="api.html">API</a></li>
-                    <li class="nav-menu-item {% if current[1] == 'developing' %}current{% endif %}"><a href="developing.html">Developing</a></li>
+                    {% assign current = page.url | downcase | split: '/' %}
+                    <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="getting_started.html">Getting started</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="documentation.html">Documentation</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'Github' %}current{% endif %}"><a href="https://github.com/Label305/Auja">Auja on Github</a></li>
                 </ul>
             </nav>
 
@@ -90,14 +91,31 @@
         <div class="row">
             <div class="col-xs-3 docs-menu">
                 <ul>
-                    <li><a href="">Overview</a></li>
-                    <li><a href="">Why Auja</a></li>
-                    <li><a href="">Getting started</a></li>
-                    <li><a href="">Installation</a></li>
-                    <li><a href="">Frameworks
+                    <li><a href="">Overview</a>
                         <ul>
-                            <li><a href="">Cake PHP</a></li>
-                            <li><a href="">Laravel</a></li>
+                            <li><a href="">Why Auja</a></li>
+                            <li><a href="">Javascript core</a></li>
+                            <li><a href="">Contribute to Auja</a></li>
+                        </ul>
+                    <li><a href="">Getting started</a>
+                        <ul>
+                            <li><a href="">Installation</a></li>
+                            <li><a href="">Data inputs</a></li>
+                            <li><a href="">Json contracts</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Documentation</a>
+                        <ul>
+                            <li><a href="">Javascript</a></li>
+                            <li><a href="">Css/Sass</a></li>
+                            <li><a href="">Karma</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Supported frameworks
+                        <ul>
+                            <li><a href="">Auja Cake PHP</a></li>
+                            <li><a href="">Auja Laravel</a></li>
+                            <li><a href="">Your implementation</a></li>
                         </ul>
                     </li>
 
