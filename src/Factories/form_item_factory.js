@@ -14,7 +14,7 @@ var FormItemObjects = {
     'checkbox': 'build/Objects/Page/Form/checkbox',
     'email': 'build/Objects/Page/Form/email',
     'select': 'build/Objects/Page/Form/select',
-    'selectMultipleCheckbox': 'build/Objects/Page/Form/selectMultipleCheckbox',
+    'selectMultipleCheckbox': 'build/Objects/Page/Form/select_multiple_checkbox',
     'date': 'build/Objects/Page/Form/date',
     'range': 'build/Objects/Page/Form/range',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg'
@@ -33,7 +33,7 @@ define([
     'build/Objects/Page/Form/checkbox',
     'build/Objects/Page/Form/email',
     'build/Objects/Page/Form/select',
-    'build/Objects/Page/Form/selectMultipleCheckbox',
+    'build/Objects/Page/Form/select_multiple_checkbox',
     'build/Objects/Page/Form/date',
     'build/Objects/Page/Form/range',
     'build/Objects/Page/Form/trumbowyg'

@@ -18,23 +18,20 @@
             var attributes = this.props.item.getAttributes();
             attributes.checked = this.state.checked;
             attributes.onChange = this.handleChange;
-            if (this.props.item.getName() != null ){
+            
+            //Add a fallback to make sure something (although empty) is sent to the server
+            var fallback = '';
+            if(this.props.item.hasFallback()) {
+                fallback = <input type="hidden" name={this.props.item.getName()} value="0"/>;
+            }
+            
             return (
                 <div>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />
-                {React.DOM.input(attributes)}
+                    {fallback}
+                    {React.DOM.input(attributes)}
                 </div>
-            )
-        } else if (this.props.item.hasFallback() == true){
-            return(
-            <div>
-            <input type="hidden" value="0"/>
-            <input type="checkbox" value="1"/>
-            </div>
-            )
-        } else {
-            return(<p>Darn, another checkbox got away!</p>)
-        }
+            );
         }
     });
 });

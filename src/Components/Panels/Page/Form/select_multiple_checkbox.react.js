@@ -13,7 +13,7 @@
                 option._fallback = false;
                 return (<Checkbox item={option} />);
             }.bind(this));            
-            console.log({options});
+            
             return (
                 <div>
                 <Label item={this.props.item} name={this.props.item.getLabel()} />

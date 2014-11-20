@@ -21,7 +21,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * @type {boolean|null}
          * @private
          */
-        this._fallback = true;
+        this._fallback = data.fallback != false;
 
         /**
          * Getter for checked

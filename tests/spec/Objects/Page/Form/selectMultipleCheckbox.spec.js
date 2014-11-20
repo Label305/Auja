@@ -1,4 +1,4 @@
-define(['build/Objects/Page/Form/selectMultipleCheckbox'], function (Item) {
+define(['build/Objects/Page/Form/select_multiple_checkbox'], function (Item) {
     describe('SelectMultipleCheckbox form item', function () {
 
         beforeEach(function () {
