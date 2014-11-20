@@ -80,6 +80,14 @@
                             "value": "11"
                         }                       
                     },
+                                        {
+                        "type": "time",
+                        "time": {
+                            "name": "time",
+                            "label": "Start tijd",
+                            "value": "11:25"
+                        }                       
+                    },
                     {
                         "type": "checkbox",
                         "checkbox": {
