@@ -3,25 +3,63 @@
 // ------ JSTree styling ------
 
 ul.jstree-children
-  margin: 0 0 0 30px!important
-  &.jstree-container-ul
-    margin: 0!important
-  li
-    a
-      display: block
-      padding: 5px 15px
-      margin: 10px 0
-      color: $font-color
-      border-left: 2px dotted $dark-gray-color
+    margin: 0 0 0 30px !important
+    border-left: 2px dotted $input-border-color
+    &.jstree-container-ul
+        margin: 0 !important
+    li
+        position: relative
+        a
+            display: block
+            padding: 5px 15px 5px 20px
+            margin: 10px 0
+            color: $font-color
+            height: 20px
+            line-height: 20px
+            font-size: 14px
+            &:before
+                content: ''
+                position: absolute
+                left: 4px
+                top: 14px
+                width: 10px
+                height: 0
+                border-bottom: 2px dotted $input-border-color
+            &:after
+                content: ""
+                display: block
+                position: absolute
+                left: -4px
+                top: 12px
+                width: 6px
+                height: 6px
+                background-color: $dark-gray-color
+            &:focus
+                outline: none
+            &:hover
+                text-decoration: underline
+                transition: 0.25s
+                -ms-transition: 0.25s
+                -moz-transition: 0.25s
+                -webkit-transition: 0.25s
+
+            &:active
+                cursor: move !important
+        &.jstree-open
+
+            li
+                a
+                    border-left: 0
+                    position: relative
 #jstree-marker
-  position: absolute
-  display: block
-  z-index: 100
-  padding: 0
-  width: 0
-  height: 0
-  border-left: 6px solid $dark-gray-color
-  border-bottom: 6px solid transparent
-  border-top: 6px solid transparent
-  background: none
-    
+    position: absolute
+    display: block
+    z-index: 100
+    padding: 0
+    width: 0
+    height: 0
+    border-left: 4px solid $font-color
+    border-bottom: 4px solid transparent
+    border-top: 4px solid transparent
+    background: none
+    margin-left: -10px
