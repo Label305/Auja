@@ -12,9 +12,11 @@ var FormItemObjects = {
     'url': 'build/Objects/Page/Form/url',
     'tel': 'build/Objects/Page/Form/tel',
     'color': 'build/Objects/Page/Form/color',
+    'time': 'build/Objects/Page/Form/time',
     'checkbox': 'build/Objects/Page/Form/checkbox',
     'email': 'build/Objects/Page/Form/email',
     'select': 'build/Objects/Page/Form/select',
+    'selectMultipleCheckbox': 'build/Objects/Page/Form/select_multiple_checkbox',
     'date': 'build/Objects/Page/Form/date',
     'range': 'build/Objects/Page/Form/range',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg'
@@ -31,9 +33,11 @@ define([
     'build/Objects/Page/Form/url',
     'build/Objects/Page/Form/tel',
     'build/Objects/Page/Form/color',
+    'build/Objects/Page/Form/time',
     'build/Objects/Page/Form/checkbox',
     'build/Objects/Page/Form/email',
     'build/Objects/Page/Form/select',
+    'build/Objects/Page/Form/select_multiple_checkbox',
     'build/Objects/Page/Form/date',
     'build/Objects/Page/Form/range',
     'build/Objects/Page/Form/trumbowyg'
