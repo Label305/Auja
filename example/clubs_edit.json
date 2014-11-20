@@ -38,6 +38,14 @@
                             "value": "11"
                         }                        
                     },
+                    {
+                        "type": "color",
+                        "color": {
+                            "name": "teamcolor",
+                            "label": "Team Color",
+                            "value": "#CC0000"
+                        }                        
+                    },
                                         {
                         "type": "date",
                         "date": {

@@ -33,6 +33,7 @@ require.config({
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
         trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
+        minicolors: 'bower_components/jquery-minicolors/jquery.minicolors.min',
         jstree: 'bower_components/jstree/dist/jstree.min',
         sugar: 'bower_components/sugar/release/sugar.min',
         request: 'build/Requests/request',
@@ -44,6 +45,9 @@ require.config({
      */
     shim: {
         trumbowyg: {
+            deps: ['jquery']
+        },
+        minicolors: {
             deps: ['jquery']
         }
     }
