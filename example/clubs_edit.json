@@ -85,35 +85,41 @@
                             "name": "leagues",
                             "label": "Jupiler",
                             "required": false,
+                            "value": true,
                             "checked": false
-
                         }
                         
                     },
                     {
-                        "type": "select",
-                        "select": {
-                            "name": "country",
-                            "label": "Country",
-                            "value": "DE-de",
-                            "options": [{
-                                "type": "option",
-                                "label": "Nederland",
-                                "value": "NL-nl"
+                        "type": "selectMultipleCheckbox",
+                        "selectMultipleCheckbox": {
+                            "name": "beers",
+                            "label": "Beers",
+                            "required": false,
+                            "value": true,
+                            "options":
+                            [
+                                {
+                                "label": "Jupiler",
+                                "checked": false
                                 },
                                 {
-                                "type": "option",
-                                "label": "Duitsland",
-                                "value": "DE-de"
+                                "label": "Grolsch",
+                                "checked": true
                                 },
                                 {
-                                "type": "option",
-                                "label": "Luilekkerland",
-                                "value": "LL-ll"
-                            }]
-                            }                        
+                                "label": "Heineken",
+                                "checked": false
+                                },
+                                {
+                                "label": "Duvel",
+                                "checked": false
+                                }
+                           ]
+                        }
+                        
                     },
-                    {
+                     {
                         "type": "password",
                         "password": {
                             "name": "token",
