@@ -28,20 +28,28 @@ h2{
     color: #353535;
     margin: 0;
     font-weight: 300;
+    float: left;
+    display: block;
+    width: 100%;
 }
-h3,
-p.leading{
-    text-align: left;
-    font-size: 18px;
-    line-height: 30px;
-    color: #555555;
-    margin: 0 0 15px 0;
-}
-h4{
+h3{
     text-align: left;
     font-size: 22px;
     line-height: 30px;
-    margin: 0 0 15px 0;
+    color: #555555;
+    margin: 10px 0 5px 0;
+    float: left;
+    display: block;
+    width: 100%;
+}
+h4{
+    text-align: left;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0 0 30px 0;
+    float: left;
+    display: block;
+    width: 100%;
 }
 a{
     color: #353535;
@@ -63,7 +71,13 @@ p > span{
     font-weight: 700;
 }
 p.leading{
-
+    text-align: left;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 0 0 15px 0;
+    float: left;
+    display: block;
+    width: 100%;
 }
 p.intro{
     color: white;
@@ -207,13 +221,14 @@ header{
 a.button {
     background-color: transparent;
     display: inline-block;
+    text-decoration: none;
     padding: 10px 15px;
     height: 40px;
     line-height: 18px;
     cursor: pointer;
     border-radius: 2px;
     -ms-border-radius: 2px;
-    -moz-borer-radius: 2px;
+    -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     font-size: 16px;
 }
@@ -254,6 +269,7 @@ section.content{
         background-color: #1ebab8;
         min-height: 100px;
         height: 600px;
+        border-bottom: 4px solid #189391;
     }
         .content main.introduction .container{
             height: 600px;
@@ -350,11 +366,6 @@ section.docs{
         left: 0;
         top: 0;
     }
-        section.docs .docs-menu.fixed{
-            position: fixed !important;
-            top: 60px;
-            left: inherit;
-        }
         section.docs .docs-menu ul{
             list-style-type: none;
             padding: 0;
@@ -375,7 +386,7 @@ section.docs{
             }
         section.docs .docs-menu > ul > li{
             width: 100%;
-            font-size: 18px;
+            font-size: 16px;
             min-height: 20px;
             line-height: 20px;
             display: inline-block;
@@ -400,5 +411,7 @@ section.docs{
             float: left
         }
 footer{
-
+    margin: 30px 0;
+    text-align: center;
+    font-size: 14px;
 }
