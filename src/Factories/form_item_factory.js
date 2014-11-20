@@ -4,6 +4,7 @@
 var FormItemObjects = {
     'header': 'build/Objects/Page/Form/header',
     'number': 'build/Objects/Page/Form/number',
+    'integer': 'build/Objects/Page/Form/integer',
     'password': 'build/Objects/Page/Form/password',
     'submit': 'build/Objects/Page/Form/submit',
     'text': 'build/Objects/Page/Form/text',
@@ -13,6 +14,7 @@ var FormItemObjects = {
     'checkbox': 'build/Objects/Page/Form/checkbox',
     'email': 'build/Objects/Page/Form/email',
     'select': 'build/Objects/Page/Form/select',
+    'selectMultipleCheckbox': 'build/Objects/Page/Form/select_multiple_checkbox',
     'date': 'build/Objects/Page/Form/date',
     'range': 'build/Objects/Page/Form/range',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg'
@@ -21,6 +23,7 @@ var FormItemObjects = {
 define([
     'build/Objects/Page/Form/header',
     'build/Objects/Page/Form/number',
+    'build/Objects/Page/Form/integer',
     'build/Objects/Page/Form/password',
     'build/Objects/Page/Form/submit',
     'build/Objects/Page/Form/text',
@@ -30,6 +33,7 @@ define([
     'build/Objects/Page/Form/checkbox',
     'build/Objects/Page/Form/email',
     'build/Objects/Page/Form/select',
+    'build/Objects/Page/Form/select_multiple_checkbox',
     'build/Objects/Page/Form/date',
     'build/Objects/Page/Form/range',
     'build/Objects/Page/Form/trumbowyg'

@@ -1,5 +1,5 @@
 
-define(['build/Objects/Abstract/form_item'], function(FormItem) {
+define(['build/Objects/Abstract/form_item', 'build/Objects/Page/Form/checkbox'], function(FormItem, Checkbox) {
 
     var SelectMultipleCheckbox = function(data) {
 
@@ -14,10 +14,9 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * @type {array|null}
          * @private
          */
-        this._options = data.options || null;
+        this._options = data.options || [];
 
         
-
         /**
          * Getter for Options
          * @returns {array|null}
@@ -26,17 +25,25 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             return this._options;
         };
 
-        
-
+               
         /**
          * Setter for Options
          * @param SelectMultipleCheckbox
          */
-        this.setOptions = function(options) {
-            this._options = options;
+         this.setOptions = function(options) {
+            if(options) {
+                //Initialize the options as an array of Checkbox-es
+                this._options = options.map(function(checkbox) {
+                    checkbox.name = this.getName();
+                    checkbox.value = this.getValue();
+                    checkbox.fallback = false;
+                    return new Checkbox(checkbox);
+                }.bind(this));                
+            } 
+            return this._options;         
         };
 
-        
+          
         /**
          * Get attributes for this input
          * @return Object
@@ -46,9 +53,12 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                options: this.getOptions()
-            }
+                options: this.getOptions(),
+                }
         };
+
+        this.setOptions(data.options);
+
     };
 
     // Inherit FormItem

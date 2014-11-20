@@ -12,9 +12,12 @@ var PanelTypes = {
 
 //Map as an array to load panel dependencies
 define([
+    'react',
+    'fluxxor',
+    'flux',
     'build/Components/Panels/menu.react',
     'build/Components/Panels/page.react'
-], function () {
+], function (React, Fluxxor, flux) {
     
     var PanelSection = React.createClass({
         handleScroll: function () {
@@ -43,6 +46,21 @@ define([
         },
 
         /**
+         * After addition/removal will animate scrollLeft, this is done by listening to DOMNode events
+         * instead of componentDidUpdate since it triggers too late
+         */        
+        componentDidMount: function() {
+            $(this.refs.panels.getDOMNode()).bind('DOMNodeInserted DOMNodeRemoved', function() {
+                var b = $('body');
+                if(b[0].scrollLeft != (b[0].scrollWidth - window.innerWidth)) {
+                    b.animate({
+                        scrollLeft: b[0].scrollWidth - window.innerWidth
+                    }, 300);
+                }
+            });
+        },
+
+        /**
          * Render the div with all panels
          * @returns {XML}
          */
@@ -66,7 +84,7 @@ define([
             }.bind(this));
             
             return (
-                <div id="panels">
+                <div id="panels" ref="panels">
                     <div>
                         {panels}
                     </div>

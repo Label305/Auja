@@ -18,7 +18,7 @@
             "type": "form",
             "form": {
                 "action": "example/clubs/store",
-                "method": "get",
+                "method": "put",
                 "items": [
                     {
                         "type": "text",
@@ -29,10 +29,10 @@
                         }                        
                     },
                     {
-                        "type": "number",
-                        "number": {
-                            "name": "totalPlayers",
-                            "label": "Number of players",
+                        "type": "integer",
+                        "integer": {
+                            "name": "activePlayers",
+                            "label": "Number of active players",
                             "min": "7",
                             "max": "25",
                             "value": "11"
@@ -85,35 +85,41 @@
                             "name": "leagues",
                             "label": "Jupiler",
                             "required": false,
+                            "value": true,
                             "checked": false
-
                         }
                         
                     },
                     {
-                        "type": "select",
-                        "select": {
-                            "name": "country",
-                            "label": "Country",
-                            "value": "DE-de",
-                            "options": [{
-                                "type": "option",
-                                "label": "Nederland",
-                                "value": "NL-nl"
+                        "type": "selectMultipleCheckbox",
+                        "selectMultipleCheckbox": {
+                            "name": "beers",
+                            "label": "Beers",
+                            "required": false,
+                            "value": true,
+                            "options":
+                            [
+                                {
+                                "label": "Jupiler",
+                                "checked": false
                                 },
                                 {
-                                "type": "option",
-                                "label": "Duitsland",
-                                "value": "DE-de"
+                                "label": "Grolsch",
+                                "checked": true
                                 },
                                 {
-                                "type": "option",
-                                "label": "Luilekkerland",
-                                "value": "LL-ll"
-                            }]
-                            }                        
+                                "label": "Heineken",
+                                "checked": false
+                                },
+                                {
+                                "label": "Duvel",
+                                "checked": false
+                                }
+                           ]
+                        }
+                        
                     },
-                    {
+                     {
                         "type": "password",
                         "password": {
                             "name": "token",
