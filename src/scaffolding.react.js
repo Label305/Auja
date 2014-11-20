@@ -43,6 +43,7 @@ define([
                         result += this.entry('.trumbowyg-fullscreen .trumbowyg-fullscreen-button', 'background-color', colors[name]);
                         result += this.entry('input:focus', 'border-color', colors[name]);
                         result += this.entry('select:focus', 'border-color', colors[name]);
+                        result += this.entry('.is-selected .pika-button', 'background-color', colors[name]);
                         break;
                 }
             }

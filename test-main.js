@@ -31,6 +31,9 @@ require.config({
         jquery: 'bower_components/jquery/dist/jquery.min',
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',
+        moment: 'bower_components/moment/min/moment.min',
+        pikaday: 'bower_components/pikaday/pikaday',
+        pikadayjq: 'bower_components/pikaday/plugins/pikaday.jquery',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
         trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
         jstree: 'bower_components/jstree/dist/jstree.min',
@@ -45,6 +48,8 @@ require.config({
     shim: {
         trumbowyg: {
             deps: ['jquery']
-        }
-    }
+        },
+        pikadayjq: {
+            deps: ['jquery', 'moment', 'pikaday']
+  }}
 });
