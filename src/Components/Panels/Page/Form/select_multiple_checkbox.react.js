@@ -6,7 +6,7 @@
  * - .. any other allowed by input
  * @jsx React.DOM
  */
- define(['build/Components/Panels/Page/Form/label.react', 'build/Components/Panels/Page/Form/checkbox.react'], function(Label, Checkbox) {
+ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Components/Panels/Page/Form/checkbox.react'], function(React, Label, Checkbox) {
     return React.createClass({
         render: function () {
             var options = this.props.item.getOptions().map(function(option) {
