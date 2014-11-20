@@ -1,6 +1,9 @@
 Auja [![Build Status](https://travis-ci.org/Label305/Auja.svg?branch=master)](https://travis-ci.org/Label305/Auja)
 ===
 
+* Bower: [![Dependency Status](https://www.versioneye.com/user/projects/546de812810106aec70004b0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/546de812810106aec70004b0)
+* NPM: [![Dependency Status](https://www.versioneye.com/user/projects/546de81281010651060004bc/badge.svg?style=flat)](https://www.versioneye.com/user/projects/546de81281010651060004bc)
+
 Auja is a back-end interface designed to be friendly on both sides, for the end-user as well as the developer.
 
 In this repo you'll find the JavaScript source meant to be used together with a back-end implementation for your 
