@@ -2,12 +2,16 @@
  * @jsx React.DOM
  */
 define([
+    'react',
+    'sugar', 
+    'fluxxor',
+    'flux',
     'build/Stores/auja',
     'build/Components/Scaffolding/message.react',
     'build/Components/Scaffolding/authentication.react',
     'build/Components/Scaffolding/header.react',
     'build/Components/Scaffolding/body.react'
-], function (Store, Message, Authentication, Header, Body) {
+], function (React, SugarJS, Fluxxor, flux, Store, Message, Authentication, Header, Body) {
 
     var Style = React.createClass({
         /**
@@ -39,6 +43,7 @@ define([
                         result += this.entry('.trumbowyg-fullscreen .trumbowyg-fullscreen-button', 'background-color', colors[name]);
                         result += this.entry('input:focus', 'border-color', colors[name]);
                         result += this.entry('select:focus', 'border-color', colors[name]);
+                        result += this.entry('.is-selected .pika-button', 'background-color', colors[name]);
                         break;
                 }
             }
@@ -68,17 +73,18 @@ define([
             flux.actions.initialize();
         },
         componentDidMount: function() {
-            flux.actions.resize();  
+            flux.actions.resize();
+            $(window).bind('resize', flux.actions.resize);
         },
         render: function () {
             document.title = this.state.title;
 
             return (
                 <div id="auja">
-                    <Message flux={this.props.flux} />
+                    <Message flux={flux} />
                     <Authentication auja={this.state} />
                     <Header auja={this.state} />
-                    <Body flux={this.props.flux} auja={this.state} />
+                    <Body flux={flux} auja={this.state} />
                     <Style auja={this.state} />
                 </div>
                 );

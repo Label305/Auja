@@ -362,6 +362,11 @@ ul#main-menu
                     &:after,
                     &before
                         color: inherit
+                span
+                    white-space: nowrap
+                    width: calc(100% - 30px)
+                    display: inline-block
+                    overflow: hidden
             .menu-item-spacer 
                 min-height: 15px
                 padding: 23px 0 5px 30px
@@ -378,10 +383,10 @@ ul#main-menu
             input[type="text"]
                 width: 100%
                 display: inline-block
-                height: 40px
+                height: 20px
                 background-color: $input-color
                 margin-left: -30px
-                padding: 0 15px
+                padding: 10px 15px
                 border: 0
                 border-bottom: 2px solid $input-border-color
                 font-size: 14px
@@ -393,15 +398,11 @@ ul#main-menu
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
-
-
-
-
 // ------ Page ------
 #panels 
     .panel-page
         & > div 
-            width: 600px
+            width: 550px
             & > div 
                 margin: 30px
     .row 
@@ -410,7 +411,14 @@ ul#main-menu
         display: inline-block    
  
 // ------ Form ------
-form 
+input,
+select,
+textarea
+    border-radius: 0 !important
+    -ms-border-radius: 0 !important
+    -moz-border-radius: 0 !important
+    -webkit-border-radius: 0 !important
+form
     .row
         &.form-item 
             margin: 30px 0 0 0
@@ -423,7 +431,7 @@ form
                 text-transform: uppercase
                 font-size: 12px
                 min-height: 15px
-                line-height: 15px        
+                line-height: 15px
             input[type="text"],
             input[type="password"],
             input[type="number"],
@@ -588,6 +596,51 @@ form
         ul 
             li
                 min-height: 34px
-                
+@media (max-width: 1280px)
+    #panels
+        .panel-menu > div
+            width: 260px
+            ul
+                margin-left: 20px
+                .menu-item-link
+                    padding-top: 10px
+                    padding-bottom: 9px
+                    &.active
+                        padding-bottom: 8px !important
+                    &:before
+                        top: 10px
+                    &:after
+                        width: 20px !important
+                        top: 10px
+                    &.menu-item-resource
+                        input
+                            margin-left: -20px
+            input
+                margin-left: -20px !important
+                padding-left: 10px !important
+                padding-right: 10px !important
+        .panel-page > div
+            width: 450px
+            & > div
+                margin: 20px
+        .row
+            &.form-item
+                margin-top: 15px
+    .message
+        width: 400px !important
+    input
+        padding-top: 5px !important
+        padding-bottom: 5px !important
+        &.button
+            padding-top: 10px !important
+            padding-bottom: 10px !important
+    select
+        height: 30px !important
+        padding-top: 5px !important
+        padding-bottom: 5px !important
+
 @import trumbowyg
 @import jstree
+@import minicolors
+@import clockpicker
+@import pikaday

@@ -15,9 +15,12 @@ var FormItems = {
     'integer': 'build/Components/Panels/Page/Form/integer.react',
     'url': 'build/Components/Panels/Page/Form/url.react',
     'tel': 'build/Components/Panels/Page/Form/tel.react',
+    'color': 'build/Components/Panels/Page/Form/color.react',
+    'time': 'build/Components/Panels/Page/Form/time.react',
     'checkbox': 'build/Components/Panels/Page/Form/checkbox.react',
     'email': 'build/Components/Panels/Page/Form/email.react',
     'select': 'build/Components/Panels/Page/Form/select.react',
+    'selectMultipleCheckbox': 'build/Components/Panels/Page/Form/select_multiple_checkbox.react',
     'date': 'build/Components/Panels/Page/Form/date.react',
     'datetime': 'build/Components/Panels/Page/Form/datetime.react',
     'range': 'build/Components/Panels/Page/Form/range.react',
@@ -25,6 +28,7 @@ var FormItems = {
 };
 
 define([
+    'react',
     'build/Components/Panels/Page/header.react',
     'build/Components/Panels/Page/Form/text.react',
     'build/Components/Panels/Page/Form/password.react',
@@ -34,14 +38,17 @@ define([
     'build/Components/Panels/Page/Form/integer.react',
     'build/Components/Panels/Page/Form/url.react',
     'build/Components/Panels/Page/Form/tel.react',
+    'build/Components/Panels/Page/Form/color.react',
+    'build/Components/Panels/Page/Form/time.react',
     'build/Components/Panels/Page/Form/checkbox.react',
     'build/Components/Panels/Page/Form/email.react',
     'build/Components/Panels/Page/Form/select.react',
+    'build/Components/Panels/Page/Form/select_multiple_checkbox.react',
     'build/Components/Panels/Page/Form/date.react',
     'build/Components/Panels/Page/Form/datetime.react',
     'build/Components/Panels/Page/Form/range.react',
     'build/Components/Panels/Page/Form/submit.react'
-], function () {
+], function (React) {
     return React.createClass({
 
         /**
@@ -104,7 +111,7 @@ define([
 
                 //Extract the validation message from the item
                 item.validationMessage = null;
-                if (item.getName() && this.props.message.validation && this.props.message.validation[item.getName()]) {
+                if (item.getName() && this.props.message && this.props.message.validation && this.props.message.validation[item.getName()]) {
                     item.validationMessage = this.props.message.validation[item.getName()];
                 }
 

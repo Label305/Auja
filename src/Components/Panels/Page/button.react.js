@@ -8,7 +8,7 @@
  * @jsx React.DOM
  */
 
-define([], function() {
+define(['react'], function(React) {
     return React.createClass({
         getInitialState: function() {
             return {

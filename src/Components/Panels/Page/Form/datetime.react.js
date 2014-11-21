@@ -7,25 +7,21 @@
  *
  * @jsx React.DOM
  */
-define(['build/Components/Panels/Page/Form/label.react'], function (Label) {
+ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Components/Panels/Page/Form/date.react', 'build/Components/Panels/Page/Form/time.react'], function (React, Label) {
     return React.createClass({
-        getInitialState: function () {
-            return {value: this.props.item.getValue()};
-        },
-        handleChange: function (event) {
-            this.setState({value: event.target.value});
-        },
-        render: function () {
-            var attributes = this.props.item.getAttributes();
-            attributes.value = this.state.value;
-            attributes.onChange = this.handleChange;
+    render: function () {
+    var attributes = this.props.item.getAttributes();
+    attributes.value = moment(this.state.value).format(this.props.item.getFormat());
+    attributes.onChange = this.handleChange;
+    attributes.ref = 'datetime';
+    attributes.readOnly = true;
 
-            return (
-                <div>
-                    <Label item={this.props.item} name={this.props.item.getLabel()} />
-                {React.DOM.input(attributes)}
-                </div>
-            );
-        }
-    });
+    return (
+        <div>
+        <Label item={this.props.item} name={this.props.item.getLabel()} />
+
+        </div>
+        );
+}
+});
 });

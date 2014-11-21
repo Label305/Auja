@@ -3,7 +3,7 @@
  *
  * @jsx React.DOM
  */
-define([], function() {
+define(['react', 'fluxxor', 'flux'], function(React, Fluxxor, flux) {
     
     var Info = React.createClass({
         render: function() {

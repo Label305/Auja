@@ -12,7 +12,7 @@ require.config({
     /**
      * When debug is true add a bust to prevent caching
      */
-    urlArgs: (new Date()).getTime(), 
+    urlArgs: (new Date()).getTime(),
 
     /**
      * Location of dependencies
@@ -23,47 +23,38 @@ require.config({
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
+        moment: 'bower_components/moment/min/moment.min',
+        pikaday: 'bower_components/pikaday/pikaday',
+        pikadayjq: 'bower_components/pikaday/plugins/pikaday.jquery',
         trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
         jstree: 'bower_components/jstree/dist/jstree.min',
+        minicolors: 'bower_components/jquery-minicolors/jquery.minicolors.min',
         sugar: 'bower_components/sugar/release/sugar.min',
         request: 'build/Requests/request',
-        stores: 'build/Stores/flux'
+        flux: 'build/Stores/flux',
+        clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker.min'
+    },
+        
+    /**
+     * Shim
+     */
+    shim: {
+        trumbowyg: {
+            deps: ['jquery']
+        },
+        minicolors: {
+            deps: ['jquery']
+        },
+        clockpicker: {
+            deps: ['jquery']
+        },
+        pikadayjq: {
+            deps: ['jquery', 'moment', 'pikaday']
+        }
     }
 });
 
-/**
- * Load initial dependencies:
- *
- * react - The ReactJS library from Facebook
- * jquery - Used as a toolkit to make life easier
- * fluxxor - To be able to implement the Flux architecture
- * sugar - A toolkit extending native objects
- */
-require(['react', 'jquery', 'fluxxor', 'sugar'], function (react) {
-
-    //Register as a global since we'll be using it everywhere
-    window.React = react;
-
-    //Register as global
-    window.Fluxxor = require('fluxxor');
-
-    //Setup data layer
-    require(['build/Stores/flux'], function (flux) {
-        
-        //Register as global
-        window.flux = flux;
-        
-        //Setup building block and its utilities
-        require(['build/scaffolding.react', 'request'], function(Scaffolding) {
-            
-            //Bind resize
-            $(window).bind('resize', flux.actions.resize);
-
-            //Render the main structure
-            React.renderComponent(<Scaffolding flux={flux} />, document.body);
-        });
-    });
-
+require(['react', 'flux', 'build/scaffolding.react'], function (React, flux, Scaffolding) {
+    React.renderComponent(<Scaffolding flux={flux} />, document.body);
 });
-
     
