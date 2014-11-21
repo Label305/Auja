@@ -21,7 +21,8 @@ h1{
         color: #1ebab8;
         text-decoration: none;
     }
-h2{
+h2,
+h2 a{
     font-size: 30px;
     line-height: 30px;
     text-align: left;
@@ -31,30 +32,34 @@ h2{
     float: left;
     display: block;
     width: 100%;
+    text-decoration: none;
 }
-h3{
+h3,
+h3 a{
     text-align: left;
     font-size: 22px;
     line-height: 30px;
-    color: #555555;
+    color: #1ebab8;
     margin: 10px 0 5px 0;
     float: left;
     display: block;
     width: 100%;
+    text-decoration: none;
 }
 h4 {
     text-align: left;
     font-size: 20px;
-    line-height: 30px;
-    margin: 0 0 30px 0;
+    line-height: 20px;
+    margin: 10px 0 5px 0;
     float: left;
     display: block;
     width: 100%;
-    color: #1ebab8;
+    color: #555555;
 }
 a{
     color: #353535;
     text-decoration: underline;
+    cursor: pointer;
 }
     a:hover{
         color: #1ebab8;
@@ -102,6 +107,14 @@ p.intro{
 }
 .pos-rel{
     position: relative;
+}
+.page-devider{
+    width: 100%;
+    height: 1px;
+    background-color: #dadada;
+    display: block;
+    float: left;
+    margin: 30px 0 20px 0;
 }
 header{
     z-index: 99;
@@ -350,18 +363,9 @@ main.docs-introduction{
         line-height: 30px;
         margin: 45px 0;
     }
-section.docs{
+section.docs {
 
 }
-    section.docs h2:after{
-        content: '';
-        width: 100%;
-        height: 1px;
-        background-color: #dadada;
-        display: block;
-        float: left;
-        margin: 15px 0;
-    }
     section.docs h3{
         font-weight: 700;
     }
@@ -372,13 +376,27 @@ section.docs{
         background-color: white;
         padding: 60px;
     }
+        section.docs .docs-content ul{
+            display: block;
+            float: left;
+            width: 100%;
+            margin-top: 15px;
+            list-style-type: square;
+            padding-left: 18px;
+        }
+            section.docs .docs-content ul li{
+                line-height: 30px;
+            }
+            section.docs .docs-content ul li a{
+                text-decoration: none;
+            }
     section.docs .docs-menu{
         background: #fafafa;
         height: 100%;
         padding: 60px 0 30px 30px;
         position: absolute;
-        left: 0;
         top: 0;
+        left: 0;
     }
         section.docs .docs-menu ul{
             list-style-type: none;
@@ -416,6 +434,8 @@ section.docs{
         section.docs .docs-menu ul li ul{
             padding-left: 15px;
             margin-top: 5px;
+            display: block;
+            width: 100%;
         }
         section.docs .docs-menu ul li ul li{
             font-size: 14px;
@@ -425,6 +445,35 @@ section.docs{
             display: inline-block;
             width: 100%;
             float: left
+        }
+        section.docs table{
+            margin: 0 0 15px 0;
+            padding: 15px;
+            display: block;
+            border: 1px solid #dadada;
+            background-color: #fafafa;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            float: left;
+            width: 100%;
+        }
+            section.docs table td{
+                padding: 5px 0 5px 15px;
+            }
+        section.docs pre{
+            background-color: #333;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border: 0;
+            color: white;
+            padding: 30px;
+            margin: 0 0 15px 0;
+            float: left;
+            width: 100%;
         }
 footer{
     margin: 30px 0;

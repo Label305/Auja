@@ -1,5 +1,7 @@
-###Stand alone
-After cloning you will first have to install Auja's dependencies using [Bower](http://bower.io/) by running:
+<h3 id="installation">Stand alone installation</h3>
+<p class="leading">After cloning the [Auja repository](https://github.com/Label305/Auja) you will first have to install Auja's dependencies.</p>
+
+Start using [Bower](http://bower.io/) by running:
 
 `bower install`
 

@@ -1,13 +1,5 @@
-<p class="leading">
-Auja is a back-end interface designed designed to be friendly on both sides, for the end-user as well as the developer.
-In this repo you'll find the JavaScript source meant to be used together with a back-end implementation for your 
-   preferred framework, whatever server side language you use.
-</p>
+<h3 id="why">Why Auja</h3>
 
-Current back-end implementations:
-   
-   - [Laravel](https://github.com/Label305/Auja-Laravel) ... coming soon
-   - Your implementation here..!?
-   
-To ease up implementation of the communication protocol we provide a [toolkit](https://github.com/Label305/Auja-PHP) for PHP providing interfaces and
-scaffolding.
+<p class="leading">Building a custom back-end interface for your application can be hard. Auja is a back-end interface designed to be friendly on both sides, for the end-user as well as the developer and can be used with different frameworks.</p>
+
+Auja features a lot of data types you can use out of the box, is fully responsive and makes implementing an application's back-end very easy.

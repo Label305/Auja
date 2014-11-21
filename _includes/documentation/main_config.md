@@ -1,4 +1,5 @@
-The config that initializes Auja and shapes it. The file referenced on the body tag should return this config, .e.g `<body data-src="main.json"></body>`.
+<h3 id="main_config">Main config</h3>
+The config initializes Auja and shapes it. The file referenced on the body tag should return this config, .e.g `<body data-src="main.json"></body>`. The following config variables are present:
 
 title | `string` | Title left upper corner 
 authenticated | `boolean` | Will show the authentication form if true 
@@ -9,7 +10,7 @@ menu | `Array` | Of `MainMenuItem` objects
 routes | `Array` | Of `Route` objects
 authentication | `Object` | A `Form` object
 
-**Color**
+####Color
 
 Different colors used in the interface
 
@@ -18,14 +19,14 @@ secondary | `string`
 alert | `string`
 
 
-**Button**
+####Button
 
 Object for in the right upper corner
 
 text | `string` | Name on the button
 target | `string` | Will be put inside of the `href` of the link
 
-**MainMenuItem**
+####MainMenuItem
 
 Menu item on the left
 
@@ -33,7 +34,7 @@ title | `string`
 icon | `string`
 target | `string`
 
-**Route**
+####Route
 
 Routing rules, to target specific routing types.
 
@@ -41,7 +42,8 @@ type | `string` | target routing engine
 target | `string` | [Crossroads.js](http://millermedeiros.github.io/crossroads.js/) compatible regex
 action | `string` | Target url
 
-### Example JSON
+####Json example
+A Json example of a config is shown below.
 
 	{
 	    "type": "main",
