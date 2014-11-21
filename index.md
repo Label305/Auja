@@ -10,22 +10,22 @@ title: "Auja"
 <div class="row">
     <div class="col-xs-12 col-md-4">
         <h4>Simple JSON contract</h4>
-        <p>text text.</p>
+        <p>The Auja interface interactis with any application via Json. Due to strict Json contracts, the implementation of Auja on other applications is very straightforward.</p>
     </div>
     <div class="col-xs-12 col-md-4">
         <h4>Fully responsive</h4>
-        <p>text text.</p>
+        <p>Auja is fully responsive. The flat UI is spacious on large screens and uses less space on smaller screens. But Auja also supports mobile devices, with an alternative view for phones and other small screens.</p>
     </div>
     <div class="col-xs-12 col-md-4">
         <h4>Advanced data input types</h4>
-        <p>text text.</p>
+        <p>Auja supports many data input types directly out of the box. Dus to the strics Json contracts,  you can easily get your hands on these data types during developing.</p>
     </div>
 </div>
 
-<p class="leading"> Start right nog with using Auja.</p>
+<div class="page-devider"></div>
+
+<p class="leading"> Start right now with using Auja for your backend implementation.</p>
 
 <div class="align-center">
-    <a href="https://github.com/Label305/Auja" class="button black">Get started</a>
+    <a href="/getting_started.html" class="button black">Start now</a>
 </div>
-
-## Bladiebla
