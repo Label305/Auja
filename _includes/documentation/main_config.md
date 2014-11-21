@@ -1,4 +1,4 @@
-<h3 id="main_config">Main config</h3>
+<h3 id="main_config" class="anchor">Main config</h3>
 The config initializes Auja and shapes it. The file referenced on the body tag should return this config, .e.g `<body data-src="main.json"></body>`. The following config variables are present:
 
 title | `string` | Title left upper corner 

@@ -1,4 +1,4 @@
-<h3 id="spec">Spec testing</h3>
+<h3 id="spec" class="anchor">Spec testing</h3>
 <p class="leading">Spec testing in Auja is not that intensive, mainly a tool to check if we have put together the objects in the right way.</p>
 
 While submitting a pull request containing a new object in the `objects` directory we require a spec test. So for example

@@ -1,4 +1,4 @@
-<h3 id="develop">Develop</h3>
+<h3 id="develop" class="anchor">Develop</h3>
 <p class="leading">You can simply get up and running by installing dependencies using `npm` and `bower` however, during development
 this might not be the most convenient way.</p>
 

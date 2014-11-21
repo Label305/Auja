@@ -1,4 +1,4 @@
-<h3 id="sortable">Sortable</h3>
+<h3 id="sortable" class="anchor">Sortable</h3>
 A resource can be sortable. Sortable will create a tree from the resource, note that you cannot paginate a sortable resource. Also, when items are loaded from
 the server these should all be `sortable_item` objects.
 

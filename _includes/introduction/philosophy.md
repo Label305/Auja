@@ -1,3 +1,3 @@
-<h3 id="philosophy">Auja Philosophy</h3>
+<h3 id="philosophy" class="anchor">Auja Philosophy</h3>
 The idea of Auja is to create a flexible interface which is able to communicate with different application's frameworks. Auja started as a generic interface for CakePHP projects within Label305, enabling us to implement one interface for different custom applications of clients.
 While switching from CakePHP to the Laravel framework at Label305, Auja was rebuild from scratch to a generic interface for different platforms.

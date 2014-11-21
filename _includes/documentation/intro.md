@@ -1,4 +1,4 @@
-<h3 id="intro">Introduction</h3>
+<h3 id="intro" class="anchor">Introduction</h3>
 
 <p class="leading">The entire interface is made up of a whole lot of different elements, of which menus and pages are the most obvious. However, every little thing inside has its own special object definition even the colors, start menu buttons and user name.</p>
 

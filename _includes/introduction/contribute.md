@@ -1,4 +1,4 @@
-<h3 id="contribute">Contribute to Auja</h3>
+<h3 id="contribute" class="anchor">Contribute to Auja</h3>
 At the moment, an implementation for Laravel is being developed but feel free to build your own implementation. To get up and running with developing for Auja you'll need to understand how things are laced together.
 
 ####Javascript core

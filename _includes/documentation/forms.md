@@ -1,4 +1,4 @@
-<h3 id="forms">Forms</h3>
+<h3 id="forms" class="anchor">Forms</h3>
 There are all kinds of form items, you can find them all below. Some have no specification, that implies that they only implement the abstract form item.
 
 ####Form item

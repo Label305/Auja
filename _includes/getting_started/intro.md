@@ -1,4 +1,4 @@
-<h3 id="intro">Introduction</h3>
+<h3 id="intro class="anchor"">Introduction</h3>
 <p class="leading">
 Within the <a href="https://github.com/Label305/Auja">Auja repository</a>, you will find the JavaScript source meant to be used together with a back-end implementation for your preferred framework.
 </p>

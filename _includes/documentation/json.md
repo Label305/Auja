@@ -1,4 +1,4 @@
-### JSON representation
+<h3 id="json" class="anchor">JSON representation</h3>
 
 Since we support routing, which ables us to hook up to different api types, we can represent our object in all kinds of ways. But the most simplest, and currently only implemented way, of getting things up and running is by doing AJAX calls to endpoints that return JSON.
 

@@ -1,4 +1,4 @@
-<h3 id="searchable">Searchable</h3>
+<h3 id="searchable" class="anchor">Searchable</h3>
 A resource can be searchable. Searchable adds a searchbox to the top of the resource.
 
 	"properties": {

@@ -1,4 +1,4 @@
-<h3 id="pages">Pages</h3>
+<h3 id="pages" class="anchor">Pages</h3>
 These are the wider panes where the content is presented and can be edited.
 
 A page is a panel which can contain page items.

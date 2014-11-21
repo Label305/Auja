@@ -6,6 +6,7 @@ title: "Documentation"
 ##Documentation
 - <a href="#intro">Introduction</a>
 - <a href="#main_config">Main config</a>
+- <a href="#json">Json representation</a>
 - <a href="#menus">Menus</a>
 - <a href="#icons">Icons</a>
 - <a href="#resources">Resources</a>
@@ -25,6 +26,13 @@ title: "Documentation"
 
 <article>
 	{% capture main_config %}{% include documentation/main_config.md %}{% endcapture %}
+	{{ main_config | markdownify }}
+</article>
+
+<div class="page-devider"></div>
+
+<article>
+	{% capture main_config %}{% include documentation/json.md %}{% endcapture %}
 	{{ main_config | markdownify }}
 </article>
 

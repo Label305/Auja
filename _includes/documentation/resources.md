@@ -1,4 +1,4 @@
-<h3 id="resources">Resources</h3>
+<h3 id="resources" class="anchor">Resources</h3>
 
 The more advanced menu item, the whole idea behind Auja is that your users can quickly navigate through the admin interface.
 So requests that serve a database response should be done after the initial menu is loaded. This is where the resource menu item comes into play.
