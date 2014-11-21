@@ -24,7 +24,7 @@ h1{
 h2,
 h2 a{
     font-size: 30px;
-    line-height: 30px;
+    line-height: 40px;
     text-align: left;
     color: #353535;
     margin: 0 0 15px 0;
@@ -114,7 +114,7 @@ p.intro{
     background-color: #dadada;
     display: block;
     float: left;
-    margin: 30px 0 20px 0;
+    margin: 30px 0;
 }
 .anchor{
     padding-top: 60px;
@@ -145,6 +145,9 @@ header{
         float: left;
         width: 100%;
     }
+        header.docs .container > div > div{
+            padding: 0;
+        }
     header h1{
         margin: 20px 0;
     }
@@ -335,7 +338,8 @@ section.content{
         }
         .content section.home > .container{
             background-color: white;
-            padding: 90px 0;
+            padding-top: 90px;
+            padding-bottom: 90px;
             border-radius: 2px;
             -ms-border-radius: 2px;
             -moz-border-radius: 2px;
@@ -364,6 +368,9 @@ main.docs-introduction{
     main.docs-introduction .container{
         height: 120px;
     }
+        main.docs-introduction .container > div > div{
+            padding: 0;
+        }
     main.docs-introduction h2{
         color: white;
         line-height: 30px;
@@ -481,8 +488,85 @@ section.docs {
             float: left;
             width: 100%;
         }
+.animated-gif{
+    width: 646px;
+    height: 384px;
+    padding: 20px 3px 3px 3px;
+    background-color: #dadada;
+    display: block;
+    float: none;
+    position: relative;
+    border-radius: 2px;
+    -ms-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    margin: 0 auto 60px auto;
+}
+    .animated-gif span,
+    .animated-gif span:before,
+    .animated-gif span:after{
+        content: "";
+        width: 5px;
+        height: 5px;
+        display: block;
+        position: absolute;
+        border-radius: 5px;
+        -ms-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+    .animated-gif span{
+        background-color: #F7E6AD;
+        top: 8px;
+        left: 15px;
+    }
+    .animated-gif span:before{
+        background-color: #ed3338;
+        top: 0;
+        left: -10px;
+    }
+    .animated-gif span:after{
+        background-color: #1ebab8;
+        top: 0;
+        left: 10px;
+    }
+    .animated-gif img{
+        float: left;
+        display: inline-block;
+    }
+.wrapper{
+    display: block;
+    width: 100%;
+    float: left;
+}
 footer{
     margin: 30px 0;
     text-align: center;
     font-size: 14px;
+}
+
+@media (max-width: 991px){
+    .label-logo{
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px){
+
+    .container{
+        width: 768px !important;
+    }
+
+    header.home{
+        width: 768px;
+        left: 0;
+        top: 0;
+    }
+    .docs-menu{
+        display: none;
+    }
+    main.docs-introduction .container > div > div,
+    header.docs .container > div > div{
+        padding: 0 15px;
+    }
 }

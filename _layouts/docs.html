@@ -55,10 +55,12 @@
 
 <html>
 <body>
-<main class="wrapper pos-rel docs-introduction">
+<main class="pos-rel docs-introduction">
     <div class="container">
         <div class="row">
-            <h2 class="no-line">{{ page.title }}</h2>
+            <div class="col-xs-12">
+                <h2 class="no-line">{{ page.title }}</h2>
+            </div>
         </div>
     </div>
 </main>
@@ -67,18 +69,21 @@
 <header class="docs">
     <div class="container pos-rel">
         <div class="row">
-            <h1><a href="/">Auja</a></h1>
+            <div class="col-xs-12">
+                <h1><a href="/">Auja</a></h1>
 
-            <nav id="nav-menu">
-                <ul id="nav-menu-list">
-                    {% assign current = page.url | downcase | split: '/' %}
-                    <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="getting_started.html">Getting started</a></li>
-                    <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="documentation.html">Documentation</a></li>
-                    <li class="nav-menu-item {% if current[1] == 'Github' %}current{% endif %}"><a href="https://github.com/Label305/Auja">Auja on Github</a></li>
-                </ul>
-            </nav>
+                <nav id="nav-menu">
+                    <ul id="nav-menu-list">
+                        {% assign current = page.url | downcase | split: '/' %}
+                        <li class="nav-menu-item {% if current[1] == 'introduction' %}current{% endif %}"><a href="introduction.html">Introduction</a></li>
+                        <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="getting_started.html">Getting started</a></li>
+                        <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="documentation.html">Documentation</a></li>
+                        <li class="nav-menu-item {% if current[1] == 'Github' %}current{% endif %}"><a href="https://github.com/Label305/Auja">Auja on Github</a></li>
+                    </ul>
+                </nav>
 
-            <a class="label-logo" href="http://www.label305.com"></a>
+                <a class="label-logo" href="http://www.label305.com"></a>
+            </div>
         </div>
     </div>
 
@@ -88,7 +93,7 @@
 <section class="docs pos-rel">
     <div class="container pos-rel">
         <div class="row">
-            <div class="col-xs-3 docs-menu">
+            <div class="col-xs-3 col-sm-4 col-md-3 docs-menu">
                 <ul>
                     <li><a href="/introduction.html">Introduction</a>
                         <ul>
@@ -120,7 +125,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-xs-9 docs-content pull-right">
+            <div class="col-xs-12 col-sm-8 col-md-9 docs-content pull-right">
                 {{ content }}
             </div>
         </div>
@@ -133,8 +138,7 @@
 <!--FOOTER -->
 <footer class="wrapper">
     <div class="container">
-
-        <div id="copyright" class="wrapper">&copy; 2014 <a href="http://label305.com">Label305 B.V.</a><br />Auja is released under the Apache License Version 2.0</div>
+        <div id="copyright" class="wrapper">Developed with love by Label305 | &copy; 2014 <a href="http://label305.com">Label305 B.V.</a><br />Auja is released under the Apache License Version 2.0</div>
     </div>
 </footer>
 </body>

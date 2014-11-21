@@ -7,6 +7,13 @@ title: "Auja"
 
 <p class="leading underline"> Auja is a Javascript interface meant to be used together with a back-end implementation for your preferred framework, whatever server side language you use.</p>
 
+<div class="wrapper">
+    <div class="animated-gif">
+    <span></span>
+        <img src="/images/auja-animated.gif" alt="Auja animated gif" width="640" height="361" />
+    </div>
+</div>
+
 <div class="row">
     <div class="col-xs-12 col-md-4">
         <h4>Simple JSON contract</h4>

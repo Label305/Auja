@@ -62,6 +62,7 @@
             <nav id="nav-menu">
                 <ul id="nav-menu-list">
                     {% assign current = page.url | downcase | split: '/' %}
+                    <li class="nav-menu-item {% if current[1] == 'introduction' %}current{% endif %}"><a href="introduction.html">Introduction</a></li>
                     <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="getting_started.html">Getting started</a></li>
                     <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="documentation.html">Documentation</a></li>
                     <li class="nav-menu-item {% if current[1] == 'Github' %}current{% endif %}"><a href="https://github.com/Label305/Auja">Auja on Github</a></li>
