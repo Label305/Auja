@@ -549,6 +549,9 @@ footer{
     .label-logo{
         display: none !important;
     }
+    .docs-menu{
+        display: none;
+    }
 }
 
 @media (max-width: 768px){
@@ -557,13 +560,10 @@ footer{
         width: 768px !important;
     }
 
-    header.home{
+    header.home {
         width: 768px;
         left: 0;
         top: 0;
-    }
-    .docs-menu{
-        display: none;
     }
     main.docs-introduction .container > div > div,
     header.docs .container > div > div{
