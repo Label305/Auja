@@ -23,11 +23,16 @@ require.config({
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
+        moment: 'bower_components/moment/min/moment.min',
+        pikaday: 'bower_components/pikaday/pikaday',
+        pikadayjq: 'bower_components/pikaday/plugins/pikaday.jquery',
         trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
         jstree: 'bower_components/jstree/dist/jstree.min',
+        minicolors: 'bower_components/jquery-minicolors/jquery.minicolors.min',
         sugar: 'bower_components/sugar/release/sugar.min',
         request: 'build/Requests/request',
-        flux: 'build/Stores/flux'
+        flux: 'build/Stores/flux',
+        clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker.min'
     },
 
     /**
@@ -36,6 +41,15 @@ require.config({
     shim: {
         trumbowyg: {
             deps: ['jquery']
+        },
+        minicolors: {
+            deps: ['jquery']
+        },
+        clockpicker: {
+            deps: ['jquery']
+        },
+        pikadayjq: {
+            deps: ['jquery', 'moment', 'pikaday']
         }
     }
 });

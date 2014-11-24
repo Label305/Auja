@@ -1,8 +1,7 @@
 /**
  * @jsx React.DOM
  */
-define(['react'], function (React) {
-
+define(['react', 'build/Components/Scaffolding/hamburger.react'], function (React, Hamburger) {
     return React.createClass({
         render: function () {
             //Name of the user
@@ -28,9 +27,8 @@ define(['react'], function (React) {
                 <h1>{this.props.auja.title}</h1>
                     <div id="buttons">{buttons}</div>
                     {user}
-                <div className="menu-trigger">
-                    <span></span>
-                </div>
+
+                <Hamburger />
                 </header>
             );
 

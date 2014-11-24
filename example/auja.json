@@ -16,6 +16,10 @@
       {
         "text": "Logout",
         "target": "#logout"
+      },
+      {
+        "text": "Buy a Beer",
+        "target": "#beer"
       }
     ],
     "menu": [
