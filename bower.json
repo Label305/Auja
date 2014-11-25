@@ -29,6 +29,7 @@
     "jstree": "~3.0.8",
     "jquery-minicolors": "~2.1.7",
     "clockpicker": "~0.0.7",
-    "moment": "~2.8.3"
+    "moment": "~2.8.3",
+    "chosen_v1.2.0": "https://github.com/harvesthq/chosen/releases/download/v1.2.0/chosen_v1.2.0.zip"
   }
 }

@@ -32,7 +32,8 @@ require.config({
         sugar: 'bower_components/sugar/release/sugar.min',
         request: 'build/Requests/request',
         flux: 'build/Stores/flux',
-        clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker.min'
+        clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker.min',
+        chosen: 'bower_components/chosen_v1.2.0/chosen.jquery.min'
     },
 
     /**
@@ -50,6 +51,9 @@ require.config({
         },
         pikadayjq: {
             deps: ['jquery', 'moment', 'pikaday']
+        },
+        chosen: {
+            deps: ['jquery']
         }
     }
 });
