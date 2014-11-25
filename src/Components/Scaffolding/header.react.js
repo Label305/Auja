@@ -28,7 +28,7 @@ define(['react', 'build/Components/Scaffolding/hamburger.react'], function (Reac
                     <div id="buttons">{buttons}</div>
                     {user}
 
-                <Hamburger />
+                <Hamburger auja={this.props.auja}/>
                 </header>
             );
 
