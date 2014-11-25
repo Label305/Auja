@@ -17,11 +17,26 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         this._checked = data.checked || null;
 
         /**
+         * The fallback state of checkbox
+         * @type {boolean|null}
+         * @private
+         */
+        this._fallback = data.fallback != false;
+
+        /**
          * Getter for checked
          * @returns {boolean|null}
          */
         this.isChecked = function() {
             return this._checked;
+        };
+
+        /**
+         * Getter for fallback
+         * @returns {boolean|null}
+         */
+        this.hasFallback = function() {
+            return this._fallback;
         };
 
         /**
@@ -31,6 +46,15 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         this.setIsChecked = function(checked) {
             this._checked = checked;
         };
+
+        /**
+         * Setter for fallback
+         * @param fallback
+         */
+        this.setHasFallback = function(fallback) {
+            this._fallback = fallback;
+        };
+
         /**
          * Get attributes for this input
          * @return Object
@@ -40,7 +64,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                checked: this.isChecked()
+                checked: this.isChecked(),
+                fallback: this.hasFallback()
             }
         };
     };

@@ -38,12 +38,21 @@
                             "value": "11"
                         }                        
                     },
+                    {
+                        "type": "color",
+                        "color": {
+                            "name": "teamcolor",
+                            "label": "Team Color",
+                            "value": "#CC0000"
+                        }                        
+                    },
                                         {
                         "type": "date",
                         "date": {
                             "name": "foundingdate",
                             "label": "Founded on",
-                            "value": "1982-17-08"
+                            "value": "1982-08-17",
+                            "format": "YYYY-MM-DD"
                         }                        
                     },
                     {
@@ -77,6 +86,14 @@
                             "name": "telephone",
                             "label": "Club phone number",
                             "value": "11"
+                        }                       
+                    },
+                                        {
+                        "type": "time",
+                        "time": {
+                            "name": "time",
+                            "label": "Start tijd",
+                            "value": "11:25"
                         }                       
                     },
                     {
@@ -124,35 +141,41 @@
                             "name": "leagues",
                             "label": "Jupiler",
                             "required": false,
+                            "value": true,
                             "checked": false
-
                         }
                         
                     },
                     {
-                        "type": "select",
-                        "select": {
-                            "name": "country",
-                            "label": "Country",
-                            "value": "DE-de",
-                            "options": [{
-                                "type": "option",
-                                "label": "Nederland",
-                                "value": "NL-nl"
+                        "type": "selectMultipleCheckbox",
+                        "selectMultipleCheckbox": {
+                            "name": "beers",
+                            "label": "Beers",
+                            "required": false,
+                            "value": true,
+                            "options":
+                            [
+                                {
+                                "label": "Jupiler",
+                                "checked": false
                                 },
                                 {
-                                "type": "option",
-                                "label": "Duitsland",
-                                "value": "DE-de"
+                                "label": "Grolsch",
+                                "checked": true
                                 },
                                 {
-                                "type": "option",
-                                "label": "Luilekkerland",
-                                "value": "LL-ll"
-                            }]
-                            }                        
+                                "label": "Heineken",
+                                "checked": false
+                                },
+                                {
+                                "label": "Duvel",
+                                "checked": false
+                                }
+                           ]
+                        }
+                        
                     },
-                    {
+                     {
                         "type": "password",
                         "password": {
                             "name": "token",
