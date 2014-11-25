@@ -1,10 +1,9 @@
 /**
- * A phone number field, properties:
+ * A time field, properties:
  *
  * - label
  * - name
  * - .. any other allowed by input
- * TODO: GET ELEMENT TO EMIT CHANGE EVENT!
  *
  * @jsx React.DOM
  */

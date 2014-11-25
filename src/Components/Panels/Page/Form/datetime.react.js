@@ -1,5 +1,5 @@
 /**
- * A date field, properties:
+ * A datetime field, properties:
  *
  * - label
  * - name
