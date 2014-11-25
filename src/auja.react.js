@@ -34,7 +34,12 @@ require.config({
         flux: 'build/Stores/flux',
         clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker.min'
     },
-        
+    config: {
+            moment: {
+                noGlobal: true
+            }
+    },
+
     /**
      * Shim
      */

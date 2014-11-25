@@ -7,7 +7,7 @@
  *
  * @jsx React.DOM
  */
- define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Components/Panels/Page/Form/date.react', 'build/Components/Panels/Page/Form/time.react'], function (React, Label, Date, Time) {
+ define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'build/Components/Panels/Page/Form/date.react', 'build/Components/Panels/Page/Form/time.react'], function (React, Label, moment, Date, Time) {
     return React.createClass({
         componentDidMount: function() {            
             

@@ -8,7 +8,7 @@
  *
  * @jsx React.DOM
  */
-define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clockpicker'], function (React, Label) {
+define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clockpicker'], function (React, Label, moment) {
     return React.createClass({
         componentDidMount: function() {
               var timepicker = $(this.refs.time.getDOMNode()).clockpicker({
@@ -31,10 +31,13 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clo
         render: function () {
             var attributes = this.props.item.getAttributes();
             attributes.value = moment(this.state.value, this.props.item.getFormat()).format(this.props.item.getFormat());
+            
             //onBlur needed to detect time change through clockpicker
             attributes.onBlur = this.handleChange;
+            
             //Fallback if clockpicker somehow doesn't work
             attributes.onChange = this.handleChange;
+            
             attributes.ref = 'time';
             attributes.readOnly = true;
 
