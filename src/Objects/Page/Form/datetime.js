@@ -15,7 +15,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * @private
          */
         this._format = data.format || null;
-
+        
         /**
          * Getter for format
          * @returns {string|null}
@@ -24,6 +24,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             return this._format;
         };
 
+
         /**
          * Setter for format
          * @param format
@@ -31,11 +32,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         this.setFormat = function(format) {
             this._format = format;
         };
-        /**
-         * Get attributes for this input
-         * @return Object
-         */
-       
+        
+
         /**
          * Get attributes for this input
          * @return Object
@@ -45,7 +43,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                format: this.getFormat()
+                format: this.getFormat(),
+
             }
         };
     };

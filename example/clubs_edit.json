@@ -60,8 +60,8 @@
                         "datetime": {
                             "name": "lastgame",
                             "label": "Last Played",
-                            "value": "1982-08-17 23:15:30",
-                            "format": "YYYY-MM-DD h:mm"
+                            "value": "1982-08-17 11:22:33",
+                            "format": "YYYY-MM-DD HH:mm:ss"
                         }                        
                     },                    
                     {
@@ -102,7 +102,8 @@
                         "time": {
                             "name": "time",
                             "label": "Start tijd",
-                            "value": "11:25"
+                            "value": "11:25",
+                            "format": "HH:mm"
                         }                       
                     },
                     {

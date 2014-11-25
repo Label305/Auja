@@ -31,10 +31,6 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         this.setFormat = function(format) {
             this._format = format;
         };
-        /**
-         * Get attributes for this input
-         * @return Object
-         */
        
         /**
          * Get attributes for this input
