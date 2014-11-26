@@ -13,7 +13,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * @type {string|null}
          * @private
          */
-        this._format = data.format || null;
+        this._format = data.format || 'HH:mm:ss';
 
         /**
          * Getter for format
