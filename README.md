@@ -1,5 +1,6 @@
 Auja 
 ===
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Label305/Auja?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Auja is a back-end interface designed to be friendly on both sides, for the end-user as well as the developer.
 
