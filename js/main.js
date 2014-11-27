@@ -13,37 +13,24 @@
  * TERMS AND CONDITIONS FOR MORE INFORMATION ON OUR WARRANTY. 
  */
 
-$(document).ready(function() { 
-    
-    // Nav animation
 
-   function init() {
-        window.addEventListener('scroll', function(e){
-            var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-                shrinkOn = 100,
-                header = document.querySelector("#navigation");
-            if (distanceY > shrinkOn) {
-                classie.add(header,"on-top");
-            } else {
-                if (classie.has(header,"on-top")) {
-                    classie.remove(header,"on-top");
-                }
-            }
-        });
+
+$(window).scroll(function() {
+    // Scale the header
+    if ($(this).scrollTop() == 0) {
+        $(document).stop().find('.minified').removeClass('minified');
     }
 
-    // Minimized menu
-    
-    $('.menu-trigger').bind('click', function(){
-        if ($('#navigation').hasClass('menu-open')) {
-            $('#navMenuList').hide();
-        } else {
-            $('#navMenuList').fadeIn('fast');
-        }
-        $('#navigation').toggleClass('menu-open');
-    });
-
-    window.onload = init();
+    if ($(this).scrollTop() > 40) {
+        $("header.home").stop().addClass('minified');
+    } else{
+        $("header.home").stop().removeClass('minified');
+    }
+    if ($(this).scrollTop() > 100) {
+        $("header.docs").stop().addClass('minified');
+    } else{
+        $("header.docs").stop().removeClass('minified');
+    }
 });
 
 

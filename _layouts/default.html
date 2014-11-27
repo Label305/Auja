@@ -44,52 +44,42 @@
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
-	<link rel="stylesheet" type="text/css" href="css/retina.css" />
 	<link rel="stylesheet" type="text/css" href="css/syntax.css" />
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
 
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-	<script type="text/javascript" src="js/lib/scrollit.min.js"></script>
-	<script type="text/javascript" src="js/lib/classie.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 
 </head>
 
-	
+
 <html>
 	<body>
-		<header id="navigation" class="header-wrapper wrapper pos-rel">
-			
-			<div class="header-background">
-				<div class="nav-wrapper pos-rel">
 
-					<a href="#" class="menu-trigger">
-						<span></span>
-					</a>
-					
-					<a class="label-logo" href="/Auja">
-						<h1>Auja</h1>
-					</a>
-					{% assign current = page.url | downcase | split: '/' %}
-					
-					<nav id="navMenu" class="pull-right margin-left">
-						<ul id="navMenuList">
-							<li class="navMenuItem {% if current[2] == '/' %}current{% endif %}"><a href="index.html">Introduction</a></li>
-							<li class="navMenuItem {% if current[2] == '/' %}current{% endif %}"><a href="api.html">API</a></li>
-							<li class="navMenuItem {% if current[2] == '/' %}current{% endif %}"><a href="developing.html">Developing</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
+		<header class="home">
+            <h1><a href="/">Auja</a></h1>
+
+            <nav id="nav-menu">
+                <ul id="nav-menu-list">
+                    {% assign current = page.url | downcase | split: '/' %}
+                    <li class="nav-menu-item {% if current[1] == 'introduction' %}current{% endif %}"><a href="introduction.html">Introduction</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="getting_started.html">Getting started</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="documentation.html">Documentation</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'Github' %}current{% endif %}"><a href="https://github.com/Label305/Auja">Auja on Github</a></li>
+                </ul>
+            </nav>
+
+            <a class="label-logo" href="http://www.label305.com"></a>
+
 		</header>
-			
-			{{ content }}
-
+        <section class="content">
+            {{ content }}
+        </section>
 		<!--FOOTER -->
 		<footer class="wrapper bg-gray">
 			<div class="container">
 
-				<div id="copyright" class="wrapper">&copy; 2014 <a href="http://label305.com">Label305 B.V.</a><br />Auja is released under the Apache License Version 2.0</div>
+				<div id="copyright" class="wrapper">Developed with love by Label305 | &copy; 2014 <a href="http://label305.com">Label305 B.V.</a><br />Auja is released under the Apache License Version 2.0</div>
 			</div>
 		</footer>
 	</body>

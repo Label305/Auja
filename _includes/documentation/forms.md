@@ -1,10 +1,9 @@
-There are all kinds of form items, you can find them all below.
+<h3 id="forms" class="anchor">Forms</h3>
+There are all kinds of form items, you can find them all below. Some have no specification, that implies that they only implement the abstract form item.
 
-Some have no specification, that implies that they only implement the abstract form item.
+####Form item
 
-**`Abstract` Form item**
-
-Every form item should implement this abstract
+Every form item should implement this `Abstract`
 
 order | `integer` | Where in the form should this item show up
 type | `string` | The item type
@@ -13,16 +12,16 @@ label | `string` | Label to show with the input
 value | `string` | Current value
 required | `boolean` | If it is required to fill in (not always actually, e.g. a checkbox is an exception)
 
-**Checkbox**
+####Checkbox
 
-Checkbox will be rendered as a combination of a `hidden` input with value `0` and a checkbox with value `1` both 
+A checkbox will be rendered as a combination of a `hidden` input with value `0` and a checkbox with value `1` both
 having the same name. Meaning you'll always get your data.
 
 checked | `boolean`
 
-**Date**
+####Date
 
-Date input
+A Date input looks like this.
 
 	{
 	    "type": "date",
@@ -32,9 +31,9 @@ Date input
 	    }
 	}
 
-**E-mail**
+####E-mail
 
-Email input
+An email input looks like this.
 
 	{
 	    "type": "email",
@@ -44,22 +43,9 @@ Email input
 	    }
 	}
 
-**Header**
+####Integer
 
-Header
-
-text | `string` | Text it can contain
-
-	{
-	    "type": "header",
-	    "header": {
-	        "text": "Edit club"
-	    }
-	}
-
-**Integer**
-
-Integer input
+an integer input looks like this.
 
 	{
 	    "type": "integer",
@@ -69,9 +55,9 @@ Integer input
 	    }
 	}
 
-**Number**
+####Number
 
-Number input, with decimals
+A number input, with decimals looks like this.
 
 	{
 	    "type": "number",
@@ -81,9 +67,9 @@ Number input, with decimals
 	    }
 	}
 
-**Password**
+####Password
 
-Password input
+A password input looks like this.
 
 	{
 	    "type": "password",
@@ -93,12 +79,9 @@ Password input
 	    }
 	}
 
-**Range**
+####Range
 
-Range input
-
-min | `integer` | Minimal value
-max | `integer | Maximum value
+A range input looks like this.
 
 	{
 	    "type": "range",
@@ -109,12 +92,14 @@ max | `integer | Maximum value
 	        "max": 15
 	    }
 	}
+With the addition of minimal and maximum values.
 
-**Select**
+min | `integer` | Minimal value
+max | `integer` | Maximum value
 
-Dropdown input
+####Select
 
-options | `integer 
+A select dropdown input looks like this.
 
 	{
 	    "type": "options",
@@ -134,9 +119,9 @@ options | `integer
 	    }
 	}
 
-**Submit**
+####Submit
 
-Submit button
+A submit button looks like this.
 
 	{
 		"type": "submit",
@@ -145,9 +130,9 @@ Submit button
 		}
 	}
 
-**Tel**
+####Tel
 
-Telephone number
+A telephone number input looks like this.
 
 	{
 	    "type": "tel",
@@ -157,9 +142,9 @@ Telephone number
 	    }
 	}
 
-**Text**
+####Text
 
-Text input
+A plain text input looks like this.
 
 	{
 	    "type": "text",
@@ -169,9 +154,9 @@ Text input
 	    }
 	}
 
-**Textarea**
+####Textarea
 
-Textarea number
+A textarea input looks like this.
 
 	{
 	    "type": "textarea",
@@ -181,23 +166,26 @@ Textarea number
 	    }
 	}
 
-**Trumbowyg**
+####Trumbowyg
 
-Rich text editor [Trubmowyg](http://alex-d.github.io/Trumbowyg/)
-
-buttons | `array` | Head over to their ["Button pane" doc](http://alex-d.github.io/Trumbowyg/documentation.html)
+The available rich text editor [Trubowyg](http://alex-d.github.io/Trumbowyg/) looks like this.
 
 	{
 	    "type": "trumbowyg",
 	    "trumbowyg": {
 	    	"name": "textarea",
-	        "value": "Your long story"
+	        "value": "Your long story",
+	        "buttons": ["header", "bold", "italic"]
 	    }
 	}
 
-**Url**
+Buttons are optional using this `Abstract`.
 
-Url input
+buttons | `array` | Optional, head over to their ["Button pane" doc](http://alex-d.github.io/Trumbowyg/documentation.html)
+
+####Url
+
+An url input looks like this.
 
 	{
 	    "type": "url",

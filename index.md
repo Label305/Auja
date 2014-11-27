@@ -1,24 +1,38 @@
 ---
-layout: empty
+layout: home
 title: "Auja"
 ---
 
-<div class="blog-item bg-white">
-	<div class="avatar intro"></div>
-	<div class="timeline"></div>
-	<h2 class="text-blue uppercase">Introduction to Auja</h2>
-	<span class="categories">Just a little about our interface</span>
-	{% capture intro %}{% include introduction/intro.md %}{% endcapture %}
-	{{ intro | markdownify }}
-	<div class="devider-line"></div>
+<h2 class="no-line">Implement Auja regardless of which server-side technology you use.</h2>
+
+<p class="leading underline"> Auja is a Javascript interface meant to be used together with a back-end implementation for your preferred framework, whatever server side language you use.</p>
+
+<div class="wrapper">
+    <div class="animated-gif">
+    <span></span>
+        <img src="/images/auja-animated.gif" alt="Auja animated gif" width="640" height="361" />
+    </div>
 </div>
 
-<div class="blog-item bg-white">
-	<div class="avatar install"></div>
-	<div class="timeline"></div>
-	<h2 class="text-blue uppercase">Installation</h2>
-	<span class="categories">Install Auja and take a peek</span>
-	{% capture installation %}{% include introduction/installation.md %}{% endcapture %}
-	{{ installation | markdownify }}
-	<div class="devider-line"></div>
+<div class="row">
+    <div class="col-xs-12 col-md-4">
+        <h4>Simple JSON contract</h4>
+        <p>The Auja interface interactis with any application via Json. Due to strict Json contracts, the implementation of Auja on other applications is very straightforward.</p>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <h4>Fully responsive</h4>
+        <p>Auja is fully responsive. The flat UI is spacious on large screens and uses less space on smaller screens. But Auja also supports mobile devices, with an alternative view for phones and other small screens.</p>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <h4>Advanced data input types</h4>
+        <p>Auja supports many data input types directly out of the box. Dus to the strics Json contracts,  you can easily get your hands on these data types during developing.</p>
+    </div>
+</div>
+
+<div class="page-devider"></div>
+
+<p class="leading"> Start right now with using Auja for your backend implementation.</p>
+
+<div class="align-center">
+    <a href="/getting_started.html" class="button black">Start now</a>
 </div>
