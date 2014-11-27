@@ -8,12 +8,12 @@ body{
     background-color: #f1f1f1;
 }
 h1{
+    position: relative;
     font-family: "IntroBoldAltRegular", Arial, sans-serif;
-    font-size: 32px;
-    color: #1ebab8;
     display: inline-block;
     float: left;
-    height:40px;
+    height: 40px;
+    font-size: 28px;
     line-height: 40px;
 }
     h1 a,
@@ -21,31 +21,45 @@ h1{
         color: #1ebab8;
         text-decoration: none;
     }
-h2{
+h2,
+h2 a{
     font-size: 30px;
-    line-height: 30px;
+    line-height: 40px;
     text-align: left;
     color: #353535;
-    margin: 0;
+    margin: 0 0 15px 0;
     font-weight: 300;
+    float: left;
+    display: block;
+    width: 100%;
+    text-decoration: none;
 }
 h3,
-p.leading{
-    text-align: left;
-    font-size: 18px;
-    line-height: 30px;
-    color: #555555;
-    margin: 0 0 15px 0;
-}
-h4{
+h3 a{
     text-align: left;
     font-size: 22px;
     line-height: 30px;
-    margin: 0 0 15px 0;
+    color: #1ebab8;
+    margin: 10px 0 5px 0;
+    float: left;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+h4 {
+    text-align: left;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 10px 0 5px 0;
+    float: left;
+    display: block;
+    width: 100%;
+    color: #555555;
 }
 a{
     color: #353535;
     text-decoration: underline;
+    cursor: pointer;
 }
     a:hover{
         color: #1ebab8;
@@ -63,8 +77,23 @@ p > span{
     font-weight: 700;
 }
 p.leading{
-
+    text-align: left;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 0 0 15px 0;
+    float: left;
+    display: block;
+    width: 100%;
+    color: #555555;
 }
+    p.leading.underline:after{
+        content: "";
+        width: 60px;
+        height: 2px;
+        display: block;
+        background-color: #ed3338;
+        margin: 45px auto;
+    }
 p.intro{
     color: white;
     font-family: "Open Sans", Arial, sans-serif;
@@ -78,6 +107,18 @@ p.intro{
 }
 .pos-rel{
     position: relative;
+}
+.page-devider{
+    width: 100%;
+    height: 1px;
+    background-color: #dadada;
+    display: block;
+    float: left;
+    margin: 30px 0;
+}
+.anchor{
+    padding-top: 60px;
+    margin-top: -60px;
 }
 header{
     z-index: 99;
@@ -94,12 +135,19 @@ header{
         height: 80px;
         width: calc(100% - 60px);
         padding: 0 30px;
+        border-radius: 2px;
+        -ms-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
     }
     header.docs {
         position: relative;
         float: left;
         width: 100%;
     }
+        header.docs .container > div > div{
+            padding: 0;
+        }
     header h1{
         margin: 20px 0;
     }
@@ -120,6 +168,10 @@ header{
         top: 0;
         left: 0;
         position: fixed;
+        border-radius: 0;
+        -ms-border-radius: 0;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
     }
     header.docs.minified{
         top: 0;
@@ -144,14 +196,9 @@ header{
             -o-transition: 0.25s;
             transition: 0.25s;
         }
-        header.minified h1,
-        header.docs h1{
-            margin: 10px 0;
-            -webkit-transition: 0.25s;
-            -moz-transition: 0.25s;
-            -o-transition: 0.25s;
-            transition: 0.25s;
-        }
+            header.docs .label-logo{
+                right: 0;
+            }
         header.minified #nav-menu,
         header.docs #nav-menu{
             margin: 10px !important;
@@ -159,6 +206,10 @@ header{
             -moz-transition: 0.25s;
             -o-transition: 0.25s;
             transition: 0.25s;
+        }
+        header.minified h1,
+        header.docs h1{
+            margin: 10px 0;
         }
 #nav-menu{
     display: inline-block;
@@ -207,13 +258,14 @@ header{
 a.button {
     background-color: transparent;
     display: inline-block;
+    text-decoration: none;
     padding: 10px 15px;
     height: 40px;
-    line-height: 18px;
+    line-height: 17px;
     cursor: pointer;
     border-radius: 2px;
     -ms-border-radius: 2px;
-    -moz-borer-radius: 2px;
+    -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     font-size: 16px;
 }
@@ -253,7 +305,8 @@ section.content{
         padding-top: 80px;
         background-color: #1ebab8;
         min-height: 100px;
-        height: 600px;
+        height: 650px;
+        border-bottom: 4px solid #189391;
     }
         .content main.introduction .container{
             height: 600px;
@@ -277,12 +330,20 @@ section.content{
     }
         .content section.home h2,
         .content section.home h3,
-        .content section.home h4{
+        .content section.home p.leading{
             text-align: center;
+        }
+        .content section.home p.leading{
+            margin-top: 15px;
         }
         .content section.home > .container{
             background-color: white;
-            padding: 90px 0;
+            padding-top: 90px;
+            padding-bottom: 90px;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
         }
         .content section.home h2:before{
             content: '';
@@ -300,14 +361,6 @@ section.content{
             width: 80%;
             margin-left: 10%;
         }
-        .content section.home h3:after{
-            content: '';
-            width: 60px;
-            height: 2px;
-            display: block;
-            background-color: #ed3338;
-            margin: 45px auto;
-        }
 main.docs-introduction{
     background-color: #1ebab8;
     height: 120px;
@@ -315,23 +368,17 @@ main.docs-introduction{
     main.docs-introduction .container{
         height: 120px;
     }
+        main.docs-introduction .container > div > div{
+            padding: 0;
+        }
     main.docs-introduction h2{
         color: white;
         line-height: 30px;
         margin: 45px 0;
     }
-section.docs{
+section.docs {
 
 }
-    section.docs h2:after{
-        content: '';
-        width: 100%;
-        height: 1px;
-        background-color: #dadada;
-        display: block;
-        float: left;
-        margin: 15px 0;
-    }
     section.docs h3{
         font-weight: 700;
     }
@@ -342,26 +389,37 @@ section.docs{
         background-color: white;
         padding: 60px;
     }
+        section.docs .docs-content ul{
+            display: block;
+            float: left;
+            width: 100%;
+            margin-top: 15px;
+            list-style-type: square;
+            padding-left: 18px;
+        }
+            section.docs .docs-content ul li{
+                line-height: 30px;
+            }
+            section.docs .docs-content ul li a{
+                text-decoration: none;
+            }
     section.docs .docs-menu{
         background: #fafafa;
         height: 100%;
-        padding: 30px 0 30px 30px;
+        padding: 60px 0 30px 30px;
         position: absolute;
-        left: 0;
         top: 0;
+        left: 0;
     }
-        section.docs .docs-menu.fixed{
-            position: fixed !important;
-            top: 60px;
-            left: inherit;
-        }
         section.docs .docs-menu ul{
             list-style-type: none;
             padding: 0;
-            margin: -10px 0 0 0;
+            margin: -7px 0 0 0;
+            float: left;
         }
         section.docs .docs-menu li a{
             color: #888888;
+            text-decoration: none;
         }
             section.docs .docs-menu li a:hover{
                 color: #353535;
@@ -375,12 +433,12 @@ section.docs{
             }
         section.docs .docs-menu > ul > li{
             width: 100%;
-            font-size: 18px;
+            font-size: 16px;
             min-height: 20px;
             line-height: 20px;
             display: inline-block;
             float: left;
-            padding: 10px 0;
+            padding: 7px 0;
             font-weight: 400;
         }
             section.docs .docs-menu ul li.active{
@@ -389,6 +447,8 @@ section.docs{
         section.docs .docs-menu ul li ul{
             padding-left: 15px;
             margin-top: 5px;
+            display: block;
+            width: 100%;
         }
         section.docs .docs-menu ul li ul li{
             font-size: 14px;
@@ -399,6 +459,114 @@ section.docs{
             width: 100%;
             float: left
         }
+        section.docs table{
+            margin: 0 0 15px 0;
+            padding: 15px;
+            display: block;
+            border: 1px solid #dadada;
+            background-color: #fafafa;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            float: left;
+            width: 100%;
+        }
+            section.docs table td{
+                padding: 5px 0 5px 15px;
+            }
+        section.docs pre{
+            background-color: #333;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border: 0;
+            color: white;
+            padding: 30px;
+            margin: 0 0 15px 0;
+            float: left;
+            width: 100%;
+        }
+.animated-gif{
+    width: 646px;
+    height: 384px;
+    padding: 20px 3px 3px 3px;
+    background-color: #dadada;
+    display: block;
+    float: none;
+    position: relative;
+    border-radius: 2px;
+    -ms-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    margin: 0 auto 60px auto;
+}
+    .animated-gif span,
+    .animated-gif span:before,
+    .animated-gif span:after{
+        content: "";
+        width: 5px;
+        height: 5px;
+        display: block;
+        position: absolute;
+        border-radius: 5px;
+        -ms-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+    .animated-gif span{
+        background-color: #F7E6AD;
+        top: 8px;
+        left: 15px;
+    }
+    .animated-gif span:before{
+        background-color: #ed3338;
+        top: 0;
+        left: -10px;
+    }
+    .animated-gif span:after{
+        background-color: #1ebab8;
+        top: 0;
+        left: 10px;
+    }
+    .animated-gif img{
+        float: left;
+        display: inline-block;
+    }
+.wrapper{
+    display: block;
+    width: 100%;
+    float: left;
+}
 footer{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 14px;
+}
 
+@media (max-width: 991px){
+    .label-logo{
+        display: none !important;
+    }
+    .docs-menu{
+        display: none;
+    }
+}
+
+@media (max-width: 768px){
+
+    .container{
+        width: 768px !important;
+    }
+
+    header.home {
+        width: 768px;
+        left: 0;
+        top: 0;
+    }
+    main.docs-introduction .container > div > div,
+    header.docs .container > div > div{
+        padding: 0 15px;
+    }
 }
