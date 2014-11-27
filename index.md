@@ -10,7 +10,7 @@ title: "Auja"
 <div class="wrapper">
     <div class="animated-gif">
     <span></span>
-        <img src="../images/auja-animated.gif" alt="Auja animated gif" width="640" height="361" />
+        <img src="./images/auja-animated.gif" alt="Auja animated gif" width="640" height="361" />
     </div>
 </div>
 
