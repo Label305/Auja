@@ -18,8 +18,8 @@
         "target": "#logout"
       },
       {
-        "text": "Logouts",
-        "target": "#logouts"
+        "text": "Buy a Beer",
+        "target": "#beer"
       }
     ],
     "menu": [

@@ -433,7 +433,17 @@ ul#main-menu
         width: 100%
         clear: both
         display: inline-block    
- 
+// ------ Overlay Menu ------
+.menu-overlay
+    display: none
+    &.menu-visible
+        display: block
+        position: absolute
+        top: 60px
+        left: 0
+        width: 100%
+        padding: 15px
+        background-color: #454545
 // ------ Form ------
 input,
 select,
@@ -455,7 +465,7 @@ form
                 text-transform: uppercase
                 font-size: 12px
                 min-height: 15px
-                line-height: 15px        
+                line-height: 15px
             input[type="text"],
             input[type="password"],
             input[type="number"],
@@ -693,18 +703,7 @@ form
         -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
         z-index: 1000
         #buttons
-            position: absolute
-            right: 0
-            top: 60px
-            background-color: #ffffff
-            width: auto
-            height: auto
-            margin: 0
-            padding: 30px 15px
-            box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
-            -ms-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
-            -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
-            -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+            display: none
         h1
             font-size: 18px
             height: 20px
@@ -792,8 +791,14 @@ form
                     padding: 0
                     & > div
                         margin: 30px
-
+    select
+        height: 30px !important
+        padding-top: 5px !important
+        padding-bottom: 5px !important
 
 @import trumbowyg
 @import jstree
 @import hamburger
+@import minicolors
+@import clockpicker
+@import pikaday
