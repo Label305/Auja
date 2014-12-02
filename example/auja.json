@@ -16,6 +16,10 @@
       {
         "text": "Logout",
         "target": "#logout"
+      },
+      {
+        "text": "Logouts",
+        "target": "#logouts"
       }
     ],
     "menu": [
