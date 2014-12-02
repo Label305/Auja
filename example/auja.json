@@ -18,6 +18,7 @@
         "target": "#logout"
       },
       {
+
         "text": "Buy a Beer",
         "target": "#beer"
       }
