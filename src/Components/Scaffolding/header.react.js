@@ -23,7 +23,7 @@ define(['react', 'build/Components/Scaffolding/hamburger.react'], function (Reac
             }
             var showBurger = '';
             var showButtons ='';
-            if (this.props.auja.buttons.length > 1){
+            if (buttons.length > 1){
                 showBurger = <Hamburger auja={this.props.auja}/>;
                 showButtons = '';
                 user = '';
