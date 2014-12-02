@@ -21,14 +21,23 @@ define(['react', 'build/Components/Scaffolding/hamburger.react'], function (Reac
                         );
                 });
             }
+            var showBurger = '';
+            var showButtons ='';
+            if (this.props.auja.buttons.length > 1){
+                showBurger = <Hamburger auja={this.props.auja}/>;
+                showButtons = '';
+                user = '';
+            } else {
+            showButtons = <div id="buttons">{buttons}</div>;
+             showBurger = '';
+         }
             return (
                 <header>
                 <div className="menu-back ion-chevron-left"></div>
                 <h1>{this.props.auja.title}</h1>
-                    <div id="buttons">{buttons}</div>
+                    {showButtons}
                     {user}
-
-                <Hamburger auja={this.props.auja}/>
+                {showBurger}
                 </header>
             );
 
