@@ -1,12 +1,15 @@
+@import includes
+
 .menu-trigger
     position: absolute
-    top: 17px
-    right: 15px
+    top: 22px
+    right: 20px
     display: block
     width: 25px
     height: 25px
     cursor: pointer
     float: right
+    z-index: 1001
     span
         position: absolute
         top: calc(50% - 1.5px)
@@ -14,7 +17,7 @@
         display: block
         width: 100%
         height: 3px
-        background-color: white
+        background-color: $font-color
         font-size: 0px
         -webkit-touch-callout: none
         -webkit-user-select: none
@@ -30,7 +33,7 @@
             left: 0
             width: 100%
             height: 100%
-            background: white
+            background: $font-color
             content: ''
             -webkit-transition: -webkit-transform 0.3s
             transition: transform 0.3s
@@ -50,3 +53,15 @@
             &:after
                 -webkit-transform: translateY(0) rotate(-45deg)
                 transform: translateY(0) rotate(-45deg)
+@media (max-width:640px)
+    .menu-trigger
+        top: 17px
+        right: 15px
+        span,
+        span:before,
+        span:after
+            background-color: white
+    .menu-open
+        .menu-trigger
+            span
+                background-color: transparent

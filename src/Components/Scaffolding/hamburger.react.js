@@ -26,7 +26,7 @@
             if (this.props.auja.buttons) {
                 buttons = this.props.auja.buttons.map(function (button) {
                     return (
-                        <li><a key={button.target} href={button.target}>{button.text}</a></li>
+                        React.DOM.li({className: "auja-border-secondary"}, React.DOM.a({key: button.target, href: button.target}, button.text))
                         );
                 });
             }

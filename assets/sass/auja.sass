@@ -228,7 +228,7 @@ header
     left: 0
     top: 0
     height: 70px
-    .menu-trigger,
+    z-index: 1000
     .menu-back
         display: none
     #user 
@@ -362,6 +362,9 @@ ul#main-menu
                 line-height: 30px
                 cursor: pointer
                 width: calc(100% - 45px)
+                &:hover
+                    border-bottom: 2px solid
+                    padding-bottom: 13px
                 &:before,
                 &:after
                     position: absolute
@@ -439,11 +442,44 @@ ul#main-menu
     &.menu-visible
         display: block
         position: absolute
-        top: 60px
-        left: 0
-        width: 100%
-        padding: 15px
-        background-color: #454545
+        top: 0
+        right: 0
+        width: 270px
+        padding: 70px 0 30px 30px
+        background-color: white
+        z-index: 1000
+        box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        -ms-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        ul
+            list-style-type: none
+            margin-top: -30px
+            display: inline-block
+            float: left
+            width: 100%
+            li
+                width: 100%
+                display: inline-block
+                border-bottom: 1px solid
+                cursor: pointer
+                height: 59px
+                float: left
+                a
+                    height: 59px
+                    line-height: 59px
+                    color: $font-color
+                    font-size: 14px
+                    width: 100%
+                    float: left
+                &:hover
+                    border-bottom: 2px solid
+                    height: 58px !important
+                    a
+                        padding-bottom: 13px !important
+                        height: 58px !important
+    .username
+        display: none
 // ------ Form ------
 input,
 select,
@@ -640,6 +676,9 @@ form
                 .menu-item-link
                     padding-top: 10px
                     padding-bottom: 9px
+                    &:hover
+                        border-bottom: 2px solid
+                        padding-bottom: 8px
                     &.active
                         padding-bottom: 8px !important
                     &:before
@@ -669,14 +708,71 @@ form
         &.button
             padding-top: 10px !important
             padding-bottom: 10px !important
+    .menu-overlay
+        &.menu-visible
+            ul
+                list-style-type: none
+                margin-top: -30px
+                li
+                    height: 49px
+                    a
+                        height: 49px
+                        line-height: 49px
+                    &:hover
+                        height: 48px !important
+                        a
+                            height: 48px !important
 
 @media screen and (max-width: 640px)
 
+    #buttons
+        position: absolute
+        top: 10px
+        right: 15px
+        margin: 0 !important
+        .button
+            display: block
+            background-color: transparent !important
+            color: white
+            padding-left: 0
+            padding-right: 0
+            &:hover
+                background-color: transparent !important
+                color: white
+                opacity: 0.75
+                filter: alpha(opacity=75)
+                transition: 0.25s
+                -moz-transition: 0.25s
+                -webkit-transition: 0.25s
     .menu-trigger
         display: block !important
         span:before,
         span:after
             content: ''
+
+    .menu-overlay
+        display: none
+        &.menu-visible
+            display: block
+            position: absolute
+            top: 60px
+            left: 0
+            width: 100%
+            padding: 0 15px 15px 15px
+            background-color: white
+            ul
+                list-style-type: none
+                margin-top: 0
+                li
+                    height: 59px
+                    a
+                        height: 59px
+                        line-height: 59px
+                    &:hover
+                        height: 58px !important
+                        a
+                            height: 58px !important
+
     .menu-back
         display: block !important
         position: absolute
@@ -689,6 +785,12 @@ form
         line-height: 30px
         text-align: left
         cursor: pointer
+        &:hover
+            opacity: 0.75
+            filter: alpha(opacity=75)
+            transition: 0.25s
+            -moz-transition: 0.25s
+            -webkit-transition: 0.25s
     body
         width: 100%
         display: block
@@ -702,8 +804,6 @@ form
         -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
         -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
         z-index: 1000
-        #buttons
-            display: none
         h1
             font-size: 18px
             height: 20px
@@ -729,7 +829,7 @@ form
             display: inline-block
             position: relative
             float: left
-            margin: 15px
+            margin: 0 15px 30px 15px
             padding: calc(33.33% - 30px) 0 0
             overflow: visible
             span
@@ -795,6 +895,7 @@ form
         height: 30px !important
         padding-top: 5px !important
         padding-bottom: 5px !important
+
 
 @import trumbowyg
 @import jstree
