@@ -10,10 +10,12 @@
  define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'pikadayjq'], function (React, Label, moment) {
     return React.createClass({
         componentDidMount: function() {         
-         var datepicker = $(this.refs.date.getDOMNode()).pikaday({
+         $(this.refs.date.getDOMNode()).pikaday({
             firstDay: 1,
+            bound: true,
             format: this.props.format ? this.props.format : this.props.item.getFormat(),//Allow override from parent
             defaultDate: new Date(this.props.item.getValue()),
+            container: this.refs.calender.getDOMNode(),
             showWeekNumber: true,
             onSelect: function(date) {
                 this.handleChange(date);
@@ -46,6 +48,7 @@
             <div>
             {label}
             {React.DOM.input(attributes)}
+            <div className="pika-container" ref='calender'></div>
             </div>
             );
     }
