@@ -16,8 +16,9 @@ define(['react', 'build/Components/Scaffolding/hamburger.react'], function (Reac
             var buttons = '';
             if (this.props.auja.buttons) {
                 buttons = this.props.auja.buttons.map(function (button) {
+                    var buttonClasses = button.icon + " button auja-color-main";
                     return (
-                        <a className="auja-bg-main button" key={button.target} href={button.target}>{button.text}</a>
+                        <a className={buttonClasses} key={button.target} href={button.target}>{button.text}</a>
                         );
                 });
             }
@@ -26,7 +27,6 @@ define(['react', 'build/Components/Scaffolding/hamburger.react'], function (Reac
             if (buttons.length > 1){
                 showBurger = <Hamburger auja={this.props.auja}/>;
                 showButtons = '';
-                user = '';
             } else {
             showButtons = <div id="buttons">{buttons}</div>;
              showBurger = '';

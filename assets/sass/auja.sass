@@ -56,6 +56,7 @@ body
     border: 0
     font-size: 14px
     line-height: 20px
+    text-align: center
 h2 
     & > .button
         float: right
@@ -240,12 +241,13 @@ header
         color: white
         height: 20px
         padding: 10px 0
-        margin-right: 15px
+        margin-right: 60px
         font-size: 15px
     #buttons 
-        float: right
-        margin-top: 15px
-        margin-right: 15px
+        position: absolute
+        top: 15px
+        right: 20px
+        height: 40px
         & > a 
             display: inline-block
             width: auto
@@ -256,12 +258,27 @@ header
             line-height: 20px
             margin: 0
             &:hover
-                background-color: $button-hover-color !important
+                background-color: $button-hover-color
                 transition: 0.25s
                 -ms-transition: 0.25s
                 -moz-transition: 0.25s
                 -webkit-transition: 0.25s
                 color: $font-color
+            &[class*="ion-"]
+                font-size: 0 !important
+                padding: 0 !important
+                width: 25px !important
+                height: 40px !important
+                &:hover
+                    background-color: transparent !important
+                    color: $font-color !important
+                    transition: 0.25s
+                    -ms-transition: 0.25s
+                    -moz-transition: 0.25s
+                    -webkit-transition: 0.25s
+                &:before
+                    font-size: 25px
+                    line-height: 40px
 
 // ------ Main menu ------
 ul#main-menu 
@@ -377,7 +394,7 @@ ul#main-menu
                 &:before
                     left: 0
                 &:after
-                    content: "\f154"
+                    content: "\f3d3"
                     font-family: "Ionicons"
                     right: 0
                     color: $input-border-color
@@ -737,13 +754,13 @@ form
 
     #buttons
         position: absolute
-        top: 10px
-        right: 15px
+        top: 10px !important
+        right: 15px !important
         margin: 0 !important
         .button
             display: block
             background-color: transparent !important
-            color: white
+            color: white !important
             padding-left: 0
             padding-right: 0
             &:hover

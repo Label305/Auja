@@ -15,10 +15,11 @@
     "buttons": [
       {
         "text": "Logout",
+        "icon": "ion-log-out",
         "target": "#logout"
       },
       {
-        "text": "Buy a Beer",
+        "text": "Beer",
         "target": "#beer"
       }
     ],
