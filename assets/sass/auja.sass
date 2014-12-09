@@ -457,6 +457,27 @@ form
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
+            &.form-item-selectMultipleCheckbox > div > div,
+            &.form-item-checkbox > div
+                position: relative
+                float: left
+                display: inline-block
+                width: 100%
+                padding-left: 30px
+                margin-bottom: 10px
+                &:last-of-type
+                    margin-bottom: 0
+                label
+                    text-transform: none
+                    font-size: 14px
+                    line-height: 15px
+                input[type="checkbox"]
+                    position: absolute
+                    width: 15px
+                    height: 15px
+                    left: 0
+                    top: 1px
+                    margin: 0
             textarea,
             textarea:focus
                 border-bottom: 0
@@ -503,21 +524,6 @@ form
                 &:focus
                     outline: none
                     border: 0
-            &.form-item-checkbox
-                input[type="checkbox"]
-                    width: 15px
-                    height: 15px
-                    display: inline-block
-                    margin: 0 10px 0 0
-                    float: left
-                label
-                    width: calc(100% - 25px)
-                    float: right
-                    display: inline-block
-                    height: 15px
-                    margin: 0
-                    text-transform: none
-                    font-size: 14px
             textarea 
                 height: 200px
                 resize: none
