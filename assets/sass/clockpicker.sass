@@ -9,14 +9,17 @@
 
 /* Picked from bootstrap: .popover, .btn, .text-primary
 
+@import includes
+
 .popover
   position: absolute
   top: 0
   left: 0
   z-index: 1010
   display: none
-  width: 280px
-  padding: 1px
+  max-width: 280px
+  width: auto
+  padding: 0
   text-align: left
   white-space: normal
   background-color: white
@@ -35,8 +38,8 @@
     margin-left: -10px
 
 .popover-title
-  padding: 8px 14px
-  margin: 0
+  padding: 10px 0
+  margin: 0 20px
   font-size: 14px
   font-weight: normal
   line-height: 18px
@@ -154,7 +157,7 @@
     outline: 5px auto -webkit-focus-ring-color
     outline-offset: -2px
   &:hover, &:focus
-    color: #333
+    color: $font-color
     text-decoration: none
   &:active, &.active
     background-image: none
@@ -163,16 +166,16 @@
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
 
 .btn-default
-  color: #333
+  color: $font-color
   background-color: #fff
   border-color: #ccc
   &:hover, &:focus, &:active, &.active
-    color: #333
+    color: $font-color
     background-color: #ebebeb
     border-color: #adadad
 
 .open .dropdown-toggle.btn-default
-  color: #333
+  color: $font-color
   background-color: #ebebeb
   border-color: #adadad
 
@@ -222,6 +225,7 @@
     font-size: 24px
     font-weight: bold
     line-height: 30px
+    height: 30px
     text-align: center
     span
       cursor: pointer
@@ -345,3 +349,9 @@
     padding: 5px
     border: 1px solid rgba(0, 0, 0, 0.2)
     border-radius: 4px
+@media (max-width: 1280px)
+  .popover-title
+    padding: 5px 0
+    margin: 0 10px
+  .popover-content
+    padding: 10px !important

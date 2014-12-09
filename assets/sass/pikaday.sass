@@ -66,7 +66,7 @@
 
 .pika-lendar
     float: left
-    width: 280px
+    width: 248px
     margin: 0
 
     .pika-title
@@ -74,7 +74,7 @@
         text-align: center
         height: 30px
         border-bottom: 1px solid #ededed
-        margin: 0 1px 10px 1px
+        margin: 0 20px 10px 20px
         padding: 10px 0
 
         .pika-label
@@ -126,38 +126,37 @@
             border-left: 6px solid $font-color
             border-bottom: 6px solid transparent
             border-top: 6px solid transparent
-            margin-right: 20px
         .pika-prev
             float: left
             border-right: 6px solid $font-color
             border-bottom: 6px solid transparent
             border-top: 6px solid transparent
-            margin-left: 20px
 
     .pika-table
         width: 100%
         border-collapse: collapse
         border-spacing: 0
         border: 0
-        margin: 20px
+        margin: 20px 20px 15px 20px
         th, td
-            width: 30px
             height: 30px
             padding: 0
-            display: block
+            display: inline-block
             float: left
+            width: 26px
+            line-height: 30px
+            margin: 0
+            text-align: center
         th
             color: $font-color
             font-size: 12px
-            line-height: 25px
+            line-height: 30px
             text-align: center
             font-weight: normal
         td
             &.pika-week
                 font-size: 12px
                 color: $font-color
-                height: 30px
-                line-height: 30px
             .pika-button
                 cursor: pointer
                 display: block
@@ -193,4 +192,12 @@
                     cursor: default
                     color: #999
                     opacity: .3
+@media (max-width: 1280px)
+    .pika-lendar
+        width: 228px !important
+        .pika-table
+            margin: 10px 10px 5px 10px !important
+        .pika-title
+            padding: 5px 0
+            margin: 0 10px
 
