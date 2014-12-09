@@ -29,10 +29,36 @@
         display: none
     &.is-bound
         position: absolute
-        box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
-        -ms-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
-        -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
-        -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
+        top: 10px
+        box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+        -ms-box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+        -moz-box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+        -webkit-box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+        &:before,
+        &:after
+            content: ""
+            position: absolute
+            left: 10px
+            display: block
+            width: 0
+            height: 0
+            border-color: transparent
+            border-style: solid
+            border-width: 10px
+            border-top-width: 0
+            overflow: visible
+            margin: 0
+            padding: 0
+            background-color: transparent
+        &:before
+            top: -10px
+            border-bottom-color: rgba(0, 0, 0, 0.05)
+            z-index: 998
+        &:after
+            top: -9px
+            border-bottom-color: white
+            z-index: 999
+
 
 /*
  *clear child float (pika-lendar), using the famous micro clearfix hack
