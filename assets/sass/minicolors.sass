@@ -35,13 +35,13 @@
 
 .minicolors-panel
   position: absolute
-  width: 175px
-  height: 150px
-  -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
-  -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
-  -ms-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
-  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5)
-  padding: 5px
+  margin-top: 10px
+  width: 215px
+  height: 190px
+  box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+  -ms-box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+  -moz-box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+  -webkit-box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
   background-color: white
   z-index: 99999
   -moz-box-sizing: content-box
@@ -50,6 +50,30 @@
   display: none
   &.minicolors-visible
     display: block
+  &:before,
+  &:after
+    content: ""
+    position: absolute
+    left: 10px
+    display: block
+    width: 0
+    height: 0
+    border-color: transparent
+    border-style: solid
+    border-width: 10px
+    border-top-width: 0
+    overflow: visible
+    margin: 0
+    padding: 0
+    background-color: transparent
+  &:before
+    top: -10px
+    border-bottom-color: rgba(0, 0, 0, 0.05)
+    z-index: 998
+  &:after
+    top: -9px
+    border-bottom-color: white
+    z-index: 999
 
 /* Panel positioning
 
@@ -71,8 +95,8 @@
 .minicolors
   .minicolors-grid
     position: absolute
-    top: 5px
-    left: 5px
+    top: 20px
+    left: 20px
     width: 150px
     height: 150px
     background-position: -120px 0
@@ -103,8 +127,8 @@
 .minicolors-slider,
 .minicolors-opacity-slider
   position: absolute
-  top: 5px
-  right: 5px
+  top: 20px
+  right: 20px
   width: 20px
   height: 150px
   background-color: white
