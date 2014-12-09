@@ -439,6 +439,8 @@ form
             input[type="tel"],
             input[type="url"],
             input[type="date"],
+            input[type="datetime"],
+            input[type="time"],
             textarea
                 clear: both
                 width: calc(100% - 20px)
@@ -457,6 +459,8 @@ form
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
+            input[type="datetime"]:last-child
+                margin-top: 10px
             textarea,
             textarea:focus
                 border-bottom: 0
