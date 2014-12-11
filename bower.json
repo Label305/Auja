@@ -1,5 +1,6 @@
 {
   "name": "auja",
+  "description": "Auja is an easy-to-use, easy-to-implement admin interface for managing your data. It is designed to be framework and server-side-language independent.",
   "authors": [
     "Joris Blaak <joris@label305.com>",
     "Olav Peuscher <olav@label305.com>",
