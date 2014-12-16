@@ -3,6 +3,9 @@
   "version": "3.0.0",
   "main": "build/auja.react.js",
   "dependencies": {
+
+  },
+  "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-sass": "^0.8.1",
@@ -11,7 +14,7 @@
     "karma-chrome-launcher": "^0.1.7",
     "karma-firefox-launcher": "^0.1.3",
     "karma-ie-launcher": "^0.1.5",
-    "karma-jasmine": "^0.3.2",
+    "karma-jasmine": "^0.1.5",
     "karma-requirejs": "^0.2.2"
   },
   "repository": {
