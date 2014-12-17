@@ -17,10 +17,11 @@ define([
             var TestUtils = React.addons.TestUtils;
 
             var item = new Item({
-                value: '10:25'
+                value: '10:25',
+                format: 'HH:mm:ss'
             });
 
-            // Render a checkbox with label in the document
+            // Render a time field with label in the document
             var text = TestUtils.renderIntoDocument(Time({
                 item: item
             }));
@@ -28,7 +29,7 @@ define([
             var input = TestUtils.findRenderedDOMComponentWithTag(text, 'input');
 
             //parseInt since the value of an input is always a string 
-            expect(input.getDOMNode().value).toEqual('10:25');
+            expect(input.getDOMNode().value).toEqual('10:25:00');
         });
 
         it('should have a label', function () {

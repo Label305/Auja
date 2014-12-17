@@ -439,6 +439,8 @@ form
             input[type="tel"],
             input[type="url"],
             input[type="date"],
+            input[type="datetime"],
+            input[type="time"],
             textarea
                 clear: both
                 width: calc(100% - 20px)
@@ -478,6 +480,12 @@ form
                     left: 0
                     top: 1px
                     margin: 0
+            &.form-item-datetime > div > div
+                width: calc(50% - 10px)
+                display: inline-block
+                float: left
+                &:last-of-type
+                    margin-left: 20px
             textarea,
             textarea:focus
                 border-bottom: 0
