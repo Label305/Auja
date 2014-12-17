@@ -32,7 +32,7 @@ require.config({
         sugar: 'bower_components/sugar/release/sugar.min',
         request: 'build/Requests/request',
         flux: 'build/Stores/flux',
-        clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker'
+        clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker',
     },
     config: {
             moment: {
@@ -62,4 +62,3 @@ require.config({
 require(['react', 'flux', 'build/scaffolding.react'], function (React, flux, Scaffolding) {
     React.renderComponent(<Scaffolding flux={flux} />, document.body);
 });
-    
