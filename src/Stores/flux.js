@@ -66,6 +66,8 @@ define([
             request.get().done(function(response) {
                 response.url = url;
                 flux.actions.handle(response.type, response, panel); 
+            }).fail(function(code) {
+                flux.actions.processFail(code);
             });
         },
 
@@ -88,18 +90,24 @@ define([
                     request.put(data).done(function(response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
+                    }).fail(function(code) {
+                        flux.actions.processFail(code);                        
                     });
                     break;
                 case 'get':
                     request.get(data).done(function(response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
-                    });                    
+                    }).fail(function(code) {
+                        flux.actions.processFail(code);                        
+                    });                 
                     break;
                 default:
                     request.post(data).done(function(response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
+                    }).fail(function(code) {
+                        flux.actions.processFail(code);
                     });
             }          
         },
@@ -126,6 +134,37 @@ define([
         },
 
         /**
+         * Somewhere something failed with a http status code
+         * @param code
+         */
+        processFail: function(code) {
+            var message = {
+                state: 'error',
+                contents: 'An unexpected server error has occurred.'
+            };
+            
+            switch(code) {
+                case 404:
+                    //Not found
+                    message.contents = 'Resource not found at the server side';
+                    break;
+                case 401:
+                    //Unauthorized
+                    message.authenticated = false;
+                    message.contents = 'You can not view this location';
+                    break;
+                case 200:
+                    //Unexpected format
+                    message.contents = 'Response from server not properly formatted';
+            }
+            
+            //Append status code
+            message.contents += ' [' + code + ']';
+            
+            this.dispatch('message', {message: message});
+        },
+
+        /**
          * Trigger scrolling of a panel
          * @param panel
          */
@@ -148,7 +187,9 @@ define([
                     item: item,
                     data: data
                 });
-            }.bind(this));
+            }.bind(this)).fail(function(code) {
+                flux.actions.processFail(code);
+            });
         },
 
         /**
@@ -163,7 +204,9 @@ define([
                     item: item,
                     data: data
                 });
-            }.bind(this));            
+            }.bind(this)).fail(function(code) {
+                flux.actions.processFail(code);
+            });            
         }
     };
     

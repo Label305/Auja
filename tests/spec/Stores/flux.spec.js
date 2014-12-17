@@ -20,7 +20,8 @@ define([
                 'handle',
                 'onPanelScroll',
                 'extendResource',
-                'updateResource'
+                'updateResource',
+                'processFail'
             ]);
         });
 
