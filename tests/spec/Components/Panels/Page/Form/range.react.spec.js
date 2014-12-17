@@ -13,6 +13,24 @@ define([
             this.addMatchers(require('jasmine_matchers'));
         });
 
+        it('should display its value', function () {
+            var TestUtils = React.addons.TestUtils;
+
+            var item = new Item({
+                value: 10
+            });
+
+            // Render a checkbox with label in the document
+            var text = TestUtils.renderIntoDocument(Range({
+                item: item
+            }));
+
+            var input = TestUtils.findRenderedDOMComponentWithTag(text, 'input');
+
+            //parseInt since the value of an input is always a string 
+            expect(parseInt(input.getDOMNode().value)).toEqual(10);
+        });
+
         it('should have a label', function () {
             var TestUtils = React.addons.TestUtils;
 
