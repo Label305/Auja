@@ -1,5 +1,5 @@
 /**
- * A phone number field, properties:
+ * A time field, properties:
  *
  * - label
  * - name
@@ -7,27 +7,45 @@
  *
  * @jsx React.DOM
  */
-define(['react', 'build/Components/Panels/Page/Form/label.react', 'clockpicker'], function (React, Label) {
+define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clockpicker'], function (React, Label, moment) {
     return React.createClass({
-        componentDidMount: function() {
-              $(this.refs.time.getDOMNode()).clockpicker({
+        componentDidMount: function () {
+            $(this.refs.time.getDOMNode()).clockpicker({
                 autoclose: true
-              });
+            });
         },
         getInitialState: function () {
             return {value: this.props.item.getValue()};
         },
         handleChange: function (event) {
-            this.setState({value: event.target.value});
+            time = moment(event.target.value, this.props.item.getFormat()).format(this.props.item.getFormat());
+
+            //If parent element want us to broadcast our changes to it we'll oblige
+            if (this.props.onChange) {
+                this.props.onChange(time);
+            }
+
+            this.setState({value: time});
         },
         render: function () {
             var attributes = this.props.item.getAttributes();
-            attributes.value = this.state.value;
+            attributes.value = moment(this.state.value, this.props.item.getFormat()).format(this.props.item.getFormat());
+
+            //onBlur needed to detect time change through clockpicker
+            attributes.onBlur = this.handleChange;
+
+            //Fallback if clockpicker somehow doesn't work
             attributes.onChange = this.handleChange;
+
             attributes.ref = 'time';
+            attributes.readOnly = true;
+
+            //Insure label is ommited when the item is part of another component.
+            attributes.type == 'time' ? label = <Label item={this.props.item} name={this.props.item.getLabel()} /> : label = '';
+
             return (
                 <div>
-                    <Label item={this.props.item} name={this.props.item.getLabel()} />
+            {label}
                 {React.DOM.input(attributes)}
                 </div>
             );

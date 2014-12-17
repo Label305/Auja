@@ -35,6 +35,11 @@ require.config({
         clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker.min',
         selectize: 'bower_components/selectize/dist/js/standalone/selectize.min'
     },
+    config: {
+            moment: {
+                noGlobal: true
+            }
+    },
 
     /**
      * Shim

@@ -19,6 +19,7 @@ var FormItemObjects = {
     'select': 'build/Objects/Page/Form/select',
     'selectMultipleCheckbox': 'build/Objects/Page/Form/select_multiple_checkbox',
     'date': 'build/Objects/Page/Form/date',
+    'datetime': 'build/Objects/Page/Form/datetime',
     'range': 'build/Objects/Page/Form/range',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg'
 };
@@ -41,6 +42,7 @@ define([
     'build/Objects/Page/Form/select',
     'build/Objects/Page/Form/select_multiple_checkbox',
     'build/Objects/Page/Form/date',
+    'build/Objects/Page/Form/datetime',
     'build/Objects/Page/Form/range',
     'build/Objects/Page/Form/trumbowyg'
 ], function() {

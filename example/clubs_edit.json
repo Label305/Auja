@@ -46,7 +46,7 @@
                             "value": "#CC0000"
                         }                        
                     },
-                                        {
+                    {
                         "type": "date",
                         "date": {
                             "name": "foundingdate",
@@ -55,6 +55,15 @@
                             "format": "YYYY-MM-DD"
                         }                        
                     },
+                    {
+                        "type": "datetime",
+                        "datetime": {
+                            "name": "lastgame",
+                            "label": "Last Played",
+                            "value": "1982-08-17 11:22:33",
+                            "format": "YYYY-MM-DD HH:mm:ss"
+                        }                        
+                    },                    
                     {
                         "type": "range",
                         "range": {
@@ -93,7 +102,8 @@
                         "time": {
                             "name": "time",
                             "label": "Start tijd",
-                            "value": "11:25"
+                            "value": "11:25",
+                            "format": "HH:mm"
                         }                       
                     },
                     {
