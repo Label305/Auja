@@ -6,10 +6,13 @@
  * - .. any other allowed by input
  * @jsx React.DOM
  */
- define(['react', 'build/Components/Panels/Page/Form/label.react', 'chosen'], function(React, Label) {
+ define(['react', 'build/Components/Panels/Page/Form/label.react', 'selectize'], function(React, Label) {
     return React.createClass({
         componentDidMount: function() {            
-         var chosen = $(this.refs.multi-select.getDOMNode()).chosen({
+         var selectize = $(this.refs.multiselect.getDOMNode()).selectize({
+            plugins: ['remove_button'],
+            delimiter: ',',
+            persist: false,
             });
         },
         getInitialState: function() {
@@ -32,7 +35,7 @@
             //We want to be able to deselect all options, onChange does not allow this
             attributes.onClick = this.handleClick;
             attributes.value = this.state.value;
-            attributes.ref = 'multi-select';
+            attributes.ref = 'multiselect';
             attributes.multiple = true;
                        
             return (

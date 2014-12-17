@@ -33,7 +33,7 @@ require.config({
         request: 'build/Requests/request',
         flux: 'build/Stores/flux',
         clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker.min',
-        chosen: 'bower_components/chosen_v1.2.0/chosen.jquery.min'
+        selectize: 'bower_components/selectize/dist/js/standalone/selectize.min'
     },
 
     /**
@@ -52,7 +52,7 @@ require.config({
         pikadayjq: {
             deps: ['jquery', 'moment', 'pikaday']
         },
-        chosen: {
+        selectize: {
             deps: ['jquery']
         }
     }
