@@ -1,24 +1,25 @@
 /**
  * @jsx React.DOM
  */
- define(['react', 'jquery'], function (React) {
+define(['react', 'jquery'], function (React) {
     return React.createClass({
         getInitialState: function () {
-        return {containerClass: 'menu-container', overlayClass: 'menu-overlay'};
-        },        
-        
-        handleClick: function(event) {
-            this.state.containerClass == 'menu-container' ? this.setState({containerClass: 'menu-container menu-open'}) : this.setState({containerClass: 'menu-container'});
-            this.state.overlayClass == 'menu-overlay' ? this.setState({overlayClass: 'menu-overlay menu-visible'}) : this.setState({overlayClass: 'menu-overlay'});
+            return {
+                open: false
+            };
         },
-        
+
+        handleClick: function (event) {
+            this.setState({open: !this.state.open});
+        },
+
         render: function () {
-        
-        var user = '';
+
+            var user = '';
             if (this.props.auja.user) {
                 user = (
                     <div className="username">{this.props.auja.user.name}</div>
-                    );
+                );
             }
 
             //Buttons, e.g. logout
@@ -26,18 +27,26 @@
             if (this.props.auja.buttons) {
                 buttons = this.props.auja.buttons.map(function (button) {
                     return (
-                        React.DOM.li({className: "auja-border-secondary"}, React.DOM.a({key: button.target, href: button.target}, button.text))
-                        );
+                        <li key={button.target} className="auja-border-secondary">
+                            <a href={button.target}>{button.text}</a>
+                        </li>
+                    )
                 });
             }
-            var containerClass= this.state.containerClass;
-            var overlayClass= this.state.overlayClass;
+
+            //Classes for opening/closing
+            var containerClass = 'menu-container';
+            var overlayClass = 'menu-overlay';
+            if (this.state.open) {
+                containerClass += ' menu-open';
+                overlayClass += ' menu-visible';
+            }
+
             return (
                 <div className={containerClass}>
                     <div className="menu-trigger" onClick={this.handleClick}>
                         <span></span>
                     </div>
-
                     <div className={overlayClass}>
                         {user}
                         <ul>

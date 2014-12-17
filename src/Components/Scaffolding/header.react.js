@@ -9,35 +9,36 @@ define(['react', 'build/Components/Scaffolding/hamburger.react'], function (Reac
             if (this.props.auja.user) {
                 user = (
                     <div className="auja-color-main"  id="user">{this.props.auja.user.name}</div>
-                    );
+                );
             }
+            
+            var usesHamburger = this.props.auja.buttons.length > 1;
 
             //Buttons, e.g. logout
             var buttons = '';
-            if (this.props.auja.buttons) {
+            if (!usesHamburger && this.props.auja.buttons) {
                 buttons = this.props.auja.buttons.map(function (button) {
                     var buttonClasses = button.icon + " button auja-color-main";
                     return (
                         <a className={buttonClasses} key={button.target} href={button.target}>{button.text}</a>
-                        );
+                    );
                 });
+                buttons = <div id="buttons">{buttons}</div>;
             }
-            var showBurger = '';
-            var showButtons ='';
-            if (buttons.length > 1){
-                showBurger = <Hamburger auja={this.props.auja}/>;
-                showButtons = '';
-            } else {
-            showButtons = <div id="buttons">{buttons}</div>;
-             showBurger = '';
-         }
+            
+            //Make a burger
+            var burger = '';
+            if (usesHamburger) {
+                burger = <Hamburger auja={this.props.auja}/>;
+            } 
+            
             return (
                 <header>
-                <div className="menu-back ion-chevron-left"></div>
-                <h1>{this.props.auja.title}</h1>
-                    {showButtons}
+                    <div className="menu-back ion-chevron-left"></div>
+                    <h1>{this.props.auja.title}</h1>
+                    {buttons}
                     {user}
-                {showBurger}
+                    {burger}
                 </header>
             );
 
