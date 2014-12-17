@@ -1,21 +1,21 @@
 
 define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
-    var Date = function(data) {
+    var DateTime = function(data) {
 
         //Call the parent constructor
         FormItem.call(this, data);
 
         //Set type of this object
-        this.setType('date');
+        this.setType('datetime');
 
         /**
-         * The format the date
+         * The format the datetime
          * @type {string|null}
          * @private
          */
-        this._format = data.format || 'YYYY-MM-DD';
-
+        this._format = data.format || null;
+        
         /**
          * Getter for format
          * @returns {string|null}
@@ -24,6 +24,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             return this._format;
         };
 
+
         /**
          * Setter for format
          * @param format
@@ -31,7 +32,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         this.setFormat = function(format) {
             this._format = format;
         };
-       
+        
+
         /**
          * Get attributes for this input
          * @return Object
@@ -41,16 +43,17 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                format: this.getFormat()
+                format: this.getFormat(),
+
             }
         };
     };
 
     // Inherit Panel
-    Date.prototype = FormItem;
+    DateTime.prototype = FormItem;
 
     // Fix constructor
-    Date.prototype.constructor = Date;
+    DateTime.prototype.constructor = DateTime;
 
-    return Date;
+    return DateTime;
 });
