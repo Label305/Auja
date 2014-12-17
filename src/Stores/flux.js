@@ -162,6 +162,8 @@ define([
             message.contents += ' [' + code + ']';
             
             this.dispatch('message', {message: message});
+            
+            return message;
         },
 
         /**
