@@ -6,7 +6,7 @@
  *
  * @jsx React.DOM
  */
-define(['react'], function(React) {
+define([], function() {
 
     return {
         pagingThreshHold: 300,

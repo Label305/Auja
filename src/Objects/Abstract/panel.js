@@ -46,6 +46,13 @@ define([], function() {
         this._url;
 
         /**
+         * Check if paginated
+         * @type {boolean}
+         * @private
+         */
+        this._isPaginaged = false;
+
+        /**
          * Setter for the ID
          * @param id
          */
@@ -135,10 +142,18 @@ define([], function() {
 
         /**
          * Setter for is updateable
-         * @param is_updateable
+         * @param isUpdateable
          */
         this.setIsUpdateable = function(isUpdateable) {
             this._isUpdateable = isUpdateable;
+        };
+
+        /**
+         * Check if the panel is paginated
+         * @return boolean
+         */
+        this.isPaginated = function() {
+            return this._isPaginated;
         };
         
     }
