@@ -438,9 +438,10 @@ form
             input[type="email"],
             input[type="tel"],
             input[type="url"],
-            input[type="date"],
+            input[type="date"],            
             input[type="datetime"],
             input[type="time"],
+            input[type="selectMultiple"],
             textarea
                 clear: both
                 width: calc(100% - 20px)
@@ -519,6 +520,9 @@ form
                 option
                     color: $font-color
                     padding: 5px 10px
+            select
+                &[type="selectMultiple"]
+                    height: auto
             input[type="submit"] 
                 float: right
                 padding: 10px 20px
@@ -658,3 +662,4 @@ form
 @import minicolors
 @import clockpicker
 @import pikaday
+@import selectize
