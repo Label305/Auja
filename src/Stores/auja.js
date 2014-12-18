@@ -63,8 +63,8 @@ define(['fluxxor', 'request', 'build/Factories/form_factory'], function(Fluxxor,
                     Object.merge(this.state, response.main, true, true);
                     this.emit('change');
                 }.bind(this))
-                .fail(function () {
-                    // TODO handle this
+                .fail(function (code) {
+                    flux.actions.processFail(code);
                 }.bind(this));
         },
 
