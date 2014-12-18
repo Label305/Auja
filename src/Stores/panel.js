@@ -70,7 +70,9 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
          * When somebody scrolls a panel
          */
         scroll: function(panel) {
-            this.emit('change');
+            if(panel.isPaginated()) {
+                this.emit('change');
+            }
         },
 
         /**
