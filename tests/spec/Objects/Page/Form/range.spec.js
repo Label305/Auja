@@ -5,34 +5,16 @@ define(['build/Objects/Page/Form/range'], function (Item) {
             this.addMatchers(require('jasmine_matchers'));
         });
 
-        it('should have min and max properties', function () {
-            var item = new Item({
-                order: 10,
-                name: 'thename',
-                label: 'The name',
-                value: 'James',
-                required: true,
-                min: 2,
-                max: 65
-            });
-            
-            expect(item.getMin()).toBe(2);
-            expect(item.getMax()).toBe(65);
-            
-            item.setMin(7);
-            item.setMax(43);
-            
-            expect(item.getMin()).toBe(7);
-            expect(item.getMax()).toBe(43);
-        });
-
         it('should return corresponding attributes', function () {
             var item = new Item({
                 order: 10,
                 name: 'thename',
                 label: 'The name',
-                value: 'James',
+                value: 11,
+                min: 1,
+                max: 100,
                 required: true
+                
             });
 
             expect(item.getAttributes()).toHaveKeys([
@@ -42,6 +24,8 @@ define(['build/Objects/Page/Form/range'], function (Item) {
                 'min',
                 'max'
             ]);
+            
+            expect(item.getValue()).toBe(11);
 
         });
 
@@ -51,31 +35,39 @@ define(['build/Objects/Page/Form/range'], function (Item) {
                 order: 10,
                 name: 'thename',
                 label: 'The name',
-                value: 'James',
+                value: 11,
+                min: 1,
+                max: 100,
                 required: true
             });
 
-            //Text spec of transferring initial data
+            //Test spec of transferring initial data
             expect(item.getType()).toBe('range');
             expect(item.getOrder()).toBe(10);
             expect(item.getName()).toBe('thename');
             expect(item.getLabel()).toBe('The name');
-            expect(item.getValue()).toBe('James');
+            expect(item.getValue()).toBe(11);
+            expect(item.getMin()).toBe(1);
+            expect(item.getMax()).toBe(100);
             expect(item.isRequired()).toBe(true);
 
             //Test spec of setters
             item.setOrder(2);
             item.setName('somename');
             item.setLabel('Your name');
-            item.setValue('Charles');
+            item.setMin(3);
+            item.setMax(56);
+            item.setValue(14);
             item.setRequired(false);
-
+            
             expect(item.getOrder()).toBe(2);
             expect(item.getName()).toBe('somename');
             expect(item.getLabel()).toBe('Your name');
-            expect(item.getValue()).toBe('Charles');
+            expect(item.getMin()).toBe(3);
+            expect(item.getMax()).toBe(56);
+            expect(item.getValue()).toBe(14);
             expect(item.isRequired()).toBe(false);
-
+            
         });
 
     });
