@@ -12,6 +12,9 @@ define(['react', 'build/Components/Panels/Page/Form/label.react'], function (Rea
         getInitialState: function () {
             return {value: this.props.item.getValue()};
         },
+        moveValueBox: function () {
+            return {value: this.props.item.getValue()};
+        },
         handleChange: function (event) {
             this.setState({value: event.target.value});
              //Get the position of the thumb element
