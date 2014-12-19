@@ -26,7 +26,7 @@
                             "name": "name",
                             "label": "Name of club",
                             "value": "The clicked club"
-                        }                        
+                        }
                     },
                     {
                         "type": "integer",
@@ -36,7 +36,7 @@
                             "min": "7",
                             "max": "25",
                             "value": "11"
-                        }                        
+                        }
                     },
                     {
                         "type": "color",
@@ -44,7 +44,7 @@
                             "name": "teamcolor",
                             "label": "Team Color",
                             "value": "#CC0000"
-                        }                        
+                        }
                     },
                     {
                         "type": "date",
@@ -53,7 +53,7 @@
                             "label": "Founded on",
                             "value": "1982-08-17",
                             "format": "YYYY-MM-DD"
-                        }                        
+                        }
                     },
                     {
                         "type": "datetime",
@@ -62,8 +62,8 @@
                             "label": "Last Played",
                             "value": "1982-08-17 11:22:33",
                             "format": "YYYY-MM-DD HH:mm:ss"
-                        }                        
-                    },                    
+                        }
+                    },
                     {
                         "type": "range",
                         "range": {
@@ -72,14 +72,24 @@
                             "min": "7",
                             "max": "25",
                             "value": "11"
-                        }                        
+                        }
+                    },
+                    {
+                        "type": "range",
+                        "range": {
+                            "name": "range",
+                            "label": "Other Shooting Range",
+                            "min": "5000",
+                            "max": "10000",
+                            "value": "5110"
+                        }
                     },
                     {
                         "type": "email",
                         "email": {
                             "name": "email",
                             "label": "Club Email"
-                        }                        
+                        }
                     },
                       {
                         "type": "url",
@@ -95,7 +105,7 @@
                             "name": "telephone",
                             "label": "Club phone number",
                             "value": "11"
-                        }                       
+                        }
                     },
                                         {
                         "type": "time",
@@ -104,9 +114,48 @@
                             "label": "Start tijd",
                             "value": "11:25",
                             "format": "HH:mm"
-                        }                       
+                        }
                     },
                     {
+                        "type": "selectMultiple",
+                        "selectMultiple": {
+                            "name": "country",
+                            "label": "Country",
+                            "value":[
+                                "DE-de"
+                                ,
+                                "SP-sp"
+                            ],
+                            "options": [
+                                {
+                                "type": "option",
+                                "label": "Nederland",
+                                "value": "NL-nl"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Duitsland",
+                                "value": "DE-de"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Frankrijk",
+                                "value": "FR-fr"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Spanje",
+                                "value": "SP-sp"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Luilekkerland",
+                                "value": "LL-ll"
+                            }
+                            ]
+                        }
+                    },
+                        {
                         "type": "checkbox",
                         "checkbox": {
                             "name": "leagues",
@@ -115,7 +164,7 @@
                             "value": true,
                             "checked": false
                         }
-                        
+
                     },
                     {
                         "type": "selectMultipleCheckbox",
@@ -144,7 +193,7 @@
                                 }
                            ]
                         }
-                        
+
                     },
                      {
                         "type": "password",

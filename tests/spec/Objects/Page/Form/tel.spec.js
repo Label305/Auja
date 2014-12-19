@@ -1,5 +1,5 @@
-define(['build/Objects/Page/Form/range'], function (Item) {
-    describe('Range form item', function () {
+define(['build/Objects/Page/Form/tel'], function (Item) {
+    describe('Tel form item', function () {
 
         beforeEach(function () {
             this.addMatchers(require('jasmine_matchers'));
@@ -10,22 +10,17 @@ define(['build/Objects/Page/Form/range'], function (Item) {
                 order: 10,
                 name: 'thename',
                 label: 'The name',
-                value: 11,
-                min: 1,
-                max: 100,
+                value: '+31 537113499',
                 required: true
-                
             });
 
             expect(item.getAttributes()).toHaveKeys([
                 'type',
                 'value',
-                'name',
-                'min',
-                'max'
+                'name'
             ]);
-            
-            expect(item.getValue()).toBe(11);
+
+            expect(item.getValue()).toBe('+31 537113499');
 
         });
 
@@ -35,39 +30,31 @@ define(['build/Objects/Page/Form/range'], function (Item) {
                 order: 10,
                 name: 'thename',
                 label: 'The name',
-                value: 11,
-                min: 1,
-                max: 100,
+                value: '+31 537113499',
                 required: true
             });
 
             //Test spec of transferring initial data
-            expect(item.getType()).toBe('range');
+            expect(item.getType()).toBe('tel');
             expect(item.getOrder()).toBe(10);
             expect(item.getName()).toBe('thename');
             expect(item.getLabel()).toBe('The name');
-            expect(item.getValue()).toBe(11);
-            expect(item.getMin()).toBe(1);
-            expect(item.getMax()).toBe(100);
+            expect(item.getValue()).toBe('+31 537113499');
             expect(item.isRequired()).toBe(true);
 
             //Test spec of setters
             item.setOrder(2);
             item.setName('somename');
             item.setLabel('Your name');
-            item.setMin(3);
-            item.setMax(56);
-            item.setValue(14);
+            item.setValue('+13 499537113');
             item.setRequired(false);
-            
+
             expect(item.getOrder()).toBe(2);
             expect(item.getName()).toBe('somename');
             expect(item.getLabel()).toBe('Your name');
-            expect(item.getMin()).toBe(3);
-            expect(item.getMax()).toBe(56);
-            expect(item.getValue()).toBe(14);
+            expect(item.getValue()).toBe('+13 499537113');
             expect(item.isRequired()).toBe(false);
-            
+
         });
 
     });

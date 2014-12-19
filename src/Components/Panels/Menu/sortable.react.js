@@ -208,8 +208,10 @@ define(['react', 'jstree'], function(React) {
          */
         componentDidMount: function() {
             $(document).on('dnd_stop.vakata', function (e, data) {
-                var tree = $(this.refs.tree.getDOMNode()).jstree(true).get_json('#', {});
-                this.treeChanged(tree);
+                if(this.refs.tree) {
+                    var tree = $(this.refs.tree.getDOMNode()).jstree(true).get_json('#', {});
+                    this.treeChanged(tree);
+                }
             }.bind(this));
             
             //Check if focused, if so dispatch click and try to unfocus

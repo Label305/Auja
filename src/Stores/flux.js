@@ -1,6 +1,6 @@
 var FluxStores = {
-    'AujaStore': 'build/Stores/auja', 
-    'PanelStore': 'build/Stores/panel', 
+    'AujaStore': 'build/Stores/auja',
+    'PanelStore': 'build/Stores/panel',
     'MessageStore': 'build/Stores/message'
 };
 
@@ -11,12 +11,12 @@ define([
     'build/Stores/panel',
     'build/Stores/message'
 ], function(Fluxxor) {
-    
+
     //Make sure we only render one instance
     if(window.flux) {
         return window.flux;
     }
-    
+
     //Fill object with stores
     var stores = {};
     for(var name in FluxStores) {
@@ -56,16 +56,18 @@ define([
             if(arguments[1]) {
                 panel = arguments[1];
             }
-            
+
             var item = null;
             if(panel != null && arguments[2]) {
-                this.dispatch('activate-item', {panel: panel, item: arguments[2]});                
+                this.dispatch('activate-item', {panel: panel, item: arguments[2]});
             }
-            
+
             var request = new Request(url);
             request.get().done(function(response) {
                 response.url = url;
-                flux.actions.handle(response.type, response, panel); 
+                flux.actions.handle(response.type, response, panel);
+            }).fail(function(code) {
+                flux.actions.processFail(code);
             });
         },
 
@@ -73,35 +75,41 @@ define([
          * Submitting a form
          * @param url
          * @param method
-         * @param data  
+         * @param data
          */
         submit: function(url, method, data) {
             var panel = null;
             if(arguments[3]) {
                 panel = arguments[3];
             }
-            
+
             var request = new Request(url);
-            
+
             switch(method.toLowerCase()) {
                 case 'put':
                     request.put(data).done(function(response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
+                    }).fail(function(code) {
+                        flux.actions.processFail(code);
                     });
                     break;
                 case 'get':
                     request.get(data).done(function(response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
-                    });                    
+                    }).fail(function(code) {
+                        flux.actions.processFail(code);
+                    });
                     break;
                 default:
                     request.post(data).done(function(response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
+                    }).fail(function(code) {
+                        flux.actions.processFail(code);
                     });
-            }          
+            }
         },
 
         /**
@@ -114,7 +122,7 @@ define([
         handle: function(type, data, origin) {
             data.origin = origin;
             this.dispatch(type, data);
-            
+
             switch(type) {
                 case 'message':
                     //You can set weither or not to update the system
@@ -126,11 +134,44 @@ define([
         },
 
         /**
+         * Somewhere something failed with a http status code
+         * @param code
+         */
+        processFail: function(code) {
+            var message = {
+                state: 'error',
+                contents: 'Recieved unexpected response from the server'
+            };
+
+            switch(code) {
+                case 404:
+                    //Not found
+                    message.contents = 'Resource not found';
+                    break;
+                case 401:
+                    //Unauthorized
+                    message.authenticated = false;
+                    message.contents = 'Unauthorized';
+                    break;
+                case 200:
+                    //Unexpected format
+                    message.contents = 'Response from server not properly formatted';
+            }
+
+            //Append status code
+            message.contents += ' [' + code + ']';
+
+            this.dispatch('message', {message: message});
+
+            return message;
+        },
+
+        /**
          * Trigger scrolling of a panel
          * @param panel
          */
         onPanelScroll: function(panel) {
-            this.dispatch('panel-scroll', panel);            
+            this.dispatch('panel-scroll', panel);
         },
 
         /**
@@ -148,7 +189,9 @@ define([
                     item: item,
                     data: data
                 });
-            }.bind(this));
+            }.bind(this)).fail(function(code) {
+                flux.actions.processFail(code);
+            });
         },
 
         /**
@@ -163,10 +206,12 @@ define([
                     item: item,
                     data: data
                 });
-            }.bind(this));            
+            }.bind(this)).fail(function(code) {
+                flux.actions.processFail(code);
+            });
         }
     };
-    
+
     window.flux = new Fluxxor.Flux(stores, actions);
     return window.flux;
 });

@@ -351,7 +351,7 @@ ul#main-menu
                 &:before
                     left: 0
                 &:after
-                    content: "\f154"
+                    content: "\f3d1"
                     font-family: "Ionicons"
                     right: 0
                     color: $input-border-color
@@ -439,8 +439,6 @@ form
             input[type="tel"],
             input[type="url"],
             input[type="date"],
-            input[type="datetime"],
-            input[type="time"],
             textarea
                 clear: both
                 width: calc(100% - 20px)
@@ -459,33 +457,6 @@ form
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
-            &.form-item-selectMultipleCheckbox > div > div,
-            &.form-item-checkbox > div
-                position: relative
-                float: left
-                display: inline-block
-                width: 100%
-                padding-left: 30px
-                margin-bottom: 10px
-                &:last-of-type
-                    margin-bottom: 0
-                label
-                    text-transform: none
-                    font-size: 14px
-                    line-height: 15px
-                input[type="checkbox"]
-                    position: absolute
-                    width: 15px
-                    height: 15px
-                    left: 0
-                    top: 1px
-                    margin: 0
-            &.form-item-datetime > div > div
-                width: calc(50% - 10px)
-                display: inline-block
-                float: left
-                &:last-of-type
-                    margin-left: 20px
             textarea,
             textarea:focus
                 border-bottom: 0
@@ -532,6 +503,21 @@ form
                 &:focus
                     outline: none
                     border: 0
+            &.form-item-checkbox
+                input[type="checkbox"]
+                    width: 15px
+                    height: 15px
+                    display: inline-block
+                    margin: 0 10px 0 0
+                    float: left
+                label
+                    width: calc(100% - 25px)
+                    float: right
+                    display: inline-block
+                    height: 15px
+                    margin: 0
+                    text-transform: none
+                    font-size: 14px
             textarea
                 height: 200px
                 resize: none
@@ -539,16 +525,20 @@ form
                 display: inline-block
                 position: relative
                 border: 1px solid $input-border-color
-                width: 100%
+                width: 90%
                 min-height: 300px
                 margin: 0 auto
+            .range-container
+                width: 100%
+                display: inline-block
+                position: relative
             input[type="range"]
                 border: 0
-                width: 100%
+                width: 84%
                 font-size: 10px
-                margin: 5px 0
                 float: left
-                display: inline-block
+                margin: 5px 8%
+                display: table-cell
                 &::-webkit-slider-runnable-track
                     height: 5px
                     background: $input-color
@@ -601,6 +591,22 @@ form
                         background: $input-border-color
                     &::-ms-fill-lower
                         background: #888888
+            .range-min, .range-max
+                position: absolute
+                width: 8%
+                white-space: nowrap
+                top: 0px
+                vertical-align: middle
+                display: table-cell
+                height: 25px
+                line-height: 25px
+
+            .range-max
+                left: 0
+                text-align: left
+            .range-min
+                right: 0
+                text-align: right
 
 @media screen and (max-height: 30.5em)
     .authentication-overlay
@@ -648,13 +654,6 @@ form
         &.button
             padding-top: 10px !important
             padding-bottom: 10px !important
-    select
-        height: 30px !important
-        padding-top: 5px !important
-        padding-bottom: 5px !important
 
 @import trumbowyg
 @import jstree
-@import minicolors
-@import clockpicker
-@import pikaday

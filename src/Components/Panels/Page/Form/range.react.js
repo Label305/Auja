@@ -14,6 +14,24 @@ define(['react', 'build/Components/Panels/Page/Form/label.react'], function (Rea
         },
         handleChange: function (event) {
             this.setState({value: event.target.value});
+             //Get the position of the thumb element
+            var rangeWidth = $(this.refs.range.getDOMNode()).width();
+            var offset = 38;
+            var thumbWidth = 16;
+            var min = this.props.item.getMin();
+            var max = this.props.item.getMax();
+            var width = rangeWidth-thumbWidth;
+            var newPoint = (this.state.value - min) / (max - min);
+            var newPlace = Math.round(newPoint*width);
+
+            $(this.refs.valuebox.getDOMNode())
+             .css({
+               marginLeft: offset + newPlace - thumbWidth + "px",
+               minWidth: 50 + "px",
+               display: 'inline-block',
+               textAlign: 'center'
+             })
+             .text(this.state.value);
 
         },
         render: function () {
@@ -22,29 +40,17 @@ define(['react', 'build/Components/Panels/Page/Form/label.react'], function (Rea
             attributes.onChange = this.handleChange;
             attributes.ref = 'range';
 
-            //Get the position of the thumb element
-            var range = $("input[type='range']");
-            var thumbWidth = 16;
-            var width = range.width()-thumbWidth;
-            var newPoint = (range.val() - range.attr("min")) / (range.attr("max") - range.attr("min"));
-            var newPlace = Math.round(newPoint*width);
 
-            range.next("div")
-             .css({
-               marginLeft: newPlace-thumbWidth + "px",
-               minWidth: 50 + "px",
-               display: 'inline-block',
-               textAlign: 'center'
-             })
-             .text(range.val());
 
             return (
-                <div>
-                    <Label item={this.props.item} name={this.props.item.getLabel()} />
-                {React.DOM.input(attributes)}
-                <div className="range-value">{attributes.value}</div>
-                <div className="range-min">{attributes.min}</div>
-                <div className="range-max">{attributes.max}</div>
+                    <div className="input range">
+                        <Label item={this.props.item} name={this.props.item.getLabel()} />
+                    <div className="range-container">
+                        <div className="range-min">{attributes.min}</div>
+                        {React.DOM.input(attributes)}
+                        <div className="range-max">{attributes.max}</div>
+                        <div className="range-value" ref="valuebox">{attributes.value}</div>
+                    </div>
                 </div>
             );
         }

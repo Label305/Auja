@@ -78,6 +78,7 @@ define(['react', 'fluxxor', 'flux'], function(React, Fluxxor, flux) {
             //No state nothing to show
             if(this.state.message.message && this.state.message.message.state) {
                 switch(this.state.message.message.state) {
+                    case 'error':
                     case 'info':
                         return (<Info handleOnClick={this.handleOnClick} message={this.state.message.message} />);
                         break;
