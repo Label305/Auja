@@ -7,7 +7,8 @@
             "link": {
                 "text": "Add club",
                 "target": "example/clubs/create",
-                "icon": "ion-compose"
+                "icon": "ion-compose",
+                "activeIcon": "ion-alert"
             }
         },
         {
