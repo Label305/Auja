@@ -19,7 +19,7 @@ define(['build/Objects/Menu/link'], function (Item) {
 
             var item = new Item({
                 icon: 'face',
-                activeIcon: 'bold-face',
+                active_icon: 'bold-face',
                 target: '/users',
                 text: 'Howdy'
             });
@@ -43,7 +43,7 @@ define(['build/Objects/Menu/link'], function (Item) {
         it('should implement an update method which transfers properties', function () {
             var item = new Item({
                 icon: 'face',
-                activeIcon: 'bold-face',
+                active_icon: 'bold-face',
                 target: '/users',
                 text: 'Howdy'
             });
@@ -55,7 +55,7 @@ define(['build/Objects/Menu/link'], function (Item) {
 
             var updateItem = new Item({
                 icon: 'factory',
-                activeIcon: 'bold-factory',
+                active_icon: 'bold-factory',
                 target: '/companies',
                 text: 'Label305'
             });
