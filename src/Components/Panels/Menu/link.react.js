@@ -18,16 +18,12 @@ define(['react'], function(React) {
             var className = 'menu-item-link auja-border-secondary ';
 
             //Create the icon class
-            var icon = this.props.item.getIcon();
+            var icon = this.props.item.isActive() ? this.props.item.getActiveIcon() : this.props.item.getIcon();
 
             className += "icon " + icon;
 
             //Check if we match the active item
             if(this.props.item.isActive()) {
-                if (this.props.item.getActiveIcon()){
-                    var activeIcon = this.props.item.getActiveIcon();
-                    className = className.replace(icon, activeIcon);
-                }
                 className += " auja-color-main active auja-active-border-main";
             }
 

@@ -27,7 +27,7 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
          * Active Icon, if none found tries to fall back to normal icon first, otherwise to the general fallback icon
          * @type {string}
          */
-        this.activeIcon = data.activeIcon || data.icon ||'planet';
+        this.activeIcon = data.activeIcon || this.icon;
 
         /**
          * Text
