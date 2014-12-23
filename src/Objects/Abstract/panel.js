@@ -46,9 +46,11 @@ define([], function() {
         this._url;
 
         /**
-         * If this panel is active
+         * Check if paginated
+         * @type {boolean}
+         * @private
          */
-        this._active = false;
+        this._isPaginaged = false;
 
         /**
          * Setter for the ID
@@ -115,7 +117,7 @@ define([], function() {
 
         /**
          * Setter for the url
-         * @param url
+         * @param id
          */
         this.setUrl = function(url) {
             this._url = url;
@@ -147,6 +149,14 @@ define([], function() {
         };
 
         /**
+         * Check if the panel is paginated
+         * @return boolean
+         */
+        this.isPaginated = function() {
+            return this._isPaginated;
+        };
+
+        /**
          * Check if active
          * @return boolean
          */
@@ -160,8 +170,7 @@ define([], function() {
          */
         this.setIsActive = function(active) {
             this._active = active;
-        }
-        
+        };
     }
     
 });

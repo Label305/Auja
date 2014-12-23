@@ -1,42 +1,39 @@
 
 define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
-    var Select = function(data) {
+    var DateTime = function(data) {
 
         //Call the parent constructor
         FormItem.call(this, data);
 
         //Set type of this object
-        this.setType('select');
+        this.setType('datetime');
 
         /**
-         * The Options of Select
-         * @type {array|null}
+         * The format the datetime
+         * @type {string|null}
          * @private
          */
-        this._options = data.options || [];
-
+        this._format = data.format || null;
         
-
         /**
-         * Getter for Options
-         * @returns {array|null}
+         * Getter for format
+         * @returns {string|null}
          */
-        this.getOptions = function() {
-            return this._options;
+        this.getFormat = function() {
+            return this._format;
         };
 
-        
 
         /**
-         * Setter for Options
-         * @param Selected
+         * Setter for format
+         * @param format
          */
-        this.setOptions = function(options) {
-            this._options = options;
+        this.setFormat = function(format) {
+            this._format = format;
         };
-
         
+
         /**
          * Get attributes for this input
          * @return Object
@@ -46,16 +43,17 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 type: this.getType(),
                 value: this.getValue(),
                 name: this.getName(),
-                options: this.getOptions()
+                format: this.getFormat(),
+
             }
         };
     };
 
-    // Inherit FormItem
-    Select.prototype = FormItem;
+    // Inherit Panel
+    DateTime.prototype = FormItem;
 
     // Fix constructor
-    Select.prototype.constructor = Select;
-    
-    return Select;
+    DateTime.prototype.constructor = DateTime;
+
+    return DateTime;
 });

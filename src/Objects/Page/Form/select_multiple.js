@@ -1,16 +1,16 @@
 
 define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
-    var Select = function(data) {
+    var SelectMultiple = function(data) {
 
         //Call the parent constructor
         FormItem.call(this, data);
 
         //Set type of this object
-        this.setType('select');
+        this.setType('selectMultiple');
 
         /**
-         * The Options of Select
+         * The Options of SelectMultiple
          * @type {array|null}
          * @private
          */
@@ -30,7 +30,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
         /**
          * Setter for Options
-         * @param Selected
+         * @param SelectMultipleed
          */
         this.setOptions = function(options) {
             this._options = options;
@@ -52,10 +52,10 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
     };
 
     // Inherit FormItem
-    Select.prototype = FormItem;
+    SelectMultiple.prototype = FormItem;
 
     // Fix constructor
-    Select.prototype.constructor = Select;
+    SelectMultiple.prototype.constructor = SelectMultiple;
     
-    return Select;
+    return SelectMultiple;
 });

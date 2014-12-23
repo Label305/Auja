@@ -10,16 +10,16 @@ define(['build/Objects/Page/Form/email'], function (Item) {
                 order: 10,
                 name: 'thename',
                 label: 'The name',
-                value: 'James',
+                value: 'joris@label305.com',
                 required: true
             });
-            
+
             expect(item.getAttributes()).toHaveKeys([
                 'type',
                 'value',
                 'name'
             ]);
-            
+
         });
 
         it('should implement a form item', function () {
@@ -28,7 +28,7 @@ define(['build/Objects/Page/Form/email'], function (Item) {
                 order: 10,
                 name: 'thename',
                 label: 'The name',
-                value: 'James',
+                value: 'joris@label305.com',
                 required: true
             });
 
@@ -37,20 +37,20 @@ define(['build/Objects/Page/Form/email'], function (Item) {
             expect(item.getOrder()).toBe(10);
             expect(item.getName()).toBe('thename');
             expect(item.getLabel()).toBe('The name');
-            expect(item.getValue()).toBe('James');
+            expect(item.getValue()).toBe('joris@label305.com');
             expect(item.isRequired()).toBe(true);
 
             //Test spec of setters
             item.setOrder(2);
             item.setName('somename');
             item.setLabel('Your name');
-            item.setValue('Charles');
+            item.setValue('alexander@label305.com');
             item.setRequired(false);
 
             expect(item.getOrder()).toBe(2);
             expect(item.getName()).toBe('somename');
             expect(item.getLabel()).toBe('Your name');
-            expect(item.getValue()).toBe('Charles');
+            expect(item.getValue()).toBe('alexander@label305.com');
             expect(item.isRequired()).toBe(false);
 
         });

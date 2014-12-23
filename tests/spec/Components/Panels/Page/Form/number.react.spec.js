@@ -2,12 +2,12 @@
 
 define([
     'react',
-    'build/Components/Panels/Page/Form/time.react',
-    'build/Objects/Page/Form/time',
+    'build/Components/Panels/Page/Form/number.react',
+    'build/Objects/Page/Form/number',
     'jasmine_matchers'
-], function (React, Time, Item) {
+], function (React, Number, Item) {
 
-    describe('Time form input', function () {
+    describe('Number form input', function () {
 
         beforeEach(function () {
             this.addMatchers(require('jasmine_matchers'));
@@ -17,31 +17,30 @@ define([
             var TestUtils = React.addons.TestUtils;
 
             var item = new Item({
-                value: '10:25',
-                format: 'HH:mm:ss'
+                value: 10.25
             });
 
-            // Render a time field with label in the document
-            var text = TestUtils.renderIntoDocument(Time({
+            // Render a checkbox with label in the document
+            var text = TestUtils.renderIntoDocument(Number({
                 item: item
             }));
 
             var input = TestUtils.findRenderedDOMComponentWithTag(text, 'input');
 
-            //parseInt since the value of an input is always a string 
-            expect(input.getDOMNode().value).toEqual('10:25:00');
+            //parseFloat since the value of an input is always a string
+            expect(parseFloat(input.getDOMNode().value)).toEqual(10.25);
         });
 
         it('should have a label', function () {
             var TestUtils = React.addons.TestUtils;
 
             var item = new Item({
-                value: '10:25',
-                label: 'This is the label'
+                value: 10.25,
+                label: "This is the label"
             });
 
             // Render a checkbox with label in the document
-            var text = TestUtils.renderIntoDocument(Time({
+            var text = TestUtils.renderIntoDocument(Number({
                 item: item
             }));
 

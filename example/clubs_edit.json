@@ -46,7 +46,7 @@
                             "value": "#CC0000"
                         }                        
                     },
-                                        {
+                    {
                         "type": "date",
                         "date": {
                             "name": "foundingdate",
@@ -55,6 +55,15 @@
                             "format": "YYYY-MM-DD"
                         }                        
                     },
+                    {
+                        "type": "datetime",
+                        "datetime": {
+                            "name": "lastgame",
+                            "label": "Last Played",
+                            "value": "1982-08-17 11:22:33",
+                            "format": "YYYY-MM-DD HH:mm:ss"
+                        }                        
+                    },                    
                     {
                         "type": "range",
                         "range": {
@@ -93,10 +102,50 @@
                         "time": {
                             "name": "time",
                             "label": "Start tijd",
-                            "value": "11:25"
+                            "value": "11:25",
+                            "format": "HH:mm"
                         }                       
                     },
                     {
+                        "type": "selectMultiple",
+                        "selectMultiple": {
+                            "name": "country",
+                            "label": "Country",
+                            "value":[                            
+                                "DE-de"
+                                ,                                
+                                "SP-sp"                                
+                            ],
+                            "options": [
+                                {
+                                "type": "option",
+                                "label": "Nederland",
+                                "value": "NL-nl"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Duitsland",
+                                "value": "DE-de"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Frankrijk",
+                                "value": "FR-fr"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Spanje",
+                                "value": "SP-sp"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Luilekkerland",
+                                "value": "LL-ll"
+                            }
+                            ]
+                        }
+                    },
+                        {                        
                         "type": "checkbox",
                         "checkbox": {
                             "name": "leagues",

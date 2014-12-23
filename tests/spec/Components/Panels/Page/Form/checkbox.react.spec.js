@@ -2,12 +2,12 @@
 
 define([
     'react',
-    'build/Components/Panels/Page/Form/range.react',
-    'build/Objects/Page/Form/range',
+    'build/Components/Panels/Page/Form/checkbox.react',
+    'build/Objects/Page/Form/checkbox',
     'jasmine_matchers'
-], function (React, Range, Item) {
+], function (React, Checkbox, Item) {
 
-    describe('Range form input', function () {
+    describe('Checkbox form input', function () {
 
         beforeEach(function () {
             this.addMatchers(require('jasmine_matchers'));
@@ -17,30 +17,34 @@ define([
             var TestUtils = React.addons.TestUtils;
 
             var item = new Item({
-                value: 10
+                checked: true
             });
 
             // Render a checkbox with label in the document
-            var text = TestUtils.renderIntoDocument(Range({
+            var text = TestUtils.renderIntoDocument(Checkbox({
                 item: item
             }));
 
-            var input = TestUtils.findRenderedDOMComponentWithTag(text, 'input');
+            var input = TestUtils.scryRenderedDOMComponentsWithTag(text, 'input');
 
-            //parseInt since the value of an input is always a string 
-            expect(parseInt(input.getDOMNode().value)).toEqual(10);
+                //Check the the fallback field
+                expect(input[0].getDOMNode().type).toBe('hidden');
+                expect(input[0].getDOMNode().value).toBe('0');
+
+                //Check the checked state of the visible checkbox
+                expect(input[1].getDOMNode().checked).toBe(true);
         });
 
         it('should have a label', function () {
             var TestUtils = React.addons.TestUtils;
 
             var item = new Item({
-                value: 10,
+                checked: true,
                 label: "This is the label"
             });
 
             // Render a checkbox with label in the document
-            var text = TestUtils.renderIntoDocument(Range({
+            var text = TestUtils.renderIntoDocument(Checkbox({
                 item: item
             }));
 

@@ -23,16 +23,22 @@ require.config({
         fluxxor: 'bower_components/fluxxor/build/fluxxor',
         signals: 'bower_components/js-signals/dist/signals',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
-        moment: 'bower_components/moment/min/moment.min',
+        moment: 'bower_components/moment/moment',
         pikaday: 'bower_components/pikaday/pikaday',
         pikadayjq: 'bower_components/pikaday/plugins/pikaday.jquery',
-        trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
-        jstree: 'bower_components/jstree/dist/jstree.min',
-        minicolors: 'bower_components/jquery-minicolors/jquery.minicolors.min',
-        sugar: 'bower_components/sugar/release/sugar.min',
+        trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg',
+        jstree: 'bower_components/jstree/dist/jstree',
+        minicolors: 'bower_components/jquery-minicolors/jquery.minicolors',
+        sugar: 'bower_components/sugar/release/sugar-full.development',
         request: 'build/Requests/request',
         flux: 'build/Stores/flux',
-        clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker.min'
+        clockpicker: 'bower_components/clockpicker/dist/jquery-clockpicker.min',
+        selectize: 'bower_components/selectize/dist/js/standalone/selectize.min'
+    },
+    config: {
+            moment: {
+                noGlobal: true
+            }
     },
 
     /**
@@ -50,6 +56,9 @@ require.config({
         },
         pikadayjq: {
             deps: ['jquery', 'moment', 'pikaday']
+        },
+        selectize: {
+            deps: ['jquery']
         }
     }
 });

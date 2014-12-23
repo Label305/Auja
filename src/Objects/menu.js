@@ -139,6 +139,16 @@ define(['build/Objects/Abstract/panel', 'build/Factories/menu_item_factory'], fu
             }
         };
 
+        /**
+         * All menu's are paginateable except for one with a sortable inside it
+         * @returns {boolean}
+         */
+        this.isPaginated = function() {
+            return this.items.none(function(item) {
+                return item.getType() == 'resource' && item.hasProperty('sortable');
+            });
+        }
+
     };
 
     // Inherit Panel

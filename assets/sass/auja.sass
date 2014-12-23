@@ -57,7 +57,8 @@ body
     font-size: 14px
     line-height: 20px
     text-align: center
-h2 
+
+h2
     & > .button
         float: right
     span
@@ -223,7 +224,7 @@ h2
         top: calc(50% - 80px)
         width: 550px
         min-height: 120px
-        &:before 
+        &:before
             content: ''
             position: fixed
             top: 0
@@ -231,7 +232,7 @@ h2
             height: 100%
             width: 100%
             opacity: 0
-        &:after 
+        &:after
             content: ''
             position: absolute
             right: 15px
@@ -240,7 +241,7 @@ h2
             height: 15px
             background-image: url('../img/close.svg')
             background-size: 15px
-            cursor: pointer  
+            cursor: pointer
 
 // ------ Header ------
 header
@@ -301,21 +302,21 @@ header
                     line-height: 40px
 
 // ------ Main menu ------
-ul#main-menu 
+ul#main-menu
     position: fixed
     z-index: 999
     top: 100px
     left: 15px
-    span 
+    span
         display: none
-    li 
+    li
         position: relative
         width: 60px
         height: 60px
         cursor: pointer
         margin-bottom: 30px
         display: block
-        &:before 
+        &:before
             color: white
             position: absolute
             height: 60px
@@ -323,7 +324,7 @@ ul#main-menu
             font-size: 25px
             line-height: 60px
             text-align: center
-        &:after 
+        &:after
             content: ''
             position: absolute
             width: 0
@@ -335,7 +336,7 @@ ul#main-menu
             left: 0
 
 // ------ Generic panel ------
-#panels 
+#panels
     position: absolute
     display: table
     top: 70px
@@ -353,43 +354,46 @@ ul#main-menu
         width: 30px
         background-color: $body-color
         z-index: 998
-    & > div 
+    & > div
         display: table-row
         position: absolute
         top: 0
         left: 0
         right: 0
         bottom: 0
-    .panel 
+    .panel
         display: table-cell
         position: relative
         background-color: white
-        border-right: 4px solid $body-color       
+        border-right: 4px solid $body-color
         animation-duration: 0.25s !important
         -ms-animation-duration: 0.25s !important
         -moz-animation-duration: 0.25s !important
         -webkit-animation-duration: 0.25s !important
         z-index: 99
         &.animated:last-child
-            z-index: 999 !important
+            z-index: 1 !important
         &:first-child > div 
             margin-left: 45px
-        & > div 
+        &:first-child > div
+            margin-left: 45px
+        & > div
             overflow-y: auto
             overflow-x: hidden
             float: left
-        
+            z-index: 1 !important
+
 // ------ Menu ------
 #panels
     .panel-menu
-        & > div 
+        & > div
             width: 300px
             display: block
-            ul 
+            ul
                 margin: 30px 0 0 30px
-                li 
+                li
                     position: relative
-            .menu-item-link 
+            .menu-item-link
                 display: block
                 height: 30px
                 padding: 15px 15px 14px 30px
@@ -413,7 +417,7 @@ ul#main-menu
                 &:before
                     left: 0
                 &:after
-                    content: "\f3d3"
+                    content: "\f3d1"
                     font-family: "Ionicons"
                     right: 0
                     color: $input-border-color
@@ -429,7 +433,7 @@ ul#main-menu
                     width: calc(100% - 30px)
                     display: inline-block
                     overflow: hidden
-            .menu-item-spacer 
+            .menu-item-spacer
                 min-height: 15px
                 padding: 23px 0 5px 30px
                 margin: 0 0 0 -30px
@@ -441,7 +445,7 @@ ul#main-menu
                 background-color: white
                 width: 100%
             .menu-item-resource
-                & > ul 
+                & > ul
                     margin: 0
             input[type="text"]
                 width: 100%
@@ -462,13 +466,13 @@ ul#main-menu
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
 // ------ Page ------
-#panels 
+#panels
     .panel-page
-        & > div 
+        & > div
             width: 550px
-            & > div 
+            & > div
                 margin: 30px
-    .row 
+    .row
         width: 100%
         clear: both
         display: inline-block    
@@ -530,6 +534,7 @@ ul#main-menu
         top: 20px
         height: 30px
         line-height: 30px
+
 // ------ Form ------
 input,
 select,
@@ -540,9 +545,9 @@ textarea
     -webkit-border-radius: 0 !important
 form
     .row
-        &.form-item 
+        &.form-item
             margin: 30px 0 0 0
-            label 
+            label
                 clear: both
                 width: 100%
                 display: inline-block
@@ -558,7 +563,10 @@ form
             input[type="email"],
             input[type="tel"],
             input[type="url"],
-            input[type="date"],
+            input[type="date"],            
+            input[type="datetime"],
+            input[type="time"],
+            input[type="selectMultiple"],
             textarea
                 clear: both
                 width: calc(100% - 20px)
@@ -577,6 +585,33 @@ form
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
+            &.form-item-selectMultipleCheckbox > div > div,
+            &.form-item-checkbox > div
+                position: relative
+                float: left
+                display: inline-block
+                width: 100%
+                padding-left: 30px
+                margin-bottom: 10px
+                &:last-of-type
+                    margin-bottom: 0
+                label
+                    text-transform: none
+                    font-size: 14px
+                    line-height: 15px
+                input[type="checkbox"]
+                    position: absolute
+                    width: 15px
+                    height: 15px
+                    left: 0
+                    top: 1px
+                    margin: 0
+            &.form-item-datetime > div > div
+                width: calc(50% - 10px)
+                display: inline-block
+                float: left
+                &:last-of-type
+                    margin-left: 20px
             textarea,
             textarea:focus
                 border-bottom: 0
@@ -610,6 +645,9 @@ form
                 option
                     color: $font-color
                     padding: 5px 10px
+            select
+                &[type="selectMultiple"]
+                    height: auto
             input[type="submit"] 
                 float: right
                 padding: 10px 20px
@@ -623,6 +661,7 @@ form
                 &:focus
                     outline: none
                     border: 0
+            textarea 
             &.form-item-checkbox
                 input[type="checkbox"]
                     width: 15px
@@ -638,10 +677,10 @@ form
                     margin: 0
                     text-transform: none
                     font-size: 14px
-            textarea 
+            textarea
                 height: 200px
                 resize: none
-            .trumbowyg-box 
+            .trumbowyg-box
                 display: inline-block
                 position: relative
                 border: 1px solid $input-border-color
@@ -649,7 +688,7 @@ form
                 min-height: 300px
                 margin: 0 auto
             input[type="range"]
-                border: 0        
+                border: 0
                 width: 100%
                 font-size: 10px
                 margin: 5px 0
@@ -713,7 +752,7 @@ form
         nav
             height: 70%
             font-size: 34px
-        ul 
+        ul
             li
                 min-height: 34px
 
@@ -978,3 +1017,4 @@ form
 @import minicolors
 @import clockpicker
 @import pikaday
+@import selectize
