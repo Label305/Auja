@@ -11,11 +11,30 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clo
     return React.createClass({
         componentDidMount: function () {
             var clockpicker = $(this.refs.time.getDOMNode()).clockpicker({
-                autoclose: true,
-                afterShow: console.log("after show")
+                autoclose: true
+                });
+            //force clockpicker to be put in the DOM
+            $(this.refs.time.getDOMNode()).clockpicker('show');
+
+            //Now that it's in the DOM, we'll override its placement so it will scroll nicely
+            var defaultClockPosition = $("body > div.clockpicker-popover");
+            var moveClockToPosition = this.refs.timeContainer.getDOMNode();
+            var defaultClockPositionFirst = $("body > div.clockpicker-popover:first");
+            var moveClockToPosition = this.refs.timeContainer.getDOMNode();
+            defaultClockPositionFirst.detach().appendTo(moveClockToPosition);
+            $(moveClockToPosition).css({
+                 display: "block",
+                 position: "relative"
             });
 
-            console.log($(this.refs.time.getDOMNode()).position());
+            var newClockPosition = $('> div.clockpicker-popover', this.refs.timeContainer.getDOMNode());
+            newClockPosition.removeAttr('style');
+            newClockPosition.css({
+                 display: "block",
+                 position: "absolute"
+            });
+
+            $(this.refs.time.getDOMNode()).clockpicker('hide');
         },
         getInitialState: function () {
             return {value: this.props.item.getValue()};
@@ -30,12 +49,15 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clo
 
             this.setState({value: time});
         },
-        handleClick: function () {
-            console.log('click-pos: '+ $(this.refs.timeContainer.getDOMNode()).offset().top);
-            $("div.clockpicker-popover").detach().appendTo(this.refs.timeContainer.getDOMNode());
-            // $('div.clockpicker-popover').css({
-            //     top: 100 + "px"
-            // });
+        //This overrides the clockpickers inline styling
+        overrideClock: function () {
+            $(this.refs.time.getDOMNode()).clockpicker('show');
+            var newClockPosition = $('> div.clockpicker-popover', this.refs.timeContainer.getDOMNode());
+            newClockPosition.removeAttr('style');
+            newClockPosition.css({
+                 display: "block",
+                 position: "absolute"
+            });
         },
         render: function () {
             var attributes = this.props.item.getAttributes();
@@ -43,20 +65,21 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clo
 
             //onBlur needed to detect time change through clockpicker
             attributes.onBlur = this.handleChange;
-            attributes.onClick = this.handleClick;
+            //OnFocus needed to show clock without clickevent
+            attributes.onFocus = this.overrideClock;
+            attributes.onClick = this.overrideClock;
             //Fallback if clockpicker somehow doesn't work
             attributes.onChange = this.handleChange;
             attributes.ref = 'time';
             attributes.readOnly = true;
-            console.log(this.offset);
-
-            //Insure label is ommited when the item is part of another component.
+           //Insure label is ommited when the item is part of another component.
             attributes.type == 'time' ? label = <Label item={this.props.item} name={this.props.item.getLabel()} /> : label = '';
 
             return (
-                <div ref="timeContainer">
+                <div>
             {label}
                 {React.DOM.input(attributes)}
+                <div ref="timeContainer"></div>
                 </div>
             );
         }
