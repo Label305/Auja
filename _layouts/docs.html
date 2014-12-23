@@ -14,7 +14,8 @@
     <meta name="description" content="{{ page.description }}" />
     <meta name="keywords" content="Label, Label305, Label 305, Internetbureau, Enschede, Twente, Interactiebureau, Internet, Website, App, Webdesign, Ontwerp, Ontwikkeling, Software" />
 
-    <base href="https://label305.github.io/Auja/" />
+ <!--    <base href="https://label305.github.io/Auja/" /> -->
+    <base href="/" />
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -75,9 +76,9 @@
                 <nav id="nav-menu">
                     <ul id="nav-menu-list">
                         {% assign current = page.url | downcase | split: '/' %}
-                        <li class="nav-menu-item {% if current[1] == 'introduction' %}current{% endif %}"><a href="introduction.html">Introduction</a></li>
-                        <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="getting_started.html">Getting started</a></li>
-                        <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="documentation.html">Documentation</a></li>
+                        <li class="nav-menu-item {% if current[1] == 'introduction' %}current{% endif %}"><a href="/introduction">Introduction</a></li>
+                        <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="/getting_started">Getting started</a></li>
+                        <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="/documentation">Documentation</a></li>
                         <li class="nav-menu-item {% if current[1] == 'Github' %}current{% endif %}"><a href="https://github.com/Label305/Auja">Auja on Github</a></li>
                     </ul>
                 </nav>
@@ -89,53 +90,13 @@
 
 </header>
 
-<!-- Page -->
-<section class="docs pos-rel">
-    <div class="container pos-rel">
-        <div class="row">
-            <div class="col-xs-3 docs-menu">
-                <ul>
-                    <li><a href="introduction.html">Introduction</a>
-                        <ul>
-                            <li><a href="introduction.html#why">Why Auja</a></li>
-                            <li><a href="introduction.html#philosophy">Auja philosophy</a></li>
-                            <li><a href="introduction.html#contribute">Contribute to Auja</a></li>
-                        </ul>
-                    <li><a href="getting_started.html">Getting started</a>
-                        <ul>
-                            <li><a href="getting_started.html#intro">Introduction</a></li>
-                            <li><a href="getting_started.html#installation">Stand alone installation</a></li>
-                            <li><a href="getting_started.html#develop">Develop</a></li>
-                            <li><a href="getting_started.html#spec">Spec testing</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="documentation.html">Documentation</a>
-                        <ul>
-                            <li><a href="documentation.html#intro">Introduction</a></li>
-                            <li><a href="documentation.html#main_config">Main config</a></li>
-                            <li><a href="documentation.html#json">Json representation</a></li>
-                            <li><a href="documentation.html#menus">Menus</a></li>
-                            <li><a href="documentation.html#icons">Icons</a></li>
-                            <li><a href="documentation.html#resources">Resources</a></li>
-                            <li><a href="documentation.html#searchable">Searchable</a></li>
-                            <li><a href="documentation.html#sortable">Sortable</a></li>
-                            <li><a href="documentation.html#pages">Pages</a></li>
-                            <li><a href="documentation.html#forms">Forms</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-9 docs-content pull-right">
-                {{ content }}
-            </div>
-        </div>
-    </div>
+<!-- Page start -->
 
-</section>
-
+{{ content }}
 
 <!-- Page end -->
-<!--FOOTER -->
+
+<!-- Footer -->
 <footer class="wrapper">
     <div class="container">
         <div id="copyright" class="wrapper">Developed with love by Label305 | &copy; 2014 <a href="http://label305.com">Label305 B.V.</a><br />Auja is released under the Apache License Version 2.0</div>

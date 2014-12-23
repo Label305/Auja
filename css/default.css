@@ -394,12 +394,35 @@ section.docs {
             float: left;
             width: 100%;
             margin-top: 15px;
-            list-style-type: square;
-            padding-left: 18px;
+            list-style-type: none;
+            padding: 0;
         }
             section.docs .docs-content ul li{
                 line-height: 30px;
+                padding-left: 20px;
+                position: relative;
             }
+                section.docs .docs-content ul li a{
+                    color: #1ebab8;
+                }
+                    section.docs .docs-content ul li a:hover{
+                        color: #353535;
+                        -webkit-transition: 0.25s;
+                        -moz-transition: 0.25s;
+                        -o-transition: 0.25s;
+                        transition: 0.25s;
+                    }
+                section.docs .docs-content ul li:before{
+                    content:"#";
+                    opacity: 0.25;
+                    filter: alpha(opacity=25);
+                    position: absolute;
+                    width: 20px;
+                    height: 30px;
+                    left: 0;
+                    top: 0;
+                    color: #1ebab8;
+                }
             section.docs .docs-content ul li a{
                 text-decoration: none;
             }
@@ -411,15 +434,25 @@ section.docs {
         top: 0;
         left: 0;
     }
+        section.docs .docs-menu span{
+            font-size: 16px;
+            width: 100%;
+            display: inline-block;
+            border-bottom: 1px solid #f1f1f1;
+            padding: 0 0 5px 0;
+            margin-bottom: 5px;
+        }
         section.docs .docs-menu ul{
             list-style-type: none;
             padding: 0;
-            margin: -7px 0 0 0;
+            margin: 0;
             float: left;
         }
         section.docs .docs-menu li a{
             color: #888888;
             text-decoration: none;
+            font-size: 14px;
+            padding-left: 15px;
         }
             section.docs .docs-menu li a:hover{
                 color: #353535;
@@ -433,12 +466,12 @@ section.docs {
             }
         section.docs .docs-menu > ul > li{
             width: 100%;
-            font-size: 16px;
+            font-size: 14px;
             min-height: 20px;
             line-height: 20px;
             display: inline-block;
             float: left;
-            padding: 7px 0;
+            padding: 5px 0;
             font-weight: 400;
         }
             section.docs .docs-menu ul li.active{

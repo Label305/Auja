@@ -1,4 +1,4 @@
-<h3 id="menus_links" class="anchor">Menus, links and spacers</h3>
+<h3 id="menus" class="anchor">Menus, links and spacers</h3>
 The structure of Auja consists of panes, which are the small elements that provide an overview of different items present in your database.
 
 ####Menu

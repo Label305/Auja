@@ -1,5 +1,5 @@
 ---
-layout: docs
+layout: documentation
 title: "Documentation"
 ---
 
