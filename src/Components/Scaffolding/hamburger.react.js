@@ -18,7 +18,7 @@ define(['react', 'jquery'], function (React) {
             var user = '';
             if (this.props.auja.user) {
                 user = (
-                    <div className="username">{this.props.auja.user.name}</div>
+                    <div className="username auja-color-main">{this.props.auja.user.name}</div>
                 );
             }
 

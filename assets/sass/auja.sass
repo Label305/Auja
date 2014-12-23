@@ -104,7 +104,8 @@ h2
             -webkit-transition: opacity 0.5s
             transition: opacity 0.5s
 
-// ------ Message ------
+// ------ Keyframes ------
+
 // Keyframes rotate left and scale animation
 @-Webkit-Keyframes rotateLeftScale
     from
@@ -121,6 +122,7 @@ h2
         transform: rotate(180deg) scale(0)
     to
         transform: rotate(135deg) scale(1)
+
 // Keyframes rotate left and scale animation
 @-Webkit-Keyframes rotateRightScale
     from
@@ -137,6 +139,23 @@ h2
         transform: rotate(-180deg) scale(0)
     to
         transform: rotate(-135deg) scale(1)
+
+// Keyframes fadeIn
+@-webkit-keyframes fadeIn
+    0%
+        opacity: 0
+        filter: alpha(opacity=0)
+    100%
+        opacity: 1
+        filter: alpha(opacity=100)
+@-keyframes fadeIn
+    0%
+        opacity: 0
+        filter: alpha(opacity=0)
+    100%
+        opacity: 1
+        filter: alpha(opacity=100)
+
 // Keyframes rotate left and scale classes
 .rotate-left-scale
     -webkit-animation-name: rotateLeftScale
@@ -159,6 +178,7 @@ h2
     color: white
     &.animated
         animation-duration: 0.25s !important
+        -ms-animation-duration: 0.25s !important
         -moz-animation-duration: 0.25s !important
         -webkit-animation-duration: 0.25s !important
     &.message-success
@@ -351,10 +371,9 @@ ul#main-menu
         -webkit-animation-duration: 0.25s !important
         z-index: 99
         &.animated:last-child
-            z-index: 1 !important
+            z-index: 999 !important
         &:first-child > div 
             margin-left: 45px
-
         & > div 
             overflow-y: auto
             overflow-x: hidden
@@ -469,9 +488,16 @@ ul#main-menu
         -ms-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
         -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
         -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        animation-name: fadeIn
+        animation-duration: 0.25s
+        -ms-animation-name: fadeIn
+        -ms-animation-duration: 0.25s
+        -moz-animation-name: fadeIn
+        -moz-animation-duration: 0.25s
+        -webkit-animation-name: fadeIn
+        -webkit-animation-duration: 0.25s
         ul
             list-style-type: none
-            margin-top: -30px
             display: inline-block
             float: left
             width: 100%
@@ -499,7 +525,11 @@ ul#main-menu
                         padding-bottom: 13px !important
                         height: 58px !important
     .username
-        display: none
+        position: absolute
+        left: 30px
+        top: 20px
+        height: 30px
+        line-height: 30px
 // ------ Form ------
 input,
 select,
@@ -735,7 +765,6 @@ form
         &.menu-visible
             ul
                 list-style-type: none
-                margin-top: -30px
                 li
                     height: 49px
                     &:last-child
@@ -787,7 +816,6 @@ form
             top: 60px
             left: 0
             width: 100%
-            padding: 0 15px 15px 15px
             background-color: white
             ul
                 list-style-type: none
@@ -897,12 +925,26 @@ form
         &:before
             display: none !important
         .panel
-            display: none !important
+            width: 100%  
             position: absolute
-            width: 100%
             border: none
+            top: 0
+            left: 0
+            &.animated
+                animation-name: inherit
+                -ms-animation-name: inherit
+                -moz-animation-name: inherit
+                -webkit-animation-name: inherit
             &.active
-                display: block !important
+                display: block 
+                animation-name: fadeIn
+                animation-duration: 0.25s
+                -ms-animation-name: fadeIn
+                -ms-animation-duration: 0.25s
+                -moz-animation-name: fadeIn
+                -moz-animation-duration: 0.25s
+                -webkit-animation-name: fadeIn
+                -webkit-animation-duration: 0.25s
             &.panel-menu
                 & > div
                     width: 100%
