@@ -22,7 +22,7 @@ define([
                 'extendResource',
                 'updateResource',
                 'navigateToPanelLeft',
-                'navigateToPanelRight'
+                'navigateToPanelRight',
                 'processFail'
             ]);
         });
