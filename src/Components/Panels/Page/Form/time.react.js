@@ -11,7 +11,8 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clo
     return React.createClass({
         componentDidMount: function () {
             var clockpicker = $(this.refs.time.getDOMNode()).clockpicker({
-                autoclose: true
+                autoclose: true,
+                afterShow: console.log("after show")
             });
 
             console.log($(this.refs.time.getDOMNode()).position());
@@ -30,8 +31,8 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clo
             this.setState({value: time});
         },
         handleClick: function () {
-            console.log('click-pos: '+ $(this.refs.time.getDOMNode()).offset().top);
-            $("div.clockpicker-popover").appendTo(this.refs.time.getDOMNode());
+            console.log('click-pos: '+ $(this.refs.timeContainer.getDOMNode()).offset().top);
+            $("div.clockpicker-popover").detach().appendTo(this.refs.timeContainer.getDOMNode());
             // $('div.clockpicker-popover').css({
             //     top: 100 + "px"
             // });
@@ -53,7 +54,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'moment', 'clo
             attributes.type == 'time' ? label = <Label item={this.props.item} name={this.props.item.getLabel()} /> : label = '';
 
             return (
-                <div>
+                <div ref="timeContainer">
             {label}
                 {React.DOM.input(attributes)}
                 </div>

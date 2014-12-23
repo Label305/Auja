@@ -100,9 +100,9 @@ define([
         },
 
         render: function () {
-            
+
             var items = this.props.item.getItems().map(function (item) {
-                                
+
                 if (!FormItems[item.getType()]) {
                     console.error("Unsupported form item type requested: " + item.getType());
                     return;
@@ -126,7 +126,7 @@ define([
             }.bind(this));
 
             return (
-                <form ref="form" onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{items}</form>  
+                <form ref="form" onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{items}</form>
             );
         }
     });

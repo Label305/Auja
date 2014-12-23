@@ -18,14 +18,14 @@ define([
     'build/Components/Panels/menu.react',
     'build/Components/Panels/page.react'
 ], function (React, Fluxxor, flux) {
-    
+
     var PanelSection = React.createClass({
         handleScroll: function () {
             flux.actions.onPanelScroll(this.props.panel);
         },
         render: function () {
             var Panel = require(PanelTypes[this.props.panel.getType()]);
-            
+
             return (
                 <section id={this.props.panel.getId()} key={this.props.panel.getId()} ref="panel" className={"animated fadeInLeft panel panel-" + this.props.panel.getType()}>
                     <div onScroll={this.handleScroll} style={this.props.style}>
@@ -48,7 +48,7 @@ define([
         /**
          * After addition/removal will animate scrollLeft, this is done by listening to DOMNode events
          * instead of componentDidUpdate since it triggers too late
-         */        
+         */
         componentDidMount: function() {
             $(this.refs.panels.getDOMNode()).bind('DOMNodeInserted DOMNodeRemoved', function() {
                 var b = $('body');
@@ -67,7 +67,7 @@ define([
         render: function () {
 
             var message = flux.store('MessageStore').getMessage();
-            
+
             //Fetch and wrap all panels in a section having the class "panel panel-{type}"
             var panels = this.state.panels.map(function (panel) {
                 var style = {
@@ -79,10 +79,10 @@ define([
                 if (message.origin && message.origin.id == panel.id) {
                     m = message.message;
                 }
-                
+
                 return (<PanelSection key={panel.getIndex()} flux={this.props.flux} panel={panel} message={m} style={style} />);
             }.bind(this));
-            
+
             return (
                 <div id="panels" ref="panels">
                     <div>
