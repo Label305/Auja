@@ -223,8 +223,8 @@ header{
             -o-transition: 0.25s;
             transition: 0.25s;
         }
-        header.minified h1,
-        header.docs h1{
+        header.minified .auja,
+        header.docs .auja{
             margin: 10px 0;
         }
 #nav-menu{
