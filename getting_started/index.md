@@ -63,7 +63,7 @@ First of all, run `npm install` and `bower install` to get the dependencies. For
 
 Now, from the root directory, you can watch changes in de `src` directory and build them automatically to the `build` dir.
 
-        `jsx --watch src/ build/
+        jsx --watch src/ build/
 
 
 ### CSS/SASS
