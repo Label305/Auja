@@ -1,5 +1,7 @@
-Auja [![Build Status](https://travis-ci.org/Label305/Auja.svg?branch=master)](https://travis-ci.org/Label305/Auja) 
+Auja
 === 
+
+[![Build Status](https://travis-ci.org/Label305/Auja.svg?branch=master)](https://travis-ci.org/Label305/Auja) [![Dependency Status](https://www.versioneye.com/user/projects/546de812810106aec70004b0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/546de812810106aec70004b0) [![Dependency Status](https://www.versioneye.com/user/projects/546de81281010651060004bc/badge.svg?style=flat)](https://www.versioneye.com/user/projects/546de81281010651060004bc)
 
 Auja is a generic admin interface, you can put atop any web application easily. It is designed to be friendly for both the end-user and the developer. It is designed to be framework and server-side-language independent so you can use it with your language and framework of choice.
 
@@ -13,11 +15,6 @@ In this repo you'll find the JavaScript source meant to be used together with a 
    
 To ease up implementation of the communication protocol we provide a [toolkit](https://github.com/Label305/Auja-PHP) for PHP providing interfaces and
 scaffolding
-
-|  | Badge |
-|---|---|
-| Bower | [![Dependency Status](https://www.versioneye.com/user/projects/546de812810106aec70004b0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/546de812810106aec70004b0) |
-| NPM | [![Dependency Status](https://www.versioneye.com/user/projects/546de81281010651060004bc/badge.svg?style=flat)](https://www.versioneye.com/user/projects/546de81281010651060004bc) |
 
 Installation
 ---
