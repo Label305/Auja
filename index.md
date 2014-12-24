@@ -6,7 +6,7 @@ title: "Auja"
 
 <h2 class="no-line">Implement Auja regardless of which server-side technology you use.</h2>
 
-<p class="leading underline"> You can describe the entire interface with JSON objects so there is no dependancy to a specific framework or server-side-language. However we've made it particularly easy to use [Auja with Laravel](https://github.com/Label305/Auja-Laravel). </p>
+<p class="leading underline"> You can describe the entire interface with JSON objects so there is no dependancy to a specific framework or server-side-language. However we've made it particularly easy to use <a href="https://github.com/Label305/Auja-Laravel">Auja with Laravel</a>. </p>
 
 <div class="wrapper">
     <div class="animated-gif">
