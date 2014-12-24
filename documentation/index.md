@@ -7,7 +7,6 @@ Introduction
 =====
 
 - [Introduction](#introduction)
-- [Main config](#phylosophy)
 
 Introduction
 -----
