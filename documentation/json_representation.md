@@ -35,8 +35,7 @@ Resources
 The more advanced menu item, the whole idea behind Auja is that your users can quickly navigate through the admin interface.
 So requests that serve a database response should be done after the initial menu is loaded. This is where the resource menu item comes into play.
 
-In the `paging` mixin you'll find that after the `resource` menu item was mounted inside the dom a request will be triggered to fetch the first
-page of `items`. This means that you'll see, for example, an add button before we've finished loading all kinds of data from the server.
+In the `paging` mixin you'll find that after the `resource` menu item was mounted inside the dom a request will be triggered to fetch the first page of `items`. This means that you'll see, for example, an add button before we've finished loading all kinds of data from the server.
 
 
 ```json
@@ -61,9 +60,7 @@ properties | `Object` | Different properties active on this object, more about t
 
 When a resource is mounted we can render all of the menu items inside the resource item. A request to the target should return the items as shown below.
 
-Together with an, optional, `paging` object, that will point towards the next resource to make infinite scroll possible, as well as the total amount of items
-up to that request. The `total` key will be used when updating the entire view. For example, when you edit an entry inside a form, you want to update it elsewhere in a
-menu on the left.
+Together with an, optional, `paging` object, that will point towards the next resource to make infinite scroll possible, as well as the total amount of items up to that request. The `total` key will be used when updating the entire view. For example, when you edit an entry inside a form, you want to update it elsewhere in a menu on the left.
 
 ```json
 {
@@ -211,24 +208,76 @@ required | `boolean` | If it is required to fill in (not always actually, e.g. a
 
 ###Checkbox
 
-A checkbox will be rendered as a combination of a `hidden` input with value `0` and a checkbox with value `1` both
-having the same name. Meaning you'll always get your data.
+A checkbox will be rendered as a combination of a `hidden` input with value `0` and a checkbox with value `1` both having the same name. Meaning you'll always get your data.
 
 checked | `boolean`
 
 ###Date
 
-A Date input looks like this.
+A Date input looks like this. 
 
 ```json
 {
     "type": "date",
     "date": {
         "name": "date",
-        "value": "2014-11-06"
+        "value": "2014-11-06",
+        "format": "YYYY-MM-DD",
+        "min": "2013-01-01",
+        "max": "2015-01-01"
     }
 }
 ```
+With the addition of a format value.
+
+format | `string` | Display format
+
+This sets the format the date is shown in, and does not affect the format the `value` is stored in. The format a date is stored is always "YYYY-MM-DD". The display format is applied through the very versatile [MomentJS](http://momentjs.com/) library. For more information about acceptable `format` values checkout the [MomentJS docs](http://momentjs.com/docs/#/displaying/) concerning the formatting of dates.
+
+It is also possible to set an earliest and latest acceptable value through the `min` and `max` values. These are optional.
+
+min | `string` | Minimal value
+max | `string` | Maximum value
+
+###Time
+
+A Time input looks like this. 
+
+```json
+{
+    "type": "time",
+    "date": {
+        "name": "time",
+        "value": "11:25",
+        "format": "HH:mm"
+    }
+}
+```
+With the addition of a format value.
+
+format | `string` | Display format
+
+This sets the format the date is shown in, and does not affect the format the `value` is stored in. The format is applied through the very versatile [MomentJS](http://momentjs.com/) library. For more information about acceptable `format` values checkout the [MomentJS docs](http://momentjs.com/docs/#/displaying/) concerning the formatting of time.
+
+###DateTime
+
+A DateTime input looks like this. It renders a seperate date input shwowing the date and a seperate time input showing the time and a hidden input field containing the `value`. Upon submission
+
+```json
+{
+    "type": "datetime",
+    "date": {
+        "name": "datetime",
+        "value": "2014-11-06 11:25",
+        "format": "YYYY-MM-DD HH:mm"
+    }
+}
+```
+With the addition of a format value.
+
+format | `string` | Display format
+
+This sets the format the date and time are shown in, and does not affect the format the `value` is stored in. The format is applied through the very versatile [MomentJS](http://momentjs.com/) library. For more information about acceptable `format` values checkout the [MomentJS docs](http://momentjs.com/docs/#/displaying/) concerning the formatting of dates and time.
 
 ###E-mail
 
@@ -403,7 +452,7 @@ The available rich text editor [Trubowyg](http://alex-d.github.io/Trumbowyg/) lo
 
 Buttons are optional using this `Abstract`.
 
-buttons | `array` | Optional, head over to their ["Button pane" doc](http://alex-d.github.io/Trumbowyg/documentation.html)
+buttons | `array` | Optional, head over to their ["Button panel" doc](http://alex-d.github.io/Trumbowyg/documentation.html)
 
 ###Url
 
