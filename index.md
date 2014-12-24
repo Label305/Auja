@@ -2,6 +2,7 @@
 layout: home
 title: "Auja"
 ---
+{% assign absoluteurl = 'auja/' %}
 
 <h2 class="no-line">Implement Auja regardless of which server-side technology you use.</h2>
 
@@ -34,5 +35,5 @@ title: "Auja"
 <p class="leading"> Start right now with using Auja for your backend implementation.</p>
 
 <div class="align-center">
-    <a href="/getting_started" class="button black">Start now</a>
+    <a href="/{{ absoluteurl }}/getting_started" class="button black">Start now</a>
 </div>

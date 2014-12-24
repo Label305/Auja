@@ -314,45 +314,42 @@ a.button:hover {
         line-height: 25px;
         font-size: 22px;
     }
-section.content{
-    z-index: 1;
-}
-    .content main.introduction{
+main.introduction{
         padding-top: 80px;
         background-color: #1ebab8;
         min-height: 100px;
         height: 650px;
         border-bottom: 4px solid #189391;
     }
-        .content main.introduction .container{
+        main.introduction .container{
             height: 600px;
             padding: 80px 0;
             display: table;
         }
-        .content main.introduction .container div{
+        main.introduction .container div{
             display: table-row;
             padding: 0 30px !important;
         }
-        .content main.introduction .container div div{
+        main.introduction .container div div{
             text-align: center;
             display: table-cell;
             vertical-align: middle;
         }
-        .content main.introduction .button{
+        main.introduction .button{
             margin: 30px 15px;
         }
-    .content section.home{
+    section.home{
         margin-top: -90px;
     }
-        .content section.home h2,
-        .content section.home h3,
-        .content section.home p.leading{
+        section.home h2,
+        section.home h3,
+        section.home p.leading{
             text-align: center;
         }
-        .content section.home p.leading{
+        section.home p.leading{
             margin-top: 15px;
         }
-        .content section.home > .container{
+        section.home > .container{
             background-color: white;
             padding-top: 90px;
             padding-bottom: 90px;
@@ -361,7 +358,7 @@ section.content{
             -moz-border-radius: 2px;
             -webkit-border-radius: 2px;
         }
-        .content section.home h2:before{
+        section.home h2:before{
             content: '';
             width: 100%;
             height: 1px;
@@ -369,10 +366,10 @@ section.content{
             background-color: #dadada;
             margin: 90px auto;
         }
-        .content section.home h2.no-line:before{
+        section.home h2.no-line:before{
             display: none;
         }
-        .content section.home h3{
+        section.home h3{
             display: block;
             width: 80%;
             margin-left: 10%;
@@ -488,9 +485,6 @@ section.docs {
                 -o-transition: 0.25s;
                 transition: 0.25s;
             }
-            section.docs .docs-menu > ul > li:hover{
-                border-right: 2px solid #1ebab8;
-            }
         section.docs .docs-menu > ul > li{
             width: 100%;
             font-size: 14px;
@@ -501,8 +495,19 @@ section.docs {
             padding: 5px 0;
             font-weight: 400;
         }
-            section.docs .docs-menu ul li.active{
+            section.docs .docs-menu ul li.current{
                 border-right: 2px solid #1ebab8;
+            }
+                section.docs .docs-menu ul li.current:hover{
+                    opacity: 0.5;
+                    filter: alpha(opacity=50);
+                    -webkit-transition: 0.25s;
+                    -moz-transition: 0.25s;
+                    -o-transition: 0.25s;
+                    transition: 0.25s;
+                }
+            section.docs .docs-menu > ul > li:hover{
+                border-right: 2px solid #dadada;
             }
         section.docs .docs-menu ul li ul{
             padding-left: 15px;
@@ -510,14 +515,12 @@ section.docs {
             display: block;
             width: 100%;
         }
-        section.docs .docs-menu ul li ul li{
-            font-size: 14px;
-            height: 20px;
-            line-height: 20px;
-            margin-top: 5px;
-            display: inline-block;
-            width: 100%;
-            float: left
+        section.docs .docs-menu ul li.current{
+            border-right: 2px solid #1ebab8;
+        }
+        section.docs .docs-menu ul li.current a{
+            font-weight: 700;
+            color: #353535;
         }
         section.docs table{
             margin: 0 0 15px 0;
@@ -607,8 +610,10 @@ footer{
     padding: 60px 0;
     border-top: 1px solid #cccccc;
 }
-
-}
+    footer p{
+        margin: 0;
+        font-size: 14px;
+    }
 
 @media (max-width: 991px){
     .label-logo{
