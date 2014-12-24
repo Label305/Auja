@@ -70,7 +70,15 @@ define([], function() {
          * @return Deferred
          */
         this._doAjax = function () {
-            return $.ajax(this.url, this.settings);
+            var dfd = $.Deferred();
+            $.ajax(this.url, this.settings)
+                .done(function(response) {
+                    dfd.resolve(response);
+                })
+                .fail(function(jqXHR) {
+                    dfd.reject(jqXHR.status);
+                });            
+            return dfd.promise();
         }
     };
-})
+});

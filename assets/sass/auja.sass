@@ -438,7 +438,10 @@ form
             input[type="email"],
             input[type="tel"],
             input[type="url"],
-            input[type="date"],
+            input[type="date"],            
+            input[type="datetime"],
+            input[type="time"],
+            input[type="selectMultiple"],
             textarea
                 clear: both
                 width: calc(100% - 20px)
@@ -457,6 +460,33 @@ form
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
+            &.form-item-selectMultipleCheckbox > div > div,
+            &.form-item-checkbox > div
+                position: relative
+                float: left
+                display: inline-block
+                width: 100%
+                padding-left: 30px
+                margin-bottom: 10px
+                &:last-of-type
+                    margin-bottom: 0
+                label
+                    text-transform: none
+                    font-size: 14px
+                    line-height: 15px
+                input[type="checkbox"]
+                    position: absolute
+                    width: 15px
+                    height: 15px
+                    left: 0
+                    top: 1px
+                    margin: 0
+            &.form-item-datetime > div > div
+                width: calc(50% - 10px)
+                display: inline-block
+                float: left
+                &:last-of-type
+                    margin-left: 20px
             textarea,
             textarea:focus
                 border-bottom: 0
@@ -490,7 +520,10 @@ form
                 option
                     color: $font-color
                     padding: 5px 10px
-            input[type="submit"]
+            select
+                &[type="selectMultiple"]
+                    height: auto
+            input[type="submit"] 
                 float: right
                 padding: 10px 20px
                 &:hover
@@ -503,6 +536,7 @@ form
                 &:focus
                     outline: none
                     border: 0
+            textarea 
             &.form-item-checkbox
                 input[type="checkbox"]
                     width: 15px
@@ -634,6 +668,14 @@ form
         &.button
             padding-top: 10px !important
             padding-bottom: 10px !important
+    select
+        height: 30px !important
+        padding-top: 5px !important
+        padding-bottom: 5px !important
 
 @import trumbowyg
 @import jstree
+@import minicolors
+@import clockpicker
+@import pikaday
+@import selectize

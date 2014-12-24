@@ -2,12 +2,12 @@
 
 define([
     'react',
-    'build/Components/Panels/Page/Form/range.react',
-    'build/Objects/Page/Form/range',
+    'build/Components/Panels/Page/Form/select_multiple.react',
+    'build/Objects/Page/Form/select_multiple',
     'jasmine_matchers'
-], function (React, Range, Item) {
+], function (React, SelectMultiple, Item) {
 
-    describe('Range form input', function () {
+    describe('SelectMultiple form input', function () {
 
         beforeEach(function () {
             this.addMatchers(require('jasmine_matchers'));
@@ -17,30 +17,29 @@ define([
             var TestUtils = React.addons.TestUtils;
 
             var item = new Item({
-                value: 10
+                value: 'Luilekkerland, Nederland'
             });
 
-            // Render a checkbox with label in the document
-            var text = TestUtils.renderIntoDocument(Range({
+            // Render a dropdown with label in the document
+            var text = TestUtils.renderIntoDocument(SelectMultiple({
                 item: item
             }));
 
             var input = TestUtils.findRenderedDOMComponentWithTag(text, 'input');
-
-            //parseInt since the value of an input is always a string 
-            expect(parseInt(input.getDOMNode().value)).toEqual(10);
+             
+            expect(input.getDOMNode().value).toEqual('Luilekkerland, Nederland');
         });
 
         it('should have a label', function () {
             var TestUtils = React.addons.TestUtils;
 
             var item = new Item({
-                value: 10,
-                label: "This is the label"
+                value: 'Luilekkerland, Nederland',
+                label: 'This is the label'
             });
 
             // Render a checkbox with label in the document
-            var text = TestUtils.renderIntoDocument(Range({
+            var text = TestUtils.renderIntoDocument(SelectMultiple({
                 item: item
             }));
 
