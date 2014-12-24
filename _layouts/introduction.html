@@ -9,7 +9,9 @@ layout: docs
             <div class="col-xs-3 docs-menu">
                 <span>Introduction</span>
                 <ul>
-                    <li><a href="introduction/">Introduction</a></li>
+                    {% assign current = page.url | downcase | split: '/' %}
+                    {% assign no = 2  %}
+                    <li class="{% if current[no] == 'index.html' %}current{% endif %}"><a href="index.html">Introduction</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-9 docs-content pull-right">
