@@ -31,17 +31,17 @@ After cloning the [Auja repository](https://github.com/Label305/Auja) you will f
 
 Start using [Bower](http://bower.io/) by running:
 
-`bower install`
+        bower install
 
 For testing and maintenance we'll be using [npm](https://www.npmjs.org/) you can install those dependencies using:
 
-`npm install`
+        npm install
 
 Now RequireJS, Fluxxor, React and other dependencies should have been downloaded to the `bower_components` and `node_modules` directories and we can
 continue to compile the JSX and SASS files. You can do this using [Grunt](http://gruntjs.com/). If you don't have Grunt
 installed you can get your hands on the CLI with
 
-`npm install -g grunt-cli`
+        npm install -g grunt-cli
 
 To compile the files simply run `grunt` from the repository root.
 
@@ -59,22 +59,22 @@ this might not be the most convenient way.
 
 First of all, run `npm install` and `bower install` to get the dependencies. For development we also want `react-tools`
 
-`npm install -g react-tools`
+        npm install -g react-tools
 
 Now, from the root directory, you can watch changes in de `src` directory and build them automatically to the `build` dir.
 
-`jsx --watch src/ build/`
+        `jsx --watch src/ build/
 
 
 ### CSS/SASS
 
 For development using sass you'll need to get your hands on the `sass` gem
 
-`gem install sass`
+        gem install sass
 
 After which you can watch the sass directory and compile into the css dir
 
-`sass --watch assets/sass/:assets/css/`
+        sass --watch assets/sass/:assets/css/
 
 Spec testing
 -----
