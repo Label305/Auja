@@ -413,6 +413,7 @@ section.docs {
     section.docs .docs-content{
         background-color: white;
         padding: 60px;
+        min-height: 600px;
     }
         section.docs .docs-content ul{
             display: block;
@@ -599,9 +600,14 @@ section.docs {
     float: left;
 }
 footer{
-    margin: 30px 0;
+    margin: 60px 0 0 0;
     text-align: center;
     font-size: 14px;
+    background-color: #dadada;
+    padding: 60px 0;
+    border-top: 1px solid #cccccc;
+}
+
 }
 
 @media (max-width: 991px){
