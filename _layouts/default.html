@@ -14,7 +14,7 @@
 	<meta name="description" content="{{ page.description }}" />
 	<meta name="keywords" content="Label, Label305, Label 305, Internetbureau, Enschede, Twente, Interactiebureau, Internet, Website, App, Webdesign, Ontwerp, Ontwikkeling, Software" />
 
-	<base href="https://label305.github.io/Auja/" />
+	<!-- <base href="https://label305.github.io/Auja/" /> -->
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
 
@@ -57,14 +57,14 @@
 	<body>
 
 		<header class="home">
-            <h1><a href="./">Auja</a></h1>
+            <a class="auja" href="./">Auja</a>
 
             <nav id="nav-menu">
                 <ul id="nav-menu-list">
                     {% assign current = page.url | downcase | split: '/' %}
-                    <li class="nav-menu-item {% if current[1] == 'introduction' %}current{% endif %}"><a href="introduction.html">Introduction</a></li>
-                    <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="getting_started.html">Getting started</a></li>
-                    <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="documentation.html">Documentation</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'introduction' %}current{% endif %}"><a href="/introduction">Introduction</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'getting_started' %}current{% endif %}"><a href="/getting_started">Getting started</a></li>
+                    <li class="nav-menu-item {% if current[1] == 'documentation' %}current{% endif %}"><a href="/documentation">Documentation</a></li>
                     <li class="nav-menu-item {% if current[1] == 'Github' %}current{% endif %}"><a href="https://github.com/Label305/Auja">Auja on Github</a></li>
                 </ul>
             </nav>

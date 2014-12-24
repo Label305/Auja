@@ -34,5 +34,5 @@ title: "Auja"
 <p class="leading"> Start right now with using Auja for your backend implementation.</p>
 
 <div class="align-center">
-    <a href="getting_started.html" class="button black">Start now</a>
+    <a href="/getting_started" class="button black">Start now</a>
 </div>

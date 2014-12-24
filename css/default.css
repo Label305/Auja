@@ -9,18 +9,16 @@ body{
 }
 h1{
     position: relative;
-    font-family: "IntroBoldAltRegular", Arial, sans-serif;
+    font-family: "IntroBookAlt", Arial, sans-serif;
     display: inline-block;
     float: left;
     height: 40px;
-    font-size: 28px;
+    font-size: 36px;
     line-height: 40px;
+    text-decoration: none;
+    color: #1ebab8;
+    margin: 0 0 15px 0;
 }
-    h1 a,
-    h1 a:hover{
-        color: #1ebab8;
-        text-decoration: none;
-    }
 h2,
 h2 a{
     font-size: 30px;
@@ -72,6 +70,9 @@ a{
 p{
     font-size: 16px;
     line-height: 30px;
+    width: 100%;
+    display: inline-block;
+    float: left;
 }
 p > span{
     font-weight: 700;
@@ -145,11 +146,26 @@ header{
         float: left;
         width: 100%;
     }
+        header.docs .auja{
+            margin: 10px 0 !important;
+        }
         header.docs .container > div > div{
             padding: 0;
         }
-    header h1{
+    header .auja{
+        position: relative;
+        font-family: "IntroBoldAltRegular", Arial, sans-serif;
+        display: inline-block;
+        float: left;
+        height: 40px;
+        font-size: 28px;
+        line-height: 40px;
+        text-decoration: none;
         margin: 20px 0;
+        color: #1ebab8;
+    }
+    header .auja:hover{
+        text-decoration: underline;
     }
     header .label-logo{
         width: 135px;
@@ -379,6 +395,15 @@ main.docs-introduction{
 section.docs {
 
 }
+    section.docs h2{
+        border-top: 1px solid #dadada;
+        padding-top: 30px;
+        margin: 30px 0;
+        width: 100%;
+        display: inline-block;
+        float: left;
+        height: 60px;
+    }
     section.docs h3{
         font-weight: 700;
     }
@@ -388,18 +413,42 @@ section.docs {
     section.docs .docs-content{
         background-color: white;
         padding: 60px;
+        min-height: 600px;
     }
         section.docs .docs-content ul{
             display: block;
             float: left;
             width: 100%;
             margin-top: 15px;
-            list-style-type: square;
-            padding-left: 18px;
+            list-style-type: none;
+            padding: 0;
         }
             section.docs .docs-content ul li{
                 line-height: 30px;
+                padding-left: 20px;
+                position: relative;
             }
+                section.docs .docs-content ul li a{
+                    color: #1ebab8;
+                }
+                    section.docs .docs-content ul li a:hover{
+                        color: #353535;
+                        -webkit-transition: 0.25s;
+                        -moz-transition: 0.25s;
+                        -o-transition: 0.25s;
+                        transition: 0.25s;
+                    }
+                section.docs .docs-content ul li:before{
+                    content:"#";
+                    opacity: 0.25;
+                    filter: alpha(opacity=25);
+                    position: absolute;
+                    width: 20px;
+                    height: 30px;
+                    left: 0;
+                    top: 0;
+                    color: #1ebab8;
+                }
             section.docs .docs-content ul li a{
                 text-decoration: none;
             }
@@ -411,15 +460,26 @@ section.docs {
         top: 0;
         left: 0;
     }
+        section.docs .docs-menu span{
+            font-size: 16px;
+            width: 100%;
+            display: inline-block;
+            border-bottom: 1px solid #f1f1f1;
+            padding: 0 0 5px 0;
+            margin-bottom: 5px;
+        }
         section.docs .docs-menu ul{
             list-style-type: none;
             padding: 0;
-            margin: -7px 0 0 0;
+            margin: 0;
             float: left;
+            width: 100%;
         }
         section.docs .docs-menu li a{
             color: #888888;
             text-decoration: none;
+            font-size: 14px;
+            padding-left: 15px;
         }
             section.docs .docs-menu li a:hover{
                 color: #353535;
@@ -433,12 +493,12 @@ section.docs {
             }
         section.docs .docs-menu > ul > li{
             width: 100%;
-            font-size: 16px;
+            font-size: 14px;
             min-height: 20px;
             line-height: 20px;
             display: inline-block;
             float: left;
-            padding: 7px 0;
+            padding: 5px 0;
             font-weight: 400;
         }
             section.docs .docs-menu ul li.active{
@@ -540,9 +600,14 @@ section.docs {
     float: left;
 }
 footer{
-    margin: 30px 0;
+    margin: 60px 0 0 0;
     text-align: center;
     font-size: 14px;
+    background-color: #dadada;
+    padding: 60px 0;
+    border-top: 1px solid #cccccc;
+}
+
 }
 
 @media (max-width: 991px){
