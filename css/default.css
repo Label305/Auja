@@ -127,7 +127,7 @@ header{
     -moz-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
     -ms-box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px;
-    background-color: rgba(255,255,255,0.95);
+    background-color: white; 
 }
     header.home{
         position: fixed;
@@ -145,6 +145,7 @@ header{
         position: relative;
         float: left;
         width: 100%;
+        background-color: white;
     }
         header.docs .auja{
             margin: 10px 0 !important;
@@ -181,27 +182,23 @@ header{
         z-index: 999;
     }
     header.home.minified{
-        top: 0;
-        left: 0;
-        position: fixed;
         border-radius: 0;
         -ms-border-radius: 0;
         -moz-border-radius: 0;
         -webkit-border-radius: 0;
     }
+    header.home.minified,
     header.docs.minified{
         top: 0;
         left: 0;
         position: fixed;
-    }
-    header.minified,
-    header.docs{
         height: 60px;
         width: 100%;
         -webkit-transition: 0.25s;
         -moz-transition: 0.25s;
         -o-transition: 0.25s;
         transition: 0.25s;
+        background-color: rgba(255,255,255,0.9);
 
     }
         header.minified .label-logo,
