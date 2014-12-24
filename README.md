@@ -1,7 +1,7 @@
 Auja [![Build Status](https://travis-ci.org/Label305/Auja.svg?branch=master)](https://travis-ci.org/Label305/Auja) 
 === 
 
-Auja is a back-end interface designed to be friendly on both sides, for the end-user as well as the developer.
+Auja is a generic admin interface, you can put atop any web application easily. It is designed to be friendly for both the end-user and the developer. It is designed to be framework and server-side-language independent so you can use it with your language and framework of choice.
 
 ![Auja basic image](https://label305.github.io/Auja/images/auja-animated.gif)
 
