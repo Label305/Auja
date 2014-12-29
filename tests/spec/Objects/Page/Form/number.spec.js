@@ -11,13 +11,17 @@ define(['build/Objects/Page/Form/number'], function (Item) {
                 name: 'thename',
                 label: 'The name',
                 value: 11.25,
+                min: 9.75,
+                max: 15.25,
                 required: true
             });
 
             expect(item.getAttributes()).toHaveKeys([
                 'type',
                 'value',
-                'name'
+                'name',
+                'min',
+                'max'
             ]);
 
             expect(item.getValue()).toBe(11.25);
@@ -31,6 +35,8 @@ define(['build/Objects/Page/Form/number'], function (Item) {
                 name: 'thename',
                 label: 'The name',
                 value: 11.25,
+                min: 9.75,
+                max: 15.25,
                 required: true
             });
 
