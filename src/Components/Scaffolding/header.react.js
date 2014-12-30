@@ -11,9 +11,14 @@ define(['react', 'build/Components/Scaffolding/hamburger.react'], function (Reac
                     <div className="auja-color-main"  id="user">{this.props.auja.user.name}</div>
                 );
             }
-            
-            var usesHamburger = this.props.auja.buttons.length > 1;
 
+            //TODO: map the auja main config to an object so we get just use a getter
+            if(!this.props.auja.buttons) {
+                this.props.auja.buttons = []
+            }
+
+            var usesHamburger = this.props.auja.buttons.length > 1;
+            
             //Buttons, e.g. logout
             var buttons = '';
             if (!usesHamburger && this.props.auja.buttons) {
