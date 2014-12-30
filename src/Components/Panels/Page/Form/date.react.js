@@ -12,8 +12,15 @@
         componentDidMount: function() {
             if (this.props.item.getMin())
          {
+            console.log("minDate: "+moment(this.props.item.getMin()).toDate());
             $(this.refs.date.getDOMNode()).pikaday({
                 minDate: moment(this.props.item.getMin()).toDate()
+            });
+         };
+           if (this.props.item.getMax())
+         {
+            $(this.refs.date.getDOMNode()).pikaday({
+                maxDate: moment(this.props.item.getMax()).toDate()
             });
          };
          var picker = $(this.refs.date.getDOMNode()).pikaday({
