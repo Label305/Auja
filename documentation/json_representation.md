@@ -214,7 +214,7 @@ checked | `boolean`
 
 ###Date
 
-A Date input looks like this. 
+A Date input looks like this. Though it works as a date input, it will render in the DOM as a text input. The reason for this is that at the time of this writing not all major browsers support this HTML5 input type. In order to offer a good user experience across all browsers we use a text input in conjunction with a light-weight and flexible datepicker [Pikaday](https://github.com/dbushell/Pikaday).
 
 ```json
 {
@@ -228,16 +228,18 @@ A Date input looks like this.
     }
 }
 ```
-With the addition of a format value.
+It has a format value, which determines how the date is shown to the user.
 
 format | `string` | Display format
 
-This sets the format the date is shown in, and does not affect the format the `value` is stored in. The format a date is stored is always "YYYY-MM-DD". The display format is applied through the very versatile [MomentJS](http://momentjs.com/) library. For more information about acceptable `format` values checkout the [MomentJS docs](http://momentjs.com/docs/#/displaying/) concerning the formatting of dates.
+It does not affect the format the `value` is stored in. The format a date is stored is always "YYYY-MM-DD". The display format is applied through the very versatile [MomentJS](http://momentjs.com/) library. For more information about acceptable `format` values checkout the [MomentJS docs](http://momentjs.com/docs/#/displaying/) concerning the formatting of dates.
 
 It is also possible to set an earliest and latest acceptable value through the `min` and `max` values. These are optional.
 
 min | `string` | Minimal value
 max | `string` | Maximum value
+
+At the time of this writing it is not possible to use dynamic dates such as _now_ or _7 days ago_. These will not be accepted as a value nor as the earliest or latest selectable date. However, the [MomentJS](http://momentjs.com/) library we use does support this, so it is easy for anyone desiring this functionality to add it.
 
 ###Time
 
@@ -261,7 +263,7 @@ This sets the format the date is shown in, and does not affect the format the `v
 
 ###DateTime
 
-A DateTime input looks like this. It renders a seperate date input shwowing the date and a seperate time input showing the time and a hidden input field containing the `value`. Upon submission
+A DateTime input looks like this. It renders a seperate date input shwowing the date and a seperate time input showing the time and a hidden input field containing the `value`. Upon submission the value in the hidden field is sent.
 
 ```json
 {
