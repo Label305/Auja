@@ -1,8 +1,15 @@
 /**
  * @jsx React.DOM
  */
-define(['react', 'build/Components/Scaffolding/hamburger.react'], function (React, Hamburger) {
+define(['react', 'fluxxor','build/Components/Scaffolding/hamburger.react'], function (React, Fluxxor, Hamburger) {
     return React.createClass({
+        mixins: [Fluxxor.FluxMixin(React), Fluxxor.StoreWatchMixin('PanelStore')],
+        getStateFromFlux: function () {
+            return flux.store('PanelStore').getState();
+        },
+        handleNavigatePanelLeft: function() {
+            flux.actions.navigateToPanelLeft();  
+        },
         render: function () {
             //Name of the user
             var user = '';
@@ -37,9 +44,15 @@ define(['react', 'build/Components/Scaffolding/hamburger.react'], function (Reac
                 burger = <Hamburger auja={this.props.auja}/>;
             } 
             
+            //Fill backbutton
+            var backButton = '';
+            if(flux.store('PanelStore').hasActivePanels()) {
+                backButton = <div className="menu-back ion-chevron-left" onClick={this.handleNavigatePanelLeft}></div>;
+            }
+            
             return (
                 <header>
-                    <div className="menu-back ion-chevron-left"></div>
+                    {backButton}
                     <h1>{this.props.auja.title}</h1>
                     {buttons}
                     {user}

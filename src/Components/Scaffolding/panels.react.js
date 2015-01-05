@@ -72,7 +72,7 @@ define([
             
             //Bind document navigation using arrows
             $(document).bind('keyup', function(e) {
-                if($('body').is(':focus'))
+                if(document.activeElement == document.getElementsByTagName("body")[0])
                 {
                     if (e.which == 37) {
                         flux.actions.navigateToPanelLeft();

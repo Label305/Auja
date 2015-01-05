@@ -194,7 +194,7 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
          */
         setActivePanel: function(panel) {
             for(var i in this.panels) {
-                var isActive = this.panels[i].getId() == panel.getId();
+                var isActive = panel ? this.panels[i].getId() == panel.getId() : false;
                 this.panels[i].setIsActive(isActive);
             }
 
@@ -241,6 +241,18 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
                     return;
                 }
             }
+        },
+
+        /**
+         * @return bool
+         */
+        hasActivePanels: function() {
+            for(var i in this.panels) {
+                if(this.panels[i].isActive()) {
+                    return true;
+                }
+            }
+            return false;
         }
         
     })
