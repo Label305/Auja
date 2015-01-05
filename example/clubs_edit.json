@@ -62,6 +62,8 @@
                             "name": "foundingdate",
                             "label": "Founded on",
                             "value": "1982-08-17",
+                            "min": "1982-01-01",
+                            "max": "1983-01-01",
                             "format": "YYYY-MM-DD"
                         }
                     },
@@ -71,6 +73,8 @@
                             "name": "lastgame",
                             "label": "Last Played",
                             "value": "1982-08-17 11:22:33",
+                            "min": "1982-07-17 10:00:00",
+                            "max": "1982-09-17 14:00:00",
                             "format": "YYYY-MM-DD HH:mm:ss"
                         }
                     },
@@ -113,6 +117,8 @@
                             "name": "time",
                             "label": "Start tijd",
                             "value": "11:25",
+                            "min": "10:00",
+                            "max": "14:00",
                             "format": "HH:mm"
                         }
                     },

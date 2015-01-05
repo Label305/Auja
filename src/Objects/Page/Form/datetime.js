@@ -15,7 +15,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * @private
          */
         this._format = data.format || null;
-        
+
         /**
          * Getter for format
          * @returns {string|null}
@@ -23,8 +23,6 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         this.getFormat = function() {
             return this._format;
         };
-
-
         /**
          * Setter for format
          * @param format
@@ -32,7 +30,36 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
         this.setFormat = function(format) {
             this._format = format;
         };
-        
+        /**
+         * Min and max of the time
+         * @type {Number|null}
+         * @private
+         */
+        this._min = data.min || null;
+        this._max = data.max || null;
+
+        /**
+         * Getters for min and max
+         * @returns {Number|null}
+         */
+        this.getMin = function() {
+            return this._min;
+        };
+
+        this.getMax = function() {
+            return this._max;
+        };
+
+        /**
+         * Setters for min and max
+         * @param maxLength
+         */
+        this.setMin = function(min) {
+            this._min = min;
+        };
+        this.setMax = function(max) {
+            this._max = max;
+        };
 
         /**
          * Get attributes for this input
@@ -44,7 +71,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
                 value: this.getValue(),
                 name: this.getName(),
                 format: this.getFormat(),
-
+                min: this.getMin(),
+                max: this.getMax()
             }
         };
     };

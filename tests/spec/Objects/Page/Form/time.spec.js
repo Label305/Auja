@@ -12,6 +12,8 @@ define(['build/Objects/Page/Form/time'], function (Item) {
                 label: 'The name',
                 value: '10:25',
                 format: 'HH:mm',
+                min: '10:00',
+                max: '12:00',
                 required: true
             });
 
@@ -19,11 +21,10 @@ define(['build/Objects/Page/Form/time'], function (Item) {
                 'type',
                 'value',
                 'name',
-                'format'
+                'format',
+                'min',
+                'max'
             ]);
-            
-            expect(item.getValue()).toBe('10:25');
-
         });
 
         it('should implement a form item', function () {
@@ -34,6 +35,8 @@ define(['build/Objects/Page/Form/time'], function (Item) {
                 label: 'The name',
                 value: '10:25',
                 format: 'HH:mm',
+                min: '10:00',
+                max: '12:00',
                 required: true
             });
 
@@ -43,6 +46,8 @@ define(['build/Objects/Page/Form/time'], function (Item) {
             expect(item.getName()).toBe('thename');
             expect(item.getLabel()).toBe('The name');
             expect(item.getValue()).toBe('10:25');
+            expect(item.getMin()).toBe('10:00');
+            expect(item.getMax()).toBe('12:00');
             expect(item.getFormat()).toBe('HH:mm');
             expect(item.isRequired()).toBe(true);
 
@@ -51,16 +56,20 @@ define(['build/Objects/Page/Form/time'], function (Item) {
             item.setName('somename');
             item.setLabel('Your name');
             item.setValue('11:55');
+            item.setMin('09:00');
+            item.setMax('13:00');
             item.setFormat('hh:mm');
             item.setRequired(false);
-            
+
             expect(item.getOrder()).toBe(2);
             expect(item.getName()).toBe('somename');
             expect(item.getLabel()).toBe('Your name');
             expect(item.getValue()).toBe('11:55');
+            expect(item.getMin()).toBe('09:00');
+            expect(item.getMax()).toBe('13:00');
             expect(item.getFormat()).toBe('hh:mm');
             expect(item.isRequired()).toBe(false);
-            
+
         });
 
     });
