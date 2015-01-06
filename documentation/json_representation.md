@@ -214,7 +214,8 @@ The simplest of all input items, the text input, looks like this. It renders a s
 {
     "type": "text",
     "text": {
-        "name": "text",
+        "name": "shorttext",
+        "label": "This is a humble text input",
         "value": "Awesome text",
         "maxLength": 100
     }
@@ -233,7 +234,8 @@ A textarea input looks like this. It renders a multiline input field.
 {
     "type": "textarea",
     "textarea": {
-        "name": "text",
+        "name": "longtext",
+        "label": "Tell us about your greatest accomplishments",
         "value": "Your long story"
     }
 }
@@ -255,6 +257,7 @@ A checkbox will be rendered as a combination of a `hidden` input with value `0` 
 	}
 }
 ```
+
 checked | `boolean`
 
 ###SelectMultipleCheckbox
@@ -266,6 +269,7 @@ A selectMultipleCheckbox will render a group of checkboxes.
     "type": "selectMultipleCheckbox",
     "selectMultipleCheckbox": {
         "name": "beers",
+        "label": "Which do you drink?",
         "value": true,
         "options": {
             {
@@ -294,6 +298,7 @@ A color input looks like this. This input type was introduced with HTML5, and it
     "type": "color",
     "color": {
         "name": "color",
+        "label": "Your favorite color",
         "value": "#1ebab8"
     }
 }
@@ -310,6 +315,7 @@ This input is read-only, which means values cannot be entered manually. Values c
     "type": "date",
     "date": {
         "name": "date",
+        "label": "When was your last annual check-up?",
         "value": "2014-11-06",
         "format": "YYYY-MM-DD",
         "min": "2013-01-01",
@@ -317,7 +323,8 @@ This input is read-only, which means values cannot be entered manually. Values c
     }
 }
 ```
-It has a format value, which determines how the date is shown to the user.
+
+It has a format value, which determines how the date is shown to the user. This is optional. If no format is set it will fall back to displaying the date in `YYYY-MM-DD` format.
 
 format | `string` | Display format
 
@@ -341,6 +348,7 @@ This input is read-only, which means values cannot be entered manually. Values c
     "type": "time",
     "date": {
         "name": "time",
+        "label": "Choose your favorite time between 10:00 and 18:00"
         "value": "11:25",
         "format": "HH:mm",
         "min": "10:00",
@@ -348,7 +356,7 @@ This input is read-only, which means values cannot be entered manually. Values c
     }
 }
 ```
-With the addition of a format value.
+With the addition of a format value, which controls how a time is displayed. This is optional. If no format is set it will fall back to showing the time in `HH:mm:ss` format.
 
 format | `string` | Display format
 
@@ -372,6 +380,7 @@ This input is read-only, which means values cannot be entered manually. Values c
     "type": "datetime",
     "date": {
         "name": "datetime",
+        "Label": "When did you last call the client this year?",
         "value": "2014-11-06 11:25",
         "format": "YYYY-MM-DD HH:mm",
         "min": "2014-01-01 00:00",
@@ -379,7 +388,7 @@ This input is read-only, which means values cannot be entered manually. Values c
     }
 }
 ```
-Of course datetime also has of a format value.
+Of course datetime also has of a format value. Just as the seperate time and date input this is optional.
 
 format | `string` | Display format
 
@@ -401,10 +410,12 @@ An email input looks like this. This input type was introduced with HTML5, and i
     "type": "email",
     "email": {
         "name": "email",
+        "label": "The email address of the tallest person you work with",
         "value": "joris@label305.com"
     }
 }
 ```
+
 ###Url
 
 An url input looks like this. This input type was introduced with HTML5, and its value is validated to the extent the browser supports it. At the time of this writing all major browsers support this input type, but input validation is poor.
@@ -414,6 +425,7 @@ An url input looks like this. This input type was introduced with HTML5, and its
     "type": "url",
     "url": {
         "name": "url",
+        "label": "Company website",
         "value": "http://www.label305.com/"
     }
 }
@@ -428,7 +440,8 @@ A telephone input looks like this. This input type was introduced with HTML5, an
     "type": "tel",
     "tel": {
         "name": "telephone",
-        "value": "http://www.label305.com/"
+        "label": "Your imaginary phone number",
+        "value": "1234567890"
     }
 }
 ```
@@ -442,16 +455,17 @@ A number input, with decimals looks like this.
     "type": "number",
     "number": {
         "name": "number",
+        "label": "Type a number",
         "value": 0.2,
         "min": 0.01,
-        "max": 2
+        "max": 1
     }
 }
 ```
 It is also possible to restrict which values are acceptable by setting a lower and higher bound through the `min` and `max` values. These are optional.
 
-min | `string` | Minimal value
-max | `string` | Maximum value
+min | `number` | Minimal value
+max | `number` | Maximum value
 
 ###Integer
 
@@ -462,6 +476,7 @@ An integer input looks like this. It is essentially a number input with its step
     "type": "integer",
     "integer": {
         "name": "integer",
+        "label": "How many siblings do you have?",
         "value": 12,
         "min": 0,
         "max": 20
@@ -470,8 +485,8 @@ An integer input looks like this. It is essentially a number input with its step
 ```
 It is also possible to restrict which values are acceptable by setting a lower and higher bound through the `min` and `max` values. These are optional.
 
-min | `string` | Minimal value
-max | `string` | Maximum value
+min | `integer` | Minimal value
+max | `integer` | Maximum value
 
 ###Password
 
@@ -482,6 +497,7 @@ A password input looks like this.
     "type": "password",
     "password": {
         "name": "password",
+        "label": "Your password",
         "value": "Super secret"
     }
 }
@@ -496,9 +512,10 @@ This is a range input.
     "type": "range",
     "range": {
         "name": "range",
+        "label": "How long can you hold your breath?",
         "value": 15,
-        "min": 10,
-        "max": 15
+        "min": 0,
+        "max": 300
     }
 }
 ```
@@ -517,14 +534,15 @@ A select dropdown input looks like this.
     "type": "select",
     "options": {
         "name": "options",
+        "label": "How awesome is Auja?",
         "value": "b",
         "options": {
             {
-                "label": "Answer A",
+                "label": "A: Meh",
                 "value": "a"
             },
             {
-                "label": "Answer B",
+                "label": "B: Totally awesome",
                 "value": "b"
             }
         }
@@ -541,6 +559,7 @@ A select multiple input looks like this. This input type is often unwieldy from 
     "type": "selectMultiple",
     "selectMultiple": {
         "name": "country",
+        "label": "Please select all Northern European countries",
         "value": ["NL-nl","DE-de"],
         "options": {
             {
@@ -562,6 +581,7 @@ A select multiple input looks like this. This input type is often unwieldy from 
     }
 }
 ```
+
 It is important to note that this input item always takes an array for its `value`, even when only a single option or less is selected.
 
 ###Submit
@@ -577,21 +597,6 @@ A submit button looks like this.
 }
 ```
 
-###Tel
-
-A telephone number input looks like this.
-
-```json
-{
-    "type": "tel",
-    "tel": {
-        "name": "telephone",
-        "value": "+31537113499"
-    }
-}
-```
-
-
 ###Trumbowyg
 
 The available rich text editor [Trubowyg](http://alex-d.github.io/Trumbowyg/) looks like this.
@@ -600,7 +605,8 @@ The available rich text editor [Trubowyg](http://alex-d.github.io/Trumbowyg/) lo
 {
     "type": "trumbowyg",
     "trumbowyg": {
-        "name": "textarea",
+        "name": "editarea",
+        "label": "Edit your story here",
         "value": "Your long story",
         "buttons": ["header", "bold", "italic"]
     }
@@ -610,19 +616,3 @@ The available rich text editor [Trubowyg](http://alex-d.github.io/Trumbowyg/) lo
 Buttons are optional using this `Abstract`.
 
 buttons | `array` | Optional, head over to their ["Button panel" doc](http://alex-d.github.io/Trumbowyg/documentation.html)
-
-###Url
-
-An url input looks like this.
-
-```json
-{
-    "type": "url",
-    "url": {
-        "name": "website",
-        "value": "http://label305.github.io/Auja/"
-    }
-}
-```
-
-
