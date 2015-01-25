@@ -8,9 +8,10 @@
  * @jsx React.DOM
  */
 define([
+    'react',
     'build/Components/Panels/Page/Form/label.react',
     'jquery.fileupload'
-], function(Label) {
+], function(React, Label) {
     return React.createClass({
         componentDidMount: function() {
             //Dynamically add the element since we don't want to have React to bind its events to it

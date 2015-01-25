@@ -3,15 +3,13 @@
  * to pass request to correct handler
  */
 var routers = {
-    'http': 'build/Requests/Routers/http',
-    'rest': 'build/Requests/Routers/rest'
+    'http': 'build/Requests/Routers/http'
 };
 
 define([
     'signals', 
     'crossroads',
-    'build/Requests/Routers/http',
-    'build/Requests/Routers/rest'
+    'build/Requests/Routers/http'
 ], function (signals, crossroads) {
 
     //Register as a global
@@ -20,16 +18,18 @@ define([
     /**
      * Setup listening to the AujaStore to update routes in crossroads
      */
-    flux.store('AujaStore').on('change', function () {
-        crossroads.removeAllRoutes();
-
-        this.getState().routes.map(function (route) {
-            require(routers[route.type]).addRoute(route);
-        }.bind(this));
-
-        //Add fallback route to http router 
-        require(routers['http']).addRoute({
-            target: /(.*)/
+    require(['flux'], function(flux) {
+        flux.store('AujaStore').on('change', function () {
+            crossroads.removeAllRoutes();
+    
+            this.getState().routes.map(function (route) {
+                require(routers[route.type]).addRoute(route);
+            }.bind(this));
+    
+            //Add fallback route to http router 
+            require(routers['http']).addRoute({
+                target: /(.*)/
+            });
         });
     });
 

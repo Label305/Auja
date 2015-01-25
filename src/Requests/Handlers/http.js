@@ -61,8 +61,8 @@ define([], function() {
          */
         this.put = function (data) {
             this.setData(data);
-            this.settings.data._method = 'PUT';
-            return this.post();
+            this.settings.type = 'PUT';
+            return this._doAjax();
         };
 
         /**
@@ -70,7 +70,15 @@ define([], function() {
          * @return Deferred
          */
         this._doAjax = function () {
-            return $.ajax(this.url, this.settings);
+            var dfd = $.Deferred();
+            $.ajax(this.url, this.settings)
+                .done(function(response) {
+                    dfd.resolve(response);
+                })
+                .fail(function(jqXHR) {
+                    dfd.reject(jqXHR.status);
+                });            
+            return dfd.promise();
         }
     };
-})
+});

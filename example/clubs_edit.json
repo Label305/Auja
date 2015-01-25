@@ -18,28 +18,174 @@
             "type": "form",
             "form": {
                 "action": "example/clubs/store",
-                "method": "get",
+                "method": "put",
                 "items": [
                     {
                         "type": "text",
                         "text": {
                             "name": "name",
-                            "label": "Name of club"
-                        }
-                        
+                            "label": "Name of club",
+                            "value": "The clicked club"
+                        }                        
                     },
                     {
-                        "type": "number",
-                        "number": {
-                            "name": "totalPlayers",
-                            "label": "Number of players",
+                        "type": "integer",
+                        "integer": {
+                            "name": "activePlayers",
+                            "label": "Number of active players",
                             "min": "7",
                             "max": "25",
                             "value": "11"
+                        }                        
+                    },
+                    {
+                        "type": "color",
+                        "color": {
+                            "name": "teamcolor",
+                            "label": "Team Color",
+                            "value": "#CC0000"
+                        }                        
+                    },
+                    {
+                        "type": "date",
+                        "date": {
+                            "name": "foundingdate",
+                            "label": "Founded on",
+                            "value": "1982-08-17",
+                            "format": "YYYY-MM-DD"
+                        }                        
+                    },
+                    {
+                        "type": "datetime",
+                        "datetime": {
+                            "name": "lastgame",
+                            "label": "Last Played",
+                            "value": "1982-08-17 11:22:33",
+                            "format": "YYYY-MM-DD HH:mm:ss"
+                        }                        
+                    },                    
+                    {
+                        "type": "range",
+                        "range": {
+                            "name": "range",
+                            "label": "Shooting Range",
+                            "min": "7",
+                            "max": "25",
+                            "value": "11"
+                        }                        
+                    },
+                    {
+                        "type": "email",
+                        "email": {
+                            "name": "email",
+                            "label": "Club Email"
+                        }                        
+                    },
+                      {
+                        "type": "url",
+                        "url": {
+                            "name": "website",
+                            "label": "Club Website",
+                            "value": "http://www.voetbalclub.org"
+                       }
+                    },
+                    {
+                        "type": "tel",
+                        "tel": {
+                            "name": "telephone",
+                            "label": "Club phone number",
+                            "value": "11"
+                        }                       
+                    },
+                                        {
+                        "type": "time",
+                        "time": {
+                            "name": "time",
+                            "label": "Start tijd",
+                            "value": "11:25",
+                            "format": "HH:mm"
+                        }                       
+                    },
+                    {
+                        "type": "selectMultiple",
+                        "selectMultiple": {
+                            "name": "country",
+                            "label": "Country",
+                            "value":[                            
+                                "DE-de"
+                                ,                                
+                                "SP-sp"                                
+                            ],
+                            "options": [
+                                {
+                                "type": "option",
+                                "label": "Nederland",
+                                "value": "NL-nl"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Duitsland",
+                                "value": "DE-de"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Frankrijk",
+                                "value": "FR-fr"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Spanje",
+                                "value": "SP-sp"
+                                },
+                                {
+                                "type": "option",
+                                "label": "Luilekkerland",
+                                "value": "LL-ll"
+                            }
+                            ]
+                        }
+                    },
+                        {                        
+                        "type": "checkbox",
+                        "checkbox": {
+                            "name": "leagues",
+                            "label": "Jupiler",
+                            "required": false,
+                            "value": true,
+                            "checked": false
                         }
                         
                     },
                     {
+                        "type": "selectMultipleCheckbox",
+                        "selectMultipleCheckbox": {
+                            "name": "beers",
+                            "label": "Beers",
+                            "required": false,
+                            "value": true,
+                            "options":
+                            [
+                                {
+                                "label": "Jupiler",
+                                "checked": false
+                                },
+                                {
+                                "label": "Grolsch",
+                                "checked": true
+                                },
+                                {
+                                "label": "Heineken",
+                                "checked": false
+                                },
+                                {
+                                "label": "Duvel",
+                                "checked": false
+                                }
+                           ]
+                        }
+                        
+                    },
+                     {
                         "type": "password",
                         "password": {
                             "name": "token",

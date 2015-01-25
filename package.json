@@ -1,0 +1,27 @@
+{
+  "name": "Auja",
+  "version": "3.0.0",
+  "main": "build/auja.react.js",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-react": "^0.9.0",
+    "karma": "^0.12.28",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-jasmine": "^0.1.5",
+    "karma-requirejs": "^0.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Label305/Auja.git"
+  },
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start --browsers Firefox --single-run"
+  }
+}

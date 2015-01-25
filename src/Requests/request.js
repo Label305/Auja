@@ -3,7 +3,7 @@
  * the goal is to add routing, options for factories to generate responses etc.etc.
  * @param string url
  */
-define(['build/Requests/route_factory', 'build/Requests/Handlers/http'], function (RouteFactory) {
+define(['build/Requests/route_factory', 'build/Requests/cache'], function (RouteFactory) {
 
 
     /**
@@ -17,7 +17,14 @@ define(['build/Requests/route_factory', 'build/Requests/Handlers/http'], functio
          * @return jQuery.Deferred
          */
         this.get = function () {
-            return RouteFactory.handler(url).get(arguments[0] ? arguments[0] : null);
+            var ongoing = RequestCache.getOngoing(url);
+            if(ongoing) {
+                return ongoing;
+            }
+            
+            var request = RouteFactory.handler(url).get(arguments[0] ? arguments[0] : null);
+            RequestCache.add(url, request);
+            return request;
         };
 
         /**
@@ -38,4 +45,5 @@ define(['build/Requests/route_factory', 'build/Requests/Handlers/http'], functio
 
     }
     
+    return window.Request;
 });

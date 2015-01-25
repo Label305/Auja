@@ -8,10 +8,10 @@
  * @jsx React.DOM
  */
 
-define([], function() {
+define(['react'], function(React) {
     return React.createClass({
         handleClick: function() {
-            flux.actions.click(this.props.item.link.target, this.props.panel, this.props.item);
+            flux.actions.click(this.props.item.getTarget(), this.props.panel, this.props.item);
         },
         render: function() {
             
@@ -19,19 +19,19 @@ define([], function() {
             
             //Create the icon class
             var icon = "fallback";
-            if(this.props.item.link.icon) {
-                icon = this.props.item.link.icon;    
+            if(this.props.item.getIcon()) {
+                icon = this.props.item.getIcon();    
             }
-            className += "icon ion-" + icon;
+            className += "icon " + icon;
             
             //Check if we match the active item
-            if(this.props.activeItem && this.props.activeItem.link && this.props.activeItem.link.target == this.props.item.link.target) {
-                className += " auja-color-main";
+            if(this.props.item.isActive()) {
+                className += " auja-color-main active auja-active-border-main";
             }
             
             return (
                 <li className={className} onClick={this.handleClick}>
-                    <span>{this.props.item.link.name}</span>
+                    <span>{this.props.item.getText()}</span>
                 </li>
                 );
         }

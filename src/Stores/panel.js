@@ -1,4 +1,4 @@
-define(['fluxxor'], function(Fluxxor) {
+define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFactory) {
 
     /**
      * The main Auja store
@@ -17,8 +17,9 @@ define(['fluxxor'], function(Fluxxor) {
 
         /**
          * Index of current panel as a reference
+         * Starts at -1 since adding will be done using ++index
          */
-        index: 0,
+        index: -1,
 
         /**
          * On initialization and on system update we will update the state
@@ -26,10 +27,20 @@ define(['fluxxor'], function(Fluxxor) {
          */
         initialize: function(url) {
             this.bindActions(
-                'panel-add', this.addPanel,
                 'panel-scroll', this.scroll,
                 'resize', this.resize,
-                'activate-item', this.activateItem
+                'activate-item', this.activateItem,
+                
+                //Update panels
+                'update', this.update,
+                
+                //Different types of panels
+                'menu', this.addPanel,
+                'page', this.addPanel,
+                
+                //Menu specific actions
+                'extend-resource', this.extendResource,
+                'update-resource', this.updateResource
             )
         },
 
@@ -54,86 +65,121 @@ define(['fluxxor'], function(Fluxxor) {
                 this.emit('change');
             }
         },
-
-        /**
-         * Initialize the DOM node, will set the scrollTarget
-         * @param panel
-         */
-        panelDidMount: function (panel) {
-            this.emit('change');
-        },
         
         /**
          * When somebody scrolls a panel
          */
         scroll: function(panel) {
-            this.emit('change');
+            if(panel.isPaginated()) {
+                this.emit('change');
+            }
         },
 
         /**
-         * Update a panel
-         * @param panel
+         * Update content of all panels
+         * @todo group same origin requests (or do something in request object with ongoing requests)
          */
-        updatePanel: function(index, panel) {
-            for(var i in this.panels) {
-                if(this.panels[i]._index == panel._index) {
-                    this.panels[i] = panel;
-                    this.emit('change');
-                    break;
+        update: function() {
+            this.panels.map(function(panel) {
+                if(panel.isUpdateable()) {
+                    var request = new Request(panel.getUrl());
+                    request.get().done(function (response) {
+                        panel = PanelFactory.updatePanel(panel, response);
+                        this.emit('change');
+                    }.bind(this));
                 }
-            }
+            }.bind(this));
         },
 
         /**
          * Add a panel
-         * @param panel
+         * @param p
          */
-        addPanel: function(panel) {
+        addPanel: function(p) {
+            var panel = PanelFactory.createPanel(p);
+            
+            if(!panel) {
+                console.error('Requested to dispatch unknown panel');
+                return;
+            }
+            
             //Set the index, since adding will always be on the end
-            panel._index = ++this.index;
-            panel.id = 'panel-' + panel._index;
+            panel.setIndex(++this.index);
+            panel.setId('panel-' + panel.getIndex());
             
             //If the panel from which this panel is added does not originate from the latest
             //we need to remove trailing panels
-            if(panel.origin) {
-                var panels = [];
-                for(var i in this.panels) {
-                    if(this.panels[i].id <= panel.origin.id) {
-                        panels.push(this.panels[i]);
-                    }
-                }      
-                this.panels = panels;
-            } else {
-                this.panels = [];
-            }
+            var panels = [];
+            for(var i in this.panels) {
+                if(panel.getOrigin() && this.panels[i].getIndex() <= panel.getOrigin().getIndex()) {
+                    panels.push(this.panels[i]);
+                }
+            }      
+            this.panels = panels;
                 
             //Put the panel in the view
-            this.panels[panel._index] = panel;
+            this.panels[panel.getIndex()] = panel;
             
-            return panel;
+            this.emit('change');
         },
 
         /**
-         * Should be called when finished processing of panel adding
-         */
-        addPanelSuccess: function() {
-            this.emit('change');
-            this.resize();            
-        },        
-        
-        /**
          * Activate an item within a panel
+         * @todo add spec test
+         * @todo move to panel
          * @param item
          */
         activateItem: function(item) {
             for(var i in this.panels) {
-                if(this.panels[i].id == item.panel.id) {
-                    this.panels[i].activeItem = item.item;
+                if(this.panels[i].getId() == item.panel.getId()) {
+                    this.panels[i].setActiveItem(item.item);
                     break;
                 }
             }
             
             this.emit('change');
+        },
+
+        /**
+         * Extend a resource
+         * @param data
+         */
+        extendResource: function(data) {
+            var panel = data.panel,
+                response = data.data,
+                item = data.item;
+            
+            //Find the panel
+            for(var i in this.panels) {
+                if(this.panels[i].getId() == panel.getId()) {
+                    
+                    if(this.panels[i].getType() != 'menu') {
+                        console.error('Update of menu item requested on a non menu');
+                        return;
+                    }
+                    this.panels[i].extendItem(item, response);
+                    this.emit('change');                    
+                    return;
+                }
+            }
+        },
+
+        /**
+         * Update a resource
+         * @param data
+         */
+        updateResource: function(data) {
+            var response = data.data,
+                item = data.item;
+
+            //Find the panel
+            for(var i in this.panels) {
+                if(this.panels[i].hasItem(item)) {
+                    this.panels[i].updateItem(item, response);
+                    this.emit('change');
+                    return;
+                }
+            }
         }
         
     })

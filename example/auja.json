@@ -6,7 +6,7 @@
         "debug": true,
         "colors": {
             "main": "#1ebab8",
-            "secondary": "#E7EFEF",
+            "secondary": "#EDEDED",
             "alert": "#e85840"
         },
         "user": {
@@ -14,20 +14,20 @@
         },
         "buttons": [
             {
-                "title": "Logout",
+                "text": "Logout",
                 "target": "#logout"
             }
         ],
         "menu": [
             {
                 "title": "Clubs",
-                "icon": "planet",
+                "icon": "ion-planet",
                 "target": "example/clubs/menu"
             },
             {
-                "title": "Clubs (resource)",
-                "icon": "cloud",
-                "target": "clubs/menu"
+                "title": "Pages",
+                "icon": "ion-cube",
+                "target": "example/pages_menu.json"
             }
         ],
         "routes": [
@@ -53,18 +53,13 @@
             },
             {
                 "type": "http",
-                "target": "example/clubs",
-                "action": "example/clubs_index.json"
-            },
-            {
-                "type": "http",
                 "target": "example/clubs/{id}/edit",
                 "action": "example/clubs_edit.json"
             },
             {
-                "type": "rest",
-                "resource": "clubs",
-                "endpoint": "clubs"
+                "type": "http",
+                "target": "example/pages/{id}/edit",
+                "action": "example/clubs_edit.json"
             }
         ],
         "authentication": {

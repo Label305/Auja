@@ -5,41 +5,55 @@
             "type": "link",
             "order": 1,
             "link": {
-                "name": "Add club",
+                "text": "Add club",
                 "target": "example/clubs/create",
-                "icon": "compose"
+                "icon": "ion-compose"
             }
         },
         {
             "type": "link",
             "order": 1,
             "link": {
-                "name": "Trigger message",
+                "text": "Trigger message",
                 "target": "example/message.json",
-                "icon": "alert"
+                "icon": "ion-alert"
             }
         },
         {
-            "type": "spacer",
-            "order": 3,
-            "spacer": {
-                "name": "Clubs"
+            "type": "link",
+            "order": 1,
+            "link": {
+                "text": "Trigger success",
+                "target": "example/success.json",
+                "icon": "alert"
             }
         },
         {
             "type": "link",
             "order": 2,
             "link": {
-                "name": "FC Twente (recursive)",
+                "text": "FC Twente (recursive)",
                 "target": "example/clubs/menu",
-                "icon": "beer"
+                "icon": "ion-beer"
+            }
+        },
+        {
+            "type": "spacer",
+            "order": 3,
+            "spacer": {
+                "text": "Clubs"
             }
         },
         {
             "type": "resource",
             "order": 4,
             "resource": {
-                "target": "example/clubs"
+                "target": "example/clubs_index.json",
+                "properties": {
+                    "searchable": {
+                        "target": "example/club_index.json?q=%s"
+                    }
+                }
             }
         }
     ]

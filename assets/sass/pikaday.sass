@@ -1,0 +1,203 @@
+@import includes
+
+// ------ Pika-day styling ------
+
+@charset "UTF-8"
+
+/*!
+ * Pikaday
+ * Copyright © 2014 David Bushell | BSD & MIT license | http://dbushell.com/
+ * Edited by Alexander van Brakel (alexander@label305.com) and Olav Peuscher (olav@label305.com)
+.pika-container
+    position: relative
+.pika-single
+    z-index: 9999
+    display: block
+    position: relative
+    color: $font-color
+    background: white
+    font-family: 'Open Sans', Helvetica, Arial, serif
+    &:before
+        content: " "
+        display: table
+    &:after
+        content: " "
+        display: table
+        clear: both
+    *zoom: 1
+    &.is-hidden
+        display: none
+    &.is-bound
+        position: absolute
+        top: 10px
+        box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+        -ms-box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+        -moz-box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+        -webkit-box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.5)
+        &:before,
+        &:after
+            content: ""
+            position: absolute
+            left: 10px
+            display: block
+            width: 0
+            height: 0
+            border-color: transparent
+            border-style: solid
+            border-width: 10px
+            border-top-width: 0
+            overflow: visible
+            margin: 0
+            padding: 0
+            background-color: transparent
+        &:before
+            top: -10px
+            border-bottom-color: rgba(0, 0, 0, 0.05)
+            z-index: 998
+        &:after
+            top: -9px
+            border-bottom-color: white
+            z-index: 999
+
+
+/*
+ *clear child float (pika-lendar), using the famous micro clearfix hack
+ *http://nicolasgallagher.com/micro-clearfix-hack/
+
+.pika-lendar
+    float: left
+    width: 248px
+    margin: 0
+
+    .pika-title
+        position: relative
+        text-align: center
+        height: 30px
+        border-bottom: 1px solid #ededed
+        margin: 0 20px 10px 20px
+        padding: 10px 0
+
+        .pika-label
+            display: inline-block
+            position: relative
+            z-index: 9999
+            overflow: hidden
+            margin: 0 5px
+            padding: 0
+            font-size: 14px
+            line-height: 30px
+            height: 30px
+            font-weight: bold
+            background-color: white
+            select
+                cursor: pointer
+                position: absolute
+                z-index: 9998
+                margin: 0 5px
+                left: 0
+                top: 0
+                height: 30px
+                line-height: 30px
+                filter: alpha(opacity=0)
+                opacity: 0
+        .pika-prev,
+        .pika-next
+            display: block
+            cursor: pointer
+            position: relative
+            outline: none
+            padding: 0
+            margin: 9px 0
+            width: 0
+            height: 0
+            border: 0
+            color: transparent
+            overflow: hidden
+            opacity: .5
+            background: none
+            font-size: 0 !important
+            &:hover
+                opacity: 1
+            &.is-disabled
+                cursor: default
+                opacity: .2
+        .pika-next
+            float: right
+            border-left: 6px solid $font-color
+            border-bottom: 6px solid transparent
+            border-top: 6px solid transparent
+        .pika-prev
+            float: left
+            border-right: 6px solid $font-color
+            border-bottom: 6px solid transparent
+            border-top: 6px solid transparent
+
+    .pika-table
+        width: 100%
+        border-collapse: collapse
+        border-spacing: 0
+        border: 0
+        margin: 20px 20px 15px 20px
+        th, td
+            height: 30px
+            padding: 0
+            display: inline-block
+            float: left
+            width: 26px
+            line-height: 30px
+            margin: 0
+            text-align: center
+        th
+            color: $font-color
+            font-size: 12px
+            line-height: 30px
+            text-align: center
+            font-weight: normal
+        td
+            &.pika-week
+                font-size: 12px
+                color: $font-color
+            .pika-button
+                cursor: pointer
+                display: block
+                box-sizing: border-box
+                -moz-box-sizing: border-box
+                outline: none
+                border: 0
+                margin: 0
+                width: 100%
+                padding: 5px
+                color: #666
+                font-size: 12px
+                line-height: 15px
+                text-align: center
+                background: $input-color
+                &:hover
+                    background: $dark-gray-color !important
+                    transition: 0.25s
+                    -ms-transition: 0.25s
+                    -moz-transition: 0.25s
+                    -webkit-transition: 0.25s
+            &.is-today
+                .pika-button
+                    color: #33aaff
+                    font-weight: bold
+            &.is-selected
+                .pika-button
+                    color: #fff
+                    font-weight: bold
+            &.is-disabled
+                .pika-button
+                    pointer-events: none
+                    cursor: default
+                    color: #999
+                    opacity: .3
+@media (max-width: 1280px)
+    .pika-lendar
+        width: 228px !important
+        .pika-table
+            margin: 10px 10px 5px 10px !important
+        .pika-title
+            padding: 5px 0
+            margin: 0 10px
+

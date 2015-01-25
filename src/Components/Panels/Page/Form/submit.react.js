@@ -6,24 +6,18 @@
  *
  * @jsx React.DOM
  */
+define(['react'], function (React) {
 
-define([], function() {
     return React.createClass({
-        render: function() {
-            var attributes = Object.clone(this.props.item.submit);
-                        
-            Object.merge(attributes, {
-                id: this.props.itemId,
-                type: 'submit',
-                className: 'button auja-bg-main'
-            });
+        render: function () {
+            var attributes = this.props.item.getAttributes();
+            attributes.className = 'button auja-bg-main';
             
             return (
                 <div>
-                    {React.DOM.input(attributes)}
+                {React.DOM.input(attributes)}
                 </div>
-                );
+            );
         }
     });
-
 });

@@ -1,22 +1,22 @@
 var FluxStores = {
-    'AujaStore': 'build/Stores/auja', 
-    'PanelStore': 'build/Stores/panel', 
-    'MenuStore': 'build/Stores/menu', 
-    'PageStore': 'build/Stores/page',
-    'MessageStore': 'build/Stores/message',
-    'ItemsStore': 'build/Stores/items'
-}
+    'AujaStore': 'build/Stores/auja',
+    'PanelStore': 'build/Stores/panel',
+    'MessageStore': 'build/Stores/message'
+};
 
 //Map as an array to load store dependencies
 define([
+    'fluxxor',
     'build/Stores/auja',
     'build/Stores/panel',
-    'build/Stores/menu',
-    'build/Stores/page',
-    'build/Stores/message',
-    'build/Stores/items'
-], function() {
-    
+    'build/Stores/message'
+], function(Fluxxor) {
+
+    //Make sure we only render one instance
+    if(window.flux) {
+        return window.flux;
+    }
+
     //Fill object with stores
     var stores = {};
     for(var name in FluxStores) {
@@ -56,22 +56,25 @@ define([
             if(arguments[1]) {
                 panel = arguments[1];
             }
-            
+
             var item = null;
             if(panel != null && arguments[2]) {
-                this.dispatch('activate-item', {panel: panel, item: arguments[2]});                
+                this.dispatch('activate-item', {panel: panel, item: arguments[2]});
             }
-            
+
             var request = new Request(url);
             request.get().done(function(response) {
                 response.url = url;
-                flux.actions.handle(response.type, response, panel); 
+                flux.actions.handle(response.type, response, panel);
+            }).fail(function(code) {
+                flux.actions.processFail(code);
             });
         },
 
         /**
          * Submitting a form
          * @param url
+         * @param method
          * @param data
          */
         submit: function(url, method, data) {
@@ -79,22 +82,34 @@ define([
             if(arguments[3]) {
                 panel = arguments[3];
             }
-            
+
             var request = new Request(url);
-            
-            switch(method) {
+
+            switch(method.toLowerCase()) {
+                case 'put':
+                    request.put(data).done(function(response) {
+                        response.url = url;
+                        flux.actions.handle(response.type, response, panel);
+                    }).fail(function(code) {
+                        flux.actions.processFail(code);
+                    });
+                    break;
                 case 'get':
                     request.get(data).done(function(response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
-                    });                    
+                    }).fail(function(code) {
+                        flux.actions.processFail(code);
+                    });
                     break;
                 default:
                     request.post(data).done(function(response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
+                    }).fail(function(code) {
+                        flux.actions.processFail(code);
                     });
-            }          
+            }
         },
 
         /**
@@ -107,7 +122,7 @@ define([
         handle: function(type, data, origin) {
             data.origin = origin;
             this.dispatch(type, data);
-            
+
             switch(type) {
                 case 'message':
                     //You can set weither or not to update the system
@@ -119,46 +134,36 @@ define([
         },
 
         /**
-         * Mounts a resource with items
-         * @todo fix async error
-         * @param url
+         * Somewhere something failed with a http status code
+         * @param code
          */
-        mountResource: function(url) {
-            //Only when no items store exists for this url initialize it
-            if(!flux.stores.ItemsStore.exists(url)) { 
-                var request = new Request(url);
-                request.get().done(function(response) {
-                    if(response.type != 'items') {
-                        console.error('Mounting of a resource resulted in a non-items response');
-                    } else {
-                        this.dispatch('items', {
-                            resource: url,
-                            items: response,
-                            paging: response.paging ? response.paging : {}
-                        });
-                    }
-                }.bind(this));
-            }
-        },
+        processFail: function(code) {
+            var message = {
+                state: 'error',
+                contents: 'Recieved unexpected response from the server'
+            };
 
-        /**
-         * Extend a resource with new itemsd
-         * @todo fix async error
-         * @param url
-         */
-        extendResource: function(url) {
-            var request = new Request(url);
-            request.get().done(function(response) {
-                if(response.type != 'items') {
-                    console.error('Mounting of a resource resulted in a non-items response');
-                } else {
-                    this.dispatch('items-extend', {
-                        resource: url,
-                        items: response,
-                        paging: response.paging ? response.paging : {}
-                    });
-                }
-            }.bind(this));
+            switch(code) {
+                case 404:
+                    //Not found
+                    message.contents = 'Resource not found';
+                    break;
+                case 401:
+                    //Unauthorized
+                    message.authenticated = false;
+                    message.contents = 'Unauthorized';
+                    break;
+                case 200:
+                    //Unexpected format
+                    message.contents = 'Response from server not properly formatted';
+            }
+
+            //Append status code
+            message.contents += ' [' + code + ']';
+
+            this.dispatch('message', {message: message});
+
+            return message;
         },
 
         /**
@@ -166,10 +171,47 @@ define([
          * @param panel
          */
         onPanelScroll: function(panel) {
-            this.dispatch('panel-scroll', panel);            
-        }
+            this.dispatch('panel-scroll', panel);
+        },
 
+        /**
+         * Extend the items in a panel
+         * @todo fix async
+         * @param panel
+         * @param item
+         * @param url
+         */
+        extendResource: function(panel, item, url) {
+            var request = new Request(url);
+            request.get().done(function(data) {
+                this.dispatch('extend-resource', {
+                    panel: panel,
+                    item: item,
+                    data: data
+                });
+            }.bind(this)).fail(function(code) {
+                flux.actions.processFail(code);
+            });
+        },
+
+        /**
+         * Update a single item with the response of an url
+         * @param item
+         * @param url
+         */
+        updateResource: function(item, url) {
+            var request = new Request(url);
+            request.get().done(function(data) {
+                this.dispatch('update-resource', {
+                    item: item,
+                    data: data
+                });
+            }.bind(this)).fail(function(code) {
+                flux.actions.processFail(code);
+            });
+        }
     };
-    
-    return new Fluxxor.Flux(stores, actions); 
+
+    window.flux = new Fluxxor.Flux(stores, actions);
+    return window.flux;
 });

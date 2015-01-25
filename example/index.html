@@ -6,7 +6,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/auja.css" />
     <link rel="stylesheet" type="text/css" href="bower_components/trumbowyg/dist/ui/trumbowyg.min.css" />
     <link rel="stylesheet" type="text/css" href="bower_components/Ionicons/css/ionicons.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script type="text/javascript">
         /**
          * Global debug flag
@@ -15,13 +16,25 @@
         var __debug__ = true;
 
         /**
-         * Since the main is cached fantastically, but we don't want that just  
+         * Makes sure the http cache is not used for javascript files in development.
          * @type {{urlArgs: string, urlArgs: string}}
          */
         var require = {
             urlArgs: '_=' +  (new Date()).getTime()
         }
     </script>
+    
+	<!--
+	    Compiled and minified including all of the dependencies, does not require bower to install
+	    <script type="text/javascript" src="dist/auja.min.js"></script>
+    -->
+	<!--
+	    Compiled to one file without the dependencies, this requires bower to install all of the dependencies
+	    <script type="text/javascript" data-main="dist/auja.js" src="bower_components/requirejs/require.js"></script>
+    -->
+    <!--
+        Development
+    -->
 	<script type="text/javascript" data-main="build/auja.react.js" src="bower_components/requirejs/require.js"></script>
 </head>
 <body data-src="example/auja.json"></body>

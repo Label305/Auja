@@ -1,45 +1,107 @@
-/**
- * Object definition of a link
- */
-define([], function() {
+define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
 
-    window.MenuItemLink = function() {
-        
+    var Link = function (data) {
+
+        //Call the parent constructor
+        MenuItem.call(this, arguments);
+
+        /**
+         * Our custom type
+         * @type {string}
+         */
         this.type = 'link';
 
         /**
-         * The actual link
-         * @type {{name: string, target: string, icon: string}}
+         * Target of this link
+         * @type {string|boolean}
          */
-        this.link = {
-            name: 'undefined',
-            target: '',
-            icon: 'fallback'
+        this.target = data.target || false;
+
+        /**
+         * Icon
+         * @type {string}
+         */
+        this.icon = data.icon || 'planet';
+
+        /**
+         * Text
+         * @type {string}
+         */
+        this.text = data.text || 'NULL';
+
+        /**
+         * Getter for the id
+         * @returns string
+         * @override
+         */
+        this.getId = function () {
+            return this.target;
+        };
+        
+        /**
+         * Setter for icon
+         * @param icon
+         */
+        this.setIcon = function (icon) {
+            this.icon = icon;
         };
 
         /**
-         * Setter for name
-         * @param name
+         * Getter for icon
+         * @returns {string}
          */
-        this.setName = function(name) {
-            this.link.name = name;
+        this.getIcon = function () {
+            return this.icon;
         };
 
         /**
          * Setter for target
          * @param target
          */
-        this.setTarget = function(target) {
-            this.link.target = target;
+        this.setTarget = function (target) {
+            this.target = target;
         };
 
         /**
-         * Setter for icon
-         * @param icon
+         * Getter for target
+         * @returns {string|boolean}
          */
-        this.setIcon = function(icon) {
-            this.link.icon = icon;
-        }
-    }
+        this.getTarget = function () {
+            return this.target;
+        };
 
+        /**
+         * Setter for text
+         * @param text
+         */
+        this.setText = function (text) {
+            this.text = text;
+        };
+
+        /**
+         * Getter for text
+         * @returns {string}
+         */
+        this.getText = function () {
+            return this.text;
+        };
+
+        /**
+         * Update this Link with another Link
+         * @param item
+         */
+        this.update = function (item) {
+            this.setText(item.getText());
+            this.setIcon(item.getIcon());
+            this.setTarget(item.getTarget());
+        };
+    };
+
+    // Inherit Panel
+    Link.prototype = MenuItem;
+
+    // Fix constructor
+    Link.prototype.constructor = Link;
+    
+    return Link;
 });

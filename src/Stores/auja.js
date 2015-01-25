@@ -1,4 +1,4 @@
-define(['fluxxor'], function(Fluxxor) {
+define(['fluxxor', 'request', 'build/Factories/form_factory'], function(Fluxxor, Request, FormFactory) {
 
     /**
      * The main Auja store
@@ -13,7 +13,9 @@ define(['fluxxor'], function(Fluxxor) {
             "authenticated": false,
             "debug": true,
             "colors": {
-                "main": ""
+                "main": "#1ebab8",
+                "secondary": "#EDEDED",
+                "alert": "#e85840"
             },
             "user": {
                 "name": ""
@@ -52,11 +54,17 @@ define(['fluxxor'], function(Fluxxor) {
             var request = new Request(document.body.getAttribute('data-src'));
             request.get()
                 .done(function (response) {
-                    $.extend(this.state, response.main);
+                    
+                    //Pass through the factory
+                    if(response.main.authentication && response.main.authentication.form) {
+                        response.main.authentication = FormFactory.createForm(response.main.authentication.form); 
+                    }
+                    
+                    Object.merge(this.state, response.main, true, true);
                     this.emit('change');
                 }.bind(this))
-                .fail(function () {
-                    // TODO handle this
+                .fail(function (code) {
+                    flux.actions.processFail(code);
                 }.bind(this));
         },
 

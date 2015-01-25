@@ -1,74 +1,115 @@
 {
-    "type": "page",
-    "page": [
-        {
-            "type": "header",
-            "header": {
-                "text": "Create club"
+  "type": "page",
+  "page": [
+    {
+      "type": "header",
+      "header": {
+        "text": "Create club"
+      }
+    },
+    {
+      "type": "form",
+      "form": {
+        "action": "example/clubs/store",
+        "method": "get",
+        "items": [
+          {
+            "type": "text",
+            "text": {
+              "name": "name",
+              "label": "Name of club",
+              "value": "FC Twente",
+              "maxLength": 10
             }
-        },
-        {
-            "type": "form",
-            "form": {
-                "action": "example/clubs/store",
-                "method": "get",
-                "items": [
-                    {
-                        "type": "text",
-                        "text": {
-                            "name": "name",
-                            "label": "Name of club"
-                        }
-
-                    },
-                    {
-                        "type": "file",
-                        "file": {
-                            "name": "logos[]",
-                            "multiple": "multiple",
-                            "label": "Logo"
-                        }
-                    },
-                    {
-                        "type": "number",
-                        "number": {
-                            "name": "totalPlayers",
-                            "label": "Number of players",
-                            "min": "7",
-                            "max": "25",
-                            "value": "11"
-                        }
-                        
-                    },
-                    {
-                        "type": "password",
-                        "password": {
-                            "name": "token",
-                            "label": "Token"
-                        }
-                    },
-                    {
-                        "type": "textarea",
-                        "textarea": {
-                            "name": "description",
-                            "label": "Description"
-                        }
-                    },
-                    {
-                        "type": "trumbowyg",
-                        "trumbowyg": {
-                            "name": "description",
-                            "label": "Description Trumbowyg"
-                        }
-                    },
-                    {
-                        "type": "submit",
-                        "submit": {
-                            "name": "Create!"
-                        }
-                    }
-                ]
+          },
+          {
+            "type": "file",
+            "file": {
+              "name": "logos[]",
+              "multiple": "multiple",
+              "label": "Logo"
             }
-        }
-    ]
+          },
+          {
+            "type": "number",
+            "number": {
+              "name": "totalPlayers",
+              "label": "Number of players",
+              "min": "7",
+              "max": "25",
+              "value": "11"
+            }
+          },
+          {
+            "type": "email",
+            "email": {
+              "name": "email",
+              "label": "Club Email"
+            }
+          },
+          {
+            "type": "password",
+            "password": {
+              "name": "secret",
+              "label": "Secret to success"
+            }
+          },
+          {
+            "type": "checkbox",
+            "checkbox": {
+              "name": "leagues",
+              "label": "Jupiler",
+              "value": true,
+              "checked": true
+            }
+          },
+          {
+            "type": "password",
+            "password": {
+              "name": "token",
+              "label": "Token"
+            }
+          },
+          {
+            "type": "number",
+            "number": {
+              "name": "no_member",
+              "label": "Number of members",
+              "value": "2"
+            }
+          },
+          {
+            "type": "range",
+            "range": {
+              "name": "range",
+              "label": "Shooting Range",
+              "min": "7",
+              "max": "25",
+              "value": "11"
+            }
+          },
+          {
+            "type": "textarea",
+            "textarea": {
+              "name": "description",
+              "label": "Description"
+            }
+          },
+          {
+            "type": "trumbowyg",
+            "trumbowyg": {
+              "name": "site_description",
+              "label": "Site description"
+            }
+          },
+          {
+            "type": "submit",
+            "submit": {
+              "value": "Create!"
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
