@@ -1,43 +1,25 @@
-define(['build/Objects/Page/Form/text'], function (Item) {
-    describe('Text form item', function () {
+define(['build/Objects/Page/Form/file'], function (Item) {
+    describe('File form item', function () {
 
         beforeEach(function () {
             this.addMatchers(require('jasmine_matchers'));
         });
 
-        it('should have a maxlength property', function () {
+        it('should have a target property', function () {
             var item = new Item({
                 order: 10,
                 name: 'thename',
                 label: 'The name',
                 value: 'James',
                 required: true,
-                maxLength: 111
+                target: '/uploads'
             });
             
-            expect(item.getMaxLength()).toBe(111);
+            expect(item.getTarget()).toBe('/uploads');
             
-            item.setMaxLength(72);
+            item.setTarget('/images/uploads');
             
-            expect(item.getMaxLength()).toBe(72);
-        });
-
-        it('should return corresponding attributes', function () {
-            var item = new Item({
-                order: 10,
-                name: 'thename',
-                label: 'The name',
-                value: 'James',
-                required: true
-            });
-
-            expect(item.getAttributes()).toHaveKeys([
-                'type',
-                'value',
-                'name',
-                'maxLength'
-            ]);
-
+            expect(item.getTarget()).toBe('/images/uploads');
         });
 
         it('should implement a form item', function () {
@@ -51,7 +33,7 @@ define(['build/Objects/Page/Form/text'], function (Item) {
             });
 
             //Text spec of transferring initial data
-            expect(item.getType()).toBe('text');
+            expect(item.getType()).toBe('file');
             expect(item.getOrder()).toBe(10);
             expect(item.getName()).toBe('thename');
             expect(item.getLabel()).toBe('The name');
