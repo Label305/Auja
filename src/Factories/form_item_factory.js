@@ -21,7 +21,8 @@ var FormItemObjects = {
     'date': 'build/Objects/Page/Form/date',
     'datetime': 'build/Objects/Page/Form/datetime',
     'range': 'build/Objects/Page/Form/range',
-    'trumbowyg': 'build/Objects/Page/Form/trumbowyg'
+    'trumbowyg': 'build/Objects/Page/Form/trumbowyg',
+    'file': 'build/Objects/Page/Form/file'
 };
 
 define([
@@ -44,7 +45,8 @@ define([
     'build/Objects/Page/Form/date',
     'build/Objects/Page/Form/datetime',
     'build/Objects/Page/Form/range',
-    'build/Objects/Page/Form/trumbowyg'
+    'build/Objects/Page/Form/trumbowyg',
+    'build/Objects/Page/Form/file'
 ], function() {
 
     return new function() {
