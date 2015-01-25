@@ -75,7 +75,9 @@ define(['react', 'jstree'], function (React) {
         getDirectChildren: function (items, parent) {
             return items.filter(function (child) {
                 return this.isChildOf(child, parent) && this.isDirectParentOf(items, parent, child);
-            }.bind(this));
+            }.bind(this)).sortBy(function (n) {
+                return n.left;
+            });
         },
 
         /**
