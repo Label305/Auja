@@ -11,24 +11,25 @@ define([
     'react',
     'build/Components/Panels/Page/Form/label.react',
     'jquery.fileupload'
-], function(React, Label) {
+], function (React, Label) {
     return React.createClass({
-        componentDidMount: function() {
+        componentDidMount: function () {
             //Dynamically add the element since we don't want to have React to bind its events to it
             var node = $(this.refs.file.getDOMNode()).append(
                 $('<input type="file" />')
             );
-                
+
             node.fileupload({
-                url: 'upload'
+                url: this.props.item.getTarget()
             });
         },
-        render: function() {
+        render: function () {
             return (
-                <div ref="file">
-                    <Label item={this.props.item} name={this.props.item.file.label} />
+                <div>
+                    <Label item={this.props.item} name={this.props.item.getLabel()} />
+                    <span ref="file"></span>
                 </div>
-                );
+            );
         }
     });
 
