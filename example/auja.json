@@ -1,102 +1,117 @@
 {
-    "type": "main",
-    "main": {
-        "title": "Auja example",
-        "authenticated": true,
-        "debug": true,
-        "colors": {
-            "main": "#1ebab8",
-            "secondary": "#EDEDED",
-            "alert": "#e85840"
-        },
-        "user": {
-            "name": "Joris Blaak"
-        },
-        "buttons": [
-            {
-                "text": "Logout",
-                "target": "#logout"
+  "type": "main",
+  "main": {
+    "title": "Auja example",
+    "authenticated": true,
+    "debug": true,
+    "colors": {
+      "main": "#1ebab8",
+      "secondary": "#EDEDED",
+      "alert": "#e85840"
+    },
+    "user": {
+      "name": "Joris Blaak"
+    },
+    "buttons": [
+      {
+        "text": "Logout",
+        "icon": "ion-log-out",
+        "target": "#logout"
+      },
+      {
+        "text": "Beer",
+        "target": "#beer"
+      }
+    ],
+    "menu": [
+      {
+        "title": "Clubs",
+        "icon": "ion-planet",
+        "target": "example/clubs/menu"
+      },
+      {
+        "title": "Pages",
+        "icon": "ion-cube",
+        "target": "example/pages_menu.json"
+      },
+      {
+        "title": "Pages",
+        "icon": "ion-cube",
+        "target": "example/pages_m.json"
+      },
+      {
+        "title": "Pages",
+        "icon": "ion-cube",
+        "target": "example/qwef.json"
+      }
+    ],
+    "routes": [
+      {
+        "type": "http",
+        "target": "example/login",
+        "action": "example/login.json"
+      },
+      {
+        "type": "http",
+        "target": "example/clubs/menu",
+        "action": "example/clubs_menu.json"
+      },
+      {
+        "type": "http",
+        "target": "example/clubs/create",
+        "action": "example/clubs_create.json"
+      },
+      {
+        "type": "http",
+        "target": "example/clubs/store",
+        "action": "example/clubs_store.json"
+      },
+      {
+        "type": "http",
+        "target": "example/clubs/{id}/edit",
+        "action": "example/clubs_edit.json"
+      },
+      {
+        "type": "http",
+        "target": "example/pages/{id}/edit",
+        "action": "example/clubs_edit.json"
+      }
+    ],
+    "authentication": {
+      "type": "form",
+      "form": {
+        "action": "example/login",
+        "method": "get",
+        "items": [
+          {
+            "type": "header",
+            "header": {
+              "text": "Auja Example"
             }
-        ],
-        "menu": [
-            {
-                "title": "Clubs",
-                "icon": "ion-planet",
-                "target": "example/clubs/menu"
-            },
-            {
-                "title": "Pages",
-                "icon": "ion-cube",
-                "target": "example/pages_menu.json"
+          },
+          {
+            "type": "text",
+            "text": {
+              "name": "username",
+              "label": "Username"
             }
-        ],
-        "routes": [
-            {
-                "type": "http",
-                "target": "example/login",
-                "action": "example/login.json"
-            },
-            {
-                "type": "http",
-                "target": "example/clubs/menu",
-                "action": "example/clubs_menu.json"
-            },
-            {
-                "type": "http",
-                "target": "example/clubs/create",
-                "action": "example/clubs_create.json"
-            },
-            {
-                "type": "http",
-                "target": "example/clubs/store",
-                "action": "example/clubs_store.json"
-            },
-            {
-                "type": "http",
-                "target": "example/clubs/{id}/edit",
-                "action": "example/clubs_edit.json"
-            },
-            {
-                "type": "http",
-                "target": "example/pages/{id}/edit",
-                "action": "example/clubs_edit.json"
-            }
-        ],
-        "authentication": {
-            "type": "form",
-            "form": {
-                "action": "example/login",
-                "method": "get",
-                "items": [
-                    {
-                        "type": "header",
-                        "header": {
-                            "text": "Auja Example"
-                        }
-                    },
-                    {
-                        "type": "text",
-                        "text": {
-                            "name": "username",
-                            "label": "Username"
-                        }
 
-                    },
-                    {
-                        "type": "password",
-                        "password": {
-                            "name": "password",
-                            "label": "Password"
-                        }
-                    },
-                    {
-                        "type": "submit",
-                        "submit": {
-                            "name": "Login"
-                        }
-                    }
-                ]
+          },
+          {
+            "type": "password",
+            "password": {
+              "name": "password",
+              "label": "Password"
             }
-        }
+          },
+          {
+            "type": "submit",
+            "submit": {
+              "name": "Login"
+            }
+          }
+        ]
+      }
     }
+  }
 }

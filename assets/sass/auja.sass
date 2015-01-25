@@ -5,6 +5,26 @@
 
 @import url('https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,700')
 
+// ------ HTML5 display-role reset for older browsers ------
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section 
+    display: block
+ol, ul
+    list-style-type: none
+blockquote
+    quotes: none
+    &:before,
+    &:after
+        content: none
+q
+    quotes: none
+    &:before,
+    &:after
+        content: none
+table 
+    border-collapse: collapse
+    border-spacing: 0
+
 // ------ Scaffolding ------
 body
     background: $body-color
@@ -36,6 +56,8 @@ body
     border: 0
     font-size: 14px
     line-height: 20px
+    text-align: center
+
 h2
     & > .button
         float: right
@@ -83,7 +105,8 @@ h2
             -webkit-transition: opacity 0.5s
             transition: opacity 0.5s
 
-// ------ Message ------
+// ------ Keyframes ------
+
 // Keyframes rotate left and scale animation
 @-Webkit-Keyframes rotateLeftScale
     from
@@ -100,6 +123,7 @@ h2
         transform: rotate(180deg) scale(0)
     to
         transform: rotate(135deg) scale(1)
+
 // Keyframes rotate left and scale animation
 @-Webkit-Keyframes rotateRightScale
     from
@@ -116,6 +140,24 @@ h2
         transform: rotate(-180deg) scale(0)
     to
         transform: rotate(-135deg) scale(1)
+
+// Keyframes fadeIn
+@-Webkit-Keyframes fadeIn
+    from
+        opacity: 0
+        filter: alpha(opacity=0)
+    to
+        opacity: 1
+        filter: alpha(opacity=100)
+
+@Keyframes fadeIn
+    from
+        opacity: 0
+        filter: alpha(opacity=0)
+    to
+        opacity: 1
+        filter: alpha(opacity=100)
+
 // Keyframes rotate left and scale classes
 .rotate-left-scale
     -webkit-animation-name: rotateLeftScale
@@ -138,6 +180,7 @@ h2
     color: white
     &.animated
         animation-duration: 0.25s !important
+        -ms-animation-duration: 0.25s !important
         -moz-animation-duration: 0.25s !important
         -webkit-animation-duration: 0.25s !important
     &.message-success
@@ -208,7 +251,10 @@ header
     left: 0
     top: 0
     height: 70px
-    #user
+    z-index: 1000
+    .menu-back
+        display: none
+    #user 
         float: right
         margin-top: 15px
         line-height: 20px
@@ -217,13 +263,14 @@ header
         color: white
         height: 20px
         padding: 10px 0
-        margin-right: 15px
+        margin-right: 60px
         font-size: 15px
-    #buttons
-        float: right
-        margin-top: 15px
-        margin-right: 15px
-        & > a
+    #buttons 
+        position: absolute
+        top: 15px
+        right: 20px
+        height: 40px
+        & > a 
             display: inline-block
             width: auto
             color: white
@@ -233,12 +280,27 @@ header
             line-height: 20px
             margin: 0
             &:hover
-                background-color: $button-hover-color !important
+                background-color: $button-hover-color
                 transition: 0.25s
                 -ms-transition: 0.25s
                 -moz-transition: 0.25s
                 -webkit-transition: 0.25s
                 color: $font-color
+            &[class*="ion-"]
+                font-size: 0 !important
+                padding: 0 !important
+                width: 25px !important
+                height: 40px !important
+                &:hover
+                    background-color: transparent !important
+                    color: $font-color !important
+                    transition: 0.25s
+                    -ms-transition: 0.25s
+                    -moz-transition: 0.25s
+                    -webkit-transition: 0.25s
+                &:before
+                    font-size: 25px
+                    line-height: 40px
 
 // ------ Main menu ------
 ul#main-menu
@@ -311,14 +373,16 @@ ul#main-menu
         -webkit-animation-duration: 0.25s !important
         z-index: 99
         &.animated:last-child
-            z-index: 1 !important
+            z-index: 1
+        &:first-child > div 
+            margin-left: 45px
         &:first-child > div
             margin-left: 45px
-
         & > div
             overflow-y: auto
             overflow-x: hidden
             float: left
+            z-index: 1 !important
 
 // ------ Menu ------
 #panels
@@ -339,6 +403,9 @@ ul#main-menu
                 line-height: 30px
                 cursor: pointer
                 width: calc(100% - 45px)
+                &:hover
+                    border-bottom: 2px solid
+                    padding-bottom: 13px
                 &:before,
                 &:after
                     position: absolute
@@ -377,6 +444,7 @@ ul#main-menu
                 cursor: default
                 text-transform: uppercase
                 background-color: white
+                width: 100%
             .menu-item-resource
                 & > ul
                     margin: 0
@@ -408,7 +476,65 @@ ul#main-menu
     .row
         width: 100%
         clear: both
-        display: inline-block
+        display: inline-block    
+// ------ Overlay Menu ------
+.menu-overlay
+    display: none
+    &.menu-visible
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        width: 270px
+        padding: 70px 0 30px 30px
+        background-color: white
+        z-index: 1000
+        box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        -ms-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        animation-name: fadeIn
+        animation-duration: 0.25s
+        -ms-animation-name: fadeIn
+        -ms-animation-duration: 0.25s
+        -moz-animation-name: fadeIn
+        -moz-animation-duration: 0.25s
+        -webkit-animation-name: fadeIn
+        -webkit-animation-duration: 0.25s
+        ul
+            list-style-type: none
+            display: inline-block
+            float: left
+            width: 100%
+            li
+                width: 100%
+                display: inline-block
+                border-bottom: 1px solid
+                cursor: pointer
+                height: 59px
+                float: left
+                &:last-child
+                    border-bottom: 0
+                    height: 60px
+                a
+                    height: 59px
+                    line-height: 59px
+                    color: $font-color
+                    font-size: 14px
+                    width: 100%
+                    float: left
+                &:hover
+                    border-bottom: 2px solid
+                    height: 58px !important
+                    a
+                        padding-bottom: 13px !important
+                        height: 58px !important
+    .username
+        position: absolute
+        left: 30px
+        top: 20px
+        height: 30px
+        line-height: 30px
 
 // ------ Form ------
 input,
@@ -536,7 +662,6 @@ form
                 &:focus
                     outline: none
                     border: 0
-            textarea 
             &.form-item-checkbox
                 input[type="checkbox"]
                     width: 15px
@@ -630,6 +755,7 @@ form
         ul
             li
                 min-height: 34px
+
 @media (max-width: 1280px)
     #panels
         .panel-menu > div
@@ -639,6 +765,9 @@ form
                 .menu-item-link
                     padding-top: 10px
                     padding-bottom: 9px
+                    &:hover
+                        border-bottom: 2px solid
+                        padding-bottom: 8px
                     &.active
                         padding-bottom: 8px !important
                     &:before
@@ -649,6 +778,9 @@ form
                     &.menu-item-resource
                         input
                             margin-left: -20px
+            .menu-item-spacer
+                padding-left: 20px !important
+                margin-left: -20px !important
             input
                 margin-left: -20px !important
                 padding-left: 10px !important
@@ -668,13 +800,222 @@ form
         &.button
             padding-top: 10px !important
             padding-bottom: 10px !important
+    .menu-overlay
+        &.menu-visible
+            ul
+                list-style-type: none
+                li
+                    height: 49px
+                    &:last-child
+                        border-bottom: 0
+                        height: 50px
+                    a
+                        height: 49px
+                        line-height: 49px
+                    &:hover
+                        height: 48px !important
+                        border-bottom: 2px solid
+                        a
+                            height: 48px !important
+
+@media screen and (max-width: 640px)
+
+    #user
+        display: none !important
+    #buttons
+        position: absolute
+        top: 10px !important
+        right: 15px !important
+        margin: 0 !important
+        .button
+            display: block
+            background-color: transparent !important
+            color: white !important
+            padding-left: 0
+            padding-right: 0
+            &:hover
+                background-color: transparent !important
+                color: white
+                opacity: 0.75
+                filter: alpha(opacity=75)
+                transition: 0.25s
+                -moz-transition: 0.25s
+                -webkit-transition: 0.25s
+    .menu-trigger
+        display: block !important
+        span:before,
+        span:after
+            content: ''
+
+    .menu-overlay
+        display: none
+        &.menu-visible
+            display: block
+            position: absolute
+            top: 60px
+            left: 0
+            width: 100%
+            background-color: white
+            ul
+                list-style-type: none
+                margin-top: 0
+                li
+                    height: 59px
+                    &:last-child
+                        border-bottom: 0
+                        height: 60px
+                    a
+                        height: 59px
+                        line-height: 59px
+                    &:hover
+                        height: 58px !important
+                        border-bottom: 2px solid
+                        a
+                            height: 58px !important
+
+    .menu-back
+        display: block !important
+        position: absolute
+        height: 30px
+        width: 30px
+        left: 15px
+        top: 15px
+        color: #ffffff
+        font-size: 25px
+        line-height: 30px
+        text-align: left
+        cursor: pointer
+        &:hover
+            opacity: 0.75
+            filter: alpha(opacity=75)
+            transition: 0.25s
+            -moz-transition: 0.25s
+            -webkit-transition: 0.25s
+    body
+        width: 100%
+        display: block
+        background-color: white
+        overflow: hidden
+    header
+        height: 60px
+        background-color: #454545
+        box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        -ms-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25)
+        z-index: 1000
+        h1
+            font-size: 18px
+            height: 20px
+            line-height: 20px
+            text-align: center
+            margin: 20px auto
+            float: none
+            color: white
+    input
+        padding-top: 10px !important
+        padding-bottom: 10px !important
+    ul#main-menu
+        width: 100%
+        position: fixed !important
+        top: 75px !important
+        left: 0 !important
+        height: auto !important
+        display: block
+        z-index: 1
+        li
+            width: calc(33.33% - 30px)
+            height: 0px
+            display: inline-block
+            position: relative
+            float: left
+            margin: 0 15px 30px 15px
+            padding: calc(33.33% - 30px) 0 0
+            overflow: visible
+            span
+                position: absolute
+                bottom: -15px
+                width: 100%
+                height: 15px
+                text-align: center
+                color: $font-color
+                display: block
+                font-size: 14px
+            &:before
+                position: absolute
+                width: 100%
+                height: 40px
+                line-height: 40px
+                font-size: 40px
+                text-align: center
+                left: 0
+                top: calc(50% - 20px)
+            &:after
+                display: none
+    #panels
+        display: block !important
+        width: 100%
+        left: 0 !important
+        top: 60px
+        height: calc(100% - 60px)
+        overflow: hidden
+        div
+            display: block
+        &:before
+            display: none !important
+        .panel
+            display: none
+            width: 100%  
+            position: absolute
+            border: none
+            top: 0
+            left: 0
+            &.animated
+                animation-name: inherit
+                -ms-animation-name: inherit
+                -moz-animation-name: inherit
+                -webkit-animation-name: inherit
+            &.active
+                display: block 
+                animation-name: fadeIn
+                animation-duration: 0.25s
+                -ms-animation-name: fadeIn
+                -ms-animation-duration: 0.25s
+                -moz-animation-name: fadeIn
+                -moz-animation-duration: 0.25s
+                -webkit-animation-name: fadeIn
+                -webkit-animation-duration: 0.25s
+                z-index: 999 !important
+            &.panel-menu
+                & > div
+                    width: 100%
+                    margin: 0 !important
+                    & > ul
+                        margin: 30px
+                        .menu-item-spacer
+                            margin-left: -30px !important
+                            padding-left: 30px !important
+                        input
+                            margin-left: 0 !important
+                            width: calc(100% - 20px)
+                            margin-top: 10px
+
+            &.panel-page
+                padding: 0
+                & > div
+                    width: 100%
+                    padding: 0
+                    & > div
+                        margin: 30px
     select
         height: 30px !important
         padding-top: 5px !important
         padding-bottom: 5px !important
 
+
 @import trumbowyg
 @import jstree
+@import hamburger
 @import minicolors
 @import clockpicker
 @import pikaday

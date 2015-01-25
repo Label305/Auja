@@ -21,6 +21,8 @@ define([
                 'onPanelScroll',
                 'extendResource',
                 'updateResource',
+                'navigateToPanelLeft',
+                'navigateToPanelRight',
                 'processFail'
             ]);
         });

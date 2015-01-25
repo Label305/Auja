@@ -155,7 +155,22 @@ define([], function() {
         this.isPaginated = function() {
             return this._isPaginated;
         };
-        
+
+        /**
+         * Check if active
+         * @return boolean
+         */
+        this.isActive = function() {
+            return this._active;
+        };
+
+        /**
+         * Set active state
+         * @param active
+         */
+        this.setIsActive = function(active) {
+            this._active = active;
+        };
     }
     
 });

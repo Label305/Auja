@@ -26,8 +26,18 @@ define([
         render: function () {
             var Panel = require(PanelTypes[this.props.panel.getType()]);
             
+            var classNames = ['animated', 'fadeInLeft', 'panel'];
+            
+            //Panel type as class
+            classNames.push('panel-{type}'.assign({ type: this.props.panel.getType() }));
+            
+            //Active boolean
+            if(this.props.panel.isActive()) {
+                classNames.push('active');
+            }
+            
             return (
-                <section id={this.props.panel.getId()} key={this.props.panel.getId()} ref="panel" className={"animated fadeInLeft panel panel-" + this.props.panel.getType()}>
+                <section id={this.props.panel.getId()} key={this.props.panel.getId()} ref="panel" className={classNames.join(" ")}>
                     <div onScroll={this.handleScroll} style={this.props.style}>
                         <Panel flux={this.props.flux} message={this.props.message} panel={this.props.panel} />
                     </div>
@@ -50,12 +60,25 @@ define([
          * instead of componentDidUpdate since it triggers too late
          */        
         componentDidMount: function() {
+            //Animate to the end
             $(this.refs.panels.getDOMNode()).bind('DOMNodeInserted DOMNodeRemoved', function() {
                 var b = $('body');
                 if(b[0].scrollLeft != (b[0].scrollWidth - window.innerWidth)) {
                     b.animate({
                         scrollLeft: b[0].scrollWidth - window.innerWidth
                     }, 300);
+                }
+            });
+            
+            //Bind document navigation using arrows
+            $(document).bind('keyup', function(e) {
+                if(document.activeElement == document.getElementsByTagName("body")[0])
+                {
+                    if (e.which == 37) {
+                        flux.actions.navigateToPanelLeft();
+                    } else if (e.which == 39) {
+                        flux.actions.navigateToPanelRight();
+                    }
                 }
             });
         },

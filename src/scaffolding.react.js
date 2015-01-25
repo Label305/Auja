@@ -83,7 +83,7 @@ define([
                 <div id="auja">
                     <Message flux={flux} />
                     <Authentication auja={this.state} />
-                    <Header auja={this.state} />
+                    <Header flux={flux} auja={this.state} />
                     <Body flux={flux} auja={this.state} />
                     <Style auja={this.state} />
                 </div>
