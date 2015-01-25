@@ -75,7 +75,9 @@ define(['react', 'jstree'], function (React) {
         getDirectChildren: function (items, parent) {
             return items.filter(function (child) {
                 return this.isChildOf(child, parent) && this.isDirectParentOf(items, parent, child);
-            }.bind(this));
+            }.bind(this)).sortBy(function (n) {
+                return n.left;
+            });
         },
 
         /**
@@ -128,7 +130,9 @@ define(['react', 'jstree'], function (React) {
             //Fetch all items without any parent
             var tree = items.filter(function (item) {
                 return !this.hasParent(items, item);
-            }.bind(this));
+            }.bind(this)).sortBy(function (n) {
+                return n.left;
+            });
 
             //Add children
             tree = this.addChildren(items, tree);
