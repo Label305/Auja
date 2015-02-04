@@ -1,6 +1,6 @@
 {
   "name": "Auja",
-  "version": "3.0.0",
+  "version": "v3.0.0-alpha12",
   "main": "build/auja.react.js",
   "dependencies": {
 
