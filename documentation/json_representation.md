@@ -57,7 +57,7 @@ page of `items`. This means that you'll see, for example, an add button before w
 target | `string` | Endpoint where the items can be fetched
 properties | `Object` | Different properties active on this object, more about those after the break
 
-###Resource - items
+### Resource - items
 
 When a resource is mounted we can render all of the menu items inside the resource item. A request to the target should return the items as shown below.
 
@@ -78,7 +78,7 @@ menu on the left.
 }
 ```
 
-###Resource - properties
+### Resource - properties
 
 To be able to add special functionalities to a resource we can add properties. These include `searchable` and `sortable`.
 
@@ -117,7 +117,7 @@ the server these should all be `sortable_item` objects.
 
 target | `string` | url where the new ordering is posted to
 
-###Sortable - sortable_item
+### Sortable - sortable_item
 
 When the tree changes the new tree will be submitted to the server, all entries will have, at least, three keys `id`, `left` and `right`.
 Which are represented as a nested set. An item within a sortable resource looks like this.
@@ -158,14 +158,14 @@ A page is a panel which can contain page items.
 ```
 
 
-###Page item
+### Page item
 
 Every type of page item should implement this `Abstract`
 
 order | `integer` | Where in the page should this item show up
 type | `string` | Which type of page item should be rendered
 
-###Header
+### Header
 
 A header is commonly used page item at the top of a page
 
@@ -180,7 +180,7 @@ A header is commonly used page item at the top of a page
 
 text | `string` | Text it can contain
 
-###Form
+### Form
 
 The place with which your user interacts. It even has its own chapter, called `Forms`. As usual it again is wrapped in its own namespace
 
@@ -198,7 +198,7 @@ Forms
 
 There are all kinds of form items, you can find them all below. Some have no specification, that implies that they only implement the abstract form item.
 
-###Form item
+### Form item
 
 Every form item should implement this `Abstract`
 
@@ -209,14 +209,14 @@ label | `string` | Label to show with the input
 value | `string` | Current value
 required | `boolean` | If it is required to fill in (not always actually, e.g. a checkbox is an exception)
 
-###Checkbox
+### Checkbox
 
 A checkbox will be rendered as a combination of a `hidden` input with value `0` and a checkbox with value `1` both
 having the same name. Meaning you'll always get your data.
 
 checked | `boolean`
 
-###Date
+### Date
 
 A Date input looks like this.
 
@@ -230,7 +230,7 @@ A Date input looks like this.
 }
 ```
 
-###E-mail
+### E-mail
 
 An email input looks like this.
 
@@ -244,7 +244,7 @@ An email input looks like this.
 }
 ```
 
-###Integer
+### Integer
 
 An integer input looks like this.
 
@@ -258,7 +258,7 @@ An integer input looks like this.
 }
 ```
 
-###Number
+### Number
 
 A number input, with decimals looks like this.
 
@@ -272,7 +272,7 @@ A number input, with decimals looks like this.
 }
 ```
 
-###Password
+### Password
 
 A password input looks like this.
 
@@ -286,7 +286,7 @@ A password input looks like this.
 }
 ```
 
-###Range
+### Range
 
 A range input looks like this.
 
@@ -307,7 +307,7 @@ With the addition of minimal and maximum values.
 min | `integer` | Minimal value
 max | `integer` | Maximum value
 
-###Select
+### Select
 
 A select dropdown input looks like this.
 
@@ -331,7 +331,7 @@ A select dropdown input looks like this.
 }
 ```
 
-###Submit
+### Submit
 
 A submit button looks like this.
 
@@ -358,7 +358,7 @@ A telephone number input looks like this.
 }
 ```
 
-###Text
+### Text
 
 A plain text input looks like this.
 
@@ -372,7 +372,21 @@ A plain text input looks like this.
 }
 ```
 
-###Textarea
+### Hidden
+
+A hidden input looks like this.
+
+```json
+{
+    "type": "hidden",
+    "text": {
+        "name": "token",
+        "value": "Your CSRF token"
+    }
+}
+```
+
+### Textarea
 
 A textarea input looks like this.
 
@@ -386,7 +400,7 @@ A textarea input looks like this.
 }
 ```
 
-###Trumbowyg
+### Trumbowyg
 
 The available rich text editor [Trubowyg](http://alex-d.github.io/Trumbowyg/) looks like this.
 
@@ -405,7 +419,7 @@ Buttons are optional using this `Abstract`.
 
 buttons | `array` | Optional, head over to their ["Button pane" doc](http://alex-d.github.io/Trumbowyg/documentation.html)
 
-###Url
+### Url
 
 An url input looks like this.
 
