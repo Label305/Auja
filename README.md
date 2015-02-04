@@ -20,7 +20,7 @@ Installation
 
 ### Bower (prefered)
 
-You can use [Bower](http://bower.io/) to load Auja into your own project. Check (our special bower distribution repository)[https://github.com/Label305/Auja-bower] for more on installing Auja through bower.
+You can use [Bower](http://bower.io/) to load Auja into your own project. Check [our special bower distribution repository](https://github.com/Label305/Auja-bower) for more on installing Auja through bower.
 
 ### Stand alone
 
