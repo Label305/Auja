@@ -65,14 +65,14 @@ define([
         /**
          * Handles form submission
          */
-        handleSubmit: function (e) {
+        handleSubmit: function (event) {
+            event.preventDefault();
             flux.actions.submit(
                 this.props.item.getAction(),
                 event.target.getAttribute('method'),
                 $(event.target).serializeArray(),
                 this.props.panel
             );
-            return false;
         },
 
         /**
