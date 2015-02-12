@@ -7,15 +7,23 @@ layout: docs
     <div class="container pos-rel">
         <div class="row">
             <div class="col-xs-3 docs-menu">
-            <span>Documentation</span>
-            <ul>
-                {% assign current = page.url | downcase | split: '/' %}
-                {% assign no = 2  %}
-                <li class="{% if current[no] == 'index.html' %}current{% endif %}"><a href="index.html">Introduction</a></li>
-                <li class="{% if current[no] == 'main_config.html' %}current{% endif %}"><a href="main_config.html">Main config</a></li>
-                <li class="{% if current[no] == 'json_representation.html' %}current{% endif %}"><a href="json_representation.html">Json representation</a></li>
-            </ul>
-            </li>
+                <span>Documentation</span>
+                <ul>
+                    {% assign current = page.url | downcase | split: '/' %}
+                    {% assign no = 2  %}
+                    <li class="{% if current[no] == 'index.html' %}current{% endif %}"><a href="index.html">Introduction</a></li>
+                    <li class="{% if current[no] == 'main_config.html' %}current{% endif %}"><a href="main_config.html">Main config</a></li>
+                </ul>
+
+                <span>JSON Representation</span>
+                <ul>
+                    {% assign current = page.url | downcase | split: '/' %}
+                    {% assign no = 2  %}
+                    <li class="{% if current[no] == 'json_representation.html' %}current{% endif %}"><a href="json_representation.html">Json representation</a></li>
+                    <li class="{% if current[no] == 'resource.html' %}current{% endif %}"><a href="resource.html">Resources</a></li>
+                    <li class="{% if current[no] == 'forms.html' %}current{% endif %}"><a href="forms.html">Forms</a></li>
+
+                </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-9 docs-content pull-right">
                 {{ content }}
