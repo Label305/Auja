@@ -23,6 +23,7 @@ Forms
 - [Textarea](#textarea)
 - [Trumbowyg](#trumbowyg)
 - [Url](#url)
+- [File select](#file-select)
 
 Introduction
 -----
@@ -302,3 +303,57 @@ An url input looks like this.
     }
 }
 ```
+
+File select
+-----
+
+Start implementing file uploads by adding a `File Select` item to your `form`. You can specify if multiple files should be uploaded and you can fill the uploader with the current file.
+
+### Example single file form
+
+```json
+{
+    "type": "file_select",
+    "file_select": {
+        "target": "example/upload.php",
+        "name": "mainlogo",
+        "multiple": false,
+        "file": {
+            "ref": 851,
+            "thumbnail": "example/thumb1.jpg"
+        }
+    }
+}
+```
+
+### Example multiple files form
+
+```json
+{
+    "type": "file_select",
+    "file_select": {
+        "target": "example/upload.php",
+        "name": "logos[]",
+        "multiple": true,
+        "files": [
+            {
+                "ref": 1,
+                "name": "file.jpg",
+                "thubmnail": null,
+                "type": "the/mimetype"
+            },
+            {
+                "ref": 2,
+                "name": "otherfile.jpg",
+                "thubmnail": null,
+                "type": "the/mimetype"
+            }
+        ]
+    }
+}
+```
+
+target | `string` | The target url for the upload requests
+multiple | `boolean` | Default is false, set to true to enable multiple file uploads
+file | `file` | Use when multiple is `false` to fill the data of the single file
+files | `array` of `file` | Use when multiple is `true` to fill the data of the files
