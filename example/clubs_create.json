@@ -23,36 +23,39 @@
             }
           },
           {
-            "type": "file",
-            "file": {
-              "target": "example/uploads.json",
+            "type": "file_select",
+            "file_select": {
+              "target": "example/upload.php",
               "name": "logos[]",
               "label": "Multiple logos",
               "multiple": true,
-              "files" : [
+              "files": [
                 {
                   "ref": 1,
-                  "thumbnail": "example/thumb1.jpg"
+                  "name": "bestand.jpg",
+                  "thubmnail": null,
+                  "type": "the/mimetype"
                 },
                 {
                   "ref": 2,
-                  "thumbnail": null
+                  "name": "bestand.jpg",
+                  "thubmnail": null,
+                  "type": "the/mimetype"
                 }
               ]
             }
           },
           {
-            "type": "file",
-            "file": {
-              "target": "example/uploads.json",
-              "name": "mainlogo[]",
+            "type": "file_select",
+            "file_select": {
+              "target": "example/upload.php",
+              "name": "mainlogo",
               "label": "Main logo",
               "multiple": false,
-              "file" :
-                {
-                  "ref": 1,
-                  "thumbnail": "example/thumb1.jpg"
-                }
+              "file": {
+                "ref": 851,
+                "thumbnail": "example/thumb1.jpg"
+              }
             }
           },
           {

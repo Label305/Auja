@@ -22,7 +22,7 @@ var FormItemObjects = {
     'datetime': 'build/Objects/Page/Form/datetime',
     'range': 'build/Objects/Page/Form/range',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg',
-    'file': 'build/Objects/Page/Form/file',
+    'file_select': 'build/Objects/Page/Form/file_select',
     'hidden': 'build/Objects/Page/Form/hidden'
 };
 
@@ -47,7 +47,7 @@ define([
     'build/Objects/Page/Form/datetime',
     'build/Objects/Page/Form/range',
     'build/Objects/Page/Form/trumbowyg',
-    'build/Objects/Page/Form/file',
+    'build/Objects/Page/Form/file_select',
     'build/Objects/Page/Form/hidden'
 ], function() {
 
