@@ -90,6 +90,13 @@
                         }
                     },
                     {
+                        "type": "hidden",
+                        "hidden": {
+                            "name": "csrf",
+                            "value": "fdsafdsfa"
+                        }
+                    },
+                    {
                         "type": "submit",
                         "submit": {
                             "name": "Login"

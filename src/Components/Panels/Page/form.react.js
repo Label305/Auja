@@ -26,7 +26,8 @@ var FormItems = {
     'date': 'build/Components/Panels/Page/Form/date.react',
     'datetime': 'build/Components/Panels/Page/Form/datetime.react',
     'range': 'build/Components/Panels/Page/Form/range.react',
-    'submit': 'build/Components/Panels/Page/Form/submit.react'
+    'submit': 'build/Components/Panels/Page/Form/submit.react',
+    'hidden': 'build/Components/Panels/Page/Form/hidden.react'
 };
 
 define([
@@ -51,7 +52,8 @@ define([
     'build/Components/Panels/Page/Form/date.react',
     'build/Components/Panels/Page/Form/datetime.react',
     'build/Components/Panels/Page/Form/range.react',
-    'build/Components/Panels/Page/Form/submit.react'
+    'build/Components/Panels/Page/Form/submit.react',
+    'build/Components/Panels/Page/Form/hidden.react'
 ], function (React) {
     return React.createClass({
 
@@ -65,14 +67,14 @@ define([
         /**
          * Handles form submission
          */
-        handleSubmit: function (e) {
+        handleSubmit: function (event) {
+            event.preventDefault();
             flux.actions.submit(
                 this.props.item.getAction(),
                 event.target.getAttribute('method'),
                 $(event.target).serializeArray(),
                 this.props.panel
             );
-            return false;
         },
 
         /**
@@ -102,9 +104,9 @@ define([
         },
 
         render: function () {
-            
+
             var items = this.props.item.getItems().map(function (item) {
-                                
+
                 if (!FormItems[item.getType()]) {
                     console.error("Unsupported form item type requested: " + item.getType());
                     return;
@@ -128,7 +130,7 @@ define([
             }.bind(this));
 
             return (
-                <form ref="form" onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{items}</form>  
+                <form ref="form" onSubmit={this.handleSubmit} action={this.props.item.getAction()} method={this.props.item.getMethod()}>{items}</form>
             );
         }
     });

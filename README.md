@@ -10,16 +10,19 @@ Auja is a generic admin interface, you can put atop any web application easily. 
 In this repo you'll find the JavaScript source meant to be used together with a back-end implementation for your 
    preferred framework, whatever server side language you use. Current back-end implementations:
    
-   - [Laravel](https://github.com/Label305/Auja-Laravel) ... coming soon
-   - Your implementation here..!?
+   - [Laravel](https://github.com/Label305/Auja-Laravel)
+   - [PHP](https://github.com/Label305/Auja-PHP)
    
-To ease up implementation of the communication protocol we provide a [toolkit](https://github.com/Label305/Auja-PHP) for PHP providing interfaces and
-scaffolding
+To ease up implementation of the communication protocol we provide a [toolkit](https://github.com/Label305/Auja-PHP) for PHP providing interfaces and scaffolding.
 
 Installation
 ---
 
-*Stand alone*
+### Bower (prefered)
+
+You can use [Bower](http://bower.io/) to load Auja into your own project. Check [our special bower distribution repository](https://github.com/Label305/Auja-bower) for more on installing Auja through bower.
+
+### Stand alone
 
 After cloning you will first have to install Auja's dependencies using [Bower](http://bower.io/) by running:
 

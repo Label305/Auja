@@ -22,7 +22,8 @@ var FormItemObjects = {
     'datetime': 'build/Objects/Page/Form/datetime',
     'range': 'build/Objects/Page/Form/range',
     'trumbowyg': 'build/Objects/Page/Form/trumbowyg',
-    'file': 'build/Objects/Page/Form/file'
+    'file': 'build/Objects/Page/Form/file',
+    'hidden': 'build/Objects/Page/Form/hidden'
 };
 
 define([
@@ -46,7 +47,8 @@ define([
     'build/Objects/Page/Form/datetime',
     'build/Objects/Page/Form/range',
     'build/Objects/Page/Form/trumbowyg',
-    'build/Objects/Page/Form/file'
+    'build/Objects/Page/Form/file',
+    'build/Objects/Page/Form/hidden'
 ], function() {
 
     return new function() {
@@ -59,9 +61,9 @@ define([
                 var Item = require(FormItemObjects[data.type]);
                 return new Item(data[data.type]);
             }
-            
+
             console.error('Unknown item type passed to factory: ' + data.type);
-            
+
             return false;
         }
 

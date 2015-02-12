@@ -438,7 +438,7 @@ form
             input[type="email"],
             input[type="tel"],
             input[type="url"],
-            input[type="date"],            
+            input[type="date"],
             input[type="datetime"],
             input[type="time"],
             input[type="selectMultiple"],
@@ -460,6 +460,8 @@ form
                     -ms-transition: 0.25s
                     -moz-transition: 0.25s
                     -webkit-transition: 0.25s
+            &.form-item-hidden
+                display: none
             &.form-item-selectMultipleCheckbox > div > div,
             &.form-item-checkbox > div
                 position: relative
@@ -523,7 +525,7 @@ form
             select
                 &[type="selectMultiple"]
                     height: auto
-            input[type="submit"] 
+            input[type="submit"]
                 float: right
                 padding: 10px 20px
                 &:hover
@@ -536,7 +538,6 @@ form
                 &:focus
                     outline: none
                     border: 0
-            textarea 
             &.form-item-checkbox
                 input[type="checkbox"]
                     width: 15px
