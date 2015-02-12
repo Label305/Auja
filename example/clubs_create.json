@@ -27,18 +27,32 @@
             "file": {
               "target": "example/uploads.json",
               "name": "logos[]",
-              "label": "Logo",
+              "label": "Multiple logos",
               "multiple": true,
               "files" : [
                 {
                   "ref": 1,
-                  "thumbnail": "example/thumb1.jpg",
+                  "thumbnail": "example/thumb1.jpg"
                 },
                 {
                   "ref": 2,
-                  "thumbnail": null,
+                  "thumbnail": null
                 }
               ]
+            }
+          },
+          {
+            "type": "file",
+            "file": {
+              "target": "example/uploads.json",
+              "name": "mainlogo[]",
+              "label": "Main logo",
+              "multiple": false,
+              "file" :
+                {
+                  "ref": 1,
+                  "thumbnail": "example/thumb1.jpg"
+                }
             }
           },
           {
