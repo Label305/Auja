@@ -14,12 +14,6 @@ define(['build/Objects/Abstract/form_item'], function (FormItem) {
         this.target = data.target;
 
         /**
-         * Reference to find your uploaded file again on the server side
-         * @type string
-         */
-        this.ref = data.ref;
-
-        /**
          * Is multiuploaded
          * @type boolean
          */
