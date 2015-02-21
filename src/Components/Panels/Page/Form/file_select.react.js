@@ -19,7 +19,7 @@ define([
         },
         render: function () {
             var failed = '';
-            if (this.props.file.failed) {
+            if (this.props.file != null && this.props.file.failed) {
                 failed = <span className="auja-color-alert">failed </span>;
             }
             return <li>
@@ -100,7 +100,7 @@ define([
         getHiddenInput: function () {
             var hidden = [];
             for (var i in this.state.files) {
-                if (!this.state.files[i].failed) {
+                if (this.state.files[i] != null && !this.state.files[i].failed) {
                     if (this.props.item.isMultiple()) {
                         hidden.push(<input key={this.state.files[i].ref} type="hidden" name={this.props.item.getName()} value={this.state.files[i].ref} />);
                     } else {

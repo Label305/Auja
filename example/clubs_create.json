@@ -48,14 +48,12 @@
           {
             "type": "file_select",
             "file_select": {
-              "target": "example/upload.php",
-              "name": "mainlogo",
-              "label": "Main logo",
-              "multiple": false,
-              "file": {
-                "ref": 851,
-                "thumbnail": "example/thumb1.jpg"
-              }
+              "name":"image",
+                     "label":"image",
+                     "required":false,
+                     "multiple":false,
+                     "target":"http:\/\/localhost:8000\/backoffice\/product-sets\/upload-image"
+
             }
           },
           {

@@ -19,11 +19,12 @@ define(['build/Objects/Abstract/form_item'], function (FormItem) {
          */
         this.multiple = data.multiple || false;
 
+
         /**
          * FileSelects
          * @type array
          */
-        this.files = this.multiple ? data.files || [] : [data.file] || [];
+        this.files = this.multiple ? (data.files ? data.files : []) : (data.file ? [data.file] : []);
 
         /**
          * Get target for uploader
