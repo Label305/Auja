@@ -28,3 +28,6 @@ deploy:
 env:
   global:
     secure: UD+S3gEXLgqTjtiKgze6AkSb6yRl6v7rx+hfHIvyRiR8od22sziHbxkt0dCdN26pYtIuD58H3AnDyJGZlbSUGhERpG3nPo6vcljM2TC1puky4bYlEqChxohPgMZWT6ue6QEYEC/4lCKwQikMXk7t4GmuoLSRyNPdEnHxulO2fwQ=
+notifications:
+  slack:
+    secure: WfIDH7lh11mOilLyu9re+mWV48RBrWN4BkKMjFM0mUZEB3xJQ1DnyeSa8AB/xEbAjwQqEgrwRwEePK4cijLFTSP+MAGkRYKnFsGmjo8i77ccNPtt9fDZUHMvjVPqKaNCpbOT8M7o3ovi9d8LAdQd4GdiQISY4vmBnEWiDn16thQ=
