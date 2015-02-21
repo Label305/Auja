@@ -19,7 +19,7 @@ define([
 
     return React.createClass({
         render: function () {
-            
+
             //Combine page items together to form a single list
             var page = this.props.panel.getContent().map(function (item) {
                 if (!item) {
@@ -29,9 +29,9 @@ define([
                     console.error("Unsupported page item type requested: " + item.getType());
                     return;
                 }
-                
+
                 var Item = require(PageItems[item.getType()]);
-                
+
                 return (
                     <div className="row">
                         <Item message={this.props.message} panel={this.props.panel} item={item} />
