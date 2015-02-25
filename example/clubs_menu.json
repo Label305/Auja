@@ -20,6 +20,16 @@
             }
         },
         {
+          "type": "link",
+          "order": 1,
+          "link": {
+            "text": "External",
+            "external": true,
+            "target": "http://www.label305.com",
+            "icon": "ion-alert"
+          }
+        },
+        {
             "type": "link",
             "order": 1,
             "link": {

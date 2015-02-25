@@ -18,6 +18,13 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
         this.target = data.target || false;
 
         /**
+         * If false the dispatching of this link will happen internally within Auja
+         * Otherwise will be dispatched to the browser directly
+         * @type {boolean}
+         */
+        this.external = data.external || false;
+        
+        /**
          * Icon
          * @type {string}
          */
@@ -52,6 +59,22 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
          */
         this.getIcon = function () {
             return this.icon;
+        };
+
+        /**
+         * Getter for external
+         * @returns {boolean}
+         */
+        this.isExternal = function() {
+            return this.external;
+        };
+
+        /**
+         * Setter for external
+         * @param external
+         */
+        this.setIsExternal = function(external) {
+            this.external = external;
         };
 
         /**

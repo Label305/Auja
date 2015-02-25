@@ -339,6 +339,12 @@ ul#main-menu
                 line-height: 30px
                 cursor: pointer
                 width: calc(100% - 45px)
+                &.external
+                    cursor: default
+                    a
+                        color: $font-color
+                    &:after
+                        content: ""
                 &:before,
                 &:after
                     position: absolute
