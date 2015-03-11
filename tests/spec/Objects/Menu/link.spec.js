@@ -19,19 +19,23 @@ define(['build/Objects/Menu/link'], function (Item) {
 
             var item = new Item({
                 icon: 'face',
+                active_icon: 'bold-face',
                 target: '/users',
                 text: 'Howdy'
             });
 
             expect(item.getIcon()).toBe('face');
+            expect(item.getActiveIcon()).toBe('bold-face');
             expect(item.getTarget()).toBe('/users');
             expect(item.getText()).toBe('Howdy');
-            
+
             item.setIcon('factory');
+            item.setActiveIcon('bold-factory');
             item.setTarget('/companies');
             item.setText('Label305');
 
             expect(item.getIcon()).toBe('factory');
+            expect(item.getActiveIcon()).toBe('bold-factory');
             expect(item.getTarget()).toBe('/companies');
             expect(item.getText()).toBe('Label305');
         });
@@ -39,22 +43,26 @@ define(['build/Objects/Menu/link'], function (Item) {
         it('should implement an update method which transfers properties', function () {
             var item = new Item({
                 icon: 'face',
+                active_icon: 'bold-face',
                 target: '/users',
                 text: 'Howdy'
             });
 
             expect(item.getIcon()).toBe('face');
+            expect(item.getActiveIcon()).toBe('bold-face');
             expect(item.getTarget()).toBe('/users');
             expect(item.getText()).toBe('Howdy');
 
             var updateItem = new Item({
                 icon: 'factory',
+                active_icon: 'bold-factory',
                 target: '/companies',
                 text: 'Label305'
-            });            
+            });
             item.update(updateItem);
 
             expect(item.getIcon()).toBe('factory');
+            expect(item.getActiveIcon()).toBe('bold-factory');
             expect(item.getTarget()).toBe('/companies');
             expect(item.getText()).toBe('Label305');
         });

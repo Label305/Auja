@@ -24,6 +24,12 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
         this.icon = data.icon || 'planet';
 
         /**
+         * Active Icon, if none found tries to fall back to normal icon first, otherwise to the general fallback icon
+         * @type {string}
+         */
+        this.activeIcon = data.active_icon || this.icon;
+
+        /**
          * Text
          * @type {string}
          */
@@ -37,7 +43,7 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
         this.getId = function () {
             return this.target;
         };
-        
+
         /**
          * Setter for icon
          * @param icon
@@ -54,6 +60,21 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
             return this.icon;
         };
 
+        /**
+         * Setter for active icon
+         * @param icon
+         */
+        this.setActiveIcon = function (activeIcon) {
+            this.activeIcon = activeIcon;
+        };
+
+        /**
+         * Getter for activ icon
+         * @returns {string}
+         */
+        this.getActiveIcon = function () {
+            return this.activeIcon;
+        };
         /**
          * Setter for target
          * @param target
@@ -93,6 +114,7 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
         this.update = function (item) {
             this.setText(item.getText());
             this.setIcon(item.getIcon());
+            this.setActiveIcon(item.getActiveIcon());
             this.setTarget(item.getTarget());
         };
     };
@@ -102,6 +124,6 @@ define(['build/Objects/Abstract/menu_item'], function (MenuItem) {
 
     // Fix constructor
     Link.prototype.constructor = Link;
-    
+
     return Link;
 });
