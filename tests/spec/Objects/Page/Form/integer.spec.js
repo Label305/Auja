@@ -11,15 +11,19 @@ define(['build/Objects/Page/Form/integer'], function (Item) {
                 name: 'thename',
                 label: 'The name',
                 value: 11,
+                min: 10,
+                max: 25,
                 required: true
             });
 
             expect(item.getAttributes()).toHaveKeys([
                 'type',
                 'value',
-                'name'
+                'name',
+                'min',
+                'max'
             ]);
-            
+
             expect(item.getValue()).toBe(11);
 
         });
@@ -31,6 +35,8 @@ define(['build/Objects/Page/Form/integer'], function (Item) {
                 name: 'thename',
                 label: 'The name',
                 value: 11,
+                min: 10,
+                max: 25,
                 required: true
             });
 
@@ -48,13 +54,13 @@ define(['build/Objects/Page/Form/integer'], function (Item) {
             item.setLabel('Your name');
             item.setValue(14);
             item.setRequired(false);
-            
+
             expect(item.getOrder()).toBe(2);
             expect(item.getName()).toBe('somename');
             expect(item.getLabel()).toBe('Your name');
             expect(item.getValue()).toBe(14);
             expect(item.isRequired()).toBe(false);
-            
+
         });
 
     });

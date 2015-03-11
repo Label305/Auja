@@ -28,7 +28,6 @@ define([
 
             var input = TestUtils.findRenderedDOMComponentWithTag(text, 'input');
 
-
                 expect(input.getDOMNode().value).toEqual('1982-08-17');
         });
 
@@ -36,9 +35,9 @@ define([
                 var TestUtils = React.addons.TestUtils;
 
                 var item = new Item({
-                    value: "1982-08-17",
+                    value: '1982-08-17',
                     format: 'YYYY-MM-DD',
-                    label: "This is the label"
+                    label: 'This is the label'
                 });
 
             // Render a checkbox with label in the document
@@ -49,5 +48,5 @@ define([
             var label = TestUtils.findRenderedDOMComponentWithTag(text, 'label');
             expect(label.getDOMNode().textContent).toEqual('This is the label');
         });
-        });
+    });
 });

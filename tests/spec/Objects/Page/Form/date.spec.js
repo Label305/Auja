@@ -11,17 +11,21 @@ define(['build/Objects/Page/Form/date'], function (Item) {
                 name: 'thename',
                 label: 'The name',
                 value: '17-08-1982',
+                min: '01-01-1980',
+                max: '01-01-1983',
                 format: 'MM-DD-YYYY',
                 required: true
             });
-            
+
             expect(item.getAttributes()).toHaveKeys([
                 'type',
                 'value',
                 'name',
-                'format'
+                'format',
+                'min',
+                'max'
             ]);
-            
+
         });
 
         it('should implement a form item', function () {
@@ -31,6 +35,8 @@ define(['build/Objects/Page/Form/date'], function (Item) {
                 name: 'thename',
                 label: 'The name',
                 value: '17-08-1982',
+                min: '01-01-1980',
+                max: '01-01-1983',
                 format: 'MM-DD-YYYY',
                 required: true
             });
