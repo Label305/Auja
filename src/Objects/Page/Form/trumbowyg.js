@@ -13,7 +13,7 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
          * Buttons for the editor
          * @type {string[]}
          */
-        this.buttons = data.buttons || ['header', 'bold', 'italic', '|', 'unorderedList', 'orderedList', '|', 'insertImage', 'link', '|', 'viewHTML', 'fullscreen'];
+        this.buttons = data.buttons || ['formatting', 'bold', 'italic', '|', 'unorderedList', 'orderedList', '|', 'insertImage', 'link', '|', 'viewHTML', 'fullscreen'];
 
         /**
          * Get attributes for this input
