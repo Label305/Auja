@@ -55,5 +55,33 @@ define(['build/Objects/Page/Form/trumbowyg'], function (Item) {
             
         });
 
+        it('should allow for overriding the default buttons', function() {
+
+            var buttons = ['bold'];
+            var item = new Item({
+                order: 10,
+                name: 'thename',
+                label: 'The name',
+                value: 'James',
+                required: true,
+                buttons: buttons
+            });
+            
+            expect(item.getButtons()).toBe(buttons);
+        });
+        
+        it('should have default buttons', function() {
+
+            var item = new Item({
+                order: 10,
+                name: 'thename',
+                label: 'The name',
+                value: 'James',
+                required: true
+            });
+
+            expect(item.getButtons().length).toBe(['header', 'bold', 'italic', '|', 'unorderedList', 'orderedList', '|', 'insertImage', 'link', '|', 'viewHTML', 'fullscreen'].length);
+            
+        });
     });
 });
