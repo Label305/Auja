@@ -2,7 +2,7 @@
 layout: home
 title: "Auja"
 ---
-{% assign absoluteurl = 'auja/' %}
+{% assign absoluteurl = 'Auja/' %}
 
 <h2 class="no-line">Implement Auja regardless of which server-side technology you use.</h2>
 
