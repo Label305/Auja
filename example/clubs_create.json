@@ -1,141 +1,141 @@
 {
-  "type": "page",
-  "page": [
-    {
-      "type": "header",
-      "header": {
-        "text": "Create club"
-      }
-    },
-    {
-      "type": "form",
-      "form": {
-        "action": "example/clubs/store",
-        "method": "get",
-        "items": [
-          {
-            "type": "text",
-            "text": {
-              "name": "name",
-              "label": "Name of club",
-              "value": "FC Twente",
-              "maxLength": 10
+    "type": "page",
+    "page": [
+        {
+            "type": "header",
+            "header": {
+                "text": "Create club"
             }
-          },
-          {
-            "type": "file_select",
-            "file_select": {
-              "target": "example/upload.php",
-              "name": "logos[]",
-              "label": "Multiple logos",
-              "multiple": true,
-              "files": [
-                {
-                  "ref": 1,
-                  "name": "bestand.jpg",
-                  "thubmnail": null,
-                  "type": "the/mimetype"
-                },
-                {
-                  "ref": 2,
-                  "name": "bestand.jpg",
-                  "thubmnail": null,
-                  "type": "the/mimetype"
-                }
-              ]
-            }
-          },
-          {
-            "type": "file_select",
-            "file_select": {
-              "name":"image",
-                     "label":"image",
-                     "required":false,
-                     "multiple":false,
-                     "target":"http:\/\/localhost:8000\/backoffice\/product-sets\/upload-image"
+        },
+        {
+            "type": "form",
+            "form": {
+                "action": "example/clubs/store",
+                "method": "get",
+                "items": [
+                    {
+                        "type": "text",
+                        "text": {
+                            "name": "name",
+                            "label": "Name of club",
+                            "value": "FC Twente",
+                            "maxLength": 10
+                        }
+                    },
+                    {
+                        "type": "file_select",
+                        "file_select": {
+                            "target": "example/upload.php",
+                            "name": "logos[]",
+                            "label": "Multiple logos",
+                            "multiple": true,
+                            "files": [
+                                {
+                                    "ref": 1,
+                                    "name": "bestand.jpg",
+                                    "thubmnail": null,
+                                    "type": "the/mimetype"
+                                },
+                                {
+                                    "ref": 2,
+                                    "name": "bestand.jpg",
+                                    "thubmnail": null,
+                                    "type": "the/mimetype"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "file_select",
+                        "file_select": {
+                            "name": "image",
+                            "label": "image",
+                            "required": false,
+                            "multiple": false,
+                            "target": "http:\/\/localhost:8000\/backoffice\/product-sets\/upload-image"
 
+                        }
+                    },
+                    {
+                        "type": "number",
+                        "number": {
+                            "name": "totalPlayers",
+                            "label": "Number of players",
+                            "min": "7",
+                            "max": "25",
+                            "value": "11"
+                        }
+                    },
+                    {
+                        "type": "email",
+                        "email": {
+                            "name": "email",
+                            "label": "Club Email"
+                        }
+                    },
+                    {
+                        "type": "password",
+                        "password": {
+                            "name": "secret",
+                            "label": "Secret to success"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "checkbox": {
+                            "name": "leagues",
+                            "label": "Jupiler",
+                            "value": true,
+                            "checked": true
+                        }
+                    },
+                    {
+                        "type": "password",
+                        "password": {
+                            "name": "token",
+                            "label": "Token"
+                        }
+                    },
+                    {
+                        "type": "number",
+                        "number": {
+                            "name": "no_member",
+                            "label": "Number of members",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "type": "range",
+                        "range": {
+                            "name": "range",
+                            "label": "Shooting Range",
+                            "min": "7",
+                            "max": "25",
+                            "value": "11"
+                        }
+                    },
+                    {
+                        "type": "textarea",
+                        "textarea": {
+                            "name": "description",
+                            "label": "Description"
+                        }
+                    },
+                    {
+                        "type": "wysihtml",
+                        "wysihtml": {
+                            "name": "site_description",
+                            "label": "Site description"
+                        }
+                    },
+                    {
+                        "type": "submit",
+                        "submit": {
+                            "value": "Create!"
+                        }
+                    }
+                ]
             }
-          },
-          {
-            "type": "number",
-            "number": {
-              "name": "totalPlayers",
-              "label": "Number of players",
-              "min": "7",
-              "max": "25",
-              "value": "11"
-            }
-          },
-          {
-            "type": "email",
-            "email": {
-              "name": "email",
-              "label": "Club Email"
-            }
-          },
-          {
-            "type": "password",
-            "password": {
-              "name": "secret",
-              "label": "Secret to success"
-            }
-          },
-          {
-            "type": "checkbox",
-            "checkbox": {
-              "name": "leagues",
-              "label": "Jupiler",
-              "value": true,
-              "checked": true
-            }
-          },
-          {
-            "type": "password",
-            "password": {
-              "name": "token",
-              "label": "Token"
-            }
-          },
-          {
-            "type": "number",
-            "number": {
-              "name": "no_member",
-              "label": "Number of members",
-              "value": "2"
-            }
-          },
-          {
-            "type": "range",
-            "range": {
-              "name": "range",
-              "label": "Shooting Range",
-              "min": "7",
-              "max": "25",
-              "value": "11"
-            }
-          },
-          {
-            "type": "textarea",
-            "textarea": {
-              "name": "description",
-              "label": "Description"
-            }
-          },
-          {
-            "type": "trumbowyg",
-            "trumbowyg": {
-              "name": "site_description",
-              "label": "Site description"
-            }
-          },
-          {
-            "type": "submit",
-            "submit": {
-              "value": "Create!"
-            }
-          }
-        ]
-      }
-    }
-  ]
+        }
+    ]
 }
