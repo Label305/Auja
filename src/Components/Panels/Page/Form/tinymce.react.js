@@ -11,6 +11,7 @@
 define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], function(React, Label) {
     return React.createClass({
         componentDidMount: function() {
+
             tinymce.init({
                 selector: ".tinymce-editor",
                 theme: "modern",
@@ -24,6 +25,9 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
             });
 
         },
+        componentWillUnmount: function() {
+            tinymce.remove(".tinymce-editor");
+        },
         render: function() {
 
             var attributes = this.props.item.getAttributes();
@@ -36,10 +40,10 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
             });
 
             return (
-                <div>
-                    <Label item={this.props.item} name={this.props.item.getLabel()} />
-                    {React.DOM.textarea(attributes, this.props.item.getValue())}
-                </div>
+                React.DOM.div(null,
+                    Label({item: this.props.item, name: this.props.item.getLabel()}),
+                    React.DOM.textarea(attributes, this.props.item.getValue())
+                )
             );
         }
     });
