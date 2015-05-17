@@ -20,7 +20,6 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
                     "searchreplace visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
                     "save table contextmenu directionality textcolor"
                 ],
-                content_css: "css/content.css",
                 toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview"
             });
 

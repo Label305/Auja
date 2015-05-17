@@ -2,15 +2,13 @@
   "name": "Auja",
   "version": "v3.0.0-alpha13",
   "main": "build/auja.react.js",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-sass": "^0.8.1",
     "grunt-react": "^0.9.0",
-    "karma": "^0.12.28",
+    "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",
     "karma-firefox-launcher": "^0.1.3",
     "karma-ie-launcher": "^0.1.5",
