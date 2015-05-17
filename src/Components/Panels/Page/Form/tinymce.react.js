@@ -21,7 +21,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
                     "save table contextmenu directionality textcolor"
                 ],
                 content_css: "css/content.css",
-                toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview"
+                toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview"
             });
 
         },
