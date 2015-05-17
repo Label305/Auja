@@ -47,8 +47,8 @@ require.config({
         pikaday: 'bower_components/pikaday/pikaday',
         pikadayjq: 'bower_components/pikaday/plugins/pikaday.jquery',
         trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg',
-        wysihtml: 'bower_components/wysihtml/dist/wysihtml5x',
-        wysihtml5ParserRules: 'bower_components/wysihtml/parser_rules/advanced_and_extended',
+        tinymce: 'bower_components/tinymce/tinymce',
+        tinymcejq: 'bower_components/tinymce/tinymce.jquery',
         jstree: 'bower_components/jstree/dist/jstree',
         minicolors: 'bower_components/jquery-minicolors/jquery.minicolors',
         sugar: 'bower_components/sugar/release/sugar-full.development',
@@ -69,6 +69,9 @@ require.config({
     shim: {
         trumbowyg: {
             deps: ['jquery']
+        },
+        tinymcejq: {
+            deps: ['jquery', 'tinymce']
         },
         minicolors: {
             deps: ['jquery']

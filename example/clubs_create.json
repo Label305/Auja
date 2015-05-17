@@ -122,8 +122,8 @@
                         }
                     },
                     {
-                        "type": "wysihtml",
-                        "wysihtml": {
+                        "type": "tinymce",
+                        "tinymce": {
                             "name": "site_description",
                             "label": "Site description"
                         }

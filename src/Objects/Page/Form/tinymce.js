@@ -1,13 +1,13 @@
 
 define(['build/Objects/Abstract/form_item'], function(FormItem) {
 
-    var Wysihtml = function(data) {
+    var Tinymce = function(data) {
 
         //Call the parent constructor
         FormItem.call(this, data);
 
         //Set type of this object
-        this.setType('wysihtml');
+        this.setType('tinymce');
 
         /**
          * Get attributes for this input
@@ -24,10 +24,10 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
     };
 
     // Inherit Panel
-    Wysihtml.prototype = FormItem;
+    Tinymce.prototype = FormItem;
 
     // Fix constructor
-    Wysihtml.prototype.constructor = Wysihtml;
+    Tinymce.prototype.constructor = Tinymce;
 
-    return Wysihtml;
+    return Tinymce;
 });

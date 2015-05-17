@@ -15,7 +15,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'trumbowyg'], 
                 design: this.props.item.getButtons()
             };            
             
-            $(this.refs.textarea.getDOMNode()).trumbowyg({
+            $(this.refs.textareaTrumbo.getDOMNode()).trumbowyg({
                 btns: this.props.item.getButtons(),
                 btnsGrps: btnsGrps
             });
@@ -26,7 +26,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'trumbowyg'], 
             Object.merge(attributes, {
                 id: this.props.itemId,
                 type: 'textarea',
-                ref: 'textarea'
+                ref: 'textareaTrumbo'
             });
             
             return (
