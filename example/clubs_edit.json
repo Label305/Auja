@@ -193,8 +193,8 @@
                         }
                     },
                     {
-                        "type": "textarea",
-                        "textarea": {
+                        "type": "tinymce",
+                        "tinymce": {
                             "name": "description",
                             "value": "Something about this club",
                             "label": "Description"
