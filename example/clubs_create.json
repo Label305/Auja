@@ -138,7 +138,7 @@
                     {
                         "type": "tinymce",
                         "tinymce": {
-                            "name": "site_detail_description",
+                            "name": "site_detail_description_second",
                             "label": "Site detail description"
                         }
                     },

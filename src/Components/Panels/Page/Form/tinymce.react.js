@@ -8,13 +8,31 @@
  *
  * @jsx React.DOM
  */
-define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], function(React, Label) {
+define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], function (React, Label) {
     return React.createClass({
-        componentDidMount: function() {
+        getInstanceId: function () {
+            if (!this.instanceId) {
+                this.instanceId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            }
+            return this.instanceId;
+        },
+        getIdentifier: function () {
+            return 'tinymce-editor-' + this.getInstanceId();
+        },
+        componentDidMount: function () {
 
+            // Tell tinyMCE that the dom has already loaded since it wasn't there when
+            // the event triggered
+            tinymce.dom.Event.domLoaded = true;
+
+            //Actually initialize the editor
             tinymce.init({
-                selector: ".tinymce-editor",
+                selector: '#' + this.getIdentifier(),
                 theme: "modern",
+                schema: "html5",
                 height: 300,
                 plugins: [
                     "advlist autolink link image lists charmap preview",
@@ -24,16 +42,26 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
                 toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview"
             });
 
+            //Bind beforeSubmit event to do stuff with tinymce
+            $(this.refs.textarea).closest('form').bind('beforeSubmit', function () {
+                for (var i in tinymce.editors) {
+                    try {
+                        tinymce.editors[i].save();
+                    } catch (e) {
+                    }
+                }
+            });
+
         },
-        componentWillUnmount: function() {
-            tinymce.remove(".tinymce-editor");
+        componentWillUnmount: function () {
+            tinymce.remove('#' + this.getIdentifier());
         },
-        render: function() {
+        render: function () {
 
             var attributes = this.props.item.getAttributes();
 
             Object.merge(attributes, {
-                id: this.props.itemId,
+                id: this.getIdentifier(),
                 type: 'textarea',
                 ref: 'textarea',
                 className: 'tinymce-editor'
