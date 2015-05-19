@@ -136,6 +136,13 @@
                         }
                     },
                     {
+                        "type": "tinymce",
+                        "tinymce": {
+                            "name": "site_detail_description",
+                            "label": "Site detail description"
+                        }
+                    },
+                    {
                         "type": "submit",
                         "submit": {
                             "value": "Create!"
