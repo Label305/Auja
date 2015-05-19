@@ -54,6 +54,8 @@ require.config({
         pikadayjq: 'bower_components/pikaday/plugins/pikaday.jquery',
         crossroads: 'bower_components/crossroads.js/dist/crossroads',
         trumbowyg: 'bower_components/trumbowyg/dist/trumbowyg.min',
+        tinymce: 'bower_components/tinymce/tinymce',
+        tinymcejq: 'bower_components/tinymce/tinymce.jquery',
         minicolors: 'bower_components/jquery-minicolors/jquery.minicolors.min',
         jstree: 'bower_components/jstree/dist/jstree.min',
         sugar: 'bower_components/sugar/release/sugar.min',
@@ -69,6 +71,9 @@ require.config({
 shim: {
         trumbowyg: {
             deps: ['jquery']
+        },
+        tinymcejq: {
+            deps: ['jquery', 'tinymce']
         },
         minicolors: {
             deps: ['jquery']

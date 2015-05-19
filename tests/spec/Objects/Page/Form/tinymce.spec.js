@@ -15,7 +15,6 @@ define(['build/Objects/Page/Form/tinymce'], function (Item) {
             });
 
             expect(item.getAttributes()).toHaveKeys([
-                'id',
                 'type',
                 'value',
                 'name'
