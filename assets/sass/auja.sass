@@ -368,6 +368,13 @@ ul#main-menu
                     &:after,
                     &:before
                         color: inherit
+                &.no-target
+                    cursor: default
+                    &:after
+                        content: ""
+                        font-family: "Ionicons"
+                        right: 0
+                        color: $input-border-color
                 span
                     white-space: nowrap
                     width: calc(100% - 30px)
