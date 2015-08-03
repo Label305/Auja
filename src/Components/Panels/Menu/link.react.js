@@ -37,11 +37,20 @@ define(['react'], function (React) {
                 className += " external";
             }
 
-            return (
-                <li className={className} onClick={this.handleClick}>
-                    {link}
-                </li>
-            );
+            if (this.props.item.getTarget() == false) {
+                className += " no-target";
+                return (
+                    <li className={className}>
+                        {link}
+                    </li>
+                );
+            } else {
+                return (
+                    <li className={className} onClick={this.handleClick}>
+                        {link}
+                    </li>
+                );
+            }
         }
     });
 
