@@ -34,6 +34,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
                 theme: "modern",
                 schema: "html5",
                 height: 300,
+                content_style: "img{max-width: 100%; display: block;}",
                 plugins: [
                     "advlist autolink link image lists charmap preview",
                     "searchreplace visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
