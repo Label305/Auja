@@ -27,6 +27,7 @@
     "Ionicons": "driftyco/ionicons#v1.5.2",
     "trumbowyg": "~1.1.2",
     "blueimp-file-upload": "~9.7.1",
+    "ionicons": "~2.0.0",
     "tinymce": "~4.1.10",
     "animate.css": "~3.2.0",
     "jstree": "~3.0.8",
