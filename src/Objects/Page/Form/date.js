@@ -1,56 +1,54 @@
+import FormItem from '../../Abstract/form_item.js';
 
-define(['build/Objects/Abstract/form_item'], function(FormItem) {
+var Date = function (data) {
 
-    var Date = function(data) {
+    //Call the parent constructor
+    FormItem.call(this, data);
 
-        //Call the parent constructor
-        FormItem.call(this, data);
+    //Set type of this object
+    this.setType('date');
 
-        //Set type of this object
-        this.setType('date');
+    /**
+     * The format the date
+     * @type {string|null}
+     * @private
+     */
+    this._format = data.format || 'YYYY-MM-DD';
 
-        /**
-         * The format the date
-         * @type {string|null}
-         * @private
-         */
-        this._format = data.format || 'YYYY-MM-DD';
-
-        /**
-         * Getter for format
-         * @returns {string|null}
-         */
-        this.getFormat = function() {
-            return this._format;
-        };
-
-        /**
-         * Setter for format
-         * @param format
-         */
-        this.setFormat = function(format) {
-            this._format = format;
-        };
-       
-        /**
-         * Get attributes for this input
-         * @return Object
-         */
-        this.getAttributes = function() {
-            return {
-                type: this.getType(),
-                value: this.getValue(),
-                name: this.getName(),
-                format: this.getFormat()
-            }
-        };
+    /**
+     * Getter for format
+     * @returns {string|null}
+     */
+    this.getFormat = function () {
+        return this._format;
     };
 
-    // Inherit Panel
-    Date.prototype = FormItem;
+    /**
+     * Setter for format
+     * @param format
+     */
+    this.setFormat = function (format) {
+        this._format = format;
+    };
 
-    // Fix constructor
-    Date.prototype.constructor = Date;
+    /**
+     * Get attributes for this input
+     * @return Object
+     */
+    this.getAttributes = function () {
+        return {
+            type: this.getType(),
+            value: this.getValue(),
+            name: this.getName(),
+            format: this.getFormat()
+        }
+    };
+};
 
-    return Date;
-});
+// Inherit Panel
+Date.prototype = FormItem;
+
+// Fix constructor
+Date.prototype.constructor = Date;
+
+module.exports = Date;

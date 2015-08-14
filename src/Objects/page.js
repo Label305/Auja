@@ -1,48 +1,49 @@
 /**
  * Page panel type
- * 
+ *
  * @todo implement sorting
  */
-define(['build/Objects/Abstract/panel', 'build/Factories/page_item_factory'], function(Panel, PageItemFactory) {
 
-    var Page = function() {
-        
-        //Call the parent constructor
-        Panel.call(this);
-        
-        //Set the type
-        this.setType('page');
-        
-        /**
-         * Content of a page
-         * @type {Array}
-         */
-        this.content = [];
+import Panel from './Abstract/panel.js';
+import PageItemFactory from '../Factories/page_item_factory.js';
 
-        /**
-         * Set the content of a page
-         */
-        this.setContent = function(content) {
-            this.content = content.map(function(item) {
-                return PageItemFactory.createItem(item);
-            });
-        };
+var Page = function () {
 
-        /**
-         * Getter for the content
-         * @returns {Array}
-         */
-        this.getContent = function() {
-            return this.content;
-        };
-        
+    //Call the parent constructor
+    Panel.call(this);
+
+    //Set the type
+    this.setType('page');
+
+    /**
+     * Content of a page
+     * @type {Array}
+     */
+    this.content = [];
+
+    /**
+     * Set the content of a page
+     */
+    this.setContent = function (content) {
+        this.content = content.map(function (item) {
+            return PageItemFactory.createItem(item);
+        });
     };
 
-    // Inherit Panel
-    Page.prototype = Panel;
+    /**
+     * Getter for the content
+     * @returns {Array}
+     */
+    this.getContent = function () {
+        return this.content;
+    };
 
-    // Fix constructor
-    Page.prototype.constructor = Page;
+};
 
-    return Page;
-});
+// Inherit Panel
+Page.prototype = Panel;
+
+// Fix constructor
+Page.prototype.constructor = Page;
+
+module.exports = Page;

@@ -1,141 +1,139 @@
 /**
  * Abstract form of a form item
  */
-define([], function() {
 
-    return function(data) {
-        
-        /**
-         * Location of menu item
-         * @type {integer}
-         */
-        this._order = data.order || 0;
+module.exports = function (data) {
 
-        /**
-         * Type of the menu item
-         * @type {string}
-         */
-        this._type = 'unknown';
-        
-        /**
-         * Name
-         * @type {string}
-         */
-        this._name = data.name || null;
-                
-        /**
-         * Label
-         * @type {string}
-         */
-        this._label = data.label || '';
+    /**
+     * Location of menu item
+     * @type {integer}
+     */
+    this._order = data.order || 0;
 
-        /**
-         * Value
-         * @type {string}
-         */
-        this._value = data.value || null;
+    /**
+     * Type of the menu item
+     * @type {string}
+     */
+    this._type = 'unknown';
 
-        /**
-         * Required
-         * @type {boolean}
-         */
-        this._required = data.required || false;
+    /**
+     * Name
+     * @type {string}
+     */
+    this._name = data.name || null;
 
-        /**
-         * Setter for the order
-         * @param order
-         */
-        this.setOrder = function(order) {
-            this._order = order;
-        };
+    /**
+     * Label
+     * @type {string}
+     */
+    this._label = data.label || '';
 
-        /**
-         * Getter for the order
-         * @returns integer
-         */
-        this.getOrder = function() {
-            return this._order;
-        };
+    /**
+     * Value
+     * @type {string}
+     */
+    this._value = data.value || null;
 
-        /**
-         * Setter for the type
-         * @param type
-         */
-        this.setType = function(type) {
-            this._type = type;
-        };
+    /**
+     * Required
+     * @type {boolean}
+     */
+    this._required = data.required || false;
 
-        /**
-         * Getter for the type
-         * @returns {type|*}
-         */
-        this.getType = function() {
-            return this._type;
-        };
+    /**
+     * Setter for the order
+     * @param order
+     */
+    this.setOrder = function (order) {
+        this._order = order;
+    };
 
-        /**
-         * Setter for name
-         * @param name
-         */
-        this.setName = function(name) {
-            this._name = name;
-        };
+    /**
+     * Getter for the order
+     * @returns integer
+     */
+    this.getOrder = function () {
+        return this._order;
+    };
 
-        /**
-         * Getter for name
-         * @returns {string}
-         */
-        this.getName = function() {
-            return this._name;
-        };
+    /**
+     * Setter for the type
+     * @param type
+     */
+    this.setType = function (type) {
+        this._type = type;
+    };
 
-        /**
-         * Setter for label
-         * @param label
-         */
-        this.setLabel = function(label) {
-            this._label = label;
-        };
+    /**
+     * Getter for the type
+     * @returns {type|*}
+     */
+    this.getType = function () {
+        return this._type;
+    };
 
-        /**
-         * Getter for label
-         * @returns {string}
-         */
-        this.getLabel = function() {
-            return this._label;
-        };
+    /**
+     * Setter for name
+     * @param name
+     */
+    this.setName = function (name) {
+        this._name = name;
+    };
 
-        /**
-         * Setter for value
-         * @param value
-         */
-        this.setValue = function(value) {
-            this._value = value;
-        };
+    /**
+     * Getter for name
+     * @returns {string}
+     */
+    this.getName = function () {
+        return this._name;
+    };
 
-        /**
-         * Getter for value
-         * @returns {string}
-         */
-        this.getValue = function() {
-            return this._value;
-        };
+    /**
+     * Setter for label
+     * @param label
+     */
+    this.setLabel = function (label) {
+        this._label = label;
+    };
 
-        /**
-         * Setter for required
-         * @param required
-         */
-        this.setRequired = function(required) {
-            this._required = required;
-        };
+    /**
+     * Getter for label
+     * @returns {string}
+     */
+    this.getLabel = function () {
+        return this._label;
+    };
 
-        /**
-         * Getter for required
-         * @returns {boolean}
-         */
-        this.isRequired = function() {
-            return this._required;
-        };
-        
-    };    
-});
+    /**
+     * Setter for value
+     * @param value
+     */
+    this.setValue = function (value) {
+        this._value = value;
+    };
+
+    /**
+     * Getter for value
+     * @returns {string}
+     */
+    this.getValue = function () {
+        return this._value;
+    };
+
+    /**
+     * Setter for required
+     * @param required
+     */
+    this.setRequired = function (required) {
+        this._required = required;
+    };
+
+    /**
+     * Getter for required
+     * @returns {boolean}
+     */
+    this.isRequired = function () {
+        return this._required;
+    };
+
+};    

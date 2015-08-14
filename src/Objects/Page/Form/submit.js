@@ -1,34 +1,32 @@
+import FormItem from '../../Abstract/form_item.js';
 
-define(['build/Objects/Abstract/form_item'], function(FormItem) {
+var Submit = function (data) {
 
-    var Submit = function(data) {
+    //Call the parent constructor
+    FormItem.call(this, data);
 
-        //Call the parent constructor
-        FormItem.call(this, data);
+    //Set type of this object
+    this.setType('submit');
 
-        //Set type of this object
-        this.setType('submit');
-
-        /**
-         * Get attributes for this input
-         * @return Object
-         */
-        this.getAttributes = function() {
-            return {
-                type: this.getType(),
-                value: this.getValue(),
-                name: this.getName()
-            }
-        };
-
-
+    /**
+     * Get attributes for this input
+     * @return Object
+     */
+    this.getAttributes = function () {
+        return {
+            type: this.getType(),
+            value: this.getValue(),
+            name: this.getName()
+        }
     };
 
-    // Inherit Panel
-    Submit.prototype = FormItem;
 
-    // Fix constructor
-    Submit.prototype.constructor = Submit;
-    
-    return Submit;
-});
+};
+
+// Inherit Panel
+Submit.prototype = FormItem;
+
+// Fix constructor
+Submit.prototype.constructor = Submit;
+
+module.exports = Submit;

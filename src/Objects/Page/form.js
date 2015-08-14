@@ -1,99 +1,97 @@
+import PageItem from '../Abstract/page_item.js';
+import FormItemFactory from '../../Factories/form_item_factory.js';
+var Form = function (data) {
 
-define(['build/Objects/Abstract/page_item', 'build/Factories/form_item_factory'], function(PageItem, FormItemFactory) {
+    //Call the parent constructor
+    PageItem.call(this, arguments);
 
-    var Form = function(data) {
+    /**
+     * Our custom type
+     * @type {string}
+     */
+    this.type = 'form';
 
-        //Call the parent constructor
-        PageItem.call(this, arguments);
+    /**
+     * Form items, is set during construct to make sure we use
+     * the FormItemsFactory
+     * @type {Array}
+     */
+    this.items = [];
 
-        /**
-         * Our custom type
-         * @type {string}
-         */
-        this.type = 'form';
+    /**
+     * Method
+     * @type {string}
+     */
+    this.method = data.method || 'post';
 
-        /**
-         * Form items, is set during construct to make sure we use
-         * the FormItemsFactory
-         * @type {Array}
-         */
-        this.items = [];
+    /**
+     * Action
+     * @type {string}
+     */
+    this.action = data.action || null;
 
-        /**
-         * Method
-         * @type {string}
-         */
-        this.method = data.method || 'post';
-
-        /**
-         * Action
-         * @type {string}
-         */
-        this.action = data.action || null;
-
-        /**
-         * Setter for Items
-         * @param items
-         */
-        this.setItems = function(items) {
-            this.items = items.map(function(item) {
-                return FormItemFactory.createItem(item);
-            }).filter(function(item) {
-                return item !== false;
-            });
-        };
-
-        /**
-         * Getter for items
-         * @returns {Array}
-         */
-        this.getItems = function() {
-            return this.items;
-        };
-
-        /**
-         * Setter for method
-         * @param method
-         */
-        this.setMethod = function(method) {
-            this.method = method;
-        };
-
-        /**
-         * Getter for method
-         * @returns {string}
-         */
-        this.getMethod = function() {
-            return this.method;
-        };
-
-        /**
-         * Setter for action
-         * @param action
-         */
-        this.setAction = function(action) {
-            this.action = action;
-        };
-
-        /**
-         * Getter for action
-         * @returns {string}
-         */
-        this.getAction = function() {
-            return this.action;
-        };
-
-        if(data.items) {
-            this.setItems(data.items);
-        }
-        
+    /**
+     * Setter for Items
+     * @param items
+     */
+    this.setItems = function (items) {
+        this.items = items.map(function (item) {
+            return FormItemFactory.createItem(item);
+        }).filter(function (item) {
+            return item !== false;
+        });
     };
 
-    // Inherit Panel
-    Form.prototype = PageItem;
+    /**
+     * Getter for items
+     * @returns {Array}
+     */
+    this.getItems = function () {
+        return this.items;
+    };
 
-    // Fix constructor
-    Form.prototype.constructor = Form;
+    /**
+     * Setter for method
+     * @param method
+     */
+    this.setMethod = function (method) {
+        this.method = method;
+    };
 
-    return Form;
-});
+    /**
+     * Getter for method
+     * @returns {string}
+     */
+    this.getMethod = function () {
+        return this.method;
+    };
+
+    /**
+     * Setter for action
+     * @param action
+     */
+    this.setAction = function (action) {
+        this.action = action;
+    };
+
+    /**
+     * Getter for action
+     * @returns {string}
+     */
+    this.getAction = function () {
+        return this.action;
+    };
+
+    if (data.items) {
+        this.setItems(data.items);
+    }
+
+};
+
+// Inherit Panel
+Form.prototype = PageItem;
+
+// Fix constructor
+Form.prototype.constructor = Form;
+
+module.exports = Form;

@@ -1,32 +1,30 @@
+import FormItem from '../../Abstract/form_item.js';
 
-define(['build/Objects/Abstract/form_item'], function(FormItem) {
+var Color = function (data) {
 
-    var Color = function(data) {
+    //Call the parent constructor
+    FormItem.call(this, data);
 
-        //Call the parent constructor
-        FormItem.call(this, data);
+    //Set type of this object
+    this.setType('color');
 
-        //Set type of this object
-        this.setType('color');
-
-        /**
-         * Get attributes for this input
-         * @return Object
-         */
-        this.getAttributes = function() {
-            return {
-                type: this.getType(),
-                value: this.getValue(),
-                name: this.getName()
-            }
-        };
+    /**
+     * Get attributes for this input
+     * @return Object
+     */
+    this.getAttributes = function () {
+        return {
+            type: this.getType(),
+            value: this.getValue(),
+            name: this.getName()
+        }
     };
+};
 
-    // Inherit Panel
-    Color.prototype = FormItem;
+// Inherit Panel
+Color.prototype = FormItem;
 
-    // Fix constructor
-    Color.prototype.constructor = Color;
+// Fix constructor
+Color.prototype.constructor = Color;
 
-    return Color;
-});
+module.exports = Color;

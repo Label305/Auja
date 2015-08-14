@@ -1,68 +1,65 @@
+import PageItem from '../Abstract/page_item.js';
+var Header = function (data) {
 
-define(['build/Objects/Abstract/page_item'], function(PageItem) {
+    //Call the parent constructor
+    PageItem.call(this, arguments);
 
-    var Header = function(data) {
+    /**
+     * Our custom type
+     * @type {string}
+     */
+    this.type = 'header';
 
-        //Call the parent constructor
-        PageItem.call(this, arguments);
+    /**
+     * Text
+     * @type {string}
+     */
+    this.text = data.text || '';
 
-        /**
-         * Our custom type
-         * @type {string}
-         */
-        this.type = 'header';
+    /**
+     * Buttons
+     * @type {array}
+     */
+    this.buttons = data.buttons || [];
 
-        /**
-         * Text
-         * @type {string}
-         */
-        this.text = data.text || '';
-
-        /**
-         * Buttons
-         * @type {array}
-         */
-        this.buttons = data.buttons || [];
-
-        /**
-         * Setter for text
-         * @param text
-         */
-        this.setText = function(text) {
-            this.text = text;
-        };
-
-        /**
-         * Getter for text
-         * @returns {string}
-         */
-        this.getText = function() {
-            return this.text;
-        };
-
-        /**
-         * Setter for buttons
-         * @param buttons
-         */
-        this.setButtons = function(buttons) {
-            this.buttons = buttons;
-        };
-
-        /**
-         * Getter for buttons
-         * @returns {array}
-         */
-        this.getButtons = function() {
-            return this.buttons;
-        };
-
+    /**
+     * Setter for text
+     * @param text
+     */
+    this.setText = function (text) {
+        this.text = text;
     };
 
-    // Inherit Panel
-    Header.prototype = PageItem;
+    /**
+     * Getter for text
+     * @returns {string}
+     */
+    this.getText = function () {
+        return this.text;
+    };
 
-    // Fix constructor
-    Header.prototype.constructor = Header;
-    
-    return Header;
-});
+    /**
+     * Setter for buttons
+     * @param buttons
+     */
+    this.setButtons = function (buttons) {
+        this.buttons = buttons;
+    };
+
+    /**
+     * Getter for buttons
+     * @returns {array}
+     */
+    this.getButtons = function () {
+        return this.buttons;
+    };
+
+};
+
+// Inherit Panel
+Header.prototype = PageItem;
+
+// Fix constructor
+Header.prototype.constructor = Header;
+
+module.exports = Header;
