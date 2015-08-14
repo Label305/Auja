@@ -1,2 +1,2 @@
-export { default as menu } from '../../Panels/menu.jsx';
-export { default as page } from '../../Panels/page.jsx';
+export { default as menu } from './menu.jsx';
+export { default as page } from './page.jsx';

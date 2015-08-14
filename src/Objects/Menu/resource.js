@@ -105,7 +105,7 @@ var Resource = function (data) {
     this.extend = function (data) {
 
         //Initialize like this otherwise we have circular dependencies
-        var MenuItemFactory = require('build/Factories/menu_item_factory');
+        var MenuItemFactory = require('../../Factories/menu_item_factory');
 
         //Create actual items
         data.items = data.items.map(function (item) {
@@ -134,7 +134,7 @@ var Resource = function (data) {
         if (data.items && (data.items.length > 0 || this.items.length == 0)) {
 
             //Initialize like this otherwise we have circular dependencies
-            var MenuItemFactory = require('build/Factories/menu_item_factory');
+            var MenuItemFactory = require('../../Factories/menu_item_factory');
 
             //When items are passed as data directly write them as the content
             //Since we receive a Resource object here it will always have items, so we check if it already

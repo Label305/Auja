@@ -7,7 +7,7 @@
 import React from 'react';
 import Fluxxor from 'fluxxor';
 import flux from '../../Stores/flux.js';
-import * as  PanelTypes from './index';
+import * as  PanelTypes from '../Panels/index';
 
 var PanelSection = React.createClass({
     handleScroll: function () {
