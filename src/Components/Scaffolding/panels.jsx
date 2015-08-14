@@ -4,22 +4,17 @@
  * @jsx React.DOM
  */
 
-//Listing of all supported panels
-var PanelTypes = {
-    'menu': '../../Panels/menu.jsx',
-    'page': '../../Panels/page.jsx'
-};
-
 import React from 'react';
 import Fluxxor from 'fluxxor';
 import flux from '../../Stores/flux.js';
+import * as  PanelTypes from './index';
 
 var PanelSection = React.createClass({
     handleScroll: function () {
         flux.actions.onPanelScroll(this.props.panel);
     },
     render: function () {
-        var Panel = require(PanelTypes[this.props.panel.getType()]);
+        var Panel = PanelTypes[this.props.panel.getType()];
 
         return (
             <section id={this.props.panel.getId()} key={this.props.panel.getId()} ref="panel"

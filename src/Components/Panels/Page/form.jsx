@@ -4,34 +4,8 @@
  * @jsx React.DOM
  */
 
-//Listing of all supported page items
-var FormItems = {
-    'header': './header.react',
-    'text': './Form/text.react',
-    'password': './Form/password.react',
-    'textarea': './Form/textarea.react',
-    'trumbowyg': './Form/trumbowyg.react',
-    'tinymce': './Form/tinymce.react',
-    'number': './Form/number.react',
-    'file_select': './Form/file_select.react',
-    'integer': './Form/integer.react',
-    'url': './Form/url.react',
-    'tel': './Form/tel.react',
-    'color': './Form/color.react',
-    'time': './Form/time.react',
-    'checkbox': './Form/checkbox.react',
-    'email': './Form/email.react',
-    'selectMultiple': './Form/select_multiple.react',
-    'select': './Form/select.react',
-    'selectMultipleCheckbox': './Form/select_multiple_checkbox.react',
-    'date': './Form/date.react',
-    'datetime': './Form/datetime.react',
-    'range': './Form/range.react',
-    'submit': './Form/submit.react',
-    'hidden': './Form/hidden.react'
-};
-
 import React from 'react';
+import * as FormItems from './Form/index';
 
 module.exports = React.createClass({
 
@@ -91,7 +65,7 @@ module.exports = React.createClass({
             }
 
             //Fetch the item from the corresponding file
-            var Item = require(FormItems[item.getType()]);
+            var Item = FormItems[item.getType()];
 
             //Extract the validation message from the item
             item.validationMessage = null;

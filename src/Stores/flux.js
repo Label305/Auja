@@ -1,10 +1,5 @@
-var FluxStores = {
-    'AujaStore': './Stores/auja',
-    'PanelStore': './Stores/panel',
-    'MessageStore': './Stores/message'
-};
-
 import Fluxxor from 'fluxxor';
+import * as FluxStores from './index';
 
 //Make sure we only render one instance
 if (window.flux) {
@@ -14,8 +9,9 @@ if (window.flux) {
 //Fill object with stores
     var stores = {};
     for (var name in FluxStores) {
-        var store = require(FluxStores[name]);
-        stores[name] = new store;
+        if (FluxStores.hasOwnProperty(name)) {
+            stores[name] = new FluxStores[name];
+        }
     }
 
     /**

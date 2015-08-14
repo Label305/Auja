@@ -1,10 +1,7 @@
 /**
  * Resource property factory will create objects from resource item properties
  */
-var ResourceItemProperties = {
-    'searchable': '../Objects/Menu/Properties/searchable',
-    'sortable': '../Objects/Menu/Properties/sortable'
-};
+import * as ResourceItemProperties from '../Objects/Menu/Properties/index';
 
 module.exports = new function () {
 
@@ -14,9 +11,8 @@ module.exports = new function () {
     this.createProperties = function (data) {
         var result = [];
         for (var name in data) {
-            if (ResourceItemProperties[name]) {
-                var propertyObject = require(ResourceItemProperties[name]);
-                result.push(new propertyObject(data[name]));
+            if (ResourceItemProperties.hasOwnProperty(name)) {
+                result.push(new ResourceItemProperties[name](data[name]));
             } else {
                 console.error('Unknown resource item property requested: ' + name);
             }

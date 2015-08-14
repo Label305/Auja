@@ -2,12 +2,11 @@
  * Routing factory, will put all routes in place and ables request object
  * to pass request to correct handler
  */
-var routers = {
-    'http': './Routers/http'
-};
 
 import signals from 'signals';
 import crossroads from 'crossroads';
+import * as routers from './Routers/index.js';
+
 //Register as a global
 window.crossroads = crossroads;
 
@@ -19,18 +18,18 @@ flux.store('AujaStore').on('change', function () {
     crossroads.removeAllRoutes();
 
     this.getState().routes.map(function (route) {
-        require(routers[route.type]).addRoute(route);
+        routers[route.type].addRoute(route);
     }.bind(this));
 
     //Add fallback route to http router 
-    require(routers['http']).addRoute({
+    routers['http'].addRoute({
         target: /(.*)/
     });
 });
 
 //Add fallback route to http router 
 //TODO use bypassed for this
-require(routers['http']).addRoute({
+routers['http'].addRoute({
     target: /(.*)/
 });
 
