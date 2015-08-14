@@ -1,18 +1,12 @@
-/**
- * REST router, will add rest routes to crossroads
- */
-define(['build/Requests/Handlers/http'], function() {
+module.exports = {
 
-    return {
-
-        /**
-         * Add a route
-         * @param route
-         */
-        addRoute: function(route) {
-            crossroads.addRoute(route.target).matched.add(function (url, setHandler) {
-                setHandler(HttpRequest, route);
-            });
-        }
-    };
-});
+    /**
+     * Add a route
+     * @param route
+     */
+    addRoute: function (route) {
+        crossroads.addRoute(route.target).matched.add(function (url, setHandler) {
+            setHandler(HttpRequest, route);
+        });
+    }
+};

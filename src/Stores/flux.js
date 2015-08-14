@@ -1,25 +1,19 @@
 var FluxStores = {
-    'AujaStore': 'build/Stores/auja',
-    'PanelStore': 'build/Stores/panel',
-    'MessageStore': 'build/Stores/message'
+    'AujaStore': './Stores/auja',
+    'PanelStore': './Stores/panel',
+    'MessageStore': './Stores/message'
 };
 
-//Map as an array to load store dependencies
-define([
-    'fluxxor',
-    'build/Stores/auja',
-    'build/Stores/panel',
-    'build/Stores/message'
-], function(Fluxxor) {
+import Fluxxor from 'fluxxor';
 
-    //Make sure we only render one instance
-    if(window.flux) {
-        return window.flux;
-    }
+//Make sure we only render one instance
+if (window.flux) {
+    module.exports = window.flux;
+} else {
 
-    //Fill object with stores
+//Fill object with stores
     var stores = {};
-    for(var name in FluxStores) {
+    for (var name in FluxStores) {
         var store = require(FluxStores[name]);
         stores[name] = new store;
     }
@@ -32,14 +26,14 @@ define([
         /**
          * Dispatch all initializing events
          */
-        initialize: function() {
+        initialize: function () {
             this.dispatch('initialize');
         },
 
         /**
          * Dispatched on window resize
          */
-        resize: function() {
+        resize: function () {
             this.dispatch('resize');
         },
 
@@ -51,22 +45,22 @@ define([
          * @param panel (optional)
          * @param item (optional) if isset will dispatch an activate-item event
          */
-        click: function(url) {
+        click: function (url) {
             var panel = null;
-            if(arguments[1]) {
+            if (arguments[1]) {
                 panel = arguments[1];
             }
 
             var item = null;
-            if(panel != null && arguments[2]) {
+            if (panel != null && arguments[2]) {
                 this.dispatch('activate-item', {panel: panel, item: arguments[2]});
             }
 
             var request = new Request(url);
-            request.get().done(function(response) {
+            request.get().done(function (response) {
                 response.url = url;
                 flux.actions.handle(response.type, response, panel);
-            }).fail(function(code) {
+            }).fail(function (code) {
                 flux.actions.processFail(code);
             });
         },
@@ -77,36 +71,36 @@ define([
          * @param method
          * @param data
          */
-        submit: function(url, method, data) {
+        submit: function (url, method, data) {
             var panel = null;
-            if(arguments[3]) {
+            if (arguments[3]) {
                 panel = arguments[3];
             }
 
             var request = new Request(url);
 
-            switch(method.toLowerCase()) {
+            switch (method.toLowerCase()) {
                 case 'put':
-                    request.put(data).done(function(response) {
+                    request.put(data).done(function (response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
-                    }).fail(function(code) {
+                    }).fail(function (code) {
                         flux.actions.processFail(code);
                     });
                     break;
                 case 'get':
-                    request.get(data).done(function(response) {
+                    request.get(data).done(function (response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
-                    }).fail(function(code) {
+                    }).fail(function (code) {
                         flux.actions.processFail(code);
                     });
                     break;
                 default:
-                    request.post(data).done(function(response) {
+                    request.post(data).done(function (response) {
                         response.url = url;
                         flux.actions.handle(response.type, response, panel);
-                    }).fail(function(code) {
+                    }).fail(function (code) {
                         flux.actions.processFail(code);
                     });
             }
@@ -119,14 +113,14 @@ define([
          * @param data
          * @param origin the location the event originated from
          */
-        handle: function(type, data, origin) {
+        handle: function (type, data, origin) {
             data.origin = origin;
             this.dispatch(type, data);
 
-            switch(type) {
+            switch (type) {
                 case 'message':
                     //You can set weither or not to update the system
-                    if(data.message.update == undefined || data.message.update) {
+                    if (data.message.update == undefined || data.message.update) {
                         this.dispatch('update');
                     }
                     break;
@@ -137,13 +131,13 @@ define([
          * Somewhere something failed with a http status code
          * @param code
          */
-        processFail: function(code) {
+        processFail: function (code) {
             var message = {
                 state: 'error',
                 contents: 'Recieved unexpected response from the server'
             };
 
-            switch(code) {
+            switch (code) {
                 case 404:
                     //Not found
                     message.contents = 'Resource not found';
@@ -170,7 +164,7 @@ define([
          * Trigger scrolling of a panel
          * @param panel
          */
-        onPanelScroll: function(panel) {
+        onPanelScroll: function (panel) {
             this.dispatch('panel-scroll', panel);
         },
 
@@ -181,15 +175,15 @@ define([
          * @param item
          * @param url
          */
-        extendResource: function(panel, item, url) {
+        extendResource: function (panel, item, url) {
             var request = new Request(url);
-            request.get().done(function(data) {
+            request.get().done(function (data) {
                 this.dispatch('extend-resource', {
                     panel: panel,
                     item: item,
                     data: data
                 });
-            }.bind(this)).fail(function(code) {
+            }.bind(this)).fail(function (code) {
                 flux.actions.processFail(code);
             });
         },
@@ -199,19 +193,19 @@ define([
          * @param item
          * @param url
          */
-        updateResource: function(item, url) {
+        updateResource: function (item, url) {
             var request = new Request(url);
-            request.get().done(function(data) {
+            request.get().done(function (data) {
                 this.dispatch('update-resource', {
                     item: item,
                     data: data
                 });
-            }.bind(this)).fail(function(code) {
+            }.bind(this)).fail(function (code) {
                 flux.actions.processFail(code);
             });
         }
     };
 
     window.flux = new Fluxxor.Flux(stores, actions);
-    return window.flux;
-});
+    module.exports = window.flux;
+}

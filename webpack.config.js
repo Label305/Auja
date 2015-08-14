@@ -5,7 +5,7 @@ module.exports.getConfig = function (type) {
     var isDev = type === 'development';
 
     return {
-        entry: './src/auja.react.js',
+        entry: './src/auja.jsx',
         output: {
             filename: 'auja.js',
             path: path.join(__dirname, 'dist')
