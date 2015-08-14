@@ -6,14 +6,13 @@
 import signals from 'signals';
 import crossroads from 'crossroads';
 import * as routers from './Routers/index.js';
-import flux from '../Stores/flux.js';
 
 if (!window.crossroads) {
     window.crossroads = crossroads;
 }
 
-//TODO make this working again
-//flux.store('aujastore').on('change', function () {
+//TODO make this working again (circular dependency, flux -> request -> route_factory -> flux)
+//flux.store('AujaStore').on('change', function () {
 //    crossroads.removeallroutes();
 //
 //    this.getstate().routes.map(function (route) {

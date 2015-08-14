@@ -62,6 +62,7 @@ module.exports = Fluxxor.createStore({
                 }
 
                 Object.merge(this.state, response.main, true, true);
+                
                 this.emit('change');
             }.bind(this))
             .fail(function (code) {
