@@ -10,7 +10,7 @@
 
 import React from 'react';
 
-modules.export = React.createClass({
+module.exports = React.createClass({
     getInitialState: function () {
         return {value: this.props.item.getValue()};
     },

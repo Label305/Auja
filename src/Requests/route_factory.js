@@ -14,6 +14,7 @@ window.crossroads = crossroads;
  * Setup listening to the AujaStore to update routes in crossroads
  */
 import flux from '../Stores/flux.js';
+
 flux.store('AujaStore').on('change', function () {
     crossroads.removeAllRoutes();
 

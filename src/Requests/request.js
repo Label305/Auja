@@ -6,11 +6,20 @@
 
 import RouteFactory from './route_factory.js';
 import Cache from './cache.js';
+
+/**
+ * Initialize a cache if not available
+ */
+var RequestCache = window.RequestCache;
+if (!RequestCache) {
+    RequestCache = window.RequestCache = new Cache();
+}
+
 /**
  * Register as a global initializer for a request
  * @constructor
  */
-window.Request = function (url) {
+module.exports = function (url) {
 
     /**
      * Do a GET request
@@ -45,4 +54,3 @@ window.Request = function (url) {
 
 };
 
-module.exports = window.Request;

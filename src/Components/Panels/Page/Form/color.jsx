@@ -12,7 +12,7 @@ import React from 'react';
 import Label from './label.jsx';
 import minicolors from '../../../../../bower_components/jquery-minicolors/jquery.minicolors.js';
 
-modules.export = React.createClass({
+module.exports = React.createClass({
     componentDidMount: function () {
         $(this.refs.color.getDOMNode()).minicolors({
             changeDelay: 200

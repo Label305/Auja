@@ -25,7 +25,7 @@ var Item = React.createClass({
     }
 });
 
-module.exports = jReact.createClass({
+module.exports = React.createClass({
     render: function () {
         var menu = this.props.auja.menu.map(function (item) {
             return (

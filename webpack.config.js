@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports.getConfig = function (type) {
 
@@ -18,6 +19,14 @@ module.exports.getConfig = function (type) {
                 exclude: /node_modules/,
                 loader: 'babel'
             }]
-        }
+        },
+        plugins: [
+            new webpack.ProvidePlugin({
+                '$': 'jquery',
+                'jQuery': 'jquery',
+                'window.jQuery': 'jquery',
+                'window.$': 'jquery'
+            })
+        ]
     };
 };

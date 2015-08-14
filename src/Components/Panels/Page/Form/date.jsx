@@ -13,7 +13,7 @@ import Label from './label.jsx';
 import moment from 'moment';
 import pikadayjq  from '../../../../../bower_components/pikaday/pikaday.js';
 
-modules.export = React.createClass({
+module.exports = React.createClass({
 
     componentDidMount: function () {
         $(this.refs.date.getDOMNode()).pikaday({

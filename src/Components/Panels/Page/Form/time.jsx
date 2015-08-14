@@ -13,7 +13,7 @@ import Label from './label.jsx';
 import moment from 'moment';
 import clockpicker   from '../../../../../bower_components/clockpicker/dist/jquery-clockpicker.js';
 
-modules.export = React.createClass({
+module.exports = React.createClass({
     componentDidMount: function () {
         $(this.refs.time.getDOMNode()).clockpicker({
             autoclose: true

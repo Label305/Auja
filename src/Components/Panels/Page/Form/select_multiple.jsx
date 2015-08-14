@@ -11,7 +11,7 @@ import React from 'react';
 import Label from './label.jsx';
 import selectize from 'selectize';
 
-modules.export = React.createClass({
+module.exports = React.createClass({
     componentDidMount: function () {
         var selectize = $(this.refs.multiselect.getDOMNode()).selectize({
             plugins: ['remove_button'],

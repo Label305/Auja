@@ -11,7 +11,7 @@ import React from 'react';
 import Label from './label.jsx';
 import Checkbox from './checkbox.jsx';
 
-modules.export = React.createClass({
+module.exports = React.createClass({
     render: function () {
         var options = this.props.item.getOptions().map(function (option) {
             option._fallback = false;

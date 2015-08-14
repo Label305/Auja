@@ -1,6 +1,6 @@
 import Fluxxor from 'fluxxor';
 import Request from '../Requests/request';
-import FormFactory from '../Factories/form_factory';
+//import FormFactory from '../Factories/form_factory';
 /**
  * The main Auja store
  */

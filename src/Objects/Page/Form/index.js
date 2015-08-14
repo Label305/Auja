@@ -19,5 +19,5 @@ export { default as datetime } from './datetime';
 export { default as range } from './range';
 export { default as trumbowyg } from './trumbowyg';
 export { default as tinymce } from './tinymce';
-//export { default as file_select } from './file_select';
+export { default as file_select } from './file_select';
 export { default as hidden } from './hidden';

@@ -11,7 +11,7 @@
 
 import React from 'react';
 
-modules.export = React.createClass({
+module.exports = React.createClass({
     render: function () {
 
         //Extract the validation message

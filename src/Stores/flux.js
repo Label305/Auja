@@ -2,9 +2,8 @@ import Fluxxor from 'fluxxor';
 import * as FluxStores from './index';
 
 //Make sure we only render one instance
-if (window.flux) {
-    module.exports = window.flux;
-} else {
+var flux = window.flux;
+if (!flux) {
 
 //Fill object with stores
     var stores = {};
@@ -202,6 +201,8 @@ if (window.flux) {
         }
     };
 
-    window.flux = new Fluxxor.Flux(stores, actions);
-    module.exports = window.flux;
+    flux = window.flux = new Fluxxor.Flux(stores, actions);
 }
+
+module.exports = flux;
+

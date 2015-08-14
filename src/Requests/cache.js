@@ -3,7 +3,7 @@
  * the goal is to add routing, options for factories to generate responses etc.etc.
  */
 
-module.exports = window.RequestCache = new function () {
+module.exports = function () {
 
     /**
      * All ongoing requests
@@ -34,4 +34,3 @@ module.exports = window.RequestCache = new function () {
     }
 
 };
-    

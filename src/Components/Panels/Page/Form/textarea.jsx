@@ -12,7 +12,7 @@
 import React from 'react';
 import Label from './label.jsx';
 
-modules.export = React.createClass({
+module.exports = React.createClass({
     getInitialState: function () {
         return {value: this.props.item.getValue()};
     },

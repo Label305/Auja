@@ -1,6 +1,11 @@
+/**
+ * Booting the app
+ */
 import React from 'react';
 import flux from './Stores/flux';
 import Scaffolding from './scaffolding.jsx'
-
-React.renderComponent(<Scaffolding flux={flux}/>, document.body);
+function run() {
+    React.render(<Scaffolding flux={flux}/>, document.body);
+}
+window.addEventListener('DOMContentLoaded', run);
     

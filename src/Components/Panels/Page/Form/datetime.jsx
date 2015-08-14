@@ -13,7 +13,7 @@ import moment from 'moment';
 import Date from './date.jsx';
 import Time from './time.jsx';
 
-modules.export = React.createClass({
+module.exports = React.createClass({
     getInitialState: function () {
         return {
             value: this.props.item.getValue(),
