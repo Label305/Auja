@@ -11,6 +11,7 @@ import Paging from './Mixins/paging.mixin';
 import Searchable from './Mixins/searchable.mixin';
 import Menu from '../../../Objects/menu';
 import SortableMenu from './sortable.jsx';
+import MenuPanel from '../../Panels/menu.jsx';
 
 module.exports = React.createClass({
     mixins: [Paging, Searchable],
@@ -23,9 +24,6 @@ module.exports = React.createClass({
                 </li>
             );
         } else {
-            //"Normal" item
-            var MenuPanel = require('build/Components/Panels/menu.react');
-
             //Transfer different props to mock Menu
             var panel = new Menu();
             panel.setOrigin(this.props.panel.getOrigin());

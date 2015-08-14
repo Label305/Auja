@@ -10,7 +10,7 @@
 
 import React from 'react';
 import Label from './label.jsx';
-import minicolors from 'minicolors';
+import minicolors from '../../../../../bower_components/jquery-minicolors/jquery.minicolors.js';
 
 modules.export = React.createClass({
     componentDidMount: function () {

@@ -11,7 +11,7 @@
 import React from 'react';
 import Label from './label.jsx';
 import moment from 'moment';
-import pikadayjq from 'pikadayjq';
+import pikadayjq  from '../../../../../bower_components/pikaday/pikaday.js';
 
 modules.export = React.createClass({
 

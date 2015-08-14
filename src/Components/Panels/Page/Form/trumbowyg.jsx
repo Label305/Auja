@@ -11,7 +11,7 @@
 
 import React from 'react';
 import Label from './label.jsx';
-import trumbowyg from 'trumbowyg';
+import trumbowyg   from '../../../../../bower_components/trumbowyg/dist/trumbowyg.js';
 
 modules.export = React.createClass({
     componentDidMount: function () {

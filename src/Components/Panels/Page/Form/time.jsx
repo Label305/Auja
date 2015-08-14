@@ -11,7 +11,7 @@
 import React from 'react';
 import Label from './label.jsx';
 import moment from 'moment';
-import clockpicker from 'clockpicker';
+import clockpicker   from '../../../../../bower_components/clockpicker/dist/jquery-clockpicker.js';
 
 modules.export = React.createClass({
     componentDidMount: function () {

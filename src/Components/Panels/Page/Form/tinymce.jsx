@@ -11,7 +11,7 @@
 
 import React from 'react';
 import Label from './label.jsx';
-import tinymce from 'tinymce';
+import tinymce   from '../../../../../bower_components/tinymce/tinymce.jquery.js';
 
 modules.export = React.createClass({
 
