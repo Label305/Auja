@@ -6,27 +6,26 @@
 import signals from 'signals';
 import crossroads from 'crossroads';
 import * as routers from './Routers/index.js';
-
-//Register as a global
-window.crossroads = crossroads;
-
-/**
- * Setup listening to the AujaStore to update routes in crossroads
- */
 import flux from '../Stores/flux.js';
 
-flux.store('AujaStore').on('change', function () {
-    crossroads.removeAllRoutes();
+if (!window.crossroads) {
+    window.crossroads = crossroads;
+}
 
-    this.getState().routes.map(function (route) {
-        routers[route.type].addRoute(route);
-    }.bind(this));
+//TODO make this working again
+//flux.store('aujastore').on('change', function () {
+//    crossroads.removeallroutes();
+//
+//    this.getstate().routes.map(function (route) {
+//        routers[route.type].addroute(route);
+//    }.bind(this));
+//
+//    //add fallback route to http router 
+//    routers['http'].addroute({
+//        target: /(.*)/
+//    });
+//});
 
-    //Add fallback route to http router 
-    routers['http'].addRoute({
-        target: /(.*)/
-    });
-});
 
 //Add fallback route to http router 
 //TODO use bypassed for this
@@ -74,3 +73,4 @@ module.exports = new function () {
         return handler ? new handler(url, route) : false;
     }
 };
+

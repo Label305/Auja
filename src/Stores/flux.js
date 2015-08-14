@@ -1,4 +1,5 @@
 import Fluxxor from 'fluxxor';
+import Request from '../Requests/request.js';
 import * as FluxStores from './index';
 
 //Make sure we only render one instance

@@ -1,3 +1,5 @@
+import HttpHandler from '../../Requests/Handlers/http.js';
+
 module.exports = {
 
     /**
@@ -6,7 +8,7 @@ module.exports = {
      */
     addRoute: function (route) {
         crossroads.addRoute(route.target).matched.add(function (url, setHandler) {
-            setHandler(HttpRequest, route);
+            setHandler(HttpHandler, route);
         });
     }
 };

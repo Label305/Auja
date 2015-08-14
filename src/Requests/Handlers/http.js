@@ -3,7 +3,7 @@
  *
  * @param url
  */
-module.exports = window.HttpRequest = function (url, route) {
+module.exports = function (url, route) {
 
     /**
      * The url to do the request to

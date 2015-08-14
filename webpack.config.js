@@ -12,7 +12,6 @@ module.exports.getConfig = function (type) {
             path: path.join(__dirname, 'dist')
         },
         debug: isDev,
-        devtool: "source-map",
         module: {
             loaders: [{
                 test: /\.(jsx|js)?$/,

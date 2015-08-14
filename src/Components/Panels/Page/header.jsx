@@ -8,6 +8,7 @@
 
 import React from 'react';
 import Button from './button.jsx';
+
 module.exports = React.createClass({
     render: function () {
         var buttons = this.props.item.getButtons().map(function (button) {

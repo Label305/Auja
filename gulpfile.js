@@ -27,7 +27,7 @@ gulp.task('sass', function () {
 
     return s.pipe(inProduction ? plugins.minifyCss({compatibility: 'ie8'}) : plugins.util.noop())
         .pipe(plugins.sourcemaps.write('./'))
-        .pipe(gulp.dest('./assets/css/auja.css'))
+        .pipe(gulp.dest('./assets/css'))
         .pipe(plugins.size({title: 'sass'}));
 });
 
