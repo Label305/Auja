@@ -2,7 +2,8 @@
  * @jsx React.DOM
  */
 import React from 'react';
-import jstree from 'jstree';
+require('script!jquery');
+require('script!jstree');
 
 module.exports = React.createClass({
     /**

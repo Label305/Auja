@@ -16,9 +16,12 @@
     "tests"
   ],
   "dependencies": {
+    "pikaday": " dbushell/Pikaday#master",
     "Ionicons": "driftyco/ionicons#v1.5.2",
     "ionicons": "~2.0.0",
+    "trumbowyg": "~1.1.2",
     "animate.css": "~3.2.0",
+    "clockpicker": "~0.0.7",
     "jquery-minicolors": "~2.1.7"
   }
 }

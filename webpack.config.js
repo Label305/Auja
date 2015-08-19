@@ -1,5 +1,4 @@
 var path = require('path');
-var webpack = require('webpack');
 
 module.exports.getConfig = function (type) {
 
@@ -14,19 +13,17 @@ module.exports.getConfig = function (type) {
         },
         debug: isDev,
         module: {
-            loaders: [{
-                test: /\.(jsx|js)?$/,
-                exclude: /node_modules/,
-                loader: 'babel'
-            }]
-        },
-        plugins: [
-            new webpack.ProvidePlugin({
-                '$': 'jquery',
-                'jQuery': 'jquery',
-                'window.jQuery': 'jquery',
-                'window.$': 'jquery'
-            })
-        ]
+            loaders: [
+                {
+                    test: /\.(jsx|js)?$/,
+                    exclude: /node_modules/,
+                    loader: 'babel'
+                },
+                {
+                    include: 'tinymce/tinymce.jquery',
+                    loader: 'exports?window.tinymce'
+                }
+            ]
+        }
     };
 };
