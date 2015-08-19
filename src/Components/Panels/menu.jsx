@@ -17,10 +17,11 @@ module.exports = React.createClass({
         var menu = this.props.panel.getItems().map(function (item) {
             if (!MenuItems.hasOwnProperty(item.getType())) {
                 console.error("Unsupported menu item type requested: " + item.getType());
-                return;
+                return null;
             }
 
             var Item = MenuItems[item.getType()];
+
             return <Item
                 key={item.key}
                 scrollContainer={this.props.scrollContainer}
@@ -28,11 +29,9 @@ module.exports = React.createClass({
                 panel={originPanel} item={item}/>;
         }.bind(this));
 
-        return (
-            <ul>
-                {menu}
-            </ul>
-        );
+        return <ul>
+            {menu}
+        </ul>;
     }
 });
 

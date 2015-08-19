@@ -7,6 +7,7 @@ module.exports.getConfig = function (type) {
 
     return {
         entry: './src/auja.jsx',
+        //devtool: "source-map",
         output: {
             filename: 'auja.js',
             path: path.join(__dirname, 'dist')

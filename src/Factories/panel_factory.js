@@ -3,7 +3,8 @@
  */
 
 import MenuFactory from '../Factories/menu_factory.js';
-import PageFactory from '../Factories/panel_factory.js';
+import PageFactory from '../Factories/page_factory.js';
+
 module.exports = new function () {
 
     /**

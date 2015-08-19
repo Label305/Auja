@@ -1,6 +1,7 @@
 /**
  * @jsx React.DOM
  */
+import React from 'react';
 
 module.exports = {
     /**
@@ -44,15 +45,13 @@ module.exports = {
 
     /**
      * Fetch the form used for searching, when the property was not attached it will return an empty string
-     * @return {*}
+     * @return React.Component|null
      */
     getSearchableForm: function () {
         if (!this.props.item.hasProperty('searchable')) {
-            return '';
+            return null;
         }
-        return (
-            <input type="text" onChange={this.handleSearch} placeholder="Search.."/>
-        );
+        return <input type="text" onChange={this.handleSearch} placeholder="Search.."/>;
     }
 };
     

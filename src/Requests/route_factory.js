@@ -11,34 +11,32 @@ if (!window.crossroads) {
     window.crossroads = crossroads;
 }
 
-//TODO make this working again (circular dependency, flux -> request -> route_factory -> flux)
-//flux.store('AujaStore').on('change', function () {
-//    crossroads.removeallroutes();
-//
-//    this.getstate().routes.map(function (route) {
-//        routers[route.type].addroute(route);
-//    }.bind(this));
-//
-//    //add fallback route to http router 
-//    routers['http'].addroute({
-//        target: /(.*)/
-//    });
-//});
-
-
-//Add fallback route to http router 
-//TODO use bypassed for this
-routers['http'].addRoute({
-    target: /(.*)/
-});
-
 module.exports = new function () {
+
+    /**
+     * Setup routes based on current state in the Auja store
+     */
+    this.setupRoutes = function () {
+        crossroads.removeAllRoutes();
+
+        flux.store('AujaStore').getState().routes.map(function (route) {
+            routers[route.type].addRoute(route);
+        }.bind(this));
+
+        //add fallback route to http router 
+        routers['http'].addRoute({
+            target: /(.*)/
+        });
+    };
+
     /**
      * Getter for the handler
      * @param url
      * @return handler
      */
     this.handler = function (url) {
+        this.setupRoutes();
+
         var handler = false;
         var route = false;
 

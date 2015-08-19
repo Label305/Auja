@@ -158,4 +158,4 @@ Menu.prototype = Panel;
 // Fix constructor
 Menu.prototype.constructor = Menu;
 
-module.exports = Menu
+module.exports = Menu;

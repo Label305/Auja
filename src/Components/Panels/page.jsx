@@ -4,7 +4,7 @@
  * @jsx React.DOM
  */
 import React from 'react';
-import PageItems from './Page/index.js';
+import * as PageItems from './Page/index.js';
 
 module.exports = React.createClass({
     render: function () {

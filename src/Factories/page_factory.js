@@ -4,6 +4,7 @@
 
 
 import Page from '../Objects/page';
+
 module.exports = new function () {
 
     /**
