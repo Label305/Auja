@@ -2,33 +2,26 @@
 <html>
 <head>
     <base href="../"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <link rel="stylesheet" type="text/css" href="assets/css/auja.css"/>
+    <!-- Make stuff fancy using libs -->
     <link rel="stylesheet" type="text/css" href="bower_components/trumbowyg/dist/ui/trumbowyg.min.css"/>
     <link rel="stylesheet" type="text/css" href="bower_components/Ionicons/css/ionicons.min.css"/>
     <link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.min.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <script type="text/javascript">
-        /**
-         * Global debug flag
-         * @type {boolean}
-         */
-        var __debug__ = true;
 
-        /**
-         * Makes sure the http cache is not used for javascript files in development.
-         * @type {{urlArgs: string, urlArgs: string}}
-         */
-        var require = {
-            urlArgs: '_=' + (new Date()).getTime()
-        }
-    </script>
+    <!-- Several interface elements are enriched using jQuery -->
+    <script type="text/javascript" src="dist/jquery/dist/jquery.min.js"></script>
 
     <!-- This needed when you want to use TinyMCE -->
-    <script type="text/javascript" src="dist/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="dist/tinymce/tinymce.jquery.js"></script>
 
+    <!-- Blueimpo jQuery uploader -->
+    <script src="dist/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="dist/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="dist/blueimp-file-upload/js/jquery.fileupload.js"></script>
+
     <!-- This is the actual Auja lib -->
+    <link rel="stylesheet" type="text/css" href="assets/css/auja.css"/>
     <script type="text/javascript" src="dist/auja.js"></script>
 </head>
 <body data-src="example/auja.json"></body>

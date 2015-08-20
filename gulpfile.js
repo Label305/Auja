@@ -38,11 +38,24 @@ gulp.task('sass', function () {
 });
 
 /**
+ * Moving jQuery files, since those should be included separately
+ */
+gulp.task('jquery', function () {
+    gulp.src('./bower_components/jquery/**/*').pipe(gulp.dest('./dist/jquery'));
+});
+
+/**
  * Moving TinyMCE files, since those should be included separately
  */
 gulp.task('tinymce', function () {
     gulp.src('./bower_components/jquery/**/*').pipe(gulp.dest('./dist/jquery'));
-    gulp.src('./bower_components/tinymce/**/*').pipe(gulp.dest('./dist/tinymce'));
 });
 
-gulp.task('default', ['sass', 'js', 'tinymce']);
+/**
+ * Moving Blueimp jQuery file uploader files, since those should be included separately
+ */
+gulp.task('blueimp-file-upload', function () {
+    gulp.src('./bower_components/blueimp-file-upload/**/*').pipe(gulp.dest('./dist/blueimp-file-upload'));
+});
+
+gulp.task('default', ['sass', 'js', 'jquery', 'tinymce', 'blueimp-file-upload']);

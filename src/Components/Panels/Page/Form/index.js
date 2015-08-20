@@ -5,7 +5,7 @@ export { default as textarea } from './textarea.jsx';
 export { default as trumbowyg } from './trumbowyg.jsx';
 export { default as tinymce } from './tinymce.jsx';
 export { default as number } from './number.jsx';
-//export { default as file_select } from './file_select.jsx';
+export { default as file_select } from './file_select.jsx';
 export { default as integer } from './integer.jsx';
 export { default as url } from './url.jsx';
 export { default as tel } from './tel.jsx';

@@ -10,7 +10,6 @@
 
 import React from 'react';
 import Label from './label.jsx';
-import BlueimpUploader from 'blueimp-file-upload';
 
 var File = React.createClass({
     handleDeleteFile: function () {
@@ -43,7 +42,8 @@ module.exports = React.createClass({
             "name": data.files[0].name
         });
         this.setState(this.state);
-    }, componentDidMount: function () {
+    },
+    componentDidMount: function () {
         //Dynamically add the element since we don't want to have React to bind its events to it
         var uploadElem = $('<input type="file" name="file" data-name="file" />');
         if (this.props.item.isMultiple()) {
@@ -98,19 +98,21 @@ module.exports = React.createClass({
      */
     getHiddenInput: function () {
         var hidden = [];
-        for (var i in this.state.files) {
-            if (this.state.files[i] != null && !this.state.files[i].failed) {
+        this.state.files.forEach(function (file) {
+            if (file != null && !file.failed) {
+                var item = <input
+                    key={file.ref}
+                    type="hidden"
+                    name={this.props.item.getName()}
+                    value={file.ref}/>;
+
                 if (this.props.item.isMultiple()) {
-                    hidden.push(<input key={this.state.files[i].ref} type="hidden" name={this.props.item.getName()}
-                                       value={this.state.files[i].ref}/>);
+                    hidden.push(item);
                 } else {
-                    hidden = [
-                        <input key={this.state.files[i].ref} type="hidden" name={this.props.item.getName()}
-                               value={this.state.files[i].ref}/>
-                    ];
+                    hidden = [item];
                 }
             }
-        }
+        }.bind(this));
         return hidden;
     },
     deleteFileWithRef: function (ref) {

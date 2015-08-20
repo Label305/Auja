@@ -11,7 +11,6 @@
 
 import React from 'react';
 import Label from './label.jsx';
-require('script!jquery');
 require('script!../../../../../bower_components/trumbowyg/dist/trumbowyg.js');
 
 module.exports = React.createClass({

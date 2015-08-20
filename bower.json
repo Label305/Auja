@@ -18,6 +18,7 @@
   "dependencies": {
     "pikaday": " dbushell/Pikaday#master",
     "Ionicons": "driftyco/ionicons#v1.5.2",
+    "blueimp-file-upload": "~9.7.1",
     "ionicons": "~2.0.0",
     "trumbowyg": "~1.1.2",
     "animate.css": "~3.2.0",
