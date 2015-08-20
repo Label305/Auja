@@ -11,12 +11,13 @@
 import React from 'react';
 import Label from './label.jsx';
 import moment from 'moment';
-import pikadayjq  from '../../../../../bower_components/pikaday/pikaday.js';
+import Pikaday from '../../../../../bower_components/pikaday/pikaday.js';
 
 module.exports = React.createClass({
 
     componentDidMount: function () {
-        $(this.refs.date.getDOMNode()).pikaday({
+        new Pikaday({
+            field: this.refs.date.getDOMNode(),
             firstDay: 1,
             bound: true,
             format: this.props.format ? this.props.format : this.props.item.getFormat(),//Allow override from parent
@@ -32,7 +33,7 @@ module.exports = React.createClass({
         return {value: this.props.item.getValue()};
     },
     handleChange: function (date) {
-        date = moment(date).format(this.props.item.getFormat());
+        var date = moment(date).format(this.props.item.getFormat());
 
         //If parent element want us to broadcast our changes to it we'll oblige
         if (this.props.onChange) {
@@ -48,8 +49,7 @@ module.exports = React.createClass({
         attributes.ref = 'date';
         attributes.readOnly = true;
         //Insure label is ommited when the item is part of another component.
-        attributes.type == 'date' ? label =
-            <Label item={this.props.item} name={this.props.item.getLabel()}/> : label = '';
+        var label = attributes.type == 'date' ? <Label item={this.props.item} name={this.props.item.getLabel()}/> : '';
 
         return (
             <div>

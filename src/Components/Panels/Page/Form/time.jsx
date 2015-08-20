@@ -23,7 +23,7 @@ module.exports = React.createClass({
         return {value: this.props.item.getValue()};
     },
     handleChange: function (event) {
-        time = moment(event.target.value, this.props.item.getFormat()).format(this.props.item.getFormat());
+        var time = moment(event.target.value, this.props.item.getFormat()).format(this.props.item.getFormat());
 
         //If parent element want us to broadcast our changes to it we'll oblige
         if (this.props.onChange) {
@@ -46,8 +46,7 @@ module.exports = React.createClass({
         attributes.readOnly = true;
 
         //Insure label is ommited when the item is part of another component.
-        attributes.type == 'time' ? label =
-            <Label item={this.props.item} name={this.props.item.getLabel()}/> : label = '';
+        var label = attributes.type == 'time' ? <Label item={this.props.item} name={this.props.item.getLabel()}/> : '';
 
         return (
             <div>

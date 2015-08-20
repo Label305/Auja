@@ -9,14 +9,14 @@
 
 import React from 'react';
 import Label from './label.jsx';
-import selectize from 'selectize';
+require('script!selectize/dist/js/standalone/selectize');
 
 module.exports = React.createClass({
     componentDidMount: function () {
-        var selectize = $(this.refs.multiselect.getDOMNode()).selectize({
+        $(this.refs.multiselect.getDOMNode()).selectize({
             plugins: ['remove_button'],
             delimiter: ',',
-            persist: false,
+            persist: false
         });
     },
     getInitialState: function () {
