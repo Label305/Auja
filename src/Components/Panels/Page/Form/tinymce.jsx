@@ -11,42 +11,24 @@
 
 import React from 'react';
 import Label from './label.jsx';
-import tinymce from '../../../../../bower_components/tinymce/tinymce.jquery.js';
+import uuid from 'uuid';
 
 module.exports = React.createClass({
-
-    getInstanceId: function () {
-        if (!this.instanceId) {
-            this.instanceId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
+    componentWillMount: function () {
+        if (!this.tinyMCEAvailable()) {
+            console.error('Include TinyMCE manually before using it in Auja');
         }
-        return this.instanceId;
-    },
-    getIdentifier: function () {
-        return 'tinymce-editor-' + this.getInstanceId();
     },
     componentDidMount: function () {
-
+        if (!this.tinyMCEAvailable()) {
+            return;
+        }
         // Tell tinyMCE that the dom has already loaded since it wasn't there when
         // the event triggered
         tinymce.dom.Event.domLoaded = true;
 
         //Actually initialize the editor
-        tinymce.init({
-            selector: '#' + this.getIdentifier(),
-            theme: "modern",
-            schema: "html5",
-            height: 300,
-            content_style: "img{max-width: 100%; display: block;}",
-            plugins: [
-                "advlist autolink link image lists charmap preview",
-                "searchreplace visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-                "save table contextmenu directionality textcolor"
-            ],
-            toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview"
-        });
+        tinymce.init(this.config());
 
         //Bind beforeSubmit event to do stuff with tinymce
         $(this.refs.textarea).closest('form').bind('beforeSubmit', function () {
@@ -57,10 +39,39 @@ module.exports = React.createClass({
                 }
             }
         });
-
     },
     componentWillUnmount: function () {
+        if (!this.tinyMCEAvailable()) {
+            return;
+        }
         tinymce.remove('#' + this.getIdentifier());
+    },
+    tinyMCEAvailable() {
+        return typeof tinymce != 'undefined';
+    },
+    getInstanceId: function () {
+        if (!this.instanceId) {
+            this.instanceId = uuid.v4();
+        }
+        return this.instanceId;
+    },
+    getIdentifier: function () {
+        return 'tinymce-editor-' + this.getInstanceId();
+    },
+    config() {
+        return {
+            selector: '#' + this.getIdentifier(),
+            theme: "modern",
+            schema: "html5",
+            height: 300,
+            content_style: "img{max-width: 100%; display: block;}",
+            plugins: [
+                "advlist autolink link image lists charmap preview",
+                "searchreplace visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "contextmenu directionality textcolor"
+            ],
+            toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview"
+        };
     },
     render: function () {
 
@@ -73,11 +84,9 @@ module.exports = React.createClass({
             className: 'tinymce-editor'
         });
 
-        return (
-            React.DOM.div(null,
-                Label({item: this.props.item, name: this.props.item.getLabel()}),
-                React.DOM.textarea(attributes, this.props.item.getValue())
-            )
+        return React.DOM.div(null,
+            Label({item: this.props.item, name: this.props.item.getLabel()}),
+            React.DOM.textarea(attributes, this.props.item.getValue())
         );
     }
 });

@@ -11,7 +11,6 @@
     "crossroads": "~0.12.2",
     "signals": "~1.0.0",
     "blueimp-file-upload": "~9.10.7",
-    "tinymce": "~4.1.10",
     "jstree": "~3.2.0",
     "moment": "~2.10.6",
     "selectize": "~0.12.1",

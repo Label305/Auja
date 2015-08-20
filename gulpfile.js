@@ -10,6 +10,9 @@ var gulp = require('gulp'),
 var environment = plugins.util.env.type || 'development';
 var inProduction = environment == 'production';
 
+/**
+ * JS transpiling
+ */
 gulp.task('js', function () {
     var webpackConfig = require('./webpack.config.js').getConfig(environment);
 
@@ -20,6 +23,9 @@ gulp.task('js', function () {
         .pipe(plugins.size({title: 'js'}));
 });
 
+/**
+ * Sass transpiling
+ */
 gulp.task('sass', function () {
     var s = plugins.sass('./assets/sass/auja.sass', {
         sourcemap: true
@@ -31,4 +37,12 @@ gulp.task('sass', function () {
         .pipe(plugins.size({title: 'sass'}));
 });
 
-gulp.task('default', ['sass', 'js']);
+/**
+ * Moving TinyMCE files, since those should be included separately
+ */
+gulp.task('tinymce', function () {
+    gulp.src('./bower_components/jquery/**/*').pipe(gulp.dest('./dist/jquery'));
+    gulp.src('./bower_components/tinymce/**/*').pipe(gulp.dest('./dist/tinymce'));
+});
+
+gulp.task('default', ['sass', 'js', 'tinymce']);

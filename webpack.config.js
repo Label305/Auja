@@ -18,10 +18,6 @@ module.exports.getConfig = function (type) {
                     test: /\.(jsx|js)?$/,
                     exclude: /node_modules/,
                     loader: 'babel'
-                },
-                {
-                    include: 'tinymce/tinymce.jquery',
-                    loader: 'exports?window.tinymce'
                 }
             ]
         }
