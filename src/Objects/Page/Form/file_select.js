@@ -20,13 +20,6 @@ define(['build/Objects/Abstract/form_item'], function (FormItem) {
         this.multiple = data.multiple || false;
 
         /**
-         * Is isUploadForTinymce
-         * @type boolean
-         */
-        this.uploadForTinymce = data.uploadForTinymce || false;
-
-
-        /**
          * FileSelects
          * @type array
          */
@@ -80,21 +73,6 @@ define(['build/Objects/Abstract/form_item'], function (FormItem) {
             this.multiple = multiple;
         };
 
-        /**
-         * Check if isUploadForTinymce
-         * @returns {boolean}
-         */
-        this.isUploadForTinymce = function () {
-            return this.uploadForTinymce;
-        };
-
-        /**
-         * Set is isUploadForTinymce
-         * @param uploadForTinymce
-         */
-        this.setIsUploadForTinymce = function (uploadForTinymce) {
-            this.uploadForTinymce = uploadForTinymce;
-        }
     };
 
     // Inherit Panel
