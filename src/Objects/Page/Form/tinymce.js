@@ -17,7 +17,8 @@ define(['build/Objects/Abstract/form_item'], function(FormItem) {
             return {
                 type: this.getType(),
                 value: this.getValue(),
-                name: this.getName()
+                name: this.getName(),
+                upload_path: this.getUploadPath()
             }
         };
 
