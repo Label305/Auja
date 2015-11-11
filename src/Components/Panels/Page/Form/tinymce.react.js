@@ -40,6 +40,8 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
                     "searchreplace visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
                     "save table contextmenu directionality textcolor"
                 ],
+                forced_root_block: false,
+                convert_fonts_to_spans: false,
                 toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview"
             });
 
