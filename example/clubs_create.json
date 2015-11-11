@@ -143,6 +143,13 @@
                         }
                     },
                     {
+                        "type": "file_select",
+                        "file_select": {
+                            "uploadForTinymce": true,
+                            "target": "http:\/\/localhost:8000\/backoffice\/product-sets\/upload-image"
+                        }
+                    },
+                    {
                         "type": "submit",
                         "submit": {
                             "value": "Create!"

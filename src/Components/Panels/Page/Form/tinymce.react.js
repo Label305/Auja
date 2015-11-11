@@ -37,12 +37,19 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
                 content_style: "img{max-width: 100%; display: block;}",
                 plugins: [
                     "advlist autolink link image lists charmap preview",
-                    "searchreplace visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                    "code fullscreen insertdatetime media",
                     "save table contextmenu directionality textcolor"
                 ],
-                forced_root_block: false,
+                //forced_root_block: false,
+                cleanup : true,
                 convert_fonts_to_spans: false,
-                toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview"
+                entity_encoding : "raw",
+                toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview",
+                extended_valid_elements : "div[class], img",
+
+                file_browser_callback: function(field_name, url, type, win) {
+                    if(type=='image') $('#uploader-tinymce').click();
+                }
             });
 
             //Bind beforeSubmit event to do stuff with tinymce

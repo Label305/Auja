@@ -47,6 +47,10 @@ define([
         }, componentDidMount: function () {
             //Dynamically add the element since we don't want to have React to bind its events to it
             var uploadElem = $('<input type="file" name="file" data-name="file" />');
+
+            if(this.props.item.isUploadForTinymce()) {
+                uploadElem = $('<input id="uploader-tinymce" type="file" name="file-uploader-tinymce" data-name="file" />');
+            }
             if (this.props.item.isMultiple()) {
                 uploadElem = $('<input multiple="multiple" type="file" name="file" data-name="file" />');
             }
@@ -101,7 +105,7 @@ define([
             var hidden = [];
             for (var i in this.state.files) {
                 if (this.state.files[i] != null && !this.state.files[i].failed) {
-                    if (this.props.item.isMultiple()) {
+                    if (this.props.item.isMultiple) {
                         hidden.push(<input key={this.state.files[i].ref} type="hidden" name={this.props.item.getName()} value={this.state.files[i].ref} />);
                     } else {
                         hidden = [
@@ -123,10 +127,19 @@ define([
                 return <File deleteFileWithRef={this.deleteFileWithRef} file={file} />;
             }.bind(this));
         }, render: function () {
+
+            console.log(this.props.item.isUploadForTinymce());
+
+
             var hidden = this.getHiddenInput();
             var files = this.getFiles();
+
+            var style = {};
+            if(this.props.item.isUploadForTinymce()) {
+                style = {display: 'none'}
+            }
             return (
-                <div>
+                <div style={style}>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />
                     <span ref="file"></span>
                     <ul>{files}</ul>
