@@ -127,10 +127,7 @@ define([
                 return <File deleteFileWithRef={this.deleteFileWithRef} file={file} />;
             }.bind(this));
         }, render: function () {
-
-            console.log(this.props.item.isUploadForTinymce());
-
-
+            
             var hidden = this.getHiddenInput();
             var files = this.getFiles();
 
