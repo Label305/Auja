@@ -46,10 +46,6 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
                 entity_encoding : "raw",
                 toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview",
                 extended_valid_elements : "div[class], img",
-
-                file_browser_callback: function(field_name, url, type, win) {
-                    if(type=='image') $('#uploader-tinymce').click();
-                }
             });
 
             //Bind beforeSubmit event to do stuff with tinymce
