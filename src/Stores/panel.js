@@ -127,8 +127,15 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
         },
 
         pop: function() {
-            this.panels.pop();
-            --this.index;
+            if (this.panels.length > 0) {
+                if (this.panels.pop() == undefined) {
+                    this.pop();
+                    return;
+                }
+                --this.index;
+            } else {
+                console.error('No panels left to remove.')
+            }
             this.emit('change');
         },
         /**

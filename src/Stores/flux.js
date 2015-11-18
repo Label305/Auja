@@ -128,8 +128,8 @@ define([
                     //You can set weither or not to update the system
                     if(data.message.update == undefined || data.message.update) {
                         if (data.message.state == "success" || data.message.closeDepth != undefined) {
-                            if (data.message.closeDepth != undefined) {
-                                for (var i = 0; i < data.message.closeDepth; i++) {
+                            if (data.message.close_depth != undefined) {
+                                for (var i = 0; i < data.message.close_depth; i++) {
                                     this.dispatch('pop');
                                 }
                             } else {
