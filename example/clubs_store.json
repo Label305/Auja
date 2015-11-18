@@ -1,8 +1,7 @@
 {
     "type": "message",
     "message": {
-        "validation": {
-            "description": "That's not right"
-        }
+        "state": "success",
+        "close_depth" : 2000
     }
 }
