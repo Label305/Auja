@@ -3,6 +3,7 @@
     "message": {
         "validation": {
             "description": "That's not right"
-        }
+        },
+        "closeDepth": 2
     }
 }

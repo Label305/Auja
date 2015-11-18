@@ -37,6 +37,9 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
                 //Different types of panels
                 'menu', this.addPanel,
                 'page', this.addPanel,
+
+                //Pop
+                'pop', this.pop,
                 
                 //Menu specific actions
                 'extend-resource', this.extendResource,
@@ -123,6 +126,11 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
             this.emit('change');
         },
 
+        pop: function() {
+            this.panels.pop();
+            --this.index;
+            this.emit('change');
+        },
         /**
          * Activate an item within a panel
          * @todo add spec test
