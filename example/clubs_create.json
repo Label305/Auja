@@ -131,7 +131,9 @@
                         "type": "tinymce",
                         "tinymce": {
                             "name": "site_detail_description",
-                            "label": "Site detail description"
+                            "label": "Site detail description",
+                            "hasUploader": true,
+                            "uploadTarget": "example/upload.php"
                         }
                     },
                     {

@@ -39,9 +39,11 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
             var uploadCallback = null;
 
             if(this.props.item.getHasUploader()) {
+
                 uploadCallback = function (field_name, url, type, win) {
-                    if(type=='image') $('.tinymce-uploader input[type="file"]').click();
-                };
+                    var uploaderClass = '.tinymce-uploader-' + this.getInstanceId() + ' input[type="file"]';
+                    if(type=='image') $(uploaderClass).click();
+                }.bind(this);
             }
 
 
@@ -76,7 +78,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
             var uploader = "";
             if(this.props.item.getHasUploader()) {
                 uploader = (
-                    <span className="tinymce-uploader" style={{display: 'none'}}>
+                    <span className={"tinymce-uploader-" + this.getInstanceId()} style={{display: 'none'}}>
                         {FileSelect({
                             item: this.props.item,
                             name: "tinymce-uploader",
