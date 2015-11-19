@@ -26,6 +26,12 @@ define(['build/Objects/Abstract/form_item'], function (FormItem) {
         this.files = this.multiple ? (data.files ? data.files : []) : (data.file ? [data.file] : []);
 
         /**
+         * onchange
+         * @type {string}
+         */
+        this._onChange = data.onChange || null;
+
+        /**
          * Get target for uploader
          * @returns string
          */
@@ -71,6 +77,22 @@ define(['build/Objects/Abstract/form_item'], function (FormItem) {
          */
         this.setIsMultiple = function (multiple) {
             this.multiple = multiple;
+        };
+
+        /**
+         * Setter for onChange
+         * @param onChange
+         */
+        this.setOnChange = function(onChange) {
+            this._onChange = onChange;
+        };
+
+        /**
+         * Getter for onchange
+         * @returns {string}
+         */
+        this.getOnChange = function() {
+            return this._onChange;
         };
 
     };

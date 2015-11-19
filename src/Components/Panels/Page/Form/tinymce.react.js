@@ -8,7 +8,7 @@
  *
  * @jsx React.DOM
  */
-define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], function (React, Label) {
+define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Components/Panels/Page/Form/file_select.react', 'tinymcejq'], function (React, Label, FileSelect) {
     return React.createClass({
         getInstanceId: function () {
             if (!this.instanceId) {
@@ -22,11 +22,26 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
         getIdentifier: function () {
             return 'tinymce-editor-' + this.getInstanceId();
         },
+        handleUploaderChange: function(event) {
+            alert('hoi');
+            $('.mce-floatpanel input').val('hallo');
+        },
         componentDidMount: function () {
 
             // Tell tinyMCE that the dom has already loaded since it wasn't there when
             // the event triggered
             tinymce.dom.Event.domLoaded = true;
+
+            // Tell tinyMCE it has an uploader
+            var uploadCallback = null;
+
+            if(this.props.item.getHasUploader()) {
+                uploadCallback = function (field_name, url, type, win) {
+                    if(type=='image') $('.tinymce-uploader input[type="file"]').click();
+                };
+            }
+
+
 
             //Actually initialize the editor
             tinymce.init({
@@ -40,26 +55,12 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
                     "code fullscreen insertdatetime media",
                     "save table contextmenu directionality textcolor"
                 ],
-                //forced_root_block: false,
                 cleanup : true,
                 convert_fonts_to_spans: false,
                 entity_encoding : "raw",
                 toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview",
                 extended_valid_elements : "div[class], img",
-
-                file_browser_callback: function(field_name, url, type, win) {
-                    if(type=='image') $('#uploader-tinymce').click();
-                }
-            });
-
-            //Bind beforeSubmit event to do stuff with tinymce
-            $(this.refs.textarea).closest('form').bind('beforeSubmit', function () {
-                for (var i in tinymce.editors) {
-                    try {
-                        tinymce.editors[i].save();
-                    } catch (e) {
-                    }
-                }
+                file_browser_callback: uploadCallback
             });
 
         },
@@ -67,8 +68,21 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
             tinymce.remove('#' + this.getIdentifier());
         },
         render: function () {
-
             var attributes = this.props.item.getAttributes();
+
+            var uploader = "";
+            if(this.props.item.getHasUploader()) {
+                uploader = (
+                    <span className="tinymce-uploader" style={{display: 'none'}}>
+                        {FileSelect({
+                            item: this.props.item,
+                            name: "tinymce-uploader",
+                            target: this.props.item.getUploadTarget(),
+                            onChange: this.handleUploaderChange()
+                        })}
+                    </span>
+                );
+            }
 
             Object.merge(attributes, {
                 id: this.getIdentifier(),
@@ -78,10 +92,11 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'tinymcejq'], 
             });
 
             return (
-                React.DOM.div(null,
-                    Label({item: this.props.item, name: this.props.item.getLabel()}),
-                    React.DOM.textarea(attributes, this.props.item.getValue())
-                )
+                <div>
+                    {Label({item: this.props.item, name: this.props.item.getLabel()})}
+                    {React.DOM.textarea(attributes, this.props.item.getValue())}
+                    {uploader}
+                </div>
             );
         }
     });
