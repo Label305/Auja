@@ -25,7 +25,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
         handleUploaderChange: function(files) {
             //files array.
             if(files[0] != undefined) {
-                $('.mce-floatpanel input').val(files[0].name);
+                $('.mce-floatpanel input:first').val(files[0].name);
             }
             //TODO ???? nvelthorst
         },
