@@ -22,9 +22,12 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
         getIdentifier: function () {
             return 'tinymce-editor-' + this.getInstanceId();
         },
-        handleUploaderChange: function(event) {
-            alert('hoi');
-            $('.mce-floatpanel input').val('hallo');
+        handleUploaderChange: function(files) {
+            //files array.
+            if(files[0] != undefined) {
+                $('.mce-floatpanel input').val(files[0].name);
+            }
+            //TODO ???? nvelthorst
         },
         componentDidMount: function () {
 
@@ -78,7 +81,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
                             item: this.props.item,
                             name: "tinymce-uploader",
                             target: this.props.item.getUploadTarget(),
-                            onChange: this.handleUploaderChange()
+                            handleUploaderChange: this.handleUploaderChange.bind(this)
                         })}
                     </span>
                 );

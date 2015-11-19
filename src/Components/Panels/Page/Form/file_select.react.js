@@ -44,7 +44,11 @@ define([
                 "name": data.files[0].name
             });
             this.setState(this.state);
-        }, componentDidMount: function () {
+        },
+        componentDidUpdate: function() {
+            this.props.handleUploaderChange(this.state.files);
+        },
+        componentDidMount: function () {
             //Dynamically add the element since we don't want to have React to bind its events to it
 
             var uploadElem = $('<input type="file" name="file" data-name="file" />');
