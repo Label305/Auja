@@ -37,7 +37,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
             // Tell tinyMCE it has an uploader
             var uploadCallback = null;
 
-            if(this.props.item.getHasUploader()) {
+            if(this.props.item.hasUploader()) {
 
                 uploadCallback = function (field_name, url, type, win) {
                     var uploaderClass = '.tinymce-uploader-' + this.getInstanceId() + ' input[type="file"]';
@@ -84,13 +84,13 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
             var attributes = this.props.item.getAttributes();
 
             var uploader = "";
-            if(this.props.item.getHasUploader()) {
+            if(this.props.item.hasUploader()) {
                 uploader = (
                     <span className={"tinymce-uploader-" + this.getInstanceId()} style={{display: 'none'}}>
                         {FileSelect({
                             item: this.props.item,
                             name: "tinymce-uploader",
-                            target: this.props.item.getUploadTarget(),
+                            target: this.props.item.getTarget(),
                             handleUploaderChange: this.handleUploaderChange.bind(this)
                         })}
                     </span>

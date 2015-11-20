@@ -10,47 +10,47 @@ define(['build/Objects/Page/Form/file_select'], function(FileSelect) {
          * Uploader
          * @type {boolean}
          */
-        this._hasUploader = data.hasUploader || false;
+        this._uploader = data.uploader || false;
 
         /**
-         * uploadTarget
+         * target
          * @type {string}
          */
-        this._uploadTarget = data.uploadTarget || null;
+        this._target = data.target || null;
 
         //Set type of this object
         this.setType('tinymce');
 
         /**
-         * Setter for hasUploader
-         * @param hasUploader
+         * Setter for uploader
+         * @param uploader
          */
-        this.setHasUploader = function(hasUploader) {
-            this._hasUploader = hasUploader;
+        this.setUploader = function(uploader) {
+            this._uploader = uploader;
         };
 
         /**
-         * Getter for hasUploader
+         * Getter for uploader
          * @returns {boolean}
          */
-        this.getHasUploader = function() {
-            return this._hasUploader;
+        this.hasUploader = function() {
+            return this._uploader;
         };
 
         /**
-         * Setter for uploadTarget
-         * @param uploadTarget
+         * Get target for uploader
+         * @returns string
          */
-        this.setUploadTarget = function(uploadTarget) {
-            this._uploadTarget= uploadTarget;
+        this.getTarget = function () {
+            return this._target;
         };
 
         /**
-         * Getter for uploadTarget
-         * @returns {string}
+         * Set target for uploader
+         * @param target
          */
-        this.getUploadTarget = function() {
-            return this._uploadTarget;
+        this.setTarget = function (target) {
+            this._target = target;
         };
 
         /**
