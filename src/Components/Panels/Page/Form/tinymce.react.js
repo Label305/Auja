@@ -45,8 +45,6 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
                 }.bind(this);
             }
 
-
-
             //Actually initialize the editor
             tinymce.init({
                 selector: '#' + this.getIdentifier(),
