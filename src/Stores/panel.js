@@ -37,6 +37,9 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
                 //Different types of panels
                 'menu', this.addPanel,
                 'page', this.addPanel,
+
+                //Pop
+                'pop', this.pop,
                 
                 //Menu specific actions
                 'extend-resource', this.extendResource,
@@ -123,6 +126,18 @@ define(['fluxxor', 'build/Factories/panel_factory'], function(Fluxxor, PanelFact
             this.emit('change');
         },
 
+        pop: function() {
+            if (this.panels.length > 0) {
+                if (this.panels.pop() == undefined) {
+                    this.pop();
+                    return;
+                }
+                --this.index;
+            } else {
+                console.error('No panels left to remove.')
+            }
+            this.emit('change');
+        },
         /**
          * Activate an item within a panel
          * @todo add spec test
