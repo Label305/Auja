@@ -53,7 +53,6 @@
                             "required": false,
                             "multiple": false,
                             "target": "http:\/\/localhost:8000\/backoffice\/product-sets\/upload-image"
-
                         }
                     },
                     {
@@ -132,14 +131,18 @@
                         "type": "tinymce",
                         "tinymce": {
                             "name": "site_detail_description",
-                            "label": "Site detail description"
+                            "label": "Site detail description",
+                            "hasUploader": true,
+                            "uploadTarget": "example/upload.php"
                         }
                     },
                     {
                         "type": "tinymce",
                         "tinymce": {
                             "name": "site_detail_description_second",
-                            "label": "Site detail description"
+                            "label": "Site detail description",
+                            "hasUploader": true,
+                            "uploadTarget": "example/upload.php"
                         }
                     },
                     {

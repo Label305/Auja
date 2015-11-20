@@ -44,9 +44,15 @@ define([
                 "name": data.files[0].name
             });
             this.setState(this.state);
-        }, componentDidMount: function () {
+        },
+        componentDidUpdate: function() {
+            this.props.handleUploaderChange(this.state.files);
+        },
+        componentDidMount: function () {
             //Dynamically add the element since we don't want to have React to bind its events to it
+
             var uploadElem = $('<input type="file" name="file" data-name="file" />');
+
             if (this.props.item.isMultiple()) {
                 uploadElem = $('<input multiple="multiple" type="file" name="file" data-name="file" />');
             }
@@ -101,7 +107,7 @@ define([
             var hidden = [];
             for (var i in this.state.files) {
                 if (this.state.files[i] != null && !this.state.files[i].failed) {
-                    if (this.props.item.isMultiple()) {
+                    if (this.props.item.isMultiple) {
                         hidden.push(<input key={this.state.files[i].ref} type="hidden" name={this.props.item.getName()} value={this.state.files[i].ref} />);
                     } else {
                         hidden = [
@@ -125,6 +131,7 @@ define([
         }, render: function () {
             var hidden = this.getHiddenInput();
             var files = this.getFiles();
+
             return (
                 <div>
                     <Label item={this.props.item} name={this.props.item.getLabel()} />
