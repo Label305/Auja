@@ -57,7 +57,7 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
                     "code fullscreen insertdatetime media",
                     "save table contextmenu directionality textcolor"
                 ],
-                cleanup : true,
+                cleanup : false,
                 convert_fonts_to_spans: false,
                 entity_encoding : "raw",
                 toolbar: "styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview",
@@ -107,8 +107,8 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
             return (
                 <div>
                     {Label({item: this.props.item, name: this.props.item.getLabel()})}
-                    {React.DOM.textarea(attributes, this.props.item.getValue())}
                     {uploader}
+                    {React.DOM.textarea(attributes, this.props.item.getValue())}
                 </div>
             );
         }
