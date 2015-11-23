@@ -87,12 +87,12 @@ define(['react', 'build/Components/Panels/Page/Form/label.react', 'build/Compone
             if(this.props.item.hasUploader()) {
                 uploader = (
                     <span className={"tinymce-uploader-" + this.getInstanceId()} style={{display: 'none'}}>
-                        {FileSelect({
-                            item: this.props.item,
-                            name: "tinymce-uploader",
-                            target: this.props.item.getTarget(),
-                            handleUploaderChange: this.handleUploaderChange.bind(this)
-                        })}
+                        <FileSelect
+                            item={this.props.item}
+                            name={"tinymce-uploader"}
+                            target={ this.props.item.getTarget()}
+                            handleUploaderChange={this.handleUploaderChange.bind(this)}
+                        />
                     </span>
                 );
             }

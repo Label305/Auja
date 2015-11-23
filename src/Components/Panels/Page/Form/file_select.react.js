@@ -46,7 +46,9 @@ define([
             this.setState(this.state);
         },
         componentDidUpdate: function() {
-            this.props.handleUploaderChange(this.state.files);
+            if(this.props.handleUploaderChange) {
+                this.props.handleUploaderChange(this.state.files);
+            }
         },
         componentDidMount: function () {
             //Dynamically add the element since we don't want to have React to bind its events to it
