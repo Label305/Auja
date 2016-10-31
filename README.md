@@ -1,6 +1,12 @@
 Auja
 === 
 
+__Deprecated__
+
+This repo will no longer be maintained and will be deleted in the start of 2017.
+
+__About__
+
 [![Build Status](https://travis-ci.org/Label305/Auja.svg?branch=master)](https://travis-ci.org/Label305/Auja) [![Dependency Status](https://www.versioneye.com/user/projects/546de812810106aec70004b0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/546de812810106aec70004b0) [![Dependency Status](https://www.versioneye.com/user/projects/546de81281010651060004bc/badge.svg?style=flat)](https://www.versioneye.com/user/projects/546de81281010651060004bc)
 
 Auja is a generic admin interface, you can put atop any web application easily. It is designed to be friendly for both the end-user and the developer. It is designed to be framework and server-side-language agnostic so you can use it with your language and framework of choice.
